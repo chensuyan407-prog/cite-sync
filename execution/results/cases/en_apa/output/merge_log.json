@@ -1,0 +1,113 @@
+{
+ "rules": "Explainable de-duplication.\n\nPairwise rules, checked in order; the first rule that fires decides the pair:\n\n  G1  same DOI but titles disagree (sim < 0.6, no alt-title match)  -> NOT merged, conflict flagged (wrong DOI?)\n  D1  same DOI                                                       -> merge\n  D2  same arXiv id (version ignored)                                -> merge\n  D3  title of one == title/alt-title of the other (bilingual pair)  -> merge if year/author do not contradict\n  G2  different non-arXiv DOIs, same title                           -> NOT merged: two published versions\n                                                                         (e.g. conference vs journal), flagged\n  D4  same normalised title, first-author surname equal or unknown,\n      |year diff| <= 2 (preprint <-> published allowed)              -> merge\n  D5  title similarity >= 0.93, author overlap >= 0.5, |dy| <= 2      -> merge, needs_review\n  G4  same title, years more than 2 apart                            -> NOT merged (reprint / new version), logged\n  G3  same author set and year but titles differ                     -> NOT merged (different works), logged\n                                                                         when similarity >= 0.5 (near-miss)\n  H1/H2 explicit force_merge / forbid_merge edits                    -> applied as given, logged\n\nClusters are the connected components of merged pairs. The canonical record of a cluster prefers a published\nversion over a preprint, then the record with more filled fields; missing fields are filled from the other\nmembers and each filled field records where it came from.\n",
+ "pairs": [
+  {
+   "a": "M1",
+   "b": "L1-4",
+   "rule": "D4",
+   "merged": true,
+   "reason": "same normalised title, same first author",
+   "needs_review": false
+  },
+  {
+   "a": "M4",
+   "b": "L1-2",
+   "rule": "D2",
+   "merged": true,
+   "reason": "same arXiv id 2001.08361",
+   "needs_review": false
+  },
+  {
+   "a": "M5",
+   "b": "L1-5",
+   "rule": "D1",
+   "merged": true,
+   "reason": "same DOI 10.1038/nature14539",
+   "needs_review": false
+  },
+  {
+   "a": "M6",
+   "b": "M7",
+   "rule": "D4",
+   "merged": true,
+   "reason": "same normalised title, same first author, preprint and published version",
+   "needs_review": false
+  },
+  {
+   "a": "M6",
+   "b": "L1-1",
+   "rule": "D4",
+   "merged": true,
+   "reason": "same normalised title, same first author, preprint and published version",
+   "needs_review": false
+  },
+  {
+   "a": "M7",
+   "b": "L1-1",
+   "rule": "D4",
+   "merged": true,
+   "reason": "same normalised title, same first author",
+   "needs_review": false
+  }
+ ],
+ "clusters": [
+  {
+   "kept": "L1-4",
+   "members": [
+    "M1",
+    "L1-4"
+   ],
+   "field_provenance": null
+  },
+  {
+   "kept": "M2",
+   "members": [
+    "M2"
+   ],
+   "field_provenance": {
+    "doi": "crossref title search"
+   }
+  },
+  {
+   "kept": "M3",
+   "members": [
+    "M3"
+   ],
+   "field_provenance": null
+  },
+  {
+   "kept": "M4",
+   "members": [
+    "M4",
+    "L1-2"
+   ],
+   "field_provenance": null
+  },
+  {
+   "kept": "L1-5",
+   "members": [
+    "M5",
+    "L1-5"
+   ],
+   "field_provenance": null
+  },
+  {
+   "kept": "M7",
+   "members": [
+    "M6",
+    "M7",
+    "L1-1"
+   ],
+   "field_provenance": {
+    "arxiv": "M6"
+   }
+  },
+  {
+   "kept": "L1-3",
+   "members": [
+    "L1-3"
+   ],
+   "field_provenance": null
+  }
+ ]
+}

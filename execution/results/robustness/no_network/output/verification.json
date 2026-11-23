@@ -1,0 +1,146 @@
+{
+ "online": true,
+ "network": {
+  "requests": 2,
+  "offline_reason": "network unavailable (URLError(ConnectionRefusedError(10061, '無法連線，因為目標電腦拒絕連線。', None, 10061, None)))",
+  "errors": [
+   "https://api.crossref.org/works/10.1109/CVPR.2016.90: URLError(ConnectionRefusedError(10061, '無法連線，因為目標電腦拒絕連線。', None, 10061, None))",
+   "https://api.crossref.org/works?query.bibliographic=Identity+mappings+in+deep+residual+networks+He+Zhang&rows=5&select=DOI%2Ctitle%2Ccontainer-title%2Cvolume%2Cissue%2Cpage%2Cissued%2Cpublished-print%2Cpublished-online%2Cauthor%2Ctype%2Cpublisher: URLError(ConnectionRefusedError(10061, '無法連線，因為目標電腦拒絕連線。', None, 10061, None))"
+  ]
+ },
+ "records": {
+  "L1-4": {
+   "status": "unverified_offline",
+   "details": {
+    "reason": "no response"
+   },
+   "corrections": {},
+   "issues": [],
+   "record": "He 2016 Deep Residual Learning for Image Recognition"
+  },
+  "M2": {
+   "status": "unverified_offline",
+   "details": {
+    "reason": "network unavailable (URLError(ConnectionRefusedError(10061, '無法連線，因為目標電腦拒絕連線。', None, 10061, None)))"
+   },
+   "corrections": {},
+   "issues": [
+    {
+     "code": "authors_truncated",
+     "severity": "info",
+     "msg": "source list was truncated ('et al./等'); full author list not available offline"
+    }
+   ],
+   "record": "He 2016 Identity mappings in deep residual networks"
+  },
+  "L1-5": {
+   "status": "unverified_offline",
+   "details": {
+    "reason": "network unavailable (URLError(ConnectionRefusedError(10061, '無法連線，因為目標電腦拒絕連線。', None, 10061, None)))"
+   },
+   "corrections": {},
+   "issues": [],
+   "record": "LeCun 2015 Deep learning"
+  },
+  "M4": {
+   "status": "unverified_offline",
+   "details": {
+    "reason": "network unavailable (URLError(ConnectionRefusedError(10061, '無法連線，因為目標電腦拒絕連線。', None, 10061, None)))"
+   },
+   "corrections": {},
+   "issues": [],
+   "record": "Hochreiter 1997 Long short-term memory"
+  },
+  "M5": {
+   "status": "unverified_offline",
+   "details": {
+    "reason": "network unavailable (URLError(ConnectionRefusedError(10061, '無法連線，因為目標電腦拒絕連線。', None, 10061, None)))"
+   },
+   "corrections": {},
+   "issues": [],
+   "record": "Krizhevsky 2017 ImageNet classification with deep convolutional neural netwo"
+  },
+  "M6": {
+   "status": "unverified_offline",
+   "details": {
+    "reason": "network unavailable (URLError(ConnectionRefusedError(10061, '無法連線，因為目標電腦拒絕連線。', None, 10061, None)))"
+   },
+   "corrections": {},
+   "issues": [],
+   "record": "Ioffe 2015 Batch normalization: Accelerating deep network training by r"
+  },
+  "L1-1": {
+   "status": "unverified_offline",
+   "details": {
+    "reason": "network unavailable (URLError(ConnectionRefusedError(10061, '無法連線，因為目標電腦拒絕連線。', None, 10061, None)))"
+   },
+   "corrections": {},
+   "issues": [],
+   "record": "Vaswani 2017 Attention is all you need"
+  },
+  "M9": {
+   "status": "unverified_offline",
+   "details": {
+    "reason": "network unavailable (URLError(ConnectionRefusedError(10061, '無法連線，因為目標電腦拒絕連線。', None, 10061, None)))"
+   },
+   "corrections": {},
+   "issues": [
+    {
+     "code": "authors_truncated",
+     "severity": "info",
+     "msg": "source list was truncated ('et al./等'); full author list not available offline"
+    }
+   ],
+   "record": "Devlin 2019 BERT: Pre-training of deep bidirectional transformers for la"
+  },
+  "M10": {
+   "status": "unverified_offline",
+   "details": {
+    "arxiv": "no response or id not found",
+    "reason": "network unavailable (URLError(ConnectionRefusedError(10061, '無法連線，因為目標電腦拒絕連線。', None, 10061, None)))"
+   },
+   "corrections": {},
+   "issues": [],
+   "record": "Kingma 2014 Adam: A method for stochastic optimization"
+  },
+  "M11": {
+   "status": "unverified_offline",
+   "details": {
+    "reason": "network unavailable (URLError(ConnectionRefusedError(10061, '無法連線，因為目標電腦拒絕連線。', None, 10061, None)))"
+   },
+   "corrections": {},
+   "issues": [
+    {
+     "code": "authors_truncated",
+     "severity": "info",
+     "msg": "source list was truncated ('et al./等'); full author list not available offline"
+    }
+   ],
+   "record": "Jumper 2021 Highly accurate protein structure prediction with AlphaFold"
+  },
+  "M12": {
+   "status": "unverified_offline",
+   "details": {
+    "reason": "network unavailable (URLError(ConnectionRefusedError(10061, '無法連線，因為目標電腦拒絕連線。', None, 10061, None)))"
+   },
+   "corrections": {},
+   "issues": [
+    {
+     "code": "authors_truncated",
+     "severity": "info",
+     "msg": "source list was truncated ('et al./等'); full author list not available offline"
+    }
+   ],
+   "record": "袁铭阳 2020 卷积神经网络池化方法综述"
+  },
+  "M14": {
+   "status": "unverified_offline",
+   "details": {
+    "reason": "network unavailable (URLError(ConnectionRefusedError(10061, '無法連線，因為目標電腦拒絕連線。', None, 10061, None)))"
+   },
+   "corrections": {},
+   "issues": [],
+   "record": "Smith 2019 Universal scaling of residual attention networks"
+  }
+ }
+}

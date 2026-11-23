@@ -1,0 +1,239 @@
+{
+ "manuscript": "manuscript.docx",
+ "libraries": [
+  "library.bib",
+  "zotero.ris",
+  "cnki.enw"
+ ],
+ "edits": "edits_agent.json",
+ "style": "gbt7714",
+ "checks": [
+  {
+   "id": "X01",
+   "kind": "order",
+   "defect": "numbers not in order of first appearance; list must follow",
+   "titles": [
+    "Deep learning",
+    "ImageNet classification",
+    "Deep residual learning",
+    "Identity mappings",
+    "Long short-term memory",
+    "Attention is all you need",
+    "BERT",
+    "Scaling laws",
+    "Batch normalization",
+    "Adam",
+    "卷积神经网络池化方法综述",
+    "AlphaFold"
+   ]
+  },
+  {
+   "id": "X02",
+   "kind": "cites",
+   "defect": "paragraph-end cluster [4][7][9]: LSTM must sit on the LSTM sentence",
+   "sentence": "长短期记忆网络通过门控机制",
+   "titles": [
+    "Long short-term memory"
+   ]
+  },
+  {
+   "id": "X03",
+   "kind": "cites",
+   "defect": "paragraph-end cluster: Transformer citation on the Transformer sentence",
+   "sentence": "Transformer 完全基于注意力机制",
+   "titles": [
+    "Attention is all you need"
+   ]
+  },
+  {
+   "id": "X04",
+   "kind": "cites",
+   "defect": "paragraph-end cluster: BERT keeps only BERT",
+   "sentence": "BERT 通过双向预训练",
+   "titles": [
+    "BERT"
+   ]
+  },
+  {
+   "id": "X05",
+   "kind": "cites",
+   "defect": "[6,8] are the same BatchNorm paper (ICML + arXiv) -> one citation",
+   "sentence": "批归一化通过减少",
+   "titles": [
+    "Batch normalization"
+   ]
+  },
+  {
+   "id": "X06",
+   "kind": "merged",
+   "defect": "BatchNorm conference + arXiv merged",
+   "ids": [
+    "M6",
+    "M8"
+   ]
+  },
+  {
+   "id": "X07",
+   "kind": "merged",
+   "defect": "Transformer arXiv entry merged with NeurIPS library record",
+   "ids": [
+    "M7",
+    "L1-1"
+   ]
+  },
+  {
+   "id": "X08",
+   "kind": "merged",
+   "defect": "BERT NAACL entry merged with arXiv RIS record",
+   "ids": [
+    "M9",
+    "L2-1"
+   ]
+  },
+  {
+   "id": "X09",
+   "kind": "merged",
+   "defect": "Chinese/English titles of one Hans article (CNKI .enw + Crossref-style RIS + list) merged",
+   "ids": [
+    "M12",
+    "L2-3",
+    "L3-1"
+   ]
+  },
+  {
+   "id": "X10",
+   "kind": "not_merged",
+   "defect": "same authors + year: ResNet vs Identity Mappings must stay separate",
+   "ids": [
+    "M1",
+    "M2"
+   ]
+  },
+  {
+   "id": "X11",
+   "kind": "not_merged",
+   "defect": "AlexNet NIPS 2012 vs CACM 2017 reprint must not be silently merged",
+   "ids": [
+    "M5",
+    "L1-3"
+   ]
+  },
+  {
+   "id": "X12",
+   "kind": "not_in_list",
+   "defect": "uncited Dropout entry removed from list",
+   "title": "Dropout: a simple way"
+  },
+  {
+   "id": "X13",
+   "kind": "review",
+   "defect": "uncited entry removal is reported",
+   "type": "uncited_entry_removed",
+   "text": "Dropout",
+   "stage": "detect"
+  },
+  {
+   "id": "X14",
+   "kind": "review",
+   "defect": "claim sentence without citation flagged (Kaplan scaling)",
+   "type": "claim_without_citation",
+   "text": "幂律",
+   "stage": "detect"
+  },
+  {
+   "id": "X15",
+   "kind": "cites",
+   "defect": "agent edit adds Kaplan 2020 to the scaling-law sentence",
+   "sentence": "语言模型的测试损失",
+   "titles": [
+    "Scaling laws"
+   ]
+  },
+  {
+   "id": "X16",
+   "kind": "review",
+   "defect": "fabricated DOI 10.1038/s41586-019-9999-9 detected",
+   "type": "source_doi_not_found",
+   "text": "9999",
+   "online": true,
+   "stage": "detect"
+  },
+  {
+   "id": "X17",
+   "kind": "not_in_list",
+   "defect": "fabricated entry not left in the final list after edit",
+   "title": "Universal scaling of residual attention"
+  },
+  {
+   "id": "X18",
+   "kind": "entry_contains",
+   "defect": "LSTM pages 1735-1785 corrected to 1735-1780",
+   "title": "Long short-term memory",
+   "text": [
+    "1735-1780"
+   ],
+   "online": true
+  },
+  {
+   "id": "X19",
+   "kind": "entry_contains",
+   "defect": "missing DOI filled for LSTM",
+   "title": "Long short-term memory",
+   "text": [
+    "10.1162/neco.1997.9.8.1735"
+   ],
+   "online": true
+  },
+  {
+   "id": "X20",
+   "kind": "entry_not_contains",
+   "defect": "junk Crossref hit (2025 copy of 'Attention is all you need') must not overwrite metadata",
+   "title": "Attention is all you need",
+   "text": [
+    "2025",
+    "10.65215"
+   ],
+   "online": true
+  },
+  {
+   "id": "X21",
+   "kind": "entry_contains",
+   "defect": "AlphaFold: 'et al.' kept (source list truncated)",
+   "title": "AlphaFold",
+   "text": [
+    "et al"
+   ]
+  },
+  {
+   "id": "X23",
+   "kind": "review",
+   "defect": "citation inside figure caption flagged",
+   "type": "caption_citation"
+  },
+  {
+   "id": "X24",
+   "kind": "consistent",
+   "defect": "text numbers and list are continuous, ordered, complete"
+  },
+  {
+   "id": "X25",
+   "kind": "list_count",
+   "defect": "12 distinct cited works",
+   "n": 12
+  },
+  {
+   "id": "X26",
+   "kind": "entry_contains",
+   "defect": "GB/T type codes kept: conference [C]//, preprint [J/OL] arXiv id",
+   "title": "Adam",
+   "text": [
+    "arXiv:1412.6980"
+   ]
+  },
+  {
+   "id": "X27",
+   "kind": "single_style",
+   "defect": "docx superscript markers stay one style"
+  }
+ ]
+}

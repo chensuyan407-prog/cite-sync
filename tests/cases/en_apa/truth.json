@@ -1,0 +1,11 @@
+{"manuscript": "manuscript.md", "libraries": ["library.bib"], "style": "apa7",
+ "checks": [
+  {"id": "A01", "kind": "review", "defect": "uncited claim 'Prior work has shown ... dropout' flagged", "type": "claim_without_citation", "text": "dropout"},
+  {"id": "A02", "kind": "list_count", "defect": "6 distinct works (Vaswani arXiv + NeurIPS merged, duplicate Ioffe collapsed)", "n": 6},
+  {"id": "A03", "kind": "merged", "defect": "Vaswani arXiv list entry merged with NeurIPS entry", "ids": ["M6", "M7"]},
+  {"id": "A04", "kind": "not_merged", "defect": "He 2016a vs He 2016b stay separate", "ids": ["M1", "M2"]},
+  {"id": "A05", "kind": "entry_contains", "defect": "year suffix a for 'Deep residual' (title order)", "title": "Deep residual learning", "text": ["(2016a)"]},
+  {"id": "A06", "kind": "entry_contains", "defect": "year suffix b for 'Identity mappings'", "title": "Identity mappings", "text": ["(2016b)"]},
+  {"id": "A07", "kind": "entry_contains", "defect": "LeCun DOI kept as https://doi.org link (APA 7)", "title": "Deep learning", "text": ["https://doi.org/10.1038/nature14539"]},
+  {"id": "A08", "kind": "entry_not_contains", "defect": "Vaswani shown as NeurIPS, not as arXiv preprint", "title": "Attention is all you need", "text": ["arXiv preprint"]}
+ ]}

@@ -1,0 +1,323 @@
+{
+ "online": true,
+ "network": {
+  "requests": 0,
+  "offline_reason": null,
+  "errors": []
+ },
+ "records": {
+  "L1-4": {
+   "status": "verified",
+   "details": {
+    "crossref_doi": "ok",
+    "registry": {
+     "doi": "10.1109/cvpr.2016.90",
+     "title": "Deep Residual Learning for Image Recognition",
+     "year": "2016",
+     "container": "2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+     "volume": null,
+     "issue": null,
+     "pages": "770-778"
+    },
+    "title_similarity": 1.0
+   },
+   "corrections": {},
+   "issues": [],
+   "record": "He 2016 Deep Residual Learning for Image Recognition"
+  },
+  "M2": {
+   "status": "verified_with_corrections",
+   "details": {
+    "search_best": {
+     "doi": "10.1007/978-3-319-46493-0_38",
+     "title": "Identity Mappings in Deep Residual Networks",
+     "year": "2016",
+     "similarity": 1.0,
+     "author_overlap": 1.0,
+     "accepted": true
+    },
+    "registry": {
+     "doi": "10.1007/978-3-319-46493-0_38",
+     "title": "Identity Mappings in Deep Residual Networks",
+     "year": "2016",
+     "container": "Computer Vision – ECCV 2016",
+     "volume": null,
+     "issue": null,
+     "pages": "630-645"
+    },
+    "title_similarity": 1.0,
+    "container_differs": [
+     {
+      "record": "European Conference on Computer Vision. Springer",
+      "registry": "Computer Vision – ECCV 2016"
+     }
+    ]
+   },
+   "corrections": {
+    "doi": {
+     "old": null,
+     "new": "10.1007/978-3-319-46493-0_38",
+     "source": "crossref title search"
+    }
+   },
+   "issues": [
+    {
+     "code": "authors_truncated",
+     "severity": "info",
+     "msg": "source list was truncated ('et al./等'); full author list not available offline"
+    }
+   ],
+   "record": "He 2016 Identity mappings in deep residual networks"
+  },
+  "L1-5": {
+   "status": "verified",
+   "details": {
+    "crossref_doi": "ok",
+    "registry": {
+     "doi": "10.1038/nature14539",
+     "title": "Deep learning",
+     "year": "2015",
+     "container": "Nature",
+     "volume": "521",
+     "issue": "7553",
+     "pages": "436-444"
+    },
+    "title_similarity": 1.0
+   },
+   "corrections": {},
+   "issues": [],
+   "record": "LeCun 2015 Deep learning"
+  },
+  "M4": {
+   "status": "verified_with_corrections",
+   "details": {
+    "search_best": {
+     "doi": "10.1162/neco.1997.9.8.1735",
+     "title": "Long Short-Term Memory",
+     "year": "1997",
+     "similarity": 1.0,
+     "author_overlap": 1.0,
+     "accepted": true
+    },
+    "registry": {
+     "doi": "10.1162/neco.1997.9.8.1735",
+     "title": "Long Short-Term Memory",
+     "year": "1997",
+     "container": "Neural Computation",
+     "volume": "9",
+     "issue": "8",
+     "pages": "1735-1780"
+    },
+    "title_similarity": 1.0
+   },
+   "corrections": {
+    "doi": {
+     "old": null,
+     "new": "10.1162/neco.1997.9.8.1735",
+     "source": "crossref title search"
+    },
+    "pages": {
+     "old": "1735-1785",
+     "new": "1735-1780",
+     "source": "crossref"
+    }
+   },
+   "issues": [],
+   "record": "Hochreiter 1997 Long short-term memory"
+  },
+  "M5": {
+   "status": "verified_with_corrections",
+   "details": {
+    "search_best": {
+     "doi": "10.1145/3065386",
+     "title": "ImageNet classification with deep convolutional neural networks",
+     "year": "2017",
+     "similarity": 1.0,
+     "author_overlap": 1.0,
+     "accepted": true
+    },
+    "registry": {
+     "doi": "10.1145/3065386",
+     "title": "ImageNet classification with deep convolutional neural networks",
+     "year": "2017",
+     "container": "Communications of the ACM",
+     "volume": "60",
+     "issue": "6",
+     "pages": "84-90"
+    },
+    "title_similarity": 1.0
+   },
+   "corrections": {
+    "doi": {
+     "old": null,
+     "new": "10.1145/3065386",
+     "source": "crossref title search"
+    }
+   },
+   "issues": [],
+   "record": "Krizhevsky 2017 ImageNet classification with deep convolutional neural netwo"
+  },
+  "M6": {
+   "status": "verified_via_arxiv",
+   "details": {
+    "search_best": {
+     "doi": "10.21203/rs.3.rs-1027530/v1",
+     "title": "BNDNN: Batch Normalization Based Deep Neural Network for Predicting Flood in Urban Areas",
+     "year": "2021",
+     "similarity": 0.603,
+     "author_overlap": 0.0,
+     "accepted": false
+    },
+    "arxiv": {
+     "title": "Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift",
+     "year": "2015",
+     "note": "work confirmed via its arXiv record; venue metadata not in Crossref"
+    }
+   },
+   "corrections": {},
+   "issues": [],
+   "record": "Ioffe 2015 Batch normalization: Accelerating deep network training by r"
+  },
+  "L1-1": {
+   "status": "verified_via_arxiv",
+   "details": {
+    "search_best": {
+     "doi": "10.65215/pc26a033",
+     "title": "Attention Is All You Need",
+     "year": "2025",
+     "similarity": 1.0,
+     "author_overlap": 0.875,
+     "accepted": false
+    },
+    "arxiv": {
+     "title": "Attention Is All You Need",
+     "year": "2017",
+     "note": "work confirmed via its arXiv record; venue metadata not in Crossref"
+    }
+   },
+   "corrections": {},
+   "issues": [],
+   "record": "Vaswani 2017 Attention is all you need"
+  },
+  "M9": {
+   "status": "verified_with_corrections",
+   "details": {
+    "search_best": {
+     "doi": "10.18653/v1/n19-1423",
+     "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+     "year": "2019",
+     "similarity": 1.0,
+     "author_overlap": 1.0,
+     "accepted": true
+    },
+    "registry": {
+     "doi": "10.18653/v1/n19-1423",
+     "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+     "year": "2019",
+     "container": "Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)",
+     "volume": null,
+     "issue": null,
+     "pages": "4171-4186"
+    },
+    "title_similarity": 1.0,
+    "container_differs": [
+     {
+      "record": "Proceedings of NAACL-HLT",
+      "registry": "Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)"
+     }
+    ]
+   },
+   "corrections": {
+    "doi": {
+     "old": null,
+     "new": "10.18653/v1/n19-1423",
+     "source": "crossref title search"
+    }
+   },
+   "issues": [],
+   "record": "Devlin 2019 BERT: Pre-training of deep bidirectional transformers for la"
+  },
+  "M10": {
+   "status": "verified",
+   "details": {
+    "arxiv": {
+     "title": "Adam: A Method for Stochastic Optimization",
+     "year": "2014",
+     "title_similarity": 1.0
+    }
+   },
+   "corrections": {},
+   "issues": [],
+   "record": "Kingma 2014 Adam: A method for stochastic optimization"
+  },
+  "L2-2": {
+   "status": "verified",
+   "details": {
+    "crossref_doi": "ok",
+    "registry": {
+     "doi": "10.1038/s41586-021-03819-2",
+     "title": "Highly accurate protein structure prediction with AlphaFold",
+     "year": "2021",
+     "container": "Nature",
+     "volume": "596",
+     "issue": "7873",
+     "pages": "583-589"
+    },
+    "title_similarity": 1.0
+   },
+   "corrections": {},
+   "issues": [
+    {
+     "code": "authors_truncated",
+     "severity": "info",
+     "msg": "source list was truncated ('et al./等'); full author list not available offline"
+    }
+   ],
+   "record": "Jumper 2021 Highly accurate protein structure prediction with AlphaFold"
+  },
+  "L3-1": {
+   "status": "verified",
+   "details": {
+    "crossref_doi": "ok",
+    "registry": {
+     "doi": "10.12677/sea.2020.95041",
+     "title": "Survey on Convolutional Neural Network Pooling Methods",
+     "year": "2020",
+     "container": "Software Engineering and Applications",
+     "volume": "09",
+     "issue": "05",
+     "pages": "360-372"
+    },
+    "title_similarity": 1.0,
+    "registry_author_list_shorter": "registry lists 1 author(s), record has 5; kept the record's list",
+    "container_differs": [
+     {
+      "record": "软件工程与应用",
+      "registry": "Software Engineering and Applications"
+     }
+    ]
+   },
+   "corrections": {},
+   "issues": [],
+   "record": "袁铭阳 2020 卷积神经网络池化方法综述"
+  },
+  "M14": {
+   "status": "doi_not_found",
+   "details": {
+    "crossref_doi": "not_found",
+    "doi_not_found": "10.1038/s41586-019-9999-9",
+    "search_best": {
+     "doi": "10.7717/peerjcs.2549/fig-6",
+     "title": "Figure 6: Spiking Residual Attention Neural Networks architecture.",
+     "year": null,
+     "similarity": 0.62,
+     "author_overlap": null,
+     "accepted": false
+    }
+   },
+   "corrections": {},
+   "issues": [],
+   "record": "Smith 2019 Universal scaling of residual attention networks"
+  }
+ }
+}

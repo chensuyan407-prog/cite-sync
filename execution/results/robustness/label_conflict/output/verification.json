@@ -1,0 +1,28 @@
+{
+ "online": false,
+ "network": {
+  "requests": 0,
+  "offline_reason": "online checks not requested",
+  "errors": []
+ },
+ "records": {
+  "M1": {
+   "status": "unverified_offline",
+   "details": {
+    "reason": "online checks not requested (--online)"
+   },
+   "corrections": {},
+   "issues": [],
+   "record": "Hochreiter 1997 Long short-term memory"
+  },
+  "M2": {
+   "status": "unverified_offline",
+   "details": {
+    "reason": "online checks not requested (--online)"
+   },
+   "corrections": {},
+   "issues": [],
+   "record": "LeCun 2015 Deep learning"
+  }
+ }
+}

@@ -1,0 +1,70 @@
+TY  - CPAPER
+AU  - Kipf, T N
+AU  - Welling, M
+TI  - Semi-supervised classification with graph convolutional networks
+T2  - International Conference on Learning Representations
+PY  - 2017
+N1  - arXiv:1609.02907
+ER  - 
+
+TY  - CPAPER
+AU  - Veličković, Petar
+AU  - Cucurull, Guillem
+AU  - Casanova, Arantxa
+AU  - Romero, Adriana
+AU  - Liò, Pietro
+AU  - Bengio, Yoshua
+TI  - Graph Attention Networks
+T2  - International Conference on Learning Representations
+PY  - 2018
+UR  - https://openreview.net/forum?id=rJXMpikCZ
+ER  - 
+
+TY  - CPAPER
+AU  - Brown, T
+AU  - Mann, B
+AU  - Ryder, N
+TI  - Language models are few-shot learners
+T2  - Advances in Neural Information Processing Systems
+PY  - 2020
+VL  - 33
+SP  - 1877
+EP  - 1901
+ER  - 
+
+TY  - CPAPER
+AU  - Devlin, Jacob
+AU  - Chang, Ming-Wei
+AU  - Lee, Kenton
+AU  - Toutanova, Kristina
+TI  - BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding
+T2  - Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)
+PY  - 2019
+PB  - Association for Computational Linguistics
+CY  - Minneapolis, Minnesota
+DO  - 10.18653/v1/N19-1423
+SP  - 4171
+EP  - 4186
+N1  - arXiv:1810.04805
+ER  - 
+
+TY  - CPAPER
+AU  - Kingma, D P
+AU  - Ba, J
+TI  - Adam: A method for stochastic optimization
+T2  - International Conference on Learning Representations
+PY  - 2015
+ER  - 
+
+TY  - JOUR
+AU  - Srivastava, N
+AU  - Hinton, G
+AU  - Krizhevsky, A
+TI  - Dropout: a simple way to prevent neural networks from overfitting
+T2  - Journal of Machine Learning Research
+PY  - 2014
+VL  - 15
+IS  - 1
+SP  - 1929
+EP  - 1958
+ER  - 

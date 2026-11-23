@@ -1,0 +1,203 @@
+[
+ {
+  "id": "c2_0",
+  "unit": 2,
+  "sentence": "u2s0",
+  "role": "body",
+  "old": "(LeCun et al., 2015)",
+  "new": "(LeCun et al., 2015)",
+  "records": [
+   "L1-5"
+  ],
+  "numbers": null,
+  "unresolved": [],
+  "support": {
+   "L1-5": 0.8
+  },
+  "matched_terms": {
+   "L1-5": [
+    "deep",
+    "learning"
+   ]
+  },
+  "sentence_text": "Deep learning has transformed speech and visual recognition .",
+  "verdict": null,
+  "verdict_note": null,
+  "references": [
+   {
+    "record": "L1-5",
+    "number": null,
+    "text": "LeCun 2015 Deep learning",
+    "doi": "10.1038/nature14539"
+   }
+  ]
+ },
+ {
+  "id": "c2_1",
+  "unit": 2,
+  "sentence": "u2s1",
+  "role": "body",
+  "old": "(He et al., 2016a)",
+  "new": "(He et al., 2016a)",
+  "records": [
+   "L1-4"
+  ],
+  "numbers": null,
+  "unresolved": [],
+  "support": {
+   "L1-4": 0.19
+  },
+  "matched_terms": {
+   "L1-4": [
+    "residual"
+   ]
+  },
+  "sentence_text": "Residual networks made models with more than a hundred layers trainable , and identity shortcuts further eased optimization .",
+  "verdict": null,
+  "verdict_note": null,
+  "references": [
+   {
+    "record": "L1-4",
+    "number": null,
+    "text": "He 2016 Deep Residual Learning for Image Recognition",
+    "doi": "10.1109/CVPR.2016.90"
+   }
+  ]
+ },
+ {
+  "id": "c2_2",
+  "unit": 2,
+  "sentence": "u2s1",
+  "role": "body",
+  "old": "(He et al., 2016b)",
+  "new": "(He et al., 2016b)",
+  "records": [
+   "M2"
+  ],
+  "numbers": null,
+  "unresolved": [],
+  "support": {
+   "M2": 0.57
+  },
+  "matched_terms": {
+   "M2": [
+    "identity",
+    "networks",
+    "residual"
+   ]
+  },
+  "sentence_text": "Residual networks made models with more than a hundred layers trainable , and identity shortcuts further eased optimization .",
+  "verdict": null,
+  "verdict_note": null,
+  "references": [
+   {
+    "record": "M2",
+    "number": null,
+    "text": "He 2016 Identity mappings in deep residual networks",
+    "doi": "10.1007/978-3-319-46493-0_38"
+   }
+  ]
+ },
+ {
+  "id": "c2_3",
+  "unit": 2,
+  "sentence": "u2s1",
+  "role": "body",
+  "old": "Vaswani et al. (2017)",
+  "new": "Vaswani et al. (2017)",
+  "records": [
+   "M7"
+  ],
+  "numbers": null,
+  "unresolved": [],
+  "support": {
+   "M7": 0.0
+  },
+  "matched_terms": {
+   "M7": []
+  },
+  "sentence_text": "Residual networks made models with more than a hundred layers trainable , and identity shortcuts further eased optimization .",
+  "verdict": null,
+  "verdict_note": null,
+  "references": [
+   {
+    "record": "M7",
+    "number": null,
+    "text": "Vaswani 2017 Attention is all you need",
+    "doi": ""
+   }
+  ]
+ },
+ {
+  "id": "c2_4",
+  "unit": 2,
+  "sentence": "u2s3",
+  "role": "body",
+  "old": "(Ioffe & Szegedy, 2015; Ioffe & Szegedy, 2015)",
+  "new": "(Ioffe & Szegedy, 2015)",
+  "records": [
+   "M3"
+  ],
+  "numbers": null,
+  "unresolved": [],
+  "support": {
+   "M3": 0.86
+  },
+  "matched_terms": {
+   "M3": [
+    "accelerating",
+    "batch",
+    "covariate",
+    "internal",
+    "normalization",
+    "reducing",
+    "shift",
+    "training"
+   ]
+  },
+  "sentence_text": "Batch normalization accelerates training by reducing internal covariate shift .",
+  "verdict": null,
+  "verdict_note": null,
+  "references": [
+   {
+    "record": "M3",
+    "number": null,
+    "text": "Ioffe 2015 Batch normalization: Accelerating deep network training by r",
+    "doi": ""
+   }
+  ]
+ },
+ {
+  "id": "c2_5",
+  "unit": 2,
+  "sentence": "u2s4",
+  "role": "body",
+  "old": "(Kaplan et al., 2020)",
+  "new": "(Kaplan et al., 2020)",
+  "records": [
+   "M4"
+  ],
+  "numbers": null,
+  "unresolved": [],
+  "support": {
+   "M4": 0.38
+  },
+  "matched_terms": {
+   "M4": [
+    "laws",
+    "models"
+   ]
+  },
+  "sentence_text": "Language-model loss falls as a power law in model size, data and compute .",
+  "verdict": null,
+  "verdict_note": null,
+  "references": [
+   {
+    "record": "M4",
+    "number": null,
+    "text": "Kaplan 2020 Scaling laws for neural language models",
+    "doi": ""
+   }
+  ]
+ }
+]

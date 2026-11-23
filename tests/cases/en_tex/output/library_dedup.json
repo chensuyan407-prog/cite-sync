@@ -1,0 +1,280 @@
+[
+ {
+  "bibkey": "vaswani2017attention",
+  "type": "paper-conference",
+  "title": "Attention is all you need",
+  "authors": [
+   {
+    "family": "Vaswani",
+    "given": "Ashish"
+   },
+   {
+    "family": "Shazeer",
+    "given": "Noam"
+   },
+   {
+    "family": "Parmar",
+    "given": "Niki"
+   },
+   {
+    "family": "Uszkoreit",
+    "given": "Jakob"
+   },
+   {
+    "family": "Jones",
+    "given": "Llion"
+   },
+   {
+    "family": "Gomez",
+    "given": "Aidan N"
+   },
+   {
+    "family": "Kaiser",
+    "given": "Łukasz"
+   },
+   {
+    "family": "Polosukhin",
+    "given": "Illia"
+   }
+  ],
+  "year": "2017",
+  "container": "Advances in Neural Information Processing Systems",
+  "volume": "30",
+  "pages": "5998-6008",
+  "lang": "en",
+  "id": "L1-1",
+  "origin": "library:refs.bib",
+  "doi": "",
+  "merged_from": [
+   "L1-1",
+   "L1-6"
+  ],
+  "arxiv": "1706.03762",
+  "preprint_merged": "L1-6",
+  "field_provenance": {
+   "arxiv": "L1-6"
+  },
+  "merge_needs_review": false,
+  "cid": "L1-1",
+  "number": null,
+  "sources": [
+   {
+    "file": "refs.bib",
+    "index": 1,
+    "format": "bibtex",
+    "raw": "@inproceedings{vaswani2017attention,\n  title={Attention is all you need},\n  author={Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N and Kaiser, {\\L}ukasz and Polosukhin, Illia},\n  booktitle={Advances in Neural Information Processing Systems},\n  volume={30},\n  pages={5998--6008},\n  year={2017}\n}"
+   },
+   {
+    "file": "refs.bib",
+    "index": 6,
+    "format": "bibtex",
+    "raw": "@article{vaswani2017arxiv,\n  title={Attention Is All You Need},\n  author={Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N. and Kaiser, Lukasz and Polosukhin, Illia},\n  journal={arXiv preprint arXiv:1706.03762},\n  year={2017},\n  eprint={1706.03762},\n  archivePrefix={arXiv}\n}"
+   }
+  ]
+ },
+ {
+  "bibkey": "kaplan2020scaling",
+  "type": "preprint",
+  "title": "Scaling laws for neural language models",
+  "authors": [
+   {
+    "family": "Kaplan",
+    "given": "Jared"
+   },
+   {
+    "family": "McCandlish",
+    "given": "Sam"
+   },
+   {
+    "family": "Henighan",
+    "given": "Tom"
+   },
+   {
+    "family": "Brown",
+    "given": "Tom B"
+   },
+   {
+    "family": "Chess",
+    "given": "Benjamin"
+   },
+   {
+    "family": "Child",
+    "given": "Rewon"
+   },
+   {
+    "family": "Gray",
+    "given": "Scott"
+   },
+   {
+    "family": "Radford",
+    "given": "Alec"
+   },
+   {
+    "family": "Wu",
+    "given": "Jeffrey"
+   },
+   {
+    "family": "Amodei",
+    "given": "Dario"
+   }
+  ],
+  "year": "2020",
+  "container": "arXiv preprint arXiv:2001.08361",
+  "arxiv": "2001.08361",
+  "lang": "en",
+  "id": "L1-2",
+  "origin": "library:refs.bib",
+  "doi": "",
+  "merged_from": [
+   "L1-2"
+  ],
+  "merge_needs_review": false,
+  "cid": "L1-2",
+  "sources": [
+   {
+    "file": "refs.bib",
+    "index": 2,
+    "format": "bibtex",
+    "raw": "@article{kaplan2020scaling,\n  title={Scaling laws for neural language models},\n  author={Kaplan, Jared and McCandlish, Sam and Henighan, Tom and Brown, Tom B and Chess, Benjamin and Child, Rewon and Gray, Scott and Radford, Alec and Wu, Jeffrey and Amodei, Dario},\n  journal={arXiv preprint arXiv:2001.08361},\n  year={2020}\n}"
+   }
+  ]
+ },
+ {
+  "bibkey": "krizhevsky2012imagenet",
+  "type": "paper-conference",
+  "title": "ImageNet classification with deep convolutional neural networks",
+  "authors": [
+   {
+    "family": "Krizhevsky",
+    "given": "Alex"
+   },
+   {
+    "family": "Sutskever",
+    "given": "Ilya"
+   },
+   {
+    "family": "Hinton",
+    "given": "Geoffrey E"
+   }
+  ],
+  "year": "2012",
+  "container": "Advances in Neural Information Processing Systems",
+  "volume": "25",
+  "pages": "1097-1105",
+  "lang": "en",
+  "id": "L1-3",
+  "origin": "library:refs.bib",
+  "doi": "",
+  "merged_from": [
+   "L1-3"
+  ],
+  "merge_needs_review": false,
+  "cid": "L1-3",
+  "sources": [
+   {
+    "file": "refs.bib",
+    "index": 3,
+    "format": "bibtex",
+    "raw": "@inproceedings{krizhevsky2012imagenet,\n  title={ImageNet classification with deep convolutional neural networks},\n  author={Krizhevsky, Alex and Sutskever, Ilya and Hinton, Geoffrey E},\n  booktitle={Advances in Neural Information Processing Systems},\n  volume={25},\n  pages={1097--1105},\n  year={2012}\n}"
+   }
+  ]
+ },
+ {
+  "bibkey": "he2016deep",
+  "type": "paper-conference",
+  "title": "Deep Residual Learning for Image Recognition",
+  "authors": [
+   {
+    "family": "He",
+    "given": "Kaiming"
+   },
+   {
+    "family": "Zhang",
+    "given": "Xiangyu"
+   },
+   {
+    "family": "Ren",
+    "given": "Shaoqing"
+   },
+   {
+    "family": "Sun",
+    "given": "Jian"
+   }
+  ],
+  "year": "2016",
+  "container": "2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+  "pages": "770-778",
+  "doi": "10.1109/CVPR.2016.90",
+  "lang": "en",
+  "id": "L1-4",
+  "origin": "library:refs.bib",
+  "merged_from": [
+   "L1-4"
+  ],
+  "merge_needs_review": false,
+  "cid": "L1-4",
+  "number": null,
+  "sources": [
+   {
+    "file": "refs.bib",
+    "index": 4,
+    "format": "bibtex",
+    "raw": "@inproceedings{he2016deep,\n  title={Deep Residual Learning for Image Recognition},\n  author={He, Kaiming and Zhang, Xiangyu and Ren, Shaoqing and Sun, Jian},\n  booktitle={2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},\n  pages={770--778},\n  year={2016},\n  doi={10.1109/CVPR.2016.90}\n}"
+   }
+  ]
+ },
+ {
+  "bibkey": "lecun2015deep",
+  "type": "article-journal",
+  "title": "Deep learning",
+  "authors": [
+   {
+    "family": "LeCun",
+    "given": "Yann"
+   },
+   {
+    "family": "Bengio",
+    "given": "Yoshua"
+   },
+   {
+    "family": "Hinton",
+    "given": "Geoffrey"
+   }
+  ],
+  "year": "2015",
+  "container": "Nature",
+  "volume": "521",
+  "issue": "7553",
+  "pages": "436-444",
+  "publisher": "Nature Publishing Group",
+  "doi": "10.1038/nature14539",
+  "lang": "en",
+  "id": "L1-5",
+  "origin": "library:refs.bib",
+  "merged_from": [
+   "L1-5"
+  ],
+  "merge_needs_review": false,
+  "cid": "L1-5",
+  "number": null,
+  "sources": [
+   {
+    "file": "refs.bib",
+    "index": 5,
+    "format": "bibtex",
+    "raw": "@article{lecun2015deep,\n  title={Deep learning},\n  author={LeCun, Yann and Bengio, Yoshua and Hinton, Geoffrey},\n  journal={Nature},\n  volume={521},\n  number={7553},\n  pages={436--444},\n  year={2015},\n  publisher={Nature Publishing Group},\n  doi={10.1038/nature14539}\n}"
+   }
+  ]
+ },
+ {
+  "id": "MISSING-nokey2020",
+  "type": "misc",
+  "title": "【缺失文献：原稿引用 nokey2020 在参考文献表中找不到，需人工补充】",
+  "placeholder": true,
+  "merged_from": [
+   "MISSING-nokey2020"
+  ],
+  "number": null,
+  "sources": []
+ }
+]

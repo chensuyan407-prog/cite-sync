@@ -1,0 +1,368 @@
+[
+ {
+  "id": "lecun2015deep",
+  "type": "article-journal",
+  "title": "Deep learning",
+  "author": [
+   {
+    "family": "LeCun",
+    "given": "Yann"
+   },
+   {
+    "family": "Bengio",
+    "given": "Yoshua"
+   },
+   {
+    "family": "Hinton",
+    "given": "Geoffrey"
+   }
+  ],
+  "container-title": "Nature",
+  "volume": "521",
+  "issue": "7553",
+  "page": "436-444",
+  "publisher": "Nature Publishing Group",
+  "DOI": "10.1038/nature14539",
+  "issued": {
+   "date-parts": [
+    [
+     2015
+    ]
+   ]
+  }
+ },
+ {
+  "id": "M5",
+  "type": "article-journal",
+  "title": "ImageNet classification with deep convolutional neural networks",
+  "author": [
+   {
+    "family": "Krizhevsky",
+    "given": "A"
+   },
+   {
+    "family": "Sutskever",
+    "given": "I"
+   },
+   {
+    "family": "Hinton",
+    "given": "G E"
+   }
+  ],
+  "container-title": "Communications of the ACM",
+  "volume": "60",
+  "issue": "6",
+  "page": "84-90",
+  "issued": {
+   "date-parts": [
+    [
+     2017
+    ]
+   ]
+  }
+ },
+ {
+  "id": "he2016deep",
+  "type": "paper-conference",
+  "title": "Deep Residual Learning for Image Recognition",
+  "author": [
+   {
+    "family": "He",
+    "given": "Kaiming"
+   },
+   {
+    "family": "Zhang",
+    "given": "Xiangyu"
+   },
+   {
+    "family": "Ren",
+    "given": "Shaoqing"
+   },
+   {
+    "family": "Sun",
+    "given": "Jian"
+   }
+  ],
+  "container-title": "2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+  "page": "770-778",
+  "DOI": "10.1109/CVPR.2016.90",
+  "issued": {
+   "date-parts": [
+    [
+     2016
+    ]
+   ]
+  }
+ },
+ {
+  "id": "M2",
+  "type": "paper-conference",
+  "title": "Identity mappings in deep residual networks",
+  "author": [
+   {
+    "family": "He",
+    "given": "K"
+   },
+   {
+    "family": "Zhang",
+    "given": "X"
+   },
+   {
+    "family": "Ren",
+    "given": "S"
+   }
+  ],
+  "container-title": "European Conference on Computer Vision. Springer",
+  "page": "630-645",
+  "issued": {
+   "date-parts": [
+    [
+     2016
+    ]
+   ]
+  }
+ },
+ {
+  "id": "M4",
+  "type": "article-journal",
+  "title": "Long short-term memory",
+  "author": [
+   {
+    "family": "Hochreiter",
+    "given": "S"
+   },
+   {
+    "family": "Schmidhuber",
+    "given": "J"
+   }
+  ],
+  "container-title": "Neural Computation",
+  "volume": "9",
+  "issue": "8",
+  "page": "1735-1785",
+  "issued": {
+   "date-parts": [
+    [
+     1997
+    ]
+   ]
+  }
+ },
+ {
+  "id": "vaswani2017attention",
+  "type": "paper-conference",
+  "title": "Attention is all you need",
+  "author": [
+   {
+    "family": "Vaswani",
+    "given": "Ashish"
+   },
+   {
+    "family": "Shazeer",
+    "given": "Noam"
+   },
+   {
+    "family": "Parmar",
+    "given": "Niki"
+   },
+   {
+    "family": "Uszkoreit",
+    "given": "Jakob"
+   },
+   {
+    "family": "Jones",
+    "given": "Llion"
+   },
+   {
+    "family": "Gomez",
+    "given": "Aidan N"
+   },
+   {
+    "family": "Kaiser",
+    "given": "Łukasz"
+   },
+   {
+    "family": "Polosukhin",
+    "given": "Illia"
+   }
+  ],
+  "container-title": "Advances in Neural Information Processing Systems",
+  "volume": "30",
+  "page": "5998-6008",
+  "URL": "https://arxiv.org/abs/1706.03762",
+  "issued": {
+   "date-parts": [
+    [
+     2017
+    ]
+   ]
+  }
+ },
+ {
+  "id": "M9",
+  "type": "paper-conference",
+  "title": "BERT: Pre-training of deep bidirectional transformers for language understanding",
+  "author": [
+   {
+    "family": "Devlin",
+    "given": "Jacob"
+   },
+   {
+    "family": "Chang",
+    "given": "Ming-Wei"
+   },
+   {
+    "family": "Lee",
+    "given": "Kenton"
+   },
+   {
+    "family": "Toutanova",
+    "given": "Kristina"
+   }
+  ],
+  "container-title": "Proceedings of NAACL-HLT",
+  "page": "4171-4186",
+  "URL": "http://arxiv.org/abs/1810.04805",
+  "issued": {
+   "date-parts": [
+    [
+     2019
+    ]
+   ]
+  }
+ },
+ {
+  "id": "M6",
+  "type": "paper-conference",
+  "title": "Batch normalization: Accelerating deep network training by reducing internal covariate shift",
+  "author": [
+   {
+    "family": "Ioffe",
+    "given": "S"
+   },
+   {
+    "family": "Szegedy",
+    "given": "C"
+   }
+  ],
+  "container-title": "International Conference on Machine Learning",
+  "page": "448-456",
+  "URL": "https://arxiv.org/abs/1502.03167",
+  "issued": {
+   "date-parts": [
+    [
+     2015
+    ]
+   ]
+  }
+ },
+ {
+  "id": "M10",
+  "type": "article",
+  "title": "Adam: A method for stochastic optimization",
+  "author": [
+   {
+    "family": "Kingma",
+    "given": "D P"
+   },
+   {
+    "family": "Ba",
+    "given": "J"
+   }
+  ],
+  "container-title": "arXiv preprint arXiv:1412.6980",
+  "URL": "https://arxiv.org/abs/1412.6980",
+  "issued": {
+   "date-parts": [
+    [
+     2014
+    ]
+   ]
+  }
+ },
+ {
+  "id": "M12",
+  "type": "article-journal",
+  "title": "卷积神经网络池化方法综述",
+  "author": [
+   {
+    "literal": "袁铭阳"
+   },
+   {
+    "literal": "周长胜"
+   },
+   {
+    "literal": "黄宏博"
+   }
+  ],
+  "container-title": "软件工程与应用",
+  "volume": "9",
+  "issue": "5",
+  "page": "360-372",
+  "issued": {
+   "date-parts": [
+    [
+     2020
+    ]
+   ]
+  }
+ },
+ {
+  "id": "L2-2",
+  "type": "article-journal",
+  "title": "Highly accurate protein structure prediction with AlphaFold",
+  "author": [
+   {
+    "family": "Jumper",
+    "given": "John"
+   },
+   {
+    "family": "Evans",
+    "given": "Richard"
+   },
+   {
+    "family": "Pritzel",
+    "given": "Alexander"
+   }
+  ],
+  "container-title": "Nature",
+  "volume": "596",
+  "issue": "7873",
+  "page": "583-589",
+  "DOI": "10.1038/s41586-021-03819-2",
+  "issued": {
+   "date-parts": [
+    [
+     2021
+    ]
+   ]
+  }
+ },
+ {
+  "id": "M14",
+  "type": "article-journal",
+  "title": "Universal scaling of residual attention networks",
+  "author": [
+   {
+    "family": "Smith",
+    "given": "J"
+   },
+   {
+    "family": "Brown",
+    "given": "A"
+   }
+  ],
+  "container-title": "Nature",
+  "volume": "570",
+  "issue": "7760",
+  "page": "123-130",
+  "DOI": "10.1038/s41586-019-9999-9",
+  "issued": {
+   "date-parts": [
+    [
+     2019
+    ]
+   ]
+  }
+ }
+]

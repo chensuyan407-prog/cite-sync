@@ -1,0 +1,231 @@
+[
+ {
+  "id": "he2016deep",
+  "type": "paper-conference",
+  "title": "Deep Residual Learning for Image Recognition",
+  "author": [
+   {
+    "family": "He",
+    "given": "Kaiming"
+   },
+   {
+    "family": "Zhang",
+    "given": "Xiangyu"
+   },
+   {
+    "family": "Ren",
+    "given": "Shaoqing"
+   },
+   {
+    "family": "Sun",
+    "given": "Jian"
+   }
+  ],
+  "container-title": "2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+  "page": "770-778",
+  "DOI": "10.1109/CVPR.2016.90",
+  "issued": {
+   "date-parts": [
+    [
+     2016
+    ]
+   ]
+  }
+ },
+ {
+  "id": "M2",
+  "type": "paper-conference",
+  "title": "Identity mappings in deep residual networks",
+  "author": [
+   {
+    "family": "He",
+    "given": "K."
+   },
+   {
+    "family": "Zhang",
+    "given": "X."
+   },
+   {
+    "family": "Ren",
+    "given": "S."
+   },
+   {
+    "family": "Sun",
+    "given": "J."
+   }
+  ],
+  "container-title": "European Conference on Computer Vision",
+  "page": "630-645",
+  "publisher": "Springer",
+  "DOI": "10.1007/978-3-319-46493-0_38",
+  "issued": {
+   "date-parts": [
+    [
+     2016
+    ]
+   ]
+  }
+ },
+ {
+  "id": "M3",
+  "type": "article",
+  "title": "Batch normalization: Accelerating deep network training by reducing internal covariate shift",
+  "author": [
+   {
+    "family": "Ioffe",
+    "given": "S."
+   },
+   {
+    "family": "Szegedy",
+    "given": "C."
+   }
+  ],
+  "container-title": "arXiv preprint arXiv:1502.03167",
+  "URL": "https://arxiv.org/abs/1502.03167",
+  "issued": {
+   "date-parts": [
+    [
+     2015
+    ]
+   ]
+  }
+ },
+ {
+  "id": "M4",
+  "type": "article",
+  "title": "Scaling laws for neural language models",
+  "author": [
+   {
+    "family": "Kaplan",
+    "given": "J."
+   },
+   {
+    "family": "McCandlish",
+    "given": "S."
+   },
+   {
+    "family": "Henighan",
+    "given": "T."
+   },
+   {
+    "family": "Brown",
+    "given": "T. B."
+   },
+   {
+    "family": "Chess",
+    "given": "B."
+   },
+   {
+    "family": "Child",
+    "given": "R."
+   },
+   {
+    "family": "Gray",
+    "given": "S."
+   },
+   {
+    "family": "Radford",
+    "given": "A."
+   },
+   {
+    "family": "Wu",
+    "given": "J."
+   },
+   {
+    "family": "Amodei",
+    "given": "D."
+   }
+  ],
+  "container-title": "arXiv preprint arXiv:2001.08361",
+  "URL": "https://arxiv.org/abs/2001.08361",
+  "issued": {
+   "date-parts": [
+    [
+     2020
+    ]
+   ]
+  }
+ },
+ {
+  "id": "lecun2015deep",
+  "type": "article-journal",
+  "title": "Deep learning",
+  "author": [
+   {
+    "family": "LeCun",
+    "given": "Yann"
+   },
+   {
+    "family": "Bengio",
+    "given": "Yoshua"
+   },
+   {
+    "family": "Hinton",
+    "given": "Geoffrey"
+   }
+  ],
+  "container-title": "Nature",
+  "volume": "521",
+  "issue": "7553",
+  "page": "436-444",
+  "publisher": "Nature Publishing Group",
+  "DOI": "10.1038/nature14539",
+  "issued": {
+   "date-parts": [
+    [
+     2015
+    ]
+   ]
+  }
+ },
+ {
+  "id": "M7",
+  "type": "article-journal",
+  "title": "Attention is all you need",
+  "author": [
+   {
+    "family": "Vaswani",
+    "given": "A."
+   },
+   {
+    "family": "Shazeer",
+    "given": "N."
+   },
+   {
+    "family": "Parmar",
+    "given": "N."
+   },
+   {
+    "family": "Uszkoreit",
+    "given": "J."
+   },
+   {
+    "family": "Jones",
+    "given": "L."
+   },
+   {
+    "family": "Gomez",
+    "given": "A. N."
+   },
+   {
+    "family": "Kaiser",
+    "given": "L."
+   },
+   {
+    "family": "Polosukhin",
+    "given": "I."
+   }
+  ],
+  "container-title": "Advances in Neural Information Processing Systems",
+  "volume": "30",
+  "page": "5998-6008",
+  "URL": "https://arxiv.org/abs/1706.03762",
+  "issued": {
+   "date-parts": [
+    [
+     2017
+    ]
+   ]
+  }
+ }
+]

@@ -1,0 +1,45 @@
+{
+ "deviations_from_paper": [
+  {
+   "target": "planted defects fixed/detected (dev cases, rules tuned on them)",
+   "metric": "absolute_error",
+   "actual_value": 1.0,
+   "reference_value": 1.0,
+   "score": 1.0,
+   "tolerance": 0.1,
+   "evidence_artifact": "metrics",
+   "explanation": "60 checks on 3 cases; baselines: untouched 0.133, regex renumber 0.15"
+  },
+  {
+   "target": "planted defects fixed/detected (held-out case, at code freeze)",
+   "metric": "absolute_error",
+   "actual_value": 1.0,
+   "reference_value": 1.0,
+   "score": 1.0,
+   "tolerance": 0.2,
+   "evidence_artifact": "metrics",
+   "explanation": "14 pre-registered checks; baselines: untouched 0.357, regex renumber 0.5. Reading the output found one more defect (Adam glued onto the Dropout marker) not covered by the checks; fixed after the freeze (2 post-freeze checks)."
+  },
+  {
+   "target": "robustness checks passed",
+   "metric": "absolute_error",
+   "actual_value": 1.0,
+   "reference_value": 1.0,
+   "score": 1.0,
+   "tolerance": 0.1,
+   "evidence_artifact": "metrics",
+   "explanation": "missing_case_json, unsupported_doc, corrupt_library, no_network, no_records, label_conflict, latex_keys, determinism"
+  },
+  {
+   "target": "post-write numbering/list consistency (all cases)",
+   "metric": "exact_match",
+   "actual_value": 1.0,
+   "reference_value": 1.0,
+   "score": 1.0,
+   "tolerance": 0.0,
+   "evidence_artifact": "metrics",
+   "explanation": "check_manuscript re-parses the written file"
+  }
+ ],
+ "notes": "Self-made cases with real, Crossref/arXiv-checkable references; the platform's three fixed cases and its base-agent comparison are not reproduced here."
+}

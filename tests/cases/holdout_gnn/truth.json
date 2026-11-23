@@ -1,0 +1,143 @@
+{
+ "manuscript": "manuscript.md",
+ "libraries": [
+  "zotero_export.json",
+  "noteexpress.net"
+ ],
+ "style": "gbt7714",
+ "holdout": true,
+ "agent_only_defects": [
+  "[7] cites GCN for 83.0% accuracy on Cora, which is the GAT number (GCN reports 81.5%): needs reading the source; not scored here",
+  "[3-5] range: BERT and Adam are not graph representation methods; only flagged as weak support"
+ ],
+ "checks": [
+  {
+   "id": "H01",
+   "kind": "order",
+   "defect": "renumber by first appearance; orphan placeholder last",
+   "titles": [
+    "Semi-supervised classification",
+    "Graph attention",
+    "Language models are few-shot",
+    "BERT",
+    "Adam",
+    "Dropout",
+    "缺失文献"
+   ]
+  },
+  {
+   "id": "H02",
+   "kind": "merged",
+   "defect": "GCN arXiv 2016 + ICLR 2017 entries merged",
+   "ids": [
+    "M3",
+    "M7"
+   ]
+  },
+  {
+   "id": "H03",
+   "kind": "merged",
+   "defect": "BERT arXiv list entry merged with CSL-JSON NAACL record",
+   "ids": [
+    "M4",
+    "L1-1"
+   ]
+  },
+  {
+   "id": "H04",
+   "kind": "review",
+   "defect": "[9] has no list entry -> orphan reported",
+   "type": "orphan_citation",
+   "text": "9"
+  },
+  {
+   "id": "H05",
+   "kind": "not_in_list",
+   "defect": "uncited GraphSAGE entry removed",
+   "title": "Inductive representation"
+  },
+  {
+   "id": "H06",
+   "kind": "single_style",
+   "defect": "one marker style"
+  },
+  {
+   "id": "H07",
+   "kind": "style_is",
+   "defect": "pandoc superscript ^[n]^ style kept",
+   "style": "pandoc-sup"
+  },
+  {
+   "id": "H08",
+   "kind": "consistent",
+   "defect": "numbering / list consistent"
+  },
+  {
+   "id": "H09",
+   "kind": "list_count",
+   "defect": "6 works + 1 visible placeholder",
+   "n": 7
+  },
+  {
+   "id": "H10",
+   "kind": "cites",
+   "defect": "GCN sentence cites GCN",
+   "sentence": "图卷积网络将卷积运算推广",
+   "titles": [
+    "Semi-supervised classification"
+   ]
+  },
+  {
+   "id": "H11",
+   "kind": "cites",
+   "defect": "Cora sentence: duplicate [7] now points to the same GCN number",
+   "sentence": "Cora 数据集",
+   "titles": [
+    "Semi-supervised classification"
+   ]
+  },
+  {
+   "id": "H12",
+   "kind": "entry_contains",
+   "defect": "BERT published version with DOI from CSL-JSON",
+   "title": "BERT",
+   "text": [
+    "10.18653/v1/N19-1423",
+    "[C]//"
+   ]
+  },
+  {
+   "id": "H13",
+   "kind": "review",
+   "defect": "range [3-5] with off-topic refs flagged as weak support",
+   "type": "weak_lexical_support"
+  },
+  {
+   "id": "H14",
+   "kind": "entry_contains",
+   "defect": "GAT conference format kept",
+   "title": "Graph attention",
+   "text": [
+    "[C]//International Conference on Learning Representations"
+   ]
+  },
+  {
+   "id": "H15",
+   "kind": "cites",
+   "defect": "POST-FREEZE (found by reading the output): Adam moved out of [3-5] must not be glued onto the Dropout marker",
+   "sentence": "本文采用的优化器为 Adam",
+   "titles": [
+    "Adam",
+    "Dropout"
+   ],
+   "post_freeze": true
+  },
+  {
+   "id": "H16",
+   "kind": "text_contains",
+   "defect": "POST-FREEZE: Dropout marker cites only Dropout",
+   "text": "防止过拟合^[6]^",
+   "post_freeze": true
+  }
+ ]
+}

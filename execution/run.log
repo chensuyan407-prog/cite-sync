@@ -1,0 +1,301 @@
+$ tests\run_eval.py
+{
+ "offline": false,
+ "dev": {
+  "checks": 60,
+  "skill": 1.0,
+  "b0_untouched": 0.133,
+  "b1_regex_renumber": 0.15
+ },
+ "holdout": {
+  "checks": 14,
+  "skill": 1.0,
+  "b0_untouched": 0.357,
+  "b1_regex_renumber": 0.5
+ },
+ "holdout_post_freeze_checks": {
+  "checks": 2,
+  "skill_now": 1.0,
+  "note": "added after reading the held-out output; failed at freeze (Adam glued onto Dropout marker), fixed afterwards"
+ },
+ "wall_seconds": 2.4
+}
+en_apa 8 / 8 b0 1 b1 0 partial []
+holdout_gnn 16 / 16 b0 7 b1 9 partial []
+zh_docx 26 / 26 b0 4 b1 5 partial []
+zh_review 26 / 26 b0 3 b1 4 partial []
+
+
+[exit 0]
+
+$ submission\scripts\cite.py init --case execution\results\robustness\missing_case\nope.json --out execution\results\robustness\missing_case\output --work execution\results\robustness\missing_case\work
+{
+ "case_id": null,
+ "case_error": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\missing_case\\nope.json not found",
+ "task_file": null,
+ "manuscripts": [],
+ "libraries": [],
+ "pdfs": [],
+ "other_files": [],
+ "contract_fields": [],
+ "style_guess": "gbt7714",
+ "case_scalars": {},
+ "seconds": 0.0
+}
+
+
+[exit 0]
+
+$ submission\scripts\cite.py run --manuscript execution\results\robustness\doc_manuscript\input\paper.doc --library tests\cases\zh_review\input\library.bib --out execution\results\robustness\doc_manuscript\output --work execution\results\robustness\doc_manuscript\work
+{
+ "status": "failed",
+ "reason": "manuscript not usable: unsupported manuscript format '.doc': use .md/.txt/.tex/.docx (convert .doc/.pdf/.odt first)",
+ "parse_problems": []
+}
+
+
+[exit 2]
+
+$ submission\scripts\cite.py run --manuscript execution\results\robustness\corrupt_library\input\manuscript.md --library execution\results\robustness\corrupt_library\input\broken.bib --library execution\results\robustness\corrupt_library\input\noer.ris --out execution\results\robustness\corrupt_library\output --work execution\results\robustness\corrupt_library\work
+{
+ "status": "partial",
+ "status_reason": [
+  "13 citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict)",
+  "sources not checked online (offline run)"
+ ],
+ "summary": {
+  "records_in": 22,
+  "records_after_dedup": 16,
+  "merged_clusters": 6,
+  "occurrences": 11,
+  "occurrences_out": 13,
+  "references_out": 12,
+  "orphans": 0,
+  "uncited_removed": 1,
+  "auto_moves": 2,
+  "placement_suggestions": 0,
+  "verified": 0,
+  "verification_status_counts": {
+   "unverified_offline": 12
+  },
+  "review_items": 3,
+  "review_by_type": {
+   "uncited_entry_removed": 1,
+   "claim_without_citation": 1,
+   "caption_citation": 1
+  },
+  "parse_problems": 2,
+  "seconds": 0.05
+ },
+ "result": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\corrupt_library\\output\\result.json",
+ "claim_matrix": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\corrupt_library\\work\\claim_matrix.md",
+ "edits_template": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\corrupt_library\\work\\edits_template.json"
+}
+
+
+[exit 0]
+
+$ submission\scripts\cite.py run --online --manuscript execution\results\robustness\no_network\input\manuscript.md --library tests\cases\zh_review\input\library.bib --out execution\results\robustness\no_network\output --work execution\results\robustness\no_network\work
+{
+ "status": "partial",
+ "status_reason": [
+  "13 citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict)"
+ ],
+ "summary": {
+  "records_in": 19,
+  "records_after_dedup": 15,
+  "merged_clusters": 4,
+  "occurrences": 11,
+  "occurrences_out": 13,
+  "references_out": 12,
+  "orphans": 0,
+  "uncited_removed": 1,
+  "auto_moves": 2,
+  "placement_suggestions": 0,
+  "verified": 0,
+  "verification_status_counts": {
+   "unverified_offline": 12
+  },
+  "review_items": 3,
+  "review_by_type": {
+   "uncited_entry_removed": 1,
+   "claim_without_citation": 1,
+   "caption_citation": 1
+  },
+  "parse_problems": 0,
+  "seconds": 4.16
+ },
+ "result": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\no_network\\output\\result.json",
+ "claim_matrix": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\no_network\\work\\claim_matrix.md",
+ "edits_template": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\no_network\\work\\edits_template.json"
+}
+
+
+[exit 0]
+
+$ submission\scripts\cite.py run --manuscript execution\results\robustness\no_records\input\m.md --out execution\results\robustness\no_records\output --work execution\results\robustness\no_records\work
+{
+ "status": "failed",
+ "reason": "no reference records found (no reference list in the manuscript and no readable library)",
+ "parse_problems": []
+}
+
+
+[exit 2]
+
+$ submission\scripts\cite.py run --manuscript execution\results\robustness\label_conflict\input\m.md --out execution\results\robustness\label_conflict\output --work execution\results\robustness\label_conflict\work
+{
+ "status": "partial",
+ "status_reason": [
+  "1 blocking item(s) need human confirmation",
+  "3 citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict)",
+  "sources not checked online (offline run)"
+ ],
+ "summary": {
+  "records_in": 3,
+  "records_after_dedup": 2,
+  "merged_clusters": 1,
+  "occurrences": 3,
+  "occurrences_out": 3,
+  "references_out": 3,
+  "orphans": 1,
+  "uncited_removed": 0,
+  "auto_moves": 0,
+  "placement_suggestions": 0,
+  "verified": 0,
+  "verification_status_counts": {
+   "unverified_offline": 2
+  },
+  "review_items": 2,
+  "review_by_type": {
+   "orphan_citation": 1,
+   "weak_lexical_support": 1
+  },
+  "parse_problems": 1,
+  "seconds": 0.02
+ },
+ "result": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\label_conflict\\output\\result.json",
+ "claim_matrix": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\label_conflict\\work\\claim_matrix.md",
+ "edits_template": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\label_conflict\\work\\edits_template.json"
+}
+
+
+[exit 0]
+
+$ submission\scripts\cite.py run --manuscript execution\results\robustness\latex\input\paper.tex --library execution\results\robustness\latex\input\refs.bib --out execution\results\robustness\latex\output --work execution\results\robustness\latex\work
+{
+ "status": "partial",
+ "status_reason": [
+  "1 blocking item(s) need human confirmation",
+  "4 citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict)",
+  "sources not checked online (offline run)"
+ ],
+ "summary": {
+  "records_in": 6,
+  "records_after_dedup": 5,
+  "merged_clusters": 1,
+  "occurrences": 4,
+  "occurrences_out": 4,
+  "references_out": 4,
+  "orphans": 1,
+  "uncited_removed": 0,
+  "auto_moves": 0,
+  "placement_suggestions": 0,
+  "verified": 0,
+  "verification_status_counts": {
+   "unverified_offline": 3
+  },
+  "review_items": 2,
+  "review_by_type": {
+   "orphan_citation": 1,
+   "weak_lexical_support": 1
+  },
+  "parse_problems": 1,
+  "seconds": 0.02
+ },
+ "result": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\latex\\output\\result.json",
+ "claim_matrix": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\latex\\work\\claim_matrix.md",
+ "edits_template": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\latex\\work\\edits_template.json"
+}
+
+
+[exit 0]
+
+$ submission\scripts\cite.py run --manuscript tests\cases\zh_review\input\manuscript.md --library tests\cases\zh_review\input\library.bib --library tests\cases\zh_review\input\zotero.ris --library tests\cases\zh_review\input\cnki.enw --out execution\results\robustness\determinism_0\output --work execution\results\robustness\determinism_0\work
+{
+ "status": "partial",
+ "status_reason": [
+  "13 citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict)",
+  "sources not checked online (offline run)"
+ ],
+ "summary": {
+  "records_in": 23,
+  "records_after_dedup": 15,
+  "merged_clusters": 7,
+  "occurrences": 11,
+  "occurrences_out": 13,
+  "references_out": 12,
+  "orphans": 0,
+  "uncited_removed": 1,
+  "auto_moves": 2,
+  "placement_suggestions": 0,
+  "verified": 0,
+  "verification_status_counts": {
+   "unverified_offline": 12
+  },
+  "review_items": 3,
+  "review_by_type": {
+   "uncited_entry_removed": 1,
+   "claim_without_citation": 1,
+   "caption_citation": 1
+  },
+  "parse_problems": 0,
+  "seconds": 0.05
+ },
+ "result": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\determinism_0\\output\\result.json",
+ "claim_matrix": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\determinism_0\\work\\claim_matrix.md",
+ "edits_template": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\determinism_0\\work\\edits_template.json"
+}
+
+
+[exit 0]
+
+$ submission\scripts\cite.py run --manuscript tests\cases\zh_review\input\manuscript.md --library tests\cases\zh_review\input\library.bib --library tests\cases\zh_review\input\zotero.ris --library tests\cases\zh_review\input\cnki.enw --out execution\results\robustness\determinism_1\output --work execution\results\robustness\determinism_1\work
+{
+ "status": "partial",
+ "status_reason": [
+  "13 citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict)",
+  "sources not checked online (offline run)"
+ ],
+ "summary": {
+  "records_in": 23,
+  "records_after_dedup": 15,
+  "merged_clusters": 7,
+  "occurrences": 11,
+  "occurrences_out": 13,
+  "references_out": 12,
+  "orphans": 0,
+  "uncited_removed": 1,
+  "auto_moves": 2,
+  "placement_suggestions": 0,
+  "verified": 0,
+  "verification_status_counts": {
+   "unverified_offline": 12
+  },
+  "review_items": 3,
+  "review_by_type": {
+   "uncited_entry_removed": 1,
+   "claim_without_citation": 1,
+   "caption_citation": 1
+  },
+  "parse_problems": 0,
+  "seconds": 0.05
+ },
+ "result": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\determinism_1\\output\\result.json",
+ "claim_matrix": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\determinism_1\\work\\claim_matrix.md",
+ "edits_template": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\determinism_1\\work\\edits_template.json"
+}
+
+
+[exit 0]
+

@@ -1,0 +1,68 @@
+{
+ "_note": "Edits written by the agent after reading claim_matrix.md (dev case). Verdicts judge sentence vs. cited work.",
+ "occurrences": {
+  "c4_0": {
+   "verdict": "supported",
+   "note": "LeCun 2015 review: deep learning improved speech recognition and visual object recognition"
+  },
+  "c4_1": {
+   "verdict": "supported",
+   "note": "AlexNet; CACM 2017 reprint of the NIPS 2012 paper - consider citing the original (human choice)"
+  },
+  "c4_2": {
+   "verdict": "supported",
+   "note": "ResNet enables training of 100+ layer networks"
+  },
+  "c4_3": {
+   "verdict": "supported",
+   "note": "Identity mappings paper analyses identity shortcuts in residual units"
+  },
+  "c8_0": {
+   "verdict": "supported",
+   "note": "BERT bidirectional pre-training; LSTM and Transformer moved to their own sentences"
+  },
+  "c14_0": {
+   "verdict": "supported",
+   "note": "BN reduces internal covariate shift; [6] and [8] were the same work"
+  },
+  "c14_1": {
+   "verdict": "partial",
+   "note": "Adam paper proposes the optimizer; 'widely used' is not something the Adam paper itself can support"
+  },
+  "c14_2": {
+   "verdict": "supported",
+   "note": "Chinese survey on pooling: pooling reduces feature-map dimension (abstract)"
+  },
+  "c16_0": {
+   "verdict": "supported",
+   "note": "figure adapted from ResNet"
+  },
+  "c20_0": {
+   "verdict": "supported",
+   "note": "AlphaFold Nature 2021"
+  },
+  "c20_1": {
+   "action": "remove",
+   "verdict": "unverifiable",
+   "note": "DOI 10.1038/s41586-019-9999-9 does not resolve and no matching work found in Crossref: citation removed, sentence needs a real source or deletion (human)"
+  },
+  "ins_u8s0": {
+   "verdict": "supported",
+   "note": "LSTM gating against vanishing gradients (moved here from the paragraph-end cluster)"
+  },
+  "ins_u8s1": {
+   "verdict": "supported",
+   "note": "Transformer: attention only, SOTA on WMT translation (moved here)"
+  }
+ },
+ "add_citations": [
+  {
+   "sentence": "text:语言模型的测试损失随模型参数量",
+   "refs": [
+    "L1-2"
+   ],
+   "note": "power-law scaling of loss with parameters, data and compute = Kaplan et al. 2020 (library.bib kaplan2020scaling)",
+   "verdict": "supported"
+  }
+ ]
+}

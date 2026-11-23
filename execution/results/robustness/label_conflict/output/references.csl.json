@@ -1,0 +1,58 @@
+[
+ {
+  "id": "M2",
+  "type": "article-journal",
+  "title": "Deep learning",
+  "author": [
+   {
+    "family": "LeCun",
+    "given": "Y"
+   },
+   {
+    "family": "Bengio",
+    "given": "Y"
+   },
+   {
+    "family": "Hinton",
+    "given": "G"
+   }
+  ],
+  "container-title": "Nature",
+  "volume": "521",
+  "issue": "7553",
+  "page": "436-444",
+  "issued": {
+   "date-parts": [
+    [
+     2015
+    ]
+   ]
+  }
+ },
+ {
+  "id": "M1",
+  "type": "article-journal",
+  "title": "Long short-term memory",
+  "author": [
+   {
+    "family": "Hochreiter",
+    "given": "S"
+   },
+   {
+    "family": "Schmidhuber",
+    "given": "J"
+   }
+  ],
+  "container-title": "Neural Computation",
+  "volume": "9",
+  "issue": "8",
+  "page": "1735-1780",
+  "issued": {
+   "date-parts": [
+    [
+     1997
+    ]
+   ]
+  }
+ }
+]

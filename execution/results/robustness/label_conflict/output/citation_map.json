@@ -1,0 +1,117 @@
+[
+ {
+  "id": "c2_0",
+  "unit": 2,
+  "sentence": "u2s0",
+  "role": "body",
+  "old": "[2]",
+  "new": "[1]",
+  "records": [
+   "M2"
+  ],
+  "numbers": [
+   1
+  ],
+  "unresolved": [],
+  "support": {
+   "M2": 0.8
+  },
+  "matched_terms": {
+   "M2": [
+    "deep",
+    "learning"
+   ]
+  },
+  "sentence_text": "深度学习综述见文献。",
+  "verdict": null,
+  "verdict_note": null,
+  "references": [
+   {
+    "record": "M2",
+    "number": 1,
+    "text": "LeCun 2015 Deep learning",
+    "doi": ""
+   }
+  ]
+ },
+ {
+  "id": "c2_1",
+  "unit": 2,
+  "sentence": "u2s1",
+  "role": "body",
+  "old": "[1-2]",
+  "new": "[1,2]",
+  "records": [
+   "M1",
+   "M2"
+  ],
+  "numbers": [
+   2,
+   1
+  ],
+  "unresolved": [],
+  "support": {
+   "M1": 0.85,
+   "M2": 0.0
+  },
+  "matched_terms": {
+   "M1": [
+    "long",
+    "memory",
+    "short-term"
+   ],
+   "M2": []
+  },
+  "sentence_text": "长短期记忆网络见。",
+  "verdict": null,
+  "verdict_note": null,
+  "references": [
+   {
+    "record": "M1",
+    "number": 2,
+    "text": "Hochreiter 1997 Long short-term memory",
+    "doi": ""
+   },
+   {
+    "record": "M2",
+    "number": 1,
+    "text": "LeCun 2015 Deep learning",
+    "doi": ""
+   }
+  ]
+ },
+ {
+  "id": "c2_2",
+  "unit": 2,
+  "sentence": "u2s2",
+  "role": "body",
+  "old": "[7]",
+  "new": "[3]",
+  "records": [
+   "MISSING-7"
+  ],
+  "numbers": [
+   3
+  ],
+  "unresolved": [
+   7
+  ],
+  "support": {
+   "MISSING-7": 0.0
+  },
+  "matched_terms": {
+   "MISSING-7": []
+  },
+  "sentence_text": "另见。",
+  "verdict": null,
+  "verdict_note": null,
+  "references": [
+   {
+    "record": "MISSING-7",
+    "number": 3,
+    "text": "? ? 【缺失文献：原稿引用 7 在参考文献表中找不到，需人工补充】",
+    "doi": null
+   }
+  ]
+ }
+]

@@ -1,0 +1,37 @@
+{
+ "_help": "verdict: supported | partial | mismatch | unverifiable. action: keep | remove | replace (refs) | drop_refs (refs). move_to: sentence id (optionally move_refs). add_citations: [{sentence, refs, note}]. record_overrides: {record_id: {field: value, _source: '...'}}. force_merge / forbid_merge: [[id, id]]. Re-run `cite.py run ... --edits <this file>`.",
+ "occurrences": {
+  "c2_0": {
+   "sentence": "深度学习综述见文献。",
+   "refs": [
+    "M2"
+   ],
+   "verdict": null,
+   "note": "",
+   "action": "keep"
+  },
+  "c2_1": {
+   "sentence": "长短期记忆网络见。",
+   "refs": [
+    "M1",
+    "M2"
+   ],
+   "verdict": null,
+   "note": "",
+   "action": "keep"
+  },
+  "c2_2": {
+   "sentence": "另见。",
+   "refs": [
+    "MISSING-7"
+   ],
+   "verdict": null,
+   "note": "",
+   "action": "keep"
+  }
+ },
+ "add_citations": [],
+ "record_overrides": {},
+ "force_merge": [],
+ "forbid_merge": []
+}

@@ -1,0 +1,482 @@
+[
+ {
+  "id": "c2_0",
+  "unit": 2,
+  "sentence": "u2s0",
+  "role": "body",
+  "old": "[3]",
+  "new": "[1]",
+  "records": [
+   "L1-5"
+  ],
+  "numbers": [
+   1
+  ],
+  "unresolved": [],
+  "support": {
+   "L1-5": 0.8
+  },
+  "matched_terms": {
+   "L1-5": [
+    "deep",
+    "learning"
+   ]
+  },
+  "sentence_text": "深度学习通过多层表示学习显著提升了语音识别、视觉目标识别等任务的性能。",
+  "verdict": "supported",
+  "verdict_note": "LeCun 2015 review: deep learning improved speech recognition and visual object recognition",
+  "references": [
+   {
+    "record": "L1-5",
+    "number": 1,
+    "text": "LeCun 2015 Deep learning",
+    "doi": "10.1038/nature14539"
+   }
+  ]
+ },
+ {
+  "id": "c2_1",
+  "unit": 2,
+  "sentence": "u2s1",
+  "role": "body",
+  "old": "[5]",
+  "new": "[2]",
+  "records": [
+   "M5"
+  ],
+  "numbers": [
+   2
+  ],
+  "unresolved": [],
+  "support": {
+   "M5": 0.833
+  },
+  "matched_terms": {
+   "M5": [
+    "classification",
+    "convolutional",
+    "imagenet",
+    "networks",
+    "neural"
+   ]
+  },
+  "sentence_text": "卷积神经网络在 ImageNet 图像分类竞赛中取得突破，大幅降低了 top-5 错误率。",
+  "verdict": "supported",
+  "verdict_note": "AlexNet; CACM 2017 reprint of the NIPS 2012 paper - consider citing the original (human choice)",
+  "references": [
+   {
+    "record": "M5",
+    "number": 2,
+    "text": "Krizhevsky 2017 ImageNet classification with deep convolutional neural netwo",
+    "doi": "10.1145/3065386"
+   }
+  ]
+ },
+ {
+  "id": "c2_2",
+  "unit": 2,
+  "sentence": "u2s2",
+  "role": "body",
+  "old": "[1]",
+  "new": "[3]",
+  "records": [
+   "L1-4"
+  ],
+  "numbers": [
+   3
+  ],
+  "unresolved": [],
+  "support": {
+   "L1-4": 0.19
+  },
+  "matched_terms": {
+   "L1-4": [
+    "residual"
+   ]
+  },
+  "sentence_text": "随后，残差学习框架使得训练上百层的网络成为可能；同一团队又分析了恒等映射在残差单元中的作用。",
+  "verdict": "supported",
+  "verdict_note": "ResNet enables training of 100+ layer networks",
+  "references": [
+   {
+    "record": "L1-4",
+    "number": 3,
+    "text": "He 2016 Deep Residual Learning for Image Recognition",
+    "doi": "10.1109/CVPR.2016.90"
+   }
+  ]
+ },
+ {
+  "id": "c2_3",
+  "unit": 2,
+  "sentence": "u2s2",
+  "role": "body",
+  "old": "[2]",
+  "new": "[4]",
+  "records": [
+   "M2"
+  ],
+  "numbers": [
+   4
+  ],
+  "unresolved": [],
+  "support": {
+   "M2": 0.57
+  },
+  "matched_terms": {
+   "M2": [
+    "identity",
+    "mappings",
+    "residual"
+   ]
+  },
+  "sentence_text": "随后，残差学习框架使得训练上百层的网络成为可能；同一团队又分析了恒等映射在残差单元中的作用。",
+  "verdict": "supported",
+  "verdict_note": "Identity mappings paper analyses identity shortcuts in residual units",
+  "references": [
+   {
+    "record": "M2",
+    "number": 4,
+    "text": "He 2016 Identity mappings in deep residual networks",
+    "doi": "10.1007/978-3-319-46493-0_38"
+   }
+  ]
+ },
+ {
+  "id": "ins_u4s0",
+  "unit": 4,
+  "sentence": "u4s0",
+  "role": "body",
+  "old": "",
+  "new": "[5]",
+  "records": [
+   "M4"
+  ],
+  "numbers": [
+   5
+  ],
+  "unresolved": [],
+  "support": {
+   "M4": 0.85
+  },
+  "inserted": true,
+  "edit_verdict": null,
+  "sentence_text": "长短期记忆网络通过门控机制缓解了循环网络的梯度消失问题。",
+  "verdict": "supported",
+  "verdict_note": "LSTM gating against vanishing gradients (moved here from the paragraph-end cluster)",
+  "references": [
+   {
+    "record": "M4",
+    "number": 5,
+    "text": "Hochreiter 1997 Long short-term memory",
+    "doi": "10.1162/neco.1997.9.8.1735"
+   }
+  ]
+ },
+ {
+  "id": "ins_u4s1",
+  "unit": 4,
+  "sentence": "u4s1",
+  "role": "body",
+  "old": "",
+  "new": "[6]",
+  "records": [
+   "L1-1"
+  ],
+  "numbers": [
+   6
+  ],
+  "unresolved": [],
+  "support": {
+   "L1-1": 0.9
+  },
+  "inserted": true,
+  "edit_verdict": null,
+  "sentence_text": "Transformer 完全基于注意力机制，在机器翻译任务上取得了当时最好的结果。",
+  "verdict": "supported",
+  "verdict_note": "Transformer: attention only, SOTA on WMT translation (moved here)",
+  "references": [
+   {
+    "record": "L1-1",
+    "number": 6,
+    "text": "Vaswani 2017 Attention is all you need",
+    "doi": ""
+   }
+  ]
+ },
+ {
+  "id": "c4_0",
+  "unit": 4,
+  "sentence": "u4s2",
+  "role": "body",
+  "old": "[4][7][9]",
+  "new": "[7]",
+  "records": [
+   "M9"
+  ],
+  "numbers": [
+   7
+  ],
+  "unresolved": [],
+  "support": {
+   "M9": 0.75
+  },
+  "matched_terms": {
+   "M9": [
+    "bert",
+    "bidirectional",
+    "language",
+    "pre-training",
+    "understanding"
+   ]
+  },
+  "sentence_text": "BERT 通过双向预训练显著提升了多项语言理解任务的表现。",
+  "verdict": "supported",
+  "verdict_note": "BERT bidirectional pre-training; LSTM and Transformer moved to their own sentences",
+  "references": [
+   {
+    "record": "M9",
+    "number": 7,
+    "text": "Devlin 2019 BERT: Pre-training of deep bidirectional transformers for la",
+    "doi": "10.18653/v1/n19-1423"
+   }
+  ]
+ },
+ {
+  "id": "ins_u5s0",
+  "unit": 5,
+  "sentence": "u5s0",
+  "role": "body",
+  "old": "",
+  "new": "[8]",
+  "records": [
+   "L1-2"
+  ],
+  "numbers": [
+   8
+  ],
+  "unresolved": [],
+  "support": {
+   "L1-2": 0.57
+  },
+  "inserted": true,
+  "edit_verdict": "supported",
+  "sentence_text": "已有研究表明，语言模型的测试损失随模型参数量、数据集规模和训练算力呈幂律下降。",
+  "verdict": "supported",
+  "verdict_note": null,
+  "references": [
+   {
+    "record": "L1-2",
+    "number": 8,
+    "text": "Kaplan 2020 Scaling laws for neural language models",
+    "doi": ""
+   }
+  ]
+ },
+ {
+  "id": "c7_0",
+  "unit": 7,
+  "sentence": "u7s0",
+  "role": "body",
+  "old": "[6,8]",
+  "new": "[9]",
+  "records": [
+   "M6"
+  ],
+  "numbers": [
+   9
+  ],
+  "unresolved": [],
+  "support": {
+   "M6": 0.72
+  },
+  "matched_terms": {
+   "M6": [
+    "accelerating",
+    "batch",
+    "covariate",
+    "normalization",
+    "shift",
+    "training"
+   ]
+  },
+  "sentence_text": "批归一化通过减少内部协变量偏移加速了深层网络训练。",
+  "verdict": "supported",
+  "verdict_note": "BN reduces internal covariate shift; [6] and [8] were the same work",
+  "references": [
+   {
+    "record": "M6",
+    "number": 9,
+    "text": "Ioffe 2015 Batch normalization: Accelerating deep network training by r",
+    "doi": ""
+   }
+  ]
+ },
+ {
+  "id": "c7_1",
+  "unit": 7,
+  "sentence": "u7s1",
+  "role": "body",
+  "old": "[10]",
+  "new": "[10]",
+  "records": [
+   "M10"
+  ],
+  "numbers": [
+   10
+  ],
+  "unresolved": [],
+  "support": {
+   "M10": 0.675
+  },
+  "matched_terms": {
+   "M10": [
+    "adam",
+    "optimization",
+    "stochastic"
+   ]
+  },
+  "sentence_text": "Adam 优化器被广泛用于训练上述模型。",
+  "verdict": "partial",
+  "verdict_note": "Adam paper proposes the optimizer; 'widely used' is not something the Adam paper itself can support",
+  "references": [
+   {
+    "record": "M10",
+    "number": 10,
+    "text": "Kingma 2014 Adam: A method for stochastic optimization",
+    "doi": ""
+   }
+  ]
+ },
+ {
+  "id": "c7_2",
+  "unit": 7,
+  "sentence": "u7s2",
+  "role": "body",
+  "old": "[12]",
+  "new": "[11]",
+  "records": [
+   "L3-1"
+  ],
+  "numbers": [
+   11
+  ],
+  "unresolved": [],
+  "support": {
+   "L3-1": 0.712
+  },
+  "matched_terms": {
+   "L3-1": [
+    "convolutional",
+    "network",
+    "neural",
+    "pooling",
+    "卷积",
+    "池化",
+    "神经",
+    "积神",
+    "经网",
+    "网络"
+   ]
+  },
+  "sentence_text": "池化层在卷积神经网络中承担特征降维的作用。",
+  "verdict": "supported",
+  "verdict_note": "Chinese survey on pooling: pooling reduces feature-map dimension (abstract)",
+  "references": [
+   {
+    "record": "L3-1",
+    "number": 11,
+    "text": "袁铭阳 2020 卷积神经网络池化方法综述",
+    "doi": "10.12677/SEA.2020.95041"
+   }
+  ]
+ },
+ {
+  "id": "c8_0",
+  "unit": 8,
+  "sentence": "u8s0",
+  "role": "caption",
+  "old": "[1]",
+  "new": "[3]",
+  "records": [
+   "L1-4"
+  ],
+  "numbers": [
+   3
+  ],
+  "unresolved": [],
+  "support": {
+   "L1-4": 0.19
+  },
+  "matched_terms": {
+   "L1-4": [
+    "residual"
+   ]
+  },
+  "sentence_text": "图1 残差单元结构示意（引自文献）",
+  "verdict": "supported",
+  "verdict_note": "figure adapted from ResNet",
+  "references": [
+   {
+    "record": "L1-4",
+    "number": 3,
+    "text": "He 2016 Deep Residual Learning for Image Recognition",
+    "doi": "10.1109/CVPR.2016.90"
+   }
+  ]
+ },
+ {
+  "id": "c10_0",
+  "unit": 10,
+  "sentence": "u10s0",
+  "role": "body",
+  "old": "[11]",
+  "new": "[12]",
+  "records": [
+   "L2-2"
+  ],
+  "numbers": [
+   12
+  ],
+  "unresolved": [],
+  "support": {
+   "L2-2": 0.667
+  },
+  "matched_terms": {
+   "L2-2": [
+    "accurate",
+    "alphafold",
+    "protein",
+    "structure"
+   ]
+  },
+  "sentence_text": "AlphaFold 能够以接近实验精度预测蛋白质三维结构。",
+  "verdict": "supported",
+  "verdict_note": "AlphaFold Nature 2021",
+  "references": [
+   {
+    "record": "L2-2",
+    "number": 12,
+    "text": "Jumper 2021 Highly accurate protein structure prediction with AlphaFold",
+    "doi": "10.1038/s41586-021-03819-2"
+   }
+  ]
+ },
+ {
+  "id": "c10_1",
+  "unit": 10,
+  "sentence": "u10s1",
+  "role": "body",
+  "old": "[14]",
+  "new": "",
+  "records": [],
+  "numbers": [],
+  "unresolved": [],
+  "support": {},
+  "matched_terms": {},
+  "sentence_text": "另有研究报道残差注意力网络在多个尺度上存在普适的缩放规律。",
+  "verdict": "unverifiable",
+  "verdict_note": "DOI 10.1038/s41586-019-9999-9 does not resolve and no matching work found in Crossref: citation removed, sentence needs a real source or deletion (human)",
+  "references": []
+ }
+]

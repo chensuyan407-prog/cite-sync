@@ -1,0 +1,85 @@
+TY  - CPAPER
+AU  - He, Kaiming
+AU  - Zhang, Xiangyu
+AU  - Ren, Shaoqing
+AU  - Sun, Jian
+TI  - Deep Residual Learning for Image Recognition
+T2  - 2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)
+PY  - 2016
+DO  - 10.1109/CVPR.2016.90
+SP  - 770
+EP  - 778
+ER  - 
+
+TY  - CPAPER
+AU  - He, K.
+AU  - Zhang, X.
+AU  - Ren, S.
+AU  - Sun, J.
+TI  - Identity mappings in deep residual networks
+T2  - European Conference on Computer Vision
+PY  - 2016
+PB  - Springer
+DO  - 10.1007/978-3-319-46493-0_38
+SP  - 630
+EP  - 645
+ER  - 
+
+TY  - UNPB
+AU  - Ioffe, S.
+AU  - Szegedy, C.
+TI  - Batch normalization: Accelerating deep network training by reducing internal covariate shift
+T2  - arXiv preprint arXiv:1502.03167
+PY  - 2015
+N1  - arXiv:1502.03167
+ER  - 
+
+TY  - UNPB
+AU  - Kaplan, J.
+AU  - McCandlish, S.
+AU  - Henighan, T.
+AU  - Brown, T. B.
+AU  - Chess, B.
+AU  - Child, R.
+AU  - Gray, S.
+AU  - Radford, A.
+AU  - Wu, J.
+AU  - Amodei, D.
+TI  - Scaling laws for neural language models
+T2  - arXiv preprint arXiv:2001.08361
+PY  - 2020
+N1  - arXiv:2001.08361
+ER  - 
+
+TY  - JOUR
+AU  - LeCun, Yann
+AU  - Bengio, Yoshua
+AU  - Hinton, Geoffrey
+TI  - Deep learning
+T2  - Nature
+PY  - 2015
+VL  - 521
+IS  - 7553
+PB  - Nature Publishing Group
+DO  - 10.1038/nature14539
+SP  - 436
+EP  - 444
+ER  - 
+
+TY  - JOUR
+AU  - Vaswani, A.
+AU  - Shazeer, N.
+AU  - Parmar, N.
+AU  - Uszkoreit, J.
+AU  - Jones, L.
+AU  - Gomez, A. N.
+AU  - Kaiser, L.
+AU  - Polosukhin, I.
+TI  - Attention is all you need
+T2  - Advances in Neural Information Processing Systems
+PY  - 2017
+VL  - 30
+SP  - 5998
+EP  - 6008
+N1  - arXiv:1706.03762
+ER  - 

@@ -1,0 +1,261 @@
+{
+ "cases": {
+  "en_apa": {
+   "holdout": false,
+   "status": "partial",
+   "status_reason": [
+    "6 citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict)"
+   ],
+   "seconds": 0.16,
+   "checks": 8,
+   "passed": 8,
+   "b0_passed": 1,
+   "b1_passed": 0,
+   "failed": [],
+   "summary": {
+    "records_in": 12,
+    "records_after_dedup": 7,
+    "merged_clusters": 4,
+    "occurrences": 6,
+    "occurrences_out": 6,
+    "references_out": 6,
+    "orphans": 0,
+    "uncited_removed": 0,
+    "auto_moves": 0,
+    "placement_suggestions": 0,
+    "verified": 6,
+    "verification_status_counts": {
+     "verified": 4,
+     "verified_with_corrections": 1,
+     "verified_via_arxiv": 1
+    },
+    "review_items": 2,
+    "review_by_type": {
+     "claim_without_citation": 1,
+     "weak_lexical_support": 1
+    },
+    "parse_problems": 0,
+    "seconds": 0.03
+   }
+  },
+  "holdout_gnn": {
+   "holdout": true,
+   "status": "partial",
+   "status_reason": [
+    "1 blocking item(s) need human confirmation",
+    "9 citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict)"
+   ],
+   "seconds": 0.16,
+   "checks": 16,
+   "passed": 16,
+   "b0_passed": 7,
+   "b1_passed": 9,
+   "failed": [],
+   "summary": {
+    "records_in": 11,
+    "records_after_dedup": 7,
+    "merged_clusters": 4,
+    "occurrences": 9,
+    "occurrences_out": 9,
+    "references_out": 7,
+    "orphans": 1,
+    "uncited_removed": 1,
+    "auto_moves": 1,
+    "placement_suggestions": 0,
+    "verified": 2,
+    "verification_status_counts": {
+     "unverified_no_registry_match": 4,
+     "verified_via_arxiv": 1,
+     "verified": 1
+    },
+    "review_items": 9,
+    "review_by_type": {
+     "orphan_citation": 1,
+     "source_unconfirmed": 4,
+     "uncited_entry_removed": 1,
+     "weak_lexical_support": 3
+    },
+    "parse_problems": 0,
+    "seconds": 0.03
+   }
+  },
+  "zh_docx": {
+   "holdout": false,
+   "status": "partial",
+   "status_reason": [
+    "1 citation(s) removed by edit; the sentence(s) need a real source or rewording (human)"
+   ],
+   "seconds": 0.29,
+   "checks": 26,
+   "passed": 26,
+   "b0_passed": 4,
+   "b1_passed": 5,
+   "failed": [],
+   "summary": {
+    "records_in": 23,
+    "records_after_dedup": 15,
+    "merged_clusters": 7,
+    "occurrences": 11,
+    "occurrences_out": 14,
+    "references_out": 12,
+    "orphans": 0,
+    "uncited_removed": 2,
+    "auto_moves": 2,
+    "placement_suggestions": 0,
+    "verified": 11,
+    "verification_status_counts": {
+     "verified": 5,
+     "verified_with_corrections": 4,
+     "verified_via_arxiv": 2,
+     "doi_not_found": 1
+    },
+    "review_items": 5,
+    "review_by_type": {
+     "source_doi_not_found": 1,
+     "uncited_entry_removed": 2,
+     "claim_without_citation": 1,
+     "caption_citation": 1
+    },
+    "parse_problems": 0,
+    "seconds": 0.14
+   }
+  },
+  "zh_review": {
+   "holdout": false,
+   "status": "partial",
+   "status_reason": [
+    "1 citation(s) removed by edit; the sentence(s) need a real source or rewording (human)"
+   ],
+   "seconds": 0.2,
+   "checks": 26,
+   "passed": 26,
+   "b0_passed": 3,
+   "b1_passed": 4,
+   "failed": [],
+   "summary": {
+    "records_in": 23,
+    "records_after_dedup": 15,
+    "merged_clusters": 7,
+    "occurrences": 11,
+    "occurrences_out": 14,
+    "references_out": 12,
+    "orphans": 0,
+    "uncited_removed": 2,
+    "auto_moves": 2,
+    "placement_suggestions": 0,
+    "verified": 11,
+    "verification_status_counts": {
+     "verified": 5,
+     "verified_with_corrections": 4,
+     "verified_via_arxiv": 2,
+     "doi_not_found": 1
+    },
+    "review_items": 5,
+    "review_by_type": {
+     "source_doi_not_found": 1,
+     "uncited_entry_removed": 2,
+     "claim_without_citation": 1,
+     "caption_citation": 1
+    },
+    "parse_problems": 0,
+    "seconds": 0.06
+   }
+  }
+ },
+ "offline": false,
+ "dev": {
+  "checks": 60,
+  "skill": 1.0,
+  "b0_untouched": 0.133,
+  "b1_regex_renumber": 0.15
+ },
+ "holdout": {
+  "checks": 14,
+  "skill": 1.0,
+  "b0_untouched": 0.357,
+  "b1_regex_renumber": 0.5
+ },
+ "holdout_post_freeze_checks": {
+  "checks": 2,
+  "skill_now": 1.0,
+  "note": "added after reading the held-out output; failed at freeze (Adam glued onto Dropout marker), fixed afterwards"
+ },
+ "wall_seconds": 2.4,
+ "robustness": {
+  "missing_case_json": {
+   "status": "failed",
+   "reason": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\missing_case\\nope.json not found",
+   "ok": true
+  },
+  "unsupported_doc": {
+   "exit": 2,
+   "status": "failed",
+   "reason": [
+    "manuscript not usable: unsupported manuscript format '.doc': use .md/.txt/.tex/.docx (convert .doc/.pdf/.odt first)"
+   ],
+   "ok": true
+  },
+  "corrupt_library": {
+   "exit": 0,
+   "status": "partial",
+   "problems": [
+    "unbalanced braces (entry truncated?)",
+    "RIS record without ER (file truncated?) - kept"
+   ],
+   "consistency_ok": true,
+   "ok": true
+  },
+  "no_network": {
+   "exit": 0,
+   "statuses": [
+    "unverified_offline"
+   ],
+   "offline_reason": "network unavailable (URLError(ConnectionRefusedError(10061, '無法連線，因為目標電腦拒絕連線。', None, 10061, None)))",
+   "seconds": 4.3,
+   "ok": true
+  },
+  "no_records": {
+   "exit": 2,
+   "status": "failed",
+   "reason": [
+    "no reference records found (no reference list in the manuscript and no readable library)"
+   ],
+   "ok": true
+  },
+  "label_conflict": {
+   "problems": [
+    "reference list label [2] used twice"
+   ],
+   "review": [
+    "orphan_citation",
+    "weak_lexical_support"
+   ],
+   "consistency_ok": true,
+   "refs": [
+    "[1] LeCun Y, Bengio Y, Hinton G. Deep learning[J]. Nature, 2015, 521(7553): 436-444.",
+    "[2] Hochreiter S, Schmidhuber J. Long short-term memory[J]. Neural Computation, 1997, 9(8): 1735-1780.",
+    "[3] 【缺失文献：原稿引用 7 在参考文献表中找不到，需人工补充】"
+   ],
+   "ok": true
+  },
+  "latex_keys": {
+   "collapsed": true,
+   "orphan_key_reported": true,
+   "ok": true
+  },
+  "determinism": {
+   "hashes": [
+    [
+     "aea4e8feb70d97a1073b95e5694e2546ced3b599725496a87abf54092ceb62fc",
+     "ecf37a1872d0492fe116b3966a882f3af7fd0feefaa61ed0152f9fc1ff93420d"
+    ],
+    [
+     "aea4e8feb70d97a1073b95e5694e2546ced3b599725496a87abf54092ceb62fc",
+     "ecf37a1872d0492fe116b3966a882f3af7fd0feefaa61ed0152f9fc1ff93420d"
+    ]
+   ],
+   "ok": true
+  }
+ },
+ "robustness_passed": "8/8"
+}

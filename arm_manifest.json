@@ -1,0 +1,269 @@
+{
+ "arm_version": "1.1",
+ "paper": {
+  "title": "写作04｜参考文献与引用管理 — cite-sync Skill",
+  "challenge_id": "product-arena-03-429cc14d"
+ },
+ "entrypoint": "src/reproduce.py",
+ "environment": {
+  "dependencies": "requirements.txt",
+  "python_version": ">=3.9",
+  "gpu_required": false,
+  "extra_packages": [
+   "python-docx>=0.8 (only for .docx manuscripts)",
+   "PyMuPDF (optional, docx preview PNG)",
+   "LibreOffice soffice (optional, docx -> PDF preview)"
+  ]
+ },
+ "execution": {
+  "log_path": "execution/run.log",
+  "exit_code": 0,
+  "ran_at": "2026-11-23T01:06:39.835055Z",
+  "wall_time_s": 8.17,
+  "ran_by": "agent",
+  "artifacts": [
+   {
+    "id": "metrics",
+    "path": "execution/results/metrics.json",
+    "type": "metric",
+    "format": "json",
+    "checksum_sha256": "31dda3eec7f911d8626af301b6b98135d8abb089834d62995f1cd9330f1bce99"
+   },
+   {
+    "id": "eval_rows",
+    "path": "execution/results/eval_rows.json",
+    "type": "data",
+    "format": "json",
+    "checksum_sha256": "ed3c6ae193786b27e037082fc2956a2e35d1d3631e39faef11ec94c545e2855b"
+   },
+   {
+    "id": "en_apa_citation_map",
+    "path": "execution/results/cases/en_apa/output/citation_map.json",
+    "type": "data",
+    "format": "json",
+    "checksum_sha256": "5a91373fbbadfae0eba95673203582a8b89b072d2369b9cffa78e0938c9576e5"
+   },
+   {
+    "id": "en_apa_manuscript",
+    "path": "execution/results/cases/en_apa/output/manuscript.diff",
+    "type": "data",
+    "format": "other",
+    "checksum_sha256": "5af578a77b80fbae379b8083a61336f11e979eec90c64709c567fbb22a1b98fb"
+   },
+   {
+    "id": "en_apa_manuscript_revised",
+    "path": "execution/results/cases/en_apa/output/manuscript_revised.md",
+    "type": "data",
+    "format": "other",
+    "checksum_sha256": "4d21ffbec5795c6be58f2a9e7cf4b6881e35c993a3a688974a4ac3108b07f310"
+   },
+   {
+    "id": "en_apa_merge_log",
+    "path": "execution/results/cases/en_apa/output/merge_log.json",
+    "type": "data",
+    "format": "json",
+    "checksum_sha256": "ce589ff5d2d7f28e300b0017a0a80cbf1e411ddb7a27110ab60057317a70d989"
+   },
+   {
+    "id": "en_apa_references_apa7",
+    "path": "execution/results/cases/en_apa/output/references_apa7.txt",
+    "type": "data",
+    "format": "txt",
+    "checksum_sha256": "36971c5a1780ff81dd606c29c6d5f0978932546faa14291eb43b2aff548c4936"
+   },
+   {
+    "id": "en_apa_result",
+    "path": "execution/results/cases/en_apa/output/result.json",
+    "type": "data",
+    "format": "json",
+    "checksum_sha256": "fc0ad6a144bdd07373cc58f75f5bea5d9b1e28fc9b1c6aa2e457d23d214e8bb5"
+   },
+   {
+    "id": "en_apa_review",
+    "path": "execution/results/cases/en_apa/output/review.md",
+    "type": "data",
+    "format": "other",
+    "checksum_sha256": "cec40d8c947a01cd12c8d0b71a2aae8fdcfdfc4ddf0ff3cd1119292a2fa8af3f"
+   },
+   {
+    "id": "holdout_gnn_citation_map",
+    "path": "execution/results/cases/holdout_gnn/output/citation_map.json",
+    "type": "data",
+    "format": "json",
+    "checksum_sha256": "58a29ea80cd44bacdd84f24703c314be2358e83a7d553ea5b0406339a0b38fd7"
+   },
+   {
+    "id": "holdout_gnn_manuscript",
+    "path": "execution/results/cases/holdout_gnn/output/manuscript.diff",
+    "type": "data",
+    "format": "other",
+    "checksum_sha256": "3614d41cfad046006571704e88214ee83334de81dc7a12b84752aae7009d3793"
+   },
+   {
+    "id": "holdout_gnn_manuscript_revised",
+    "path": "execution/results/cases/holdout_gnn/output/manuscript_revised.md",
+    "type": "data",
+    "format": "other",
+    "checksum_sha256": "959cec358bcd73963a7c84d1ecc63f1b980c1472247f9f3adc8bdd9ccf67d68c"
+   },
+   {
+    "id": "holdout_gnn_merge_log",
+    "path": "execution/results/cases/holdout_gnn/output/merge_log.json",
+    "type": "data",
+    "format": "json",
+    "checksum_sha256": "d3ed0bda2ac0d74b1960711b21380109fe3fb99f2b3bf8565e79329b5c2c673d"
+   },
+   {
+    "id": "holdout_gnn_references_gbt7714",
+    "path": "execution/results/cases/holdout_gnn/output/references_gbt7714.txt",
+    "type": "data",
+    "format": "txt",
+    "checksum_sha256": "94a556d8993e8466aa35c075a9ee7fe190c090ca36b8bc3e32c441d76a289ff2"
+   },
+   {
+    "id": "holdout_gnn_result",
+    "path": "execution/results/cases/holdout_gnn/output/result.json",
+    "type": "data",
+    "format": "json",
+    "checksum_sha256": "d027c37dbf25408d8e7a76db087893d99ecf31eb4474e1d878af8aed3f0e1e40"
+   },
+   {
+    "id": "holdout_gnn_review",
+    "path": "execution/results/cases/holdout_gnn/output/review.md",
+    "type": "data",
+    "format": "other",
+    "checksum_sha256": "af2c38a2a5a9323a86ca5026e99b51be990f9f82f7e8b5431406f857f48ccbb5"
+   },
+   {
+    "id": "zh_docx_citation_map",
+    "path": "execution/results/cases/zh_docx/output/citation_map.json",
+    "type": "data",
+    "format": "json",
+    "checksum_sha256": "2ddd0905b7aef21ddacd1ff5682045463b88b68992bc1ec1b1a62f55c6fedd50"
+   },
+   {
+    "id": "zh_docx_manuscript_revised",
+    "path": "execution/results/cases/zh_docx/output/manuscript_revised.docx",
+    "type": "data",
+    "format": "other",
+    "checksum_sha256": "404c280327699e378b513869f3769eb1c2a7652b873e30dd9eaa5cab1171b44e"
+   },
+   {
+    "id": "zh_docx_merge_log",
+    "path": "execution/results/cases/zh_docx/output/merge_log.json",
+    "type": "data",
+    "format": "json",
+    "checksum_sha256": "6ebeb11795b9a6462c417aa055735b18454e59a7ca10e37b549161e5fb975018"
+   },
+   {
+    "id": "zh_docx_references_gbt7714",
+    "path": "execution/results/cases/zh_docx/output/references_gbt7714.txt",
+    "type": "data",
+    "format": "txt",
+    "checksum_sha256": "44be9b4314905100d83ddfe5d370486b9f256e5d418824ebc1e54bba0befc862"
+   },
+   {
+    "id": "zh_docx_result",
+    "path": "execution/results/cases/zh_docx/output/result.json",
+    "type": "data",
+    "format": "json",
+    "checksum_sha256": "7eb4575523aa86a9589be8645b7848a6f0b4f62b44e2c013ac29a19cbb355d4c"
+   },
+   {
+    "id": "zh_docx_review",
+    "path": "execution/results/cases/zh_docx/output/review.md",
+    "type": "data",
+    "format": "other",
+    "checksum_sha256": "96d9e9c4edae50284d05b1c7cb80ebb1d163436483d754fa5bfacb4787e74361"
+   },
+   {
+    "id": "zh_review_citation_map",
+    "path": "execution/results/cases/zh_review/output/citation_map.json",
+    "type": "data",
+    "format": "json",
+    "checksum_sha256": "1603b6323b26eb300a9c04a3462f67490d21d2b804cee9be1ded1ccf944739a2"
+   },
+   {
+    "id": "zh_review_manuscript",
+    "path": "execution/results/cases/zh_review/output/manuscript.diff",
+    "type": "data",
+    "format": "other",
+    "checksum_sha256": "f72429b256885a7bacfd800135f5e695a51ee4d73e0993797cbd9ba4cbb7ffd2"
+   },
+   {
+    "id": "zh_review_manuscript_revised",
+    "path": "execution/results/cases/zh_review/output/manuscript_revised.md",
+    "type": "data",
+    "format": "other",
+    "checksum_sha256": "0399aacdce748e7ba0e3efd5a39d9e2a59c7be6e6198e3522b91ee37ddcdc61c"
+   },
+   {
+    "id": "zh_review_merge_log",
+    "path": "execution/results/cases/zh_review/output/merge_log.json",
+    "type": "data",
+    "format": "json",
+    "checksum_sha256": "6ebeb11795b9a6462c417aa055735b18454e59a7ca10e37b549161e5fb975018"
+   },
+   {
+    "id": "zh_review_references_gbt7714",
+    "path": "execution/results/cases/zh_review/output/references_gbt7714.txt",
+    "type": "data",
+    "format": "txt",
+    "checksum_sha256": "44be9b4314905100d83ddfe5d370486b9f256e5d418824ebc1e54bba0befc862"
+   },
+   {
+    "id": "zh_review_result",
+    "path": "execution/results/cases/zh_review/output/result.json",
+    "type": "data",
+    "format": "json",
+    "checksum_sha256": "98efd25a1b32fb0394c9b224865866ea072e377a6ffdd0855e430ff890b60ea3"
+   },
+   {
+    "id": "zh_review_review",
+    "path": "execution/results/cases/zh_review/output/review.md",
+    "type": "data",
+    "format": "other",
+    "checksum_sha256": "ca7d805152b71611b747e29bba190f328f7ba4e98a4ffe1c390a1c6fd9323f5a"
+   }
+  ]
+ },
+ "expected_outputs": [
+  {
+   "name": "planted defects fixed/detected (dev cases, rules tuned on them)",
+   "type": "metric",
+   "produced_by": [
+    "metrics"
+   ],
+   "comparison_method": "numeric_tolerance"
+  },
+  {
+   "name": "planted defects fixed/detected (held-out case, at code freeze)",
+   "type": "metric",
+   "produced_by": [
+    "metrics"
+   ],
+   "comparison_method": "numeric_tolerance"
+  },
+  {
+   "name": "robustness checks passed",
+   "type": "metric",
+   "produced_by": [
+    "metrics"
+   ],
+   "comparison_method": "numeric_tolerance"
+  },
+  {
+   "name": "post-write numbering/list consistency (all cases)",
+   "type": "metric",
+   "produced_by": [
+    "metrics"
+   ],
+   "comparison_method": "numeric_tolerance"
+  }
+ ],
+ "handoff": {
+  "status": "partial",
+  "next_suggestion": "Run on the platform's three fixed cases; extend the zh<->en term lexicon; add CNKI-specific field mapping for theses/standards.",
+  "hypothesis": "Keeping a record-level ledger (merge rule per pair, old->new number map, per-occurrence verdict) and re-parsing the written file catches the numbering, dedup and placement errors that free-hand LLM editing leaves behind."
+ }
+}

@@ -1,0 +1,9 @@
+{
+ "case_id": null,
+ "tool": "cite-sync 0.1.0",
+ "status": "failed",
+ "status_reason": [
+  "manuscript not usable: unsupported manuscript format '.doc': use .md/.txt/.tex/.docx (convert .doc/.pdf/.odt first)"
+ ],
+ "parse_problems": []
+}

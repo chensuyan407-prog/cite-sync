@@ -1,0 +1,12 @@
+# Why depth works: a short note
+
+Deep learning has transformed speech and visual recognition (LeCun et al., 2015). Residual networks made models with more than a hundred layers trainable (He et al., 2016a), and identity shortcuts further eased optimization (He et al., 2016b). Vaswani et al. (2017) replaced recurrence with attention in the Transformer. Batch normalization accelerates training by reducing internal covariate shift (Ioffe & Szegedy, 2015). Language-model loss falls as a power law in model size, data and compute (Kaplan et al., 2020). Prior work has shown that dropout prevents overfitting.
+
+## References
+
+He, K., Zhang, X., Ren, S., & Sun, J. (2016a). Deep Residual Learning for Image Recognition. In 2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR) (pp. 770–778). https://doi.org/10.1109/CVPR.2016.90
+He, K., Zhang, X., Ren, S., & Sun, J. (2016b). Identity mappings in deep residual networks. In European Conference on Computer Vision (pp. 630–645). Springer. https://doi.org/10.1007/978-3-319-46493-0_38
+Ioffe, S., & Szegedy, C. (2015). Batch normalization: Accelerating deep network training by reducing internal covariate shift (arXiv:1502.03167). arXiv. https://doi.org/10.48550/arXiv.1502.03167
+Kaplan, J., McCandlish, S., Henighan, T., Brown, T. B., Chess, B., Child, R., Gray, S., Radford, A., Wu, J., & Amodei, D. (2020). Scaling laws for neural language models (arXiv:2001.08361). arXiv. https://doi.org/10.48550/arXiv.2001.08361
+LeCun, Y., Bengio, Y., & Hinton, G. (2015). Deep learning. Nature, 521(7553), 436–444. https://doi.org/10.1038/nature14539
+Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, L., & Polosukhin, I. (2017). Attention is all you need. Advances in Neural Information Processing Systems, 30, 5998–6008.

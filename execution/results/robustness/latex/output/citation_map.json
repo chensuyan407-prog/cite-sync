@@ -1,0 +1,129 @@
+[
+ {
+  "id": "c2_0",
+  "unit": 2,
+  "sentence": "u2s0",
+  "role": "body",
+  "old": "\\cite{vaswani2017attention,vaswani2017arxiv}",
+  "new": "\\cite{vaswani2017attention}",
+  "records": [
+   "L1-1"
+  ],
+  "numbers": null,
+  "unresolved": [],
+  "support": {
+   "L1-1": 0.0
+  },
+  "matched_terms": {
+   "L1-1": []
+  },
+  "sentence_text": "Attention-only models were introduced in .",
+  "verdict": null,
+  "verdict_note": null,
+  "references": [
+   {
+    "record": "L1-1",
+    "number": null,
+    "text": "Vaswani 2017 Attention is all you need",
+    "doi": ""
+   }
+  ]
+ },
+ {
+  "id": "c3_0",
+  "unit": 3,
+  "sentence": "u3s0",
+  "role": "body",
+  "old": "\\citep{he2016deep}",
+  "new": "\\citep{he2016deep}",
+  "records": [
+   "L1-4"
+  ],
+  "numbers": null,
+  "unresolved": [],
+  "support": {
+   "L1-4": 0.38
+  },
+  "matched_terms": {
+   "L1-4": [
+    "deep",
+    "residual"
+   ]
+  },
+  "sentence_text": "Very deep residual networks and the deep-learning review are standard references.",
+  "verdict": null,
+  "verdict_note": null,
+  "references": [
+   {
+    "record": "L1-4",
+    "number": null,
+    "text": "He 2016 Deep Residual Learning for Image Recognition",
+    "doi": "10.1109/CVPR.2016.90"
+   }
+  ]
+ },
+ {
+  "id": "c3_1",
+  "unit": 3,
+  "sentence": "u3s0",
+  "role": "body",
+  "old": "\\cite{lecun2015deep}",
+  "new": "\\cite{lecun2015deep}",
+  "records": [
+   "L1-5"
+  ],
+  "numbers": null,
+  "unresolved": [],
+  "support": {
+   "L1-5": 0.4
+  },
+  "matched_terms": {
+   "L1-5": [
+    "deep"
+   ]
+  },
+  "sentence_text": "Very deep residual networks and the deep-learning review are standard references.",
+  "verdict": null,
+  "verdict_note": null,
+  "references": [
+   {
+    "record": "L1-5",
+    "number": null,
+    "text": "LeCun 2015 Deep learning",
+    "doi": "10.1038/nature14539"
+   }
+  ]
+ },
+ {
+  "id": "c4_0",
+  "unit": 4,
+  "sentence": "u4s0",
+  "role": "body",
+  "old": "\\cite{nokey2020}",
+  "new": "\\cite{nokey2020}",
+  "records": [
+   "MISSING-nokey2020"
+  ],
+  "numbers": null,
+  "unresolved": [
+   "nokey2020"
+  ],
+  "support": {
+   "MISSING-nokey2020": 0.0
+  },
+  "matched_terms": {
+   "MISSING-nokey2020": []
+  },
+  "sentence_text": "A missing key should be reported.",
+  "verdict": null,
+  "verdict_note": null,
+  "references": [
+   {
+    "record": "MISSING-nokey2020",
+    "number": null,
+    "text": "? ? 【缺失文献：原稿引用 nokey2020 在参考文献表中找不到，需人工补充】",
+    "doi": null
+   }
+  ]
+ }
+]

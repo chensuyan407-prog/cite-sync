@@ -1,0 +1,2 @@
+{"case_id": "dev-zh-review", "manuscript": "manuscript.md", "libraries": ["library.bib", "zotero.ris", "cnki.enw"], "target_style": "GB/T 7714-2015 顺序编码制",
+ "output_contract": {"revised_manuscript": "path", "references": "list", "citation_map": "path", "merge_log": "path", "verification": "path", "changes": "list", "needs_review": "list"}}

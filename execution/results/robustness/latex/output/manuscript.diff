@@ -1,0 +1,5 @@
+--- original
++++ revised
+@@ -3 +3 @@
+-Attention-only models were introduced in \cite{vaswani2017attention,vaswani2017arxiv}.
++Attention-only models were introduced in \cite{vaswani2017attention}.

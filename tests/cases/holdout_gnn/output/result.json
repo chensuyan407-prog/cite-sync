@@ -1,0 +1,277 @@
+{
+ "case_id": "holdout-gnn",
+ "tool": "cite-sync 0.1.0",
+ "revised_manuscript": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\holdout_gnn\\output\\manuscript_revised.md",
+ "references": [
+  "[1] Kipf T N, Welling M. Semi-supervised classification with graph convolutional networks[C]//International Conference on Learning Representations, 2017.",
+  "[2] Veličković P, Cucurull G, Casanova A, et al. Graph Attention Networks[C]//International Conference on Learning Representations, 2018.",
+  "[3] Brown T, Mann B, Ryder N, et al. Language models are few-shot learners[C]//Advances in Neural Information Processing Systems, 2020: 1877-1901.",
+  "[4] Devlin J, Chang M W, Lee K, et al. BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding[C]//Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers). Minneapolis, Minnesota: Association for Computational Linguistics, 2019: 4171-4186. DOI:10.18653/v1/N19-1423.",
+  "[5] Kingma D P, Ba J. Adam: A method for stochastic optimization[C]//International Conference on Learning Representations, 2015.",
+  "[6] Srivastava N, Hinton G, Krizhevsky A, et al. Dropout: a simple way to prevent neural networks from overfitting[J]. Journal of Machine Learning Research, 2014, 15(1): 1929-1958.",
+  "[7] 【缺失文献：原稿引用 9 在参考文献表中找不到，需人工补充】"
+ ],
+ "needs_review": [
+  {
+   "type": "orphan_citation",
+   "marker": "9",
+   "occurrences": [
+    "c12_0"
+   ],
+   "msg": "in-text citation has no reference entry"
+  },
+  {
+   "type": "source_unconfirmed",
+   "record": "L2-1",
+   "msg": "no Crossref/arXiv record with matching title+authors+year; common for proceedings without DOI, books, Chinese journals - check by hand",
+   "details": {
+    "doi": "10.2139/ssrn.7014938",
+    "title": "Provable Sparsity in Graph Attention Networks",
+    "year": "2026",
+    "similarity": 0.71,
+    "author_overlap": 0.0,
+    "accepted": false
+   }
+  },
+  {
+   "type": "source_unconfirmed",
+   "record": "M2",
+   "msg": "no Crossref/arXiv record with matching title+authors+year; common for proceedings without DOI, books, Chinese journals - check by hand",
+   "details": {
+    "doi": "10.65525/svup.9788199778009.2026.224-230",
+    "title": "Language Models are Few-Shot Learners",
+    "year": "2026",
+    "similarity": 1.0,
+    "author_overlap": 0.0,
+    "accepted": false
+   }
+  },
+  {
+   "type": "source_unconfirmed",
+   "record": "M5",
+   "msg": "no Crossref/arXiv record with matching title+authors+year; common for proceedings without DOI, books, Chinese journals - check by hand",
+   "details": {
+    "doi": "10.32614/cran.package.madgrad",
+    "title": "madgrad: 'MADGRAD' Method for Stochastic Optimization",
+    "year": "2021",
+    "similarity": 0.815,
+    "author_overlap": 0.0,
+    "accepted": false
+   }
+  },
+  {
+   "type": "source_unconfirmed",
+   "record": "M6",
+   "msg": "no Crossref/arXiv record with matching title+authors+year; common for proceedings without DOI, books, Chinese journals - check by hand",
+   "details": {
+    "doi": "10.9734/ajrcos/2025/v18i2569",
+    "title": "Dropout: An Effective Approach to Prevent Neural Networks from Overfitting",
+    "year": "2025",
+    "similarity": 0.807,
+    "author_overlap": 0.0,
+    "accepted": false
+   }
+  },
+  {
+   "type": "uncited_entry_removed",
+   "record": "M8",
+   "msg": "reference-list entry never cited in the text; removed from the list: Hamilton 2017 Inductive representation learning on large graphs"
+  },
+  {
+   "type": "weak_lexical_support",
+   "occurrence": "c8_2",
+   "record": "M7",
+   "score": 0.0,
+   "msg": "sentence shares almost no terms with the cited work: check claim-source match"
+  },
+  {
+   "type": "weak_lexical_support",
+   "occurrence": "c8_2",
+   "record": "L1-1",
+   "score": 0.0,
+   "msg": "sentence shares almost no terms with the cited work: check claim-source match"
+  },
+  {
+   "type": "weak_lexical_support",
+   "occurrence": "c10_0",
+   "record": "M7",
+   "score": 0.0,
+   "msg": "sentence shares almost no terms with the cited work: check claim-source match"
+  }
+ ],
+ "_contract_fields": [
+  "revised_manuscript",
+  "references",
+  "needs_review"
+ ],
+ "inputs": {
+  "case": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\holdout_gnn\\input\\case.json",
+  "task": null,
+  "manuscripts": [
+   {
+    "path": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\holdout_gnn\\input\\manuscript.md",
+    "sha256": "cb1cf7fe6457856d74fc0e9ec796e6afb697e3dbd105a3db103399637f973248",
+    "bytes": 1883
+   }
+  ],
+  "libraries": [
+   {
+    "path": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\holdout_gnn\\input\\noteexpress.net",
+    "sha256": "e4ff6e4adf7f4c79025b5a58710fb2cf0430aac074eefe6cd2b7a346d655623e",
+    "bytes": 319
+   },
+   {
+    "path": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\holdout_gnn\\input\\zotero_export.json",
+    "sha256": "ec2f497e6928b3420b1831fccd53a6e48e6caae4e8abd802c1776382a0f280f5",
+    "bytes": 1113
+   }
+  ],
+  "pdfs": []
+ },
+ "status": "partial",
+ "status_reason": [
+  "1 blocking item(s) need human confirmation",
+  "9 citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict)"
+ ],
+ "style": "gbt7714",
+ "marker_style": "pandoc-sup",
+ "artifacts": {
+  "revised_manuscript": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\holdout_gnn\\output\\manuscript_revised.md",
+  "references": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\holdout_gnn\\output\\references_gbt7714.txt",
+  "bibtex": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\holdout_gnn\\output\\references.bib",
+  "ris": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\holdout_gnn\\output\\references.ris",
+  "csl_json": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\holdout_gnn\\output\\references.csl.json",
+  "citation_map": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\holdout_gnn\\output\\citation_map.json",
+  "merge_log": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\holdout_gnn\\output\\merge_log.json",
+  "verification": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\holdout_gnn\\output\\verification.json",
+  "renumber_map": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\holdout_gnn\\output\\renumber_map.json",
+  "library_dedup": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\holdout_gnn\\output\\library_dedup.json",
+  "diff": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\holdout_gnn\\output\\manuscript.diff",
+  "review": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\holdout_gnn\\output\\review.md"
+ },
+ "summary": {
+  "records_in": 11,
+  "records_after_dedup": 7,
+  "merged_clusters": 4,
+  "occurrences": 9,
+  "occurrences_out": 9,
+  "references_out": 7,
+  "orphans": 1,
+  "uncited_removed": 1,
+  "auto_moves": 1,
+  "placement_suggestions": 0,
+  "verified": 2,
+  "verification_status_counts": {
+   "unverified_no_registry_match": 4,
+   "verified_via_arxiv": 1,
+   "verified": 1
+  },
+  "review_items": 9,
+  "review_by_type": {
+   "orphan_citation": 1,
+   "source_unconfirmed": 4,
+   "uncited_entry_removed": 1,
+   "weak_lexical_support": 3
+  },
+  "parse_problems": 0,
+  "seconds": 0.03
+ },
+ "consistency_check": {
+  "ok": true,
+  "errors": [],
+  "warnings": [],
+  "max_number": 7,
+  "list_entries": 7,
+  "markers": 9,
+  "marker_styles": {
+   "pandoc-sup": 9
+  }
+ },
+ "references_list": [
+  "[1] Kipf T N, Welling M. Semi-supervised classification with graph convolutional networks[C]//International Conference on Learning Representations, 2017.",
+  "[2] Veličković P, Cucurull G, Casanova A, et al. Graph Attention Networks[C]//International Conference on Learning Representations, 2018.",
+  "[3] Brown T, Mann B, Ryder N, et al. Language models are few-shot learners[C]//Advances in Neural Information Processing Systems, 2020: 1877-1901.",
+  "[4] Devlin J, Chang M W, Lee K, et al. BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding[C]//Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers). Minneapolis, Minnesota: Association for Computational Linguistics, 2019: 4171-4186. DOI:10.18653/v1/N19-1423.",
+  "[5] Kingma D P, Ba J. Adam: A method for stochastic optimization[C]//International Conference on Learning Representations, 2015.",
+  "[6] Srivastava N, Hinton G, Krizhevsky A, et al. Dropout: a simple way to prevent neural networks from overfitting[J]. Journal of Machine Learning Research, 2014, 15(1): 1929-1958.",
+  "[7] 【缺失文献：原稿引用 9 在参考文献表中找不到，需人工补充】"
+ ],
+ "changes": [
+  {
+   "kind": "merge",
+   "kept": "L2-1",
+   "members": [
+    "M1",
+    "L2-1"
+   ],
+   "rules": [
+    "D4"
+   ],
+   "needs_review": false
+  },
+  {
+   "kind": "merge",
+   "kept": "M7",
+   "members": [
+    "M3",
+    "M7"
+   ],
+   "rules": [
+    "D4"
+   ],
+   "needs_review": false
+  },
+  {
+   "kind": "merge",
+   "kept": "L1-1",
+   "members": [
+    "M4",
+    "L1-1"
+   ],
+   "rules": [
+    "D4"
+   ],
+   "needs_review": false
+  },
+  {
+   "kind": "merge",
+   "kept": "M8",
+   "members": [
+    "M8",
+    "L1-2"
+   ],
+   "rules": [
+    "D4"
+   ],
+   "needs_review": false
+  },
+  {
+   "kind": "citation_moved",
+   "occurrence": "c8_2",
+   "record": "M5",
+   "from_sentence": "u8s1",
+   "to_sentence": "u8s0",
+   "reason": "lexical support 0.0 at paragraph end vs 0.675 at target sentence",
+   "needs_review": true
+  },
+  {
+   "kind": "move_target_already_cites",
+   "sentence": "u8s0",
+   "records": [
+    "M5"
+   ],
+   "reason": "target sentence already cites this work; not cited a second time"
+  },
+  {
+   "kind": "entry_removed_uncited",
+   "record": "M8",
+   "members": [
+    "M8",
+    "L1-2"
+   ]
+  }
+ ],
+ "parse_problems": [],
+ "edits_applied": null,
+ "uncertainty": "Claim-source verdicts come from the agent reading sentence + reference metadata (and PDFs when given); lexical support scores are hints only. Online metadata from Crossref/arXiv may itself be incomplete (e.g. shortened author lists)."
+}

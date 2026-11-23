@@ -1,0 +1,45 @@
+{
+ "_help": "verdict: supported | partial | mismatch | unverifiable. action: keep | remove | replace (refs) | drop_refs (refs). move_to: sentence id (optionally move_refs). add_citations: [{sentence, refs, note}]. record_overrides: {record_id: {field: value, _source: '...'}}. force_merge / forbid_merge: [[id, id]]. Re-run `cite.py run ... --edits <this file>`.",
+ "occurrences": {
+  "c2_0": {
+   "sentence": "Attention-only models were introduced in .",
+   "refs": [
+    "L1-1"
+   ],
+   "verdict": null,
+   "note": "",
+   "action": "keep"
+  },
+  "c3_0": {
+   "sentence": "Very deep residual networks and the deep-learning review are standard references.",
+   "refs": [
+    "L1-4"
+   ],
+   "verdict": null,
+   "note": "",
+   "action": "keep"
+  },
+  "c3_1": {
+   "sentence": "Very deep residual networks and the deep-learning review are standard references.",
+   "refs": [
+    "L1-5"
+   ],
+   "verdict": null,
+   "note": "",
+   "action": "keep"
+  },
+  "c4_0": {
+   "sentence": "A missing key should be reported.",
+   "refs": [
+    "MISSING-nokey2020"
+   ],
+   "verdict": null,
+   "note": "",
+   "action": "keep"
+  }
+ },
+ "add_citations": [],
+ "record_overrides": {},
+ "force_merge": [],
+ "forbid_merge": []
+}

@@ -1,0 +1,37 @@
+{
+ "rules": "Explainable de-duplication.\n\nPairwise rules, checked in order; the first rule that fires decides the pair:\n\n  G1  same DOI but titles disagree (sim < 0.6, no alt-title match)  -> NOT merged, conflict flagged (wrong DOI?)\n  D1  same DOI                                                       -> merge\n  D2  same arXiv id (version ignored)                                -> merge\n  D3  title of one == title/alt-title of the other (bilingual pair)  -> merge if year/author do not contradict\n  G2  different non-arXiv DOIs, same title                           -> NOT merged: two published versions\n                                                                         (e.g. conference vs journal), flagged\n  D4  same normalised title, first-author surname equal or unknown,\n      |year diff| <= 2 (preprint <-> published allowed)              -> merge\n  D5  title similarity >= 0.93, author overlap >= 0.5, |dy| <= 2      -> merge, needs_review\n  G4  same title, years more than 2 apart                            -> NOT merged (reprint / new version), logged\n  G3  same author set and year but titles differ                     -> NOT merged (different works), logged\n                                                                         when similarity >= 0.5 (near-miss)\n  H1/H2 explicit force_merge / forbid_merge edits                    -> applied as given, logged\n\nClusters are the connected components of merged pairs. The canonical record of a cluster prefers a published\nversion over a preprint, then the record with more filled fields; missing fields are filled from the other\nmembers and each filled field records where it came from.\n",
+ "pairs": [
+  {
+   "a": "M2",
+   "b": "M2_3",
+   "rule": "D4",
+   "merged": true,
+   "reason": "same normalised title, same first author",
+   "needs_review": false
+  }
+ ],
+ "clusters": [
+  {
+   "kept": "M1",
+   "members": [
+    "M1"
+   ],
+   "field_provenance": null
+  },
+  {
+   "kept": "M2",
+   "members": [
+    "M2",
+    "M2_3"
+   ],
+   "field_provenance": null
+  },
+  {
+   "kept": "MISSING-7",
+   "members": [
+    "MISSING-7"
+   ],
+   "field_provenance": null
+  }
+ ]
+}

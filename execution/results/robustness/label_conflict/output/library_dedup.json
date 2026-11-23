@@ -1,0 +1,100 @@
+[
+ {
+  "type": "article-journal",
+  "title": "Long short-term memory",
+  "authors": [
+   {
+    "family": "Hochreiter",
+    "given": "S"
+   },
+   {
+    "family": "Schmidhuber",
+    "given": "J"
+   }
+  ],
+  "year": "1997",
+  "container": "Neural Computation",
+  "volume": "9",
+  "issue": "8",
+  "pages": "1735-1780",
+  "lang": "en",
+  "label": 1,
+  "id": "M1",
+  "origin": "manuscript_list",
+  "doi": "",
+  "merged_from": [
+   "M1"
+  ],
+  "merge_needs_review": false,
+  "cid": "M1",
+  "number": 2,
+  "sources": [
+   {
+    "file": "m.md",
+    "index": 1,
+    "format": "reftext",
+    "raw": "Hochreiter S, Schmidhuber J. Long short-term memory[J]. Neural Computation, 1997, 9(8): 1735-1780."
+   }
+  ]
+ },
+ {
+  "type": "article-journal",
+  "title": "Deep learning",
+  "authors": [
+   {
+    "family": "LeCun",
+    "given": "Y"
+   },
+   {
+    "family": "Bengio",
+    "given": "Y"
+   },
+   {
+    "family": "Hinton",
+    "given": "G"
+   }
+  ],
+  "year": "2015",
+  "container": "Nature",
+  "volume": "521",
+  "issue": "7553",
+  "pages": "436-444",
+  "lang": "en",
+  "label": 2,
+  "id": "M2",
+  "origin": "manuscript_list",
+  "doi": "",
+  "merged_from": [
+   "M2",
+   "M2_3"
+  ],
+  "merge_needs_review": false,
+  "cid": "M2",
+  "number": 1,
+  "sources": [
+   {
+    "file": "m.md",
+    "index": 2,
+    "format": "reftext",
+    "raw": "LeCun Y, Bengio Y, Hinton G. Deep learning[J]. Nature, 2015, 521(7553): 436-444."
+   },
+   {
+    "file": "m.md",
+    "index": 3,
+    "format": "reftext",
+    "raw": "LeCun Y, Bengio Y, Hinton G. Deep learning[J]. Nature, 2015, 521(7553): 436-444."
+   }
+  ]
+ },
+ {
+  "id": "MISSING-7",
+  "type": "misc",
+  "title": "【缺失文献：原稿引用 7 在参考文献表中找不到，需人工补充】",
+  "placeholder": true,
+  "merged_from": [
+   "MISSING-7"
+  ],
+  "number": 3,
+  "sources": []
+ }
+]

@@ -1,0 +1,323 @@
+[
+ {
+  "id": "c4_0",
+  "unit": 4,
+  "sentence": "u4s0",
+  "role": "body",
+  "old": "^[3]^",
+  "new": "^[1]^",
+  "records": [
+   "M7"
+  ],
+  "numbers": [
+   1
+  ],
+  "unresolved": [],
+  "support": {
+   "M7": 0.19
+  },
+  "matched_terms": {
+   "M7": [
+    "convolutional"
+   ]
+  },
+  "sentence_text": "图卷积网络将卷积运算推广到图结构数据。",
+  "verdict": null,
+  "verdict_note": null,
+  "references": [
+   {
+    "record": "M7",
+    "number": 1,
+    "text": "Kipf 2017 Semi-supervised classification with graph convolutional netw",
+    "doi": ""
+   }
+  ]
+ },
+ {
+  "id": "c4_1",
+  "unit": 4,
+  "sentence": "u4s1",
+  "role": "body",
+  "old": "^[1]^",
+  "new": "^[2]^",
+  "records": [
+   "L2-1"
+  ],
+  "numbers": [
+   2
+  ],
+  "unresolved": [],
+  "support": {
+   "L2-1": 0.283
+  },
+  "matched_terms": {
+   "L2-1": [
+    "attention"
+   ]
+  },
+  "sentence_text": "图注意力网络为邻居节点分配不同的注意力权重。",
+  "verdict": null,
+  "verdict_note": null,
+  "references": [
+   {
+    "record": "L2-1",
+    "number": 2,
+    "text": "Veličković 2018 Graph Attention Networks",
+    "doi": ""
+   }
+  ]
+ },
+ {
+  "id": "c4_2",
+  "unit": 4,
+  "sentence": "u4s2",
+  "role": "body",
+  "old": "^[2]^",
+  "new": "^[3]^",
+  "records": [
+   "M2"
+  ],
+  "numbers": [
+   3
+  ],
+  "unresolved": [],
+  "support": {
+   "M2": 0.9
+  },
+  "matched_terms": {
+   "M2": [
+    "few-shot",
+    "language",
+    "learners",
+    "models"
+   ]
+  },
+  "sentence_text": "在自然语言处理领域，GPT-3 展示了大规模语言模型的少样本学习能力，而 BERT 采用掩码语言模型进行双向预训练。",
+  "verdict": null,
+  "verdict_note": null,
+  "references": [
+   {
+    "record": "M2",
+    "number": 3,
+    "text": "Brown 2020 Language models are few-shot learners",
+    "doi": ""
+   }
+  ]
+ },
+ {
+  "id": "c4_3",
+  "unit": 4,
+  "sentence": "u4s2",
+  "role": "body",
+  "old": "^[4]^",
+  "new": "^[4]^",
+  "records": [
+   "L1-1"
+  ],
+  "numbers": [
+   4
+  ],
+  "unresolved": [],
+  "support": {
+   "L1-1": 0.6
+  },
+  "matched_terms": {
+   "L1-1": [
+    "bert",
+    "bidirectional",
+    "language",
+    "pre-training"
+   ]
+  },
+  "sentence_text": "在自然语言处理领域，GPT-3 展示了大规模语言模型的少样本学习能力，而 BERT 采用掩码语言模型进行双向预训练。",
+  "verdict": null,
+  "verdict_note": null,
+  "references": [
+   {
+    "record": "L1-1",
+    "number": 4,
+    "text": "Devlin 2019 BERT: Pre-training of Deep Bidirectional Transformers for La",
+    "doi": "10.18653/v1/N19-1423"
+   }
+  ]
+ },
+ {
+  "id": "c8_0",
+  "unit": 8,
+  "sentence": "u8s0",
+  "role": "body",
+  "old": "^[5]^",
+  "new": "^[5]^",
+  "records": [
+   "M5"
+  ],
+  "numbers": [
+   5
+  ],
+  "unresolved": [],
+  "support": {
+   "M5": 0.675
+  },
+  "matched_terms": {
+   "M5": [
+    "adam",
+    "optimization",
+    "stochastic"
+   ]
+  },
+  "sentence_text": "本文采用的优化器为 Adam，并在训练中使用 Dropout 防止过拟合。",
+  "verdict": null,
+  "verdict_note": null,
+  "references": [
+   {
+    "record": "M5",
+    "number": 5,
+    "text": "Kingma 2015 Adam: A method for stochastic optimization",
+    "doi": ""
+   }
+  ]
+ },
+ {
+  "id": "c8_1",
+  "unit": 8,
+  "sentence": "u8s0",
+  "role": "body",
+  "old": "^[6]^",
+  "new": "^[6]^",
+  "records": [
+   "M6"
+  ],
+  "numbers": [
+   6
+  ],
+  "unresolved": [],
+  "support": {
+   "M6": 0.3
+  },
+  "matched_terms": {
+   "M6": [
+    "dropout",
+    "overfitting"
+   ]
+  },
+  "sentence_text": "本文采用的优化器为 Adam，并在训练中使用 Dropout 防止过拟合。",
+  "verdict": null,
+  "verdict_note": null,
+  "references": [
+   {
+    "record": "M6",
+    "number": 6,
+    "text": "Srivastava 2014 Dropout: a simple way to prevent neural networks from overfi",
+    "doi": ""
+   }
+  ]
+ },
+ {
+  "id": "c8_2",
+  "unit": 8,
+  "sentence": "u8s1",
+  "role": "body",
+  "old": "^[3-5]^",
+  "new": "^[1,4]^",
+  "records": [
+   "M7",
+   "L1-1"
+  ],
+  "numbers": [
+   1,
+   4
+  ],
+  "unresolved": [],
+  "support": {
+   "M7": 0.0,
+   "L1-1": 0.0
+  },
+  "matched_terms": {
+   "M7": [],
+   "L1-1": []
+  },
+  "sentence_text": "相关的图表示学习方法可参见文献。",
+  "verdict": null,
+  "verdict_note": null,
+  "references": [
+   {
+    "record": "M7",
+    "number": 1,
+    "text": "Kipf 2017 Semi-supervised classification with graph convolutional netw",
+    "doi": ""
+   },
+   {
+    "record": "L1-1",
+    "number": 4,
+    "text": "Devlin 2019 BERT: Pre-training of Deep Bidirectional Transformers for La",
+    "doi": "10.18653/v1/N19-1423"
+   }
+  ]
+ },
+ {
+  "id": "c10_0",
+  "unit": 10,
+  "sentence": "u10s0",
+  "role": "body",
+  "old": "^[7]^",
+  "new": "^[1]^",
+  "records": [
+   "M7"
+  ],
+  "numbers": [
+   1
+  ],
+  "unresolved": [],
+  "support": {
+   "M7": 0.0
+  },
+  "matched_terms": {
+   "M7": []
+  },
+  "sentence_text": "实验表明，模型在 Cora 数据集上的准确率达到 83.0%。",
+  "verdict": null,
+  "verdict_note": null,
+  "references": [
+   {
+    "record": "M7",
+    "number": 1,
+    "text": "Kipf 2017 Semi-supervised classification with graph convolutional netw",
+    "doi": ""
+   }
+  ]
+ },
+ {
+  "id": "c12_0",
+  "unit": 12,
+  "sentence": "u12s0",
+  "role": "body",
+  "old": "^[9]^",
+  "new": "^[7]^",
+  "records": [
+   "MISSING-9"
+  ],
+  "numbers": [
+   7
+  ],
+  "unresolved": [
+   9
+  ],
+  "support": {
+   "MISSING-9": 0.0
+  },
+  "matched_terms": {
+   "MISSING-9": []
+  },
+  "sentence_text": "我们进一步参考了 Transformer 架构。",
+  "verdict": null,
+  "verdict_note": null,
+  "references": [
+   {
+    "record": "MISSING-9",
+    "number": 7,
+    "text": "? ? 【缺失文献：原稿引用 9 在参考文献表中找不到，需人工补充】",
+    "doi": null
+   }
+  ]
+ }
+]

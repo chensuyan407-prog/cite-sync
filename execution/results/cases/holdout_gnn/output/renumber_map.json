@@ -1,0 +1,13 @@
+{
+ "old_label_to_new_number": {
+  "1": 2,
+  "2": 3,
+  "3": 1,
+  "4": 4,
+  "5": 5,
+  "6": 6,
+  "7": 1,
+  "8": null
+ },
+ "order_rule": "first appearance in body text incl. captions/appendix (GB/T 7714-2015 顺序编码制)"
+}

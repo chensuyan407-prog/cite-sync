@@ -1,0 +1,126 @@
+{
+ "online": true,
+ "network": {
+  "requests": 0,
+  "offline_reason": null,
+  "errors": []
+ },
+ "records": {
+  "L2-1": {
+   "status": "unverified_no_registry_match",
+   "details": {
+    "search_best": {
+     "doi": "10.2139/ssrn.7014938",
+     "title": "Provable Sparsity in Graph Attention Networks",
+     "year": "2026",
+     "similarity": 0.71,
+     "author_overlap": 0.0,
+     "accepted": false
+    }
+   },
+   "corrections": {},
+   "issues": [],
+   "record": "Veličković 2018 Graph Attention Networks"
+  },
+  "M2": {
+   "status": "unverified_no_registry_match",
+   "details": {
+    "search_best": {
+     "doi": "10.65525/svup.9788199778009.2026.224-230",
+     "title": "Language Models are Few-Shot Learners",
+     "year": "2026",
+     "similarity": 1.0,
+     "author_overlap": 0.0,
+     "accepted": false
+    }
+   },
+   "corrections": {},
+   "issues": [
+    {
+     "code": "authors_truncated",
+     "severity": "info",
+     "msg": "source list was truncated ('et al./等'); full author list not available offline"
+    }
+   ],
+   "record": "Brown 2020 Language models are few-shot learners"
+  },
+  "M7": {
+   "status": "verified_via_arxiv",
+   "details": {
+    "search_best": {
+     "doi": "10.1109/access.2021.3085905",
+     "title": "Progressive Graph Convolutional Networks for Semi-Supervised Node Classification",
+     "year": "2021",
+     "similarity": 0.492,
+     "author_overlap": 0.0,
+     "accepted": false
+    },
+    "arxiv": {
+     "title": "Semi-Supervised Classification with Graph Convolutional Networks",
+     "year": "2016",
+     "note": "work confirmed via its arXiv record; venue metadata not in Crossref"
+    }
+   },
+   "corrections": {},
+   "issues": [],
+   "record": "Kipf 2017 Semi-supervised classification with graph convolutional netw"
+  },
+  "L1-1": {
+   "status": "verified",
+   "details": {
+    "crossref_doi": "ok",
+    "registry": {
+     "doi": "10.18653/v1/n19-1423",
+     "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+     "year": "2019",
+     "container": "Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)",
+     "volume": null,
+     "issue": null,
+     "pages": "4171-4186"
+    },
+    "title_similarity": 1.0
+   },
+   "corrections": {},
+   "issues": [],
+   "record": "Devlin 2019 BERT: Pre-training of Deep Bidirectional Transformers for La"
+  },
+  "M5": {
+   "status": "unverified_no_registry_match",
+   "details": {
+    "search_best": {
+     "doi": "10.32614/cran.package.madgrad",
+     "title": "madgrad: 'MADGRAD' Method for Stochastic Optimization",
+     "year": "2021",
+     "similarity": 0.815,
+     "author_overlap": 0.0,
+     "accepted": false
+    }
+   },
+   "corrections": {},
+   "issues": [],
+   "record": "Kingma 2015 Adam: A method for stochastic optimization"
+  },
+  "M6": {
+   "status": "unverified_no_registry_match",
+   "details": {
+    "search_best": {
+     "doi": "10.9734/ajrcos/2025/v18i2569",
+     "title": "Dropout: An Effective Approach to Prevent Neural Networks from Overfitting",
+     "year": "2025",
+     "similarity": 0.807,
+     "author_overlap": 0.0,
+     "accepted": false
+    }
+   },
+   "corrections": {},
+   "issues": [
+    {
+     "code": "authors_truncated",
+     "severity": "info",
+     "msg": "source list was truncated ('et al./等'); full author list not available offline"
+    }
+   ],
+   "record": "Srivastava 2014 Dropout: a simple way to prevent neural networks from overfi"
+  }
+ }
+}

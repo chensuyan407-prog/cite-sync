@@ -1,0 +1,13 @@
+{
+ "case_id": null,
+ "case_error": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\missing_case\\nope.json not found",
+ "task_file": null,
+ "manuscripts": [],
+ "libraries": [],
+ "pdfs": [],
+ "other_files": [],
+ "contract_fields": [],
+ "style_guess": "gbt7714",
+ "case_scalars": {},
+ "seconds": 0.0
+}

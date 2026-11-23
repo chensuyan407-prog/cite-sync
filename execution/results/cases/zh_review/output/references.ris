@@ -1,0 +1,167 @@
+TY  - JOUR
+AU  - LeCun, Yann
+AU  - Bengio, Yoshua
+AU  - Hinton, Geoffrey
+TI  - Deep learning
+T2  - Nature
+PY  - 2015
+VL  - 521
+IS  - 7553
+PB  - Nature Publishing Group
+DO  - 10.1038/nature14539
+SP  - 436
+EP  - 444
+ER  - 
+
+TY  - JOUR
+AU  - Krizhevsky, A
+AU  - Sutskever, I
+AU  - Hinton, G E
+TI  - ImageNet classification with deep convolutional neural networks
+T2  - Communications of the ACM
+PY  - 2017
+VL  - 60
+IS  - 6
+DO  - 10.1145/3065386
+SP  - 84
+EP  - 90
+ER  - 
+
+TY  - CPAPER
+AU  - He, Kaiming
+AU  - Zhang, Xiangyu
+AU  - Ren, Shaoqing
+AU  - Sun, Jian
+TI  - Deep Residual Learning for Image Recognition
+T2  - 2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)
+PY  - 2016
+DO  - 10.1109/CVPR.2016.90
+SP  - 770
+EP  - 778
+ER  - 
+
+TY  - CPAPER
+AU  - He, K
+AU  - Zhang, X
+AU  - Ren, S
+TI  - Identity mappings in deep residual networks
+T2  - European Conference on Computer Vision. Springer
+PY  - 2016
+DO  - 10.1007/978-3-319-46493-0_38
+SP  - 630
+EP  - 645
+ER  - 
+
+TY  - JOUR
+AU  - Hochreiter, S
+AU  - Schmidhuber, J
+TI  - Long short-term memory
+T2  - Neural Computation
+PY  - 1997
+VL  - 9
+IS  - 8
+DO  - 10.1162/neco.1997.9.8.1735
+SP  - 1735
+EP  - 1780
+ER  - 
+
+TY  - CPAPER
+AU  - Vaswani, Ashish
+AU  - Shazeer, Noam
+AU  - Parmar, Niki
+AU  - Uszkoreit, Jakob
+AU  - Jones, Llion
+AU  - Gomez, Aidan N
+AU  - Kaiser, Łukasz
+AU  - Polosukhin, Illia
+TI  - Attention is all you need
+T2  - Advances in Neural Information Processing Systems
+PY  - 2017
+VL  - 30
+SP  - 5998
+EP  - 6008
+N1  - arXiv:1706.03762
+ER  - 
+
+TY  - CPAPER
+AU  - Devlin, Jacob
+AU  - Chang, Ming-Wei
+AU  - Lee, Kenton
+AU  - Toutanova, Kristina
+TI  - BERT: Pre-training of deep bidirectional transformers for language understanding
+T2  - Proceedings of NAACL-HLT
+PY  - 2019
+DO  - 10.18653/v1/n19-1423
+UR  - http://arxiv.org/abs/1810.04805
+SP  - 4171
+EP  - 4186
+N1  - arXiv:1810.04805
+ER  - 
+
+TY  - UNPB
+AU  - Kaplan, Jared
+AU  - McCandlish, Sam
+AU  - Henighan, Tom
+AU  - Brown, Tom B
+AU  - Chess, Benjamin
+AU  - Child, Rewon
+AU  - Gray, Scott
+AU  - Radford, Alec
+AU  - Wu, Jeffrey
+AU  - Amodei, Dario
+TI  - Scaling laws for neural language models
+T2  - arXiv preprint arXiv:2001.08361
+PY  - 2020
+N1  - arXiv:2001.08361
+ER  - 
+
+TY  - CPAPER
+AU  - Ioffe, S
+AU  - Szegedy, C
+TI  - Batch normalization: Accelerating deep network training by reducing internal covariate shift
+T2  - International Conference on Machine Learning
+PY  - 2015
+SP  - 448
+EP  - 456
+N1  - arXiv:1502.03167
+ER  - 
+
+TY  - UNPB
+AU  - Kingma, D P
+AU  - Ba, J
+TI  - Adam: A method for stochastic optimization
+T2  - arXiv preprint arXiv:1412.6980
+PY  - 2014
+N1  - arXiv:1412.6980
+ER  - 
+
+TY  - JOUR
+AU  - 袁铭阳
+AU  - 周长胜
+AU  - 黄宏博
+AU  - 胡志颖
+AU  - 李颖
+TI  - 卷积神经网络池化方法综述
+TT  - Survey on Convolutional Neural Network Pooling Methods
+T2  - 软件工程与应用
+PY  - 2020
+VL  - 9
+IS  - 5
+DO  - 10.12677/SEA.2020.95041
+SP  - 360
+EP  - 372
+ER  - 
+
+TY  - JOUR
+AU  - Jumper, John
+AU  - Evans, Richard
+AU  - Pritzel, Alexander
+TI  - Highly accurate protein structure prediction with AlphaFold
+T2  - Nature
+PY  - 2021
+VL  - 596
+IS  - 7873
+DO  - 10.1038/s41586-021-03819-2
+SP  - 583
+EP  - 589
+ER  - 

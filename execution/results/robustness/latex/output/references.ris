@@ -1,0 +1,45 @@
+TY  - CPAPER
+AU  - Vaswani, Ashish
+AU  - Shazeer, Noam
+AU  - Parmar, Niki
+AU  - Uszkoreit, Jakob
+AU  - Jones, Llion
+AU  - Gomez, Aidan N
+AU  - Kaiser, Łukasz
+AU  - Polosukhin, Illia
+TI  - Attention is all you need
+T2  - Advances in Neural Information Processing Systems
+PY  - 2017
+VL  - 30
+SP  - 5998
+EP  - 6008
+N1  - arXiv:1706.03762
+ER  - 
+
+TY  - CPAPER
+AU  - He, Kaiming
+AU  - Zhang, Xiangyu
+AU  - Ren, Shaoqing
+AU  - Sun, Jian
+TI  - Deep Residual Learning for Image Recognition
+T2  - 2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)
+PY  - 2016
+DO  - 10.1109/CVPR.2016.90
+SP  - 770
+EP  - 778
+ER  - 
+
+TY  - JOUR
+AU  - LeCun, Yann
+AU  - Bengio, Yoshua
+AU  - Hinton, Geoffrey
+TI  - Deep learning
+T2  - Nature
+PY  - 2015
+VL  - 521
+IS  - 7553
+PB  - Nature Publishing Group
+DO  - 10.1038/nature14539
+SP  - 436
+EP  - 444
+ER  - 

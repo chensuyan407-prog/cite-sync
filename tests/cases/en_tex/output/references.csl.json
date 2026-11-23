@@ -1,0 +1,117 @@
+[
+ {
+  "id": "vaswani2017attention",
+  "type": "paper-conference",
+  "title": "Attention is all you need",
+  "author": [
+   {
+    "family": "Vaswani",
+    "given": "Ashish"
+   },
+   {
+    "family": "Shazeer",
+    "given": "Noam"
+   },
+   {
+    "family": "Parmar",
+    "given": "Niki"
+   },
+   {
+    "family": "Uszkoreit",
+    "given": "Jakob"
+   },
+   {
+    "family": "Jones",
+    "given": "Llion"
+   },
+   {
+    "family": "Gomez",
+    "given": "Aidan N"
+   },
+   {
+    "family": "Kaiser",
+    "given": "Łukasz"
+   },
+   {
+    "family": "Polosukhin",
+    "given": "Illia"
+   }
+  ],
+  "container-title": "Advances in Neural Information Processing Systems",
+  "volume": "30",
+  "page": "5998-6008",
+  "URL": "https://arxiv.org/abs/1706.03762",
+  "issued": {
+   "date-parts": [
+    [
+     2017
+    ]
+   ]
+  }
+ },
+ {
+  "id": "he2016deep",
+  "type": "paper-conference",
+  "title": "Deep Residual Learning for Image Recognition",
+  "author": [
+   {
+    "family": "He",
+    "given": "Kaiming"
+   },
+   {
+    "family": "Zhang",
+    "given": "Xiangyu"
+   },
+   {
+    "family": "Ren",
+    "given": "Shaoqing"
+   },
+   {
+    "family": "Sun",
+    "given": "Jian"
+   }
+  ],
+  "container-title": "2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+  "page": "770-778",
+  "DOI": "10.1109/CVPR.2016.90",
+  "issued": {
+   "date-parts": [
+    [
+     2016
+    ]
+   ]
+  }
+ },
+ {
+  "id": "lecun2015deep",
+  "type": "article-journal",
+  "title": "Deep learning",
+  "author": [
+   {
+    "family": "LeCun",
+    "given": "Yann"
+   },
+   {
+    "family": "Bengio",
+    "given": "Yoshua"
+   },
+   {
+    "family": "Hinton",
+    "given": "Geoffrey"
+   }
+  ],
+  "container-title": "Nature",
+  "volume": "521",
+  "issue": "7553",
+  "page": "436-444",
+  "publisher": "Nature Publishing Group",
+  "DOI": "10.1038/nature14539",
+  "issued": {
+   "date-parts": [
+    [
+     2015
+    ]
+   ]
+  }
+ }
+]

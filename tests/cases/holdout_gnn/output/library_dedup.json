@@ -1,0 +1,346 @@
+[
+ {
+  "type": "paper-conference",
+  "title": "Graph Attention Networks",
+  "authors": [
+   {
+    "family": "Veličković",
+    "given": "Petar"
+   },
+   {
+    "family": "Cucurull",
+    "given": "Guillem"
+   },
+   {
+    "family": "Casanova",
+    "given": "Arantxa"
+   },
+   {
+    "family": "Romero",
+    "given": "Adriana"
+   },
+   {
+    "family": "Liò",
+    "given": "Pietro"
+   },
+   {
+    "family": "Bengio",
+    "given": "Yoshua"
+   }
+  ],
+  "year": "2018",
+  "container": "International Conference on Learning Representations",
+  "url": "https://openreview.net/forum?id=rJXMpikCZ",
+  "lang": "en",
+  "id": "L2-1",
+  "origin": "library:noteexpress.net",
+  "doi": "",
+  "merged_from": [
+   "M1",
+   "L2-1"
+  ],
+  "merge_needs_review": false,
+  "cid": "L2-1",
+  "number": 2,
+  "sources": [
+   {
+    "file": "manuscript.md",
+    "index": 1,
+    "format": "reftext",
+    "raw": "Veličković P, Cucurull G, Casanova A, et al. Graph attention networks[C]//International Conference on Learning Representations. 2018."
+   },
+   {
+    "file": "noteexpress.net",
+    "index": 1,
+    "format": "noteexpress",
+    "raw": "{Reference Type}: Conference Proceedings\n{Title}: Graph Attention Networks\n{Author}: Veličković, Petar;Cucurull, Guillem;Casanova, Arantxa;Romero, Adriana;Liò, Pietro;Bengio, Yoshua\n{Year}: 2018\n{Secondary Title}: International Conference on Learning Representations\n{URL}: https://openreview.net/forum?id=rJXMpikCZ"
+   }
+  ]
+ },
+ {
+  "type": "paper-conference",
+  "title": "Language models are few-shot learners",
+  "authors": [
+   {
+    "family": "Brown",
+    "given": "T"
+   },
+   {
+    "family": "Mann",
+    "given": "B"
+   },
+   {
+    "family": "Ryder",
+    "given": "N"
+   }
+  ],
+  "authors_truncated": true,
+  "year": "2020",
+  "container": "Advances in Neural Information Processing Systems",
+  "volume": "33",
+  "pages": "1877-1901",
+  "lang": "en",
+  "label": 2,
+  "id": "M2",
+  "origin": "manuscript_list",
+  "doi": "",
+  "merged_from": [
+   "M2"
+  ],
+  "merge_needs_review": false,
+  "cid": "M2",
+  "number": 3,
+  "sources": [
+   {
+    "file": "manuscript.md",
+    "index": 2,
+    "format": "reftext",
+    "raw": "Brown T, Mann B, Ryder N, et al. Language models are few-shot learners[C]//Advances in Neural Information Processing Systems. 2020, 33: 1877-1901."
+   }
+  ]
+ },
+ {
+  "type": "paper-conference",
+  "title": "Semi-supervised classification with graph convolutional networks",
+  "authors": [
+   {
+    "family": "Kipf",
+    "given": "T N"
+   },
+   {
+    "family": "Welling",
+    "given": "M"
+   }
+  ],
+  "year": "2017",
+  "container": "International Conference on Learning Representations",
+  "lang": "en",
+  "label": 7,
+  "id": "M7",
+  "origin": "manuscript_list",
+  "doi": "",
+  "merged_from": [
+   "M3",
+   "M7"
+  ],
+  "arxiv": "1609.02907",
+  "preprint_merged": "M3",
+  "field_provenance": {
+   "arxiv": "M3"
+  },
+  "merge_needs_review": false,
+  "cid": "M7",
+  "number": 1,
+  "sources": [
+   {
+    "file": "manuscript.md",
+    "index": 3,
+    "format": "reftext",
+    "raw": "Kipf T N, Welling M. Semi-supervised classification with graph convolutional networks[J]. arXiv preprint arXiv:1609.02907, 2016."
+   },
+   {
+    "file": "manuscript.md",
+    "index": 7,
+    "format": "reftext",
+    "raw": "Kipf T N, Welling M. Semi-supervised classification with graph convolutional networks[C]//International Conference on Learning Representations. 2017."
+   }
+  ]
+ },
+ {
+  "type": "paper-conference",
+  "bibkey": "devlin2019bert",
+  "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+  "authors": [
+   {
+    "family": "Devlin",
+    "given": "Jacob"
+   },
+   {
+    "family": "Chang",
+    "given": "Ming-Wei"
+   },
+   {
+    "family": "Lee",
+    "given": "Kenton"
+   },
+   {
+    "family": "Toutanova",
+    "given": "Kristina"
+   }
+  ],
+  "year": "2019",
+  "container": "Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)",
+  "pages": "4171-4186",
+  "publisher": "Association for Computational Linguistics",
+  "place": "Minneapolis, Minnesota",
+  "doi": "10.18653/v1/N19-1423",
+  "lang": "en",
+  "id": "L1-1",
+  "origin": "library:zotero_export.json",
+  "merged_from": [
+   "M4",
+   "L1-1"
+  ],
+  "arxiv": "1810.04805",
+  "preprint_merged": "M4",
+  "field_provenance": {
+   "arxiv": "M4"
+  },
+  "merge_needs_review": false,
+  "cid": "L1-1",
+  "number": 4,
+  "sources": [
+   {
+    "file": "manuscript.md",
+    "index": 4,
+    "format": "reftext",
+    "raw": "Devlin J, Chang M W, Lee K, et al. BERT: pre-training of deep bidirectional transformers for language understanding[J]. arXiv preprint arXiv:1810.04805, 2018."
+   },
+   {
+    "file": "zotero_export.json",
+    "index": 1,
+    "format": "csl-json",
+    "raw": "{\"id\": \"devlin2019bert\", \"type\": \"paper-conference\", \"title\": \"BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding\", \"author\": [{\"family\": \"Devlin\", \"given\": \"Jacob\"}, {\"family\": \"Chang\", \"given\": \"Ming-Wei\"}, {\"family\": \"Lee\", \"given\": \"Kenton\"}, {\"family\": \"Toutanova\", \"given\": \"Kristina\"}], \"container-title\": \"Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)\", \"page\": \"4171-4186\", \"publisher\": \"Association for Computational Linguistics\", \"publisher-place\": \"Minneapolis, Minnesota\", \"DOI\": \"10.18653/v1/N19-1423\", \"issued\": {\"date-parts\": [[2019]]}}"
+   }
+  ]
+ },
+ {
+  "type": "paper-conference",
+  "title": "Adam: A method for stochastic optimization",
+  "authors": [
+   {
+    "family": "Kingma",
+    "given": "D P"
+   },
+   {
+    "family": "Ba",
+    "given": "J"
+   }
+  ],
+  "year": "2015",
+  "container": "International Conference on Learning Representations",
+  "lang": "en",
+  "label": 5,
+  "id": "M5",
+  "origin": "manuscript_list",
+  "doi": "",
+  "merged_from": [
+   "M5"
+  ],
+  "merge_needs_review": false,
+  "cid": "M5",
+  "number": 5,
+  "sources": [
+   {
+    "file": "manuscript.md",
+    "index": 5,
+    "format": "reftext",
+    "raw": "Kingma D P, Ba J. Adam: A method for stochastic optimization[C]//International Conference on Learning Representations. 2015."
+   }
+  ]
+ },
+ {
+  "type": "article-journal",
+  "title": "Dropout: a simple way to prevent neural networks from overfitting",
+  "authors": [
+   {
+    "family": "Srivastava",
+    "given": "N"
+   },
+   {
+    "family": "Hinton",
+    "given": "G"
+   },
+   {
+    "family": "Krizhevsky",
+    "given": "A"
+   }
+  ],
+  "authors_truncated": true,
+  "year": "2014",
+  "container": "Journal of Machine Learning Research",
+  "volume": "15",
+  "issue": "1",
+  "pages": "1929-1958",
+  "lang": "en",
+  "label": 6,
+  "id": "M6",
+  "origin": "manuscript_list",
+  "doi": "",
+  "merged_from": [
+   "M6"
+  ],
+  "merge_needs_review": false,
+  "cid": "M6",
+  "number": 6,
+  "sources": [
+   {
+    "file": "manuscript.md",
+    "index": 6,
+    "format": "reftext",
+    "raw": "Srivastava N, Hinton G, Krizhevsky A, et al. Dropout: a simple way to prevent neural networks from overfitting[J]. Journal of Machine Learning Research, 2014, 15(1): 1929-1958."
+   }
+  ]
+ },
+ {
+  "type": "paper-conference",
+  "title": "Inductive representation learning on large graphs",
+  "authors": [
+   {
+    "family": "Hamilton",
+    "given": "W L"
+   },
+   {
+    "family": "Ying",
+    "given": "R"
+   },
+   {
+    "family": "Leskovec",
+    "given": "J"
+   }
+  ],
+  "year": "2017",
+  "container": "Advances in Neural Information Processing Systems",
+  "pages": "1024-1034",
+  "lang": "en",
+  "label": 8,
+  "id": "M8",
+  "origin": "manuscript_list",
+  "doi": "",
+  "merged_from": [
+   "M8",
+   "L1-2"
+  ],
+  "volume": "30",
+  "field_provenance": {
+   "volume": "L1-2"
+  },
+  "merge_needs_review": false,
+  "cid": "M8",
+  "sources": [
+   {
+    "file": "manuscript.md",
+    "index": 8,
+    "format": "reftext",
+    "raw": "Hamilton W L, Ying R, Leskovec J. Inductive representation learning on large graphs[C]//Advances in Neural Information Processing Systems. 2017: 1024-1034."
+   },
+   {
+    "file": "zotero_export.json",
+    "index": 2,
+    "format": "csl-json",
+    "raw": "{\"id\": \"hamilton2017inductive\", \"type\": \"paper-conference\", \"title\": \"Inductive Representation Learning on Large Graphs\", \"author\": [{\"family\": \"Hamilton\", \"given\": \"William L.\"}, {\"family\": \"Ying\", \"given\": \"Rex\"}, {\"family\": \"Leskovec\", \"given\": \"Jure\"}], \"container-title\": \"Advances in Neural Information Processing Systems\", \"volume\": \"30\", \"issued\": {\"date-parts\": [[2017]]}}"
+   }
+  ]
+ },
+ {
+  "id": "MISSING-9",
+  "type": "misc",
+  "title": "【缺失文献：原稿引用 9 在参考文献表中找不到，需人工补充】",
+  "placeholder": true,
+  "merged_from": [
+   "MISSING-9"
+  ],
+  "number": 7,
+  "sources": []
+ }
+]

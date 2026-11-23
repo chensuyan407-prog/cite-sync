@@ -1,0 +1,3 @@
+[1] LeCun Y, Bengio Y, Hinton G. Deep learning[J]. Nature, 2015, 521(7553): 436-444.
+[2] Hochreiter S, Schmidhuber J. Long short-term memory[J]. Neural Computation, 1997, 9(8): 1735-1780.
+[3] 【缺失文献：原稿引用 7 在参考文献表中找不到，需人工补充】
