@@ -1,9 +1,10 @@
 {
  "case_id": null,
- "tool": "cite-sync 0.1.0",
+ "tool": "cite-sync 0.2.0",
  "status": "partial",
  "status_reason": [
-  "13 citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict)",
+  "1 claim sentence(s) without a citation (1 with a suggested library record): add a citation via edits.add_citations or leave them for the author",
+  "13 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person",
   "sources not checked online (offline run)"
  ],
  "style": "gbt7714",
@@ -213,7 +214,24 @@
    "type": "claim_without_citation",
    "sentence": "u10s0",
    "cue": "已有研究",
-   "text": "已有研究表明，语言模型的测试损失随模型参数量、数据集规模和训练算力呈幂律下降。"
+   "text": "已有研究表明，语言模型的测试损失随模型参数量、数据集规模和训练算力呈幂律下降。",
+   "suggest": [
+    {
+     "record": "L1-2",
+     "score": 0.76,
+     "title": "Scaling laws for neural language models",
+     "year": "2020",
+     "already_cited": false
+    }
+   ],
+   "edit": {
+    "sentence": "text:已有研究表明，语言模型的测试损失随模型参数量、数据集规模和训",
+    "refs": [
+     "L1-2"
+    ],
+    "verdict": "supported",
+    "note": "<why this source supports the sentence>"
+   }
   },
   {
    "type": "caption_citation",
@@ -247,5 +265,8 @@
   ]
  },
  "edits_applied": null,
- "uncertainty": "Claim-source verdicts come from the agent reading sentence + reference metadata (and PDFs when given); lexical support scores are hints only. No online verification in this run."
+ "uncertainty": "Each citation verdict is either the agent's (verdict_source=agent) or a heuristic from term overlap between the sentence and the cited work's title/abstract (verdict_source=heuristic; not a reading of the source). No online verification in this run.",
+ "_contract_autofilled": {},
+ "contract_mapping": {},
+ "contract_unfilled": []
 }

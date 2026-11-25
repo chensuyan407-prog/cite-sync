@@ -1,7 +1,7 @@
 # cite-sync review - case None
 
 status: **partial**  
-reasons: 1 blocking item(s) need human confirmation; 3 citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict); sources not checked online (offline run)
+reasons: 1 blocking item(s) need human confirmation; 2 citation occurrence(s) whose claim-source match could not be established automatically (verdict needs_check/unverifiable): judge them in edits.occurrences; 1 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person; sources not checked online (offline run)
 
 ## Summary
 ```
@@ -26,7 +26,7 @@ reasons: 1 blocking item(s) need human confirmation; 3 citation occurrence(s) wi
   "weak_lexical_support": 1
  },
  "parse_problems": 1,
- "seconds": 0.02
+ "seconds": 0.01
 }
 ```
 
@@ -53,6 +53,6 @@ ok = True; markers use 1..3; list entries 3
 
 | occ | sentence | marker old -> new | records | support | verdict |
 |-|-|-|-|-|-|
-| c2_0 | 深度学习综述见文献。 | `[2]` -> `[1]` | M2 | {'M2': 0.8} | - |
-| c2_1 | 长短期记忆网络见。 | `[1-2]` -> `[1,2]` | M1, M2 | {'M1': 0.85, 'M2': 0.0} | - |
-| c2_2 | 另见。 | `[7]` -> `[3]` | MISSING-7 | {'MISSING-7': 0.0} | - |
+| c2_0 | 深度学习综述见文献。 | `[2]` -> `[1]` | M2 | {'M2': 0.8} | supported |
+| c2_1 | 长短期记忆网络见。 | `[1-2]` -> `[1,2]` | M1, M2 | {'M1': 0.85, 'M2': 0.0} | needs_check |
+| c2_2 | 另见。 | `[7]` -> `[3]` | MISSING-7 | {'MISSING-7': 0.0} | unverifiable |

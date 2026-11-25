@@ -290,6 +290,8 @@ def online_check(net, r, apply=True):
     nr, ng = len(r.get("authors") or []), len(reg.get("authors") or [])
     if ng and nr and ng < nr:
         det["registry_author_list_shorter"] = f"registry lists {ng} author(s), record has {nr}; kept the record's list"
+    if ng > nr and nr and fa[0] and fa[0] == fa[1] and not has_cjk(r.get("title")):
+        corr["authors"] = (f"{nr} author(s)", reg["authors"], f"crossref (registry lists {ng} authors; record had {nr})")
     for f in COMPARE:
         a, b = r.get(f), reg.get(f)
         if not b:
@@ -326,7 +328,10 @@ LEX = {"深度学习": "deep learning", "残差": "residual", "注意力": "atte
        "强化学习": "reinforcement learning", "生成": "generative", "对抗": "adversarial", "扩散": "diffusion",
        "知识图谱": "knowledge graph", "推荐": "recommendation", "检索": "retrieval", "大模型": "large language models",
        "大语言模型": "large language models", "微调": "fine-tuning", "迁移学习": "transfer learning", "自监督": "self-supervised",
-       "训练": "training", "加速": "accelerating", "协变量偏移": "covariate shift", "精度": "accurate", "准确": "accurate",
+       "训练": "training", "残差学习": "residual learning", "深层": "deep", "上百层": "deep layers", "层": "layers",
+       "注意力机制": "attention mechanism", "掩码": "masked", "少样本": "few-shot", "图卷积": "graph convolutional",
+       "半监督": "semi-supervised", "节点": "node", "图结构": "graph", "损失": "loss", "幂律": "power law", "模型规模": "model size",
+       "测试": "test", "卷积神经网络": "convolutional neural networks", "循环神经网络": "recurrent neural networks", "加速": "accelerating", "协变量偏移": "covariate shift", "精度": "accurate", "准确": "accurate",
        "算力": "compute", "参数": "parameters", "数据集": "dataset", "表示": "representations"}
 ALIASES = {"resnet": "deep residual learning", "transformer": "attention is all you need", "alexnet": "imagenet classification",
            "lstm": "long short-term memory", "bn": "batch normalization", "batchnorm": "batch normalization", "adam": "adam stochastic optimization",

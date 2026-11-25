@@ -1,7 +1,7 @@
 # cite-sync review - case None
 
 status: **partial**  
-reasons: 13 citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict); sources not checked online (offline run)
+reasons: 1 claim sentence(s) without a citation (1 with a suggested library record): add a citation via edits.add_citations or leave them for the author; 13 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person; sources not checked online (offline run)
 
 ## Summary
 ```
@@ -37,7 +37,7 @@ ok = True; markers use 1..12; list entries 12
 ## Items that need a human decision
 
 - **uncited_entry_removed** record=M13 msg=reference-list entry never cited in the text; removed from the list: Srivastava 2014 Dropout: a simple way to prevent neural networks from overfi
-- **claim_without_citation** sentence=u10s0 cue=已有研究 text=已有研究表明，语言模型的测试损失随模型参数量、数据集规模和训练算力呈幂律下降。
+- **claim_without_citation** sentence=u10s0 cue=已有研究 text=已有研究表明，语言模型的测试损失随模型参数量、数据集规模和训练算力呈幂律下降。 suggest=[{'record': 'L1-2', 'score': 0.76, 'title': 'Scaling laws for neural language models', 'year': '2020', 'already_cited': False}] edit={'sentence': 'text:已有研究表明，语言模型的测试损失随模型参数量、数据集规模和训', 'refs': ['L1-2'], 'verdict': 'supported', 'note': '<why this source supports the sentence>'}
 - **caption_citation** occurrence=c16_0 msg=citation sits in a figure/table caption; check that the supported claim is in the caption, not in the body text
 
 ## Changes
@@ -77,16 +77,16 @@ ok = True; markers use 1..12; list entries 12
 
 | occ | sentence | marker old -> new | records | support | verdict |
 |-|-|-|-|-|-|
-| c4_0 | 深度学习通过多层表示学习显著提升了语音识别、视觉目标识别等任务的性能。 | `[3]` -> `[1]` | L1-5 | {'L1-5': 0.8} | - |
-| c4_1 | 卷积神经网络在 ImageNet 图像分类竞赛中取得突破，大幅降低了 top-5 错误率。 | `[5]` -> `[2]` | M5 | {'M5': 0.833} | - |
-| c4_2 | 随后，残差学习框架使得训练上百层的网络成为可能；同一团队又分析了恒等映射在残差单元中的作用。 | `[1]` -> `[3]` | L1-4 | {'L1-4': 0.19} | - |
-| c4_3 | 随后，残差学习框架使得训练上百层的网络成为可能；同一团队又分析了恒等映射在残差单元中的作用。 | `[2]` -> `[4]` | M2 | {'M2': 0.57} | - |
-| ins_u8s0 | 长短期记忆网络通过门控机制缓解了循环网络的梯度消失问题。 | `` -> `[5]` | M4 | {'M4': 0.85} | - |
-| ins_u8s1 | Transformer 完全基于注意力机制，在机器翻译任务上取得了当时最好的结果。 | `` -> `[6]` | L1-1 | {'L1-1': 0.9} | - |
-| c8_0 | BERT 通过双向预训练显著提升了多项语言理解任务的表现。 | `[4][7][9]` -> `[7]` | M9 | {'M9': 0.75} | - |
-| c14_0 | 批归一化通过减少内部协变量偏移加速了深层网络训练。 | `[6,8]` -> `[8]` | M6 | {'M6': 0.72} | - |
-| c14_1 | Adam 优化器被广泛用于训练上述模型。 | `<sup>[10]</sup>` -> `[9]` | M10 | {'M10': 0.675} | - |
-| c14_2 | 池化层在卷积神经网络中承担特征降维的作用。 | `[12]` -> `[10]` | L3-1 | {'L3-1': 0.712} | - |
-| c16_0 | ![图1 残差单元结构示意（引自文献）](fig1.png) | `[1]` -> `[3]` | L1-4 | {'L1-4': 0.19} | - |
-| c20_0 | AlphaFold 能够以接近实验精度预测蛋白质三维结构。 | `[11]` -> `[11]` | L2-2 | {'L2-2': 0.667} | - |
-| c20_1 | 另有研究报道残差注意力网络在多个尺度上存在普适的缩放规律。 | `[14]` -> `[12]` | M14 | {'M14': 0.57} | - |
+| c4_0 | 深度学习通过多层表示学习显著提升了语音识别、视觉目标识别等任务的性能。 | `[3]` -> `[1]` | L1-5 | {'L1-5': 0.8} | supported |
+| c4_1 | 卷积神经网络在 ImageNet 图像分类竞赛中取得突破，大幅降低了 top-5 错误率。 | `[5]` -> `[2]` | M5 | {'M5': 0.833} | supported |
+| c4_2 | 随后，残差学习框架使得训练上百层的网络成为可能；同一团队又分析了恒等映射在残差单元中的作用。 | `[1]` -> `[3]` | L1-4 | {'L1-4': 0.57} | supported |
+| c4_3 | 随后，残差学习框架使得训练上百层的网络成为可能；同一团队又分析了恒等映射在残差单元中的作用。 | `[2]` -> `[4]` | M2 | {'M2': 0.76} | supported |
+| ins_u8s0 | 长短期记忆网络通过门控机制缓解了循环网络的梯度消失问题。 | `` -> `[5]` | M4 | {'M4': 0.85} | supported |
+| ins_u8s1 | Transformer 完全基于注意力机制，在机器翻译任务上取得了当时最好的结果。 | `` -> `[6]` | L1-1 | {'L1-1': 0.9} | supported |
+| c8_0 | BERT 通过双向预训练显著提升了多项语言理解任务的表现。 | `[4][7][9]` -> `[7]` | M9 | {'M9': 0.75} | supported |
+| c14_0 | 批归一化通过减少内部协变量偏移加速了深层网络训练。 | `[6,8]` -> `[8]` | M6 | {'M6': 0.79} | supported |
+| c14_1 | Adam 优化器被广泛用于训练上述模型。 | `<sup>[10]</sup>` -> `[9]` | M10 | {'M10': 0.675} | supported |
+| c14_2 | 池化层在卷积神经网络中承担特征降维的作用。 | `[12]` -> `[10]` | L3-1 | {'L3-1': 0.712} | supported |
+| c16_0 | ![图1 残差单元结构示意（引自文献）](fig1.png) | `[1]` -> `[3]` | L1-4 | {'L1-4': 0.19} | partial |
+| c20_0 | AlphaFold 能够以接近实验精度预测蛋白质三维结构。 | `[11]` -> `[11]` | L2-2 | {'L2-2': 0.667} | supported |
+| c20_1 | 另有研究报道残差注意力网络在多个尺度上存在普适的缩放规律。 | `[14]` -> `[12]` | M14 | {'M14': 0.57} | supported |

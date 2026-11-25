@@ -2,3 +2,8 @@ __pycache__/
 *.pyc
 tests/cases/*/work/
 net_cache.json
+tests/pdfs/
+tests/cases/pdf_evidence/input/*.pdf
+tests/cases/*/work_stdout.json
+tests/cases/*/work_stderr.txt
+tests/cases/*/err.txt

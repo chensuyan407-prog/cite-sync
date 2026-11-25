@@ -2,26 +2,29 @@ $ tests\run_eval.py
 {
  "offline": false,
  "dev": {
-  "checks": 60,
+  "checks": 73,
   "skill": 1.0,
-  "b0_untouched": 0.133,
-  "b1_regex_renumber": 0.15
+  "b0_untouched": 0.11,
+  "b1_regex_renumber": 0.151
  },
  "holdout": {
-  "checks": 14,
+  "checks": 30,
   "skill": 1.0,
-  "b0_untouched": 0.357,
-  "b1_regex_renumber": 0.5
+  "b0_untouched": 0.233,
+  "b1_regex_renumber": 0.3
  },
  "holdout_post_freeze_checks": {
-  "checks": 2,
+  "checks": 3,
   "skill_now": 1.0,
-  "note": "added after reading the held-out output; failed at freeze (Adam glued onto Dropout marker), fixed afterwards"
+  "note": "added after reading held-out outputs; failed at their freeze (v0.1: Adam glued onto the Dropout marker; v0.2: status complete with open uncited claims), fixed afterwards"
  },
- "wall_seconds": 2.4
+ "wall_seconds": 4.6
 }
 en_apa 8 / 8 b0 1 b1 0 partial []
 holdout_gnn 16 / 16 b0 7 b1 9 partial []
+holdout_insert 17 / 17 b0 2 b1 2 partial []
+pdf_evidence 8 / 8 b0 0 b1 2 partial []
+pdf_manuscript 5 / 5 b0 0 b1 None partial []
 zh_docx 26 / 26 b0 4 b1 5 partial []
 zh_review 26 / 26 b0 3 b1 4 partial []
 
@@ -49,7 +52,7 @@ $ submission\scripts\cite.py init --case execution\results\robustness\missing_ca
 $ submission\scripts\cite.py run --manuscript execution\results\robustness\doc_manuscript\input\paper.doc --library tests\cases\zh_review\input\library.bib --out execution\results\robustness\doc_manuscript\output --work execution\results\robustness\doc_manuscript\work
 {
  "status": "failed",
- "reason": "manuscript not usable: unsupported manuscript format '.doc': use .md/.txt/.tex/.docx (convert .doc/.pdf/.odt first)",
+ "reason": "manuscript not usable: .doc needs LibreOffice (soffice) to convert to .docx; not installed",
  "parse_problems": []
 }
 
@@ -60,7 +63,8 @@ $ submission\scripts\cite.py run --manuscript execution\results\robustness\corru
 {
  "status": "partial",
  "status_reason": [
-  "13 citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict)",
+  "1 claim sentence(s) without a citation (1 with a suggested library record): add a citation via edits.add_citations or leave them for the author",
+  "13 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person",
   "sources not checked online (offline run)"
  ],
  "summary": {
@@ -99,7 +103,8 @@ $ submission\scripts\cite.py run --online --manuscript execution\results\robustn
 {
  "status": "partial",
  "status_reason": [
-  "13 citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict)"
+  "1 claim sentence(s) without a citation (1 with a suggested library record): add a citation via edits.add_citations or leave them for the author",
+  "13 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person"
  ],
  "summary": {
   "records_in": 19,
@@ -123,7 +128,7 @@ $ submission\scripts\cite.py run --online --manuscript execution\results\robustn
    "caption_citation": 1
   },
   "parse_problems": 0,
-  "seconds": 4.16
+  "seconds": 4.13
  },
  "result": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\no_network\\output\\result.json",
  "claim_matrix": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\no_network\\work\\claim_matrix.md",
@@ -148,7 +153,8 @@ $ submission\scripts\cite.py run --manuscript execution\results\robustness\label
  "status": "partial",
  "status_reason": [
   "1 blocking item(s) need human confirmation",
-  "3 citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict)",
+  "2 citation occurrence(s) whose claim-source match could not be established automatically (verdict needs_check/unverifiable): judge them in edits.occurrences",
+  "1 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person",
   "sources not checked online (offline run)"
  ],
  "summary": {
@@ -172,7 +178,7 @@ $ submission\scripts\cite.py run --manuscript execution\results\robustness\label
    "weak_lexical_support": 1
   },
   "parse_problems": 1,
-  "seconds": 0.02
+  "seconds": 0.01
  },
  "result": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\label_conflict\\output\\result.json",
  "claim_matrix": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\label_conflict\\work\\claim_matrix.md",
@@ -187,7 +193,8 @@ $ submission\scripts\cite.py run --manuscript execution\results\robustness\latex
  "status": "partial",
  "status_reason": [
   "1 blocking item(s) need human confirmation",
-  "4 citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict)",
+  "2 citation occurrence(s) whose claim-source match could not be established automatically (verdict needs_check/unverifiable): judge them in edits.occurrences",
+  "2 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person",
   "sources not checked online (offline run)"
  ],
  "summary": {
@@ -211,7 +218,7 @@ $ submission\scripts\cite.py run --manuscript execution\results\robustness\latex
    "weak_lexical_support": 1
   },
   "parse_problems": 1,
-  "seconds": 0.02
+  "seconds": 0.01
  },
  "result": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\latex\\output\\result.json",
  "claim_matrix": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\latex\\work\\claim_matrix.md",
@@ -225,7 +232,8 @@ $ submission\scripts\cite.py run --manuscript tests\cases\zh_review\input\manusc
 {
  "status": "partial",
  "status_reason": [
-  "13 citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict)",
+  "1 claim sentence(s) without a citation (1 with a suggested library record): add a citation via edits.add_citations or leave them for the author",
+  "13 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person",
   "sources not checked online (offline run)"
  ],
  "summary": {
@@ -264,7 +272,8 @@ $ submission\scripts\cite.py run --manuscript tests\cases\zh_review\input\manusc
 {
  "status": "partial",
  "status_reason": [
-  "13 citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict)",
+  "1 claim sentence(s) without a citation (1 with a suggested library record): add a citation via edits.add_citations or leave them for the author",
+  "13 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person",
   "sources not checked online (offline run)"
  ],
  "summary": {
@@ -294,6 +303,82 @@ $ submission\scripts\cite.py run --manuscript tests\cases\zh_review\input\manusc
  "result": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\determinism_1\\output\\result.json",
  "claim_matrix": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\determinism_1\\work\\claim_matrix.md",
  "edits_template": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\determinism_1\\work\\edits_template.json"
+}
+
+
+[exit 0]
+
+$ submission\scripts\cite.py auto --offline --case execution\results\robustness\library_only\input\case.json --out execution\results\robustness\library_only\output --work execution\results\robustness\library_only\work
+{
+ "status": "complete",
+ "status_reason": [
+  "sources not checked online (offline run)"
+ ],
+ "summary": {
+  "records_in": 9,
+  "records_after_dedup": 8,
+  "merged_clusters": 1,
+  "occurrences": 0,
+  "occurrences_out": 0,
+  "references_out": 8,
+  "orphans": 0,
+  "uncited_removed": 0,
+  "auto_moves": 0,
+  "placement_suggestions": 0,
+  "verified": 0,
+  "verification_status_counts": {
+   "unverified_offline": 8
+  },
+  "review_items": 0,
+  "review_by_type": {},
+  "parse_problems": 0,
+  "seconds": 0.01
+ },
+ "result": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\library_only\\output\\result.json",
+ "claim_matrix": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\library_only\\work\\claim_matrix.md",
+ "edits_template": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\library_only\\work\\edits_template.json"
+}
+
+auto: manuscript=None libraries=['C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\library_only\\input\\cnki.enw', 'C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\library_only\\input\\library.bib', 'C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\library_only\\input\\zotero.ris'] pdfs=[] style=gbt7714 online=False
+
+[exit 0]
+
+$ submission\scripts\cite.py run --manuscript execution\results\robustness\encrypted_pdf\input\manuscript.md --library tests\cases\zh_review\input\library.bib --pdf execution\results\robustness\encrypted_pdf\input\encrypted_resnet.pdf --out execution\results\robustness\encrypted_pdf\output --work execution\results\robustness\encrypted_pdf\work
+warning: The `fitz` API is deprecated and will be removed in future. Use `import pymupdf` instead.
+{
+ "status": "partial",
+ "status_reason": [
+  "1 claim sentence(s) without a citation (1 with a suggested library record): add a citation via edits.add_citations or leave them for the author",
+  "13 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person",
+  "sources not checked online (offline run)"
+ ],
+ "summary": {
+  "records_in": 19,
+  "records_after_dedup": 15,
+  "merged_clusters": 4,
+  "occurrences": 11,
+  "occurrences_out": 13,
+  "references_out": 12,
+  "orphans": 0,
+  "uncited_removed": 1,
+  "auto_moves": 2,
+  "placement_suggestions": 0,
+  "verified": 0,
+  "verification_status_counts": {
+   "unverified_offline": 12
+  },
+  "review_items": 3,
+  "review_by_type": {
+   "uncited_entry_removed": 1,
+   "claim_without_citation": 1,
+   "caption_citation": 1
+  },
+  "parse_problems": 1,
+  "seconds": 0.13
+ },
+ "result": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\encrypted_pdf\\output\\result.json",
+ "claim_matrix": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\encrypted_pdf\\work\\claim_matrix.md",
+ "edits_template": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\encrypted_pdf\\work\\edits_template.json"
 }
 
 

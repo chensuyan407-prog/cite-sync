@@ -1,0 +1,115 @@
+[
+ {
+  "id": "M2",
+  "type": "paper-conference",
+  "title": "Deep residual learning for image recognition",
+  "author": [
+   {
+    "family": "He",
+    "given": "Kaiming"
+   },
+   {
+    "family": "Zhang",
+    "given": "Xiangyu"
+   },
+   {
+    "family": "Ren",
+    "given": "Shaoqing"
+   },
+   {
+    "family": "Sun",
+    "given": "Jian"
+   }
+  ],
+  "container-title": "Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition",
+  "page": "770-778",
+  "DOI": "10.1109/cvpr.2016.90",
+  "issued": {
+   "date-parts": [
+    [
+     2016
+    ]
+   ]
+  }
+ },
+ {
+  "id": "M4",
+  "type": "paper-conference",
+  "title": "Batch normalization: Accelerating deep network training by reducing internal covariate shift",
+  "author": [
+   {
+    "family": "Ioffe",
+    "given": "S"
+   },
+   {
+    "family": "Szegedy",
+    "given": "C"
+   }
+  ],
+  "container-title": "International Conference on Machine Learning",
+  "page": "448-456",
+  "issued": {
+   "date-parts": [
+    [
+     2015
+    ]
+   ]
+  }
+ },
+ {
+  "id": "M1",
+  "type": "paper-conference",
+  "title": "Attention is all you need",
+  "author": [
+   {
+    "family": "Vaswani",
+    "given": "A"
+   },
+   {
+    "family": "Shazeer",
+    "given": "N"
+   },
+   {
+    "family": "Parmar",
+    "given": "N"
+   }
+  ],
+  "container-title": "Advances in Neural Information Processing Systems",
+  "page": "5998-6008",
+  "issued": {
+   "date-parts": [
+    [
+     2017
+    ]
+   ]
+  }
+ },
+ {
+  "id": "M3",
+  "type": "article",
+  "title": "Scaling laws for neural language models",
+  "author": [
+   {
+    "family": "Kaplan",
+    "given": "J"
+   },
+   {
+    "family": "McCandlish",
+    "given": "S"
+   },
+   {
+    "family": "Henighan",
+    "given": "T"
+   }
+  ],
+  "container-title": "arXiv preprint arXiv:2001.08361",
+  "URL": "https://arxiv.org/abs/2001.08361",
+  "issued": {
+   "date-parts": [
+    [
+     2020
+    ]
+   ]
+  }
+ }
+]

@@ -33,11 +33,16 @@ def run(case, online=True, use_edits=True):
     out, work = os.path.join(c, "output"), os.path.join(c, "work")
     subprocess.run([sys.executable, os.path.join(SCRIPTS, "cite.py"), "init", "--case", os.path.join(inp, "case.json"), "--out", out, "--work", work],
                    capture_output=True, text=True, encoding="utf-8")
-    cmd = [sys.executable, os.path.join(SCRIPTS, "cite.py"), "run", "--manuscript", os.path.join(inp, t["manuscript"]), "--out", out, "--work", work,
-           "--style", t.get("style", "gbt7714")]
-    for lib in t.get("libraries", []):
+    if t.get("auto"):
+        cmd = [sys.executable, os.path.join(SCRIPTS, "cite.py"), "auto", "--case", os.path.join(inp, "case.json"), "--out", out, "--work", work]
+        if not online or OFFLINE:
+            cmd.append("--offline")
+    else:
+        cmd = [sys.executable, os.path.join(SCRIPTS, "cite.py"), "run", "--manuscript", os.path.join(inp, t["manuscript"]), "--out", out, "--work", work,
+               "--style", t.get("style", "gbt7714")]
+    for lib in ([] if t.get("auto") else t.get("libraries", [])):
         cmd += ["--library", os.path.join(inp, lib)]
-    if online and not OFFLINE:
+    if online and not OFFLINE and not t.get("auto"):
         cmd.append("--online")
     if t.get("edits") and use_edits:
         cmd += ["--edits", os.path.join(c, t["edits"])]
@@ -75,7 +80,7 @@ def sentence_numbers(doc, occs, needle):
     return None
 
 
-def check(t, path, res=None, merge_log=None, det_res=None):
+def check(t, path, res=None, merge_log=None, det_res=None, cmap=None):
     doc, occs, sents, entries = parse_out(path)
     rows = []
     for chk in t["checks"]:
@@ -100,6 +105,26 @@ def check(t, path, res=None, merge_log=None, det_res=None):
         elif k == "consistent":
             from cite import check_manuscript
             ok = check_manuscript(path)["ok"]
+        elif k in ("verdict_is", "evidence_found"):
+            o = next((x for x in (cmap or []) if chk["sentence"] in (x.get("sentence_text") or "")), None)
+            if k == "verdict_is":
+                ok = bool(o) and o.get("verdict") == chk["verdict"]
+            else:
+                ok = bool(o) and any(e.get("page") and e.get("quote") for e in (o.get("evidence") or {}).values())
+        elif k in ("suggests", "no_suggestion", "not_flagged"):
+            rr = det_res if (chk.get("stage") == "detect" and det_res is not None) else res
+            items = [r for r in (rr or {}).get("needs_review", []) if r["type"] == "claim_without_citation" and chk["sentence"] in r.get("text", "")]
+            if k == "suggests":
+                ok = bool(items) and bool(items[0].get("suggest")) and title_key(chk["title"]) in title_key(items[0]["suggest"][0]["title"] or "")
+            elif k == "no_suggestion":
+                ok = bool(items) and not items[0].get("suggest")
+            else:
+                ok = not items
+        elif k == "status_is":
+            rr = det_res if (chk.get("stage") == "detect" and det_res is not None) else res
+            ok = bool(rr) and rr.get("status") == chk["status"]
+        elif k == "contract_filled":
+            ok = bool(res) and not res.get("contract_unfilled") and all(res.get(f) not in (None, "", []) for f in res.get("_contract_fields", []))
         elif k == "style_is":
             ok = {o["style"] for o in occs if o["kind"] == "num"} == {chk["style"]}
         elif k == "text_contains":
@@ -154,14 +179,15 @@ def main():
         t, res, out, sec = run(case)
         stem = os.path.splitext(t["manuscript"])[0]
         ext = os.path.splitext(t["manuscript"])[1]
-        revised = os.path.join(out, f"{stem}_revised{ext}")
+        revised = os.path.join(out, t.get("revised") or f"{stem}_revised{ext}")
         ml = json.load(open(os.path.join(out, "merge_log.json"), encoding="utf-8"))
-        rows = check(t, revised, res, ml, det_res)
+        cm = json.load(open(os.path.join(out, "citation_map.json"), encoding="utf-8"))
+        rows = check(t, revised, res, ml, det_res, cm)
         src = os.path.join(ROOT, "tests", "cases", case, "input", t["manuscript"])
-        b0 = check(t, src, None, None)
+        b0 = check(t, src, None, None) if ext != ".pdf" else [{"ok": False} for _ in t["checks"]]  # a PDF is not editable: B0 passes nothing
         b1p = os.path.join(ROOT, "tests", "cases", case, "work", f"baseline_b1{ext}")
         b1 = None
-        if ext != ".tex":
+        if ext not in (".tex", ".pdf"):
             baseline_b1(src, b1p)
             b1 = check(t, b1p, None, None)
         for r, x0 in zip(rows, b0):
@@ -185,7 +211,7 @@ def main():
     report["dev"] = {"checks": len(dev), "skill": rate(dev, "ok"), "b0_untouched": rate(dev, "b0"), "b1_regex_renumber": rate(dev, "b1")}
     report["holdout"] = {"checks": len(ho), "skill": rate(ho, "ok"), "b0_untouched": rate(ho, "b0"), "b1_regex_renumber": rate(ho, "b1")}
     report["holdout_post_freeze_checks"] = {"checks": len(ho_post), "skill_now": rate(ho_post, "ok"),
-                                            "note": "added after reading the held-out output; failed at freeze (Adam glued onto Dropout marker), fixed afterwards"}
+                                            "note": "added after reading held-out outputs; failed at their freeze (v0.1: Adam glued onto the Dropout marker; v0.2: status complete with open uncited claims), fixed afterwards"}
     report["wall_seconds"] = round(time.time() - t0, 1)
     res_dir = os.path.join(ROOT, "execution", "results")
     os.makedirs(res_dir, exist_ok=True)

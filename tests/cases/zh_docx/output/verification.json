@@ -58,15 +58,14 @@
      "old": null,
      "new": "10.1007/978-3-319-46493-0_38",
      "source": "crossref title search"
+    },
+    "authors": {
+     "old": "3 author(s)",
+     "new": "4 authors",
+     "source": "crossref (registry lists 4 authors; record had 3)"
     }
    },
-   "issues": [
-    {
-     "code": "authors_truncated",
-     "severity": "info",
-     "msg": "source list was truncated ('et al./等'); full author list not available offline"
-    }
-   ],
+   "issues": [],
    "record": "He 2016 Identity mappings in deep residual networks"
   },
   "L1-5": {
@@ -251,7 +250,7 @@
    "record": "Kingma 2014 Adam: A method for stochastic optimization"
   },
   "L2-2": {
-   "status": "verified",
+   "status": "verified_with_corrections",
    "details": {
     "crossref_doi": "ok",
     "registry": {
@@ -265,14 +264,14 @@
     },
     "title_similarity": 1.0
    },
-   "corrections": {},
-   "issues": [
-    {
-     "code": "authors_truncated",
-     "severity": "info",
-     "msg": "source list was truncated ('et al./等'); full author list not available offline"
+   "corrections": {
+    "authors": {
+     "old": "3 author(s)",
+     "new": "34 authors",
+     "source": "crossref (registry lists 34 authors; record had 3)"
     }
-   ],
+   },
+   "issues": [],
    "record": "Jumper 2021 Highly accurate protein structure prediction with AlphaFold"
   },
   "L3-1": {

@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Reproduce the self-evaluation of the cite-sync Skill.   python src/reproduce.py [--offline]
 
-1. labelled evaluation (tests/run_eval.py): 3 dev cases (zh GB/T markdown, the same as .docx, en APA) and
-   1 held-out case written after a code freeze; scored against two baselines (untouched / regex renumber);
+1. labelled evaluation (tests/run_eval.py): 5 dev cases (zh GB/T markdown, the same as .docx, en APA, cited-paper
+   PDFs with a planted mis-citation, a PDF manuscript) and 2 held-out cases written after code freezes (v0.1: GNN
+   review; v0.2: citation insertion); scored against two baselines (untouched / regex renumber);
 2. robustness: missing case.json, unsupported .doc manuscript, corrupted BibTeX, RIS without ER, no network,
    manuscript without reference list and no library, duplicate list labels, LaTeX \\cite keys, determinism;
 3. writes execution/run.log, execution/results/*, trace/trace.jsonl, characterization.json, arm_manifest.json.
@@ -136,6 +137,27 @@ def robustness(log):
              "--library", os.path.join(src, "zotero.ris"), "--library", os.path.join(src, "cnki.enw"), "--out", os.path.join(d, "output"), "--work", os.path.join(d, "work")], log)
         hs.append((sha(os.path.join(d, "output", "manuscript_revised.md")), sha(os.path.join(d, "output", "references_gbt7714.txt"))))
     out["determinism"] = {"hashes": hs, "ok": hs[0] == hs[1]}
+    # 9 library only (no manuscript): every de-duplicated record listed, bilingual pair merged
+    d = case_dir("library_only")
+    for f in ("library.bib", "zotero.ris", "cnki.enw"):
+        shutil.copy(os.path.join(src, f), os.path.join(d, "input"))
+    json.dump({"case_id": "libonly", "output_contract": {"references": "去重后的 GB/T 7714 文献表", "dedup_log": "合并依据"}},
+              open(os.path.join(d, "input", "case.json"), "w", encoding="utf-8"), ensure_ascii=False)
+    p = run([sys.executable, CLI, "auto", "--offline", "--case", os.path.join(d, "input", "case.json"), "--out", os.path.join(d, "output"), "--work", os.path.join(d, "work")], log)
+    r = J(os.path.join(d, "output", "result.json"))
+    out["library_only"] = {"exit": p.returncode, "n_refs": len(r.get("references") or []), "unfilled": r.get("contract_unfilled"),
+                           "ok": p.returncode == 0 and len(r.get("references") or []) == 8 and not r.get("contract_unfilled")}
+    # 10 encrypted cited PDF: reported, run completes
+    enc = os.path.join(ROOT, "tests", "pdfs", "encrypted_resnet.pdf")
+    if os.path.exists(enc):
+        d = case_dir("encrypted_pdf")
+        shutil.copy(os.path.join(src, "manuscript.md"), os.path.join(d, "input"))
+        shutil.copy(enc, os.path.join(d, "input"))
+        p = run([sys.executable, CLI, "run", "--manuscript", os.path.join(d, "input", "manuscript.md"), "--library", os.path.join(src, "library.bib"),
+                 "--pdf", os.path.join(d, "input", "encrypted_resnet.pdf"), "--out", os.path.join(d, "output"), "--work", os.path.join(d, "work")], log)
+        r = J(os.path.join(d, "output", "result.json"))
+        out["encrypted_pdf"] = {"exit": p.returncode, "problems": [x["problem"] for x in r["parse_problems"]],
+                                "ok": p.returncode == 0 and any("encrypted" in x["problem"] for x in r["parse_problems"])}
     return out
 
 
@@ -143,7 +165,9 @@ def main():
     t0 = time.time()
     os.makedirs(RES, exist_ok=True)
     os.makedirs(os.path.join(ROOT, "trace"), exist_ok=True)
-    step("thought", title="Plan", body="Run the labelled citation-management evaluation (3 dev cases + 1 held-out), robustness checks, then record metrics, manifest and trace.")
+    step("thought", title="Plan", body="Build the PDF cases, run the labelled citation-management evaluation (5 dev + 2 held-out cases), robustness checks, then record metrics, manifest and trace.")
+    if not os.path.exists(os.path.join(ROOT, "tests", "cases", "pdf_evidence", "input", "kaplan.pdf")):
+        run([sys.executable, os.path.join(ROOT, "tests", "make_pdf_cases.py")], open(os.devnull, "w"))
     with open(os.path.join(ROOT, "execution", "run.log"), "w", encoding="utf-8") as log:
         r = run([sys.executable, os.path.join(ROOT, "tests", "run_eval.py")] + (["--offline"] if OFFLINE else []), log)
         if r.returncode != 0:
@@ -169,11 +193,12 @@ def main():
     char = {"deviations_from_paper": [
         {"target": "planted defects fixed/detected (dev cases, rules tuned on them)", "metric": "absolute_error", "actual_value": dev["skill"], "reference_value": 1.0,
          "score": 1.0 if dev["skill"] >= 0.9 else dev["skill"], "tolerance": 0.1, "evidence_artifact": "metrics",
-         "explanation": f"{dev['checks']} checks on 3 cases; baselines: untouched {dev['b0_untouched']}, regex renumber {dev['b1_regex_renumber']}"},
-        {"target": "planted defects fixed/detected (held-out case, at code freeze)", "metric": "absolute_error", "actual_value": ho["skill"], "reference_value": 1.0,
+         "explanation": f"{dev['checks']} checks on 5 cases; baselines: untouched {dev['b0_untouched']}, regex renumber {dev['b1_regex_renumber']}"},
+        {"target": "planted defects fixed/detected (held-out cases, at code freeze)", "metric": "absolute_error", "actual_value": ho["skill"], "reference_value": 1.0,
          "score": 1.0 if ho["skill"] >= 0.8 else ho["skill"], "tolerance": 0.2, "evidence_artifact": "metrics",
          "explanation": f"{ho['checks']} pre-registered checks; baselines: untouched {ho['b0_untouched']}, regex renumber {ho['b1_regex_renumber']}. "
-                        "Reading the output found one more defect (Adam glued onto the Dropout marker) not covered by the checks; fixed after the freeze (2 post-freeze checks)."},
+                        "2 cases (v0.1 GNN review, v0.2 citation insertion). Reading the outputs found defects not covered by the checks: v0.1 Adam glued onto the "
+                        "Dropout marker; v0.2 status 'complete' while claims still lacked citations. Both fixed after the freeze (3 post-freeze checks)."},
         {"target": "robustness checks passed", "metric": "absolute_error", "actual_value": sum(v["ok"] for v in rob.values()) / len(rob), "reference_value": 1.0,
          "score": 1.0 if all(v["ok"] for v in rob.values()) else 0.5, "tolerance": 0.1, "evidence_artifact": "metrics",
          "explanation": ", ".join(rob.keys())},

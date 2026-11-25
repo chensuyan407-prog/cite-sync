@@ -1,0 +1,26 @@
+TY  - JOUR
+AU  - Jumper, John
+AU  - Evans, Richard
+AU  - Pritzel, Alexander
+TI  - Highly accurate protein structure prediction with AlphaFold
+T2  - Nature
+PY  - 2021
+VL  - 596
+IS  - 7873
+SP  - 583
+EP  - 589
+DO  - 10.1038/s41586-021-03819-2
+ER  - 
+
+TY  - JOUR
+AU  - Hochreiter, Sepp
+AU  - Schmidhuber, Jürgen
+TI  - Long Short-Term Memory
+T2  - Neural Computation
+PY  - 1997
+VL  - 9
+IS  - 8
+SP  - 1735
+EP  - 1780
+DO  - 10.1162/neco.1997.9.8.1735
+ER  - 

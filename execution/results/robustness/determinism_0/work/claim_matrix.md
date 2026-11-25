@@ -12,11 +12,11 @@ Columns: occurrence | sentence (markers removed) | cited record (title / venue /
 
 ## c4_2  (u4s2, body)  `[1]` -> `[3]`
 > 随后，残差学习框架使得训练上百层的网络成为可能；同一团队又分析了恒等映射在残差单元中的作用。
-- L1-4 [3] Deep Residual Learning for Image Recognition |  | 2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR) 2016 | support=0.19 terms=['residual']
+- L1-4 [3] Deep Residual Learning for Image Recognition |  | 2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR) 2016 | support=0.57 terms=['deep', 'learning', 'residual']
 
 ## c4_3  (u4s2, body)  `[2]` -> `[4]`
 > 随后，残差学习框架使得训练上百层的网络成为可能；同一团队又分析了恒等映射在残差单元中的作用。
-- M2 [4] Identity mappings in deep residual networks |  | European Conference on Computer Vision. Springer 2016 | support=0.57 terms=['identity', 'mappings', 'residual']
+- M2 [4] Identity mappings in deep residual networks |  | European Conference on Computer Vision. Springer 2016 | support=0.76 terms=['deep', 'identity', 'mappings', 'residual']
 
 ## ins_u8s0  (u8s0, body)  `` -> `[5]`
 > 长短期记忆网络通过门控机制缓解了循环网络的梯度消失问题。
@@ -32,7 +32,7 @@ Columns: occurrence | sentence (markers removed) | cited record (title / venue /
 
 ## c14_0  (u14s0, body)  `[6,8]` -> `[8]`
 > 批归一化通过减少内部协变量偏移加速了深层网络训练。
-- M6 [8] Batch normalization: Accelerating deep network training by reducing internal covariate shift |  | International Conference on Machine Learning 2015 | support=0.72 terms=['accelerating', 'batch', 'covariate', 'normalization', 'shift', 'training']
+- M6 [8] Batch normalization: Accelerating deep network training by reducing internal covariate shift |  | International Conference on Machine Learning 2015 | support=0.79 terms=['accelerating', 'batch', 'covariate', 'deep', 'normalization', 'shift', 'training']
 
 ## c14_1  (u14s1, body)  `<sup>[10]</sup>` -> `[9]`
 > Adam 优化器被广泛用于训练上述模型。

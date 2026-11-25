@@ -1,0 +1,418 @@
+{
+ "case_id": "dev-pdf-evidence",
+ "tool": "cite-sync 0.2.0",
+ "revised_manuscript": {
+  "path": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\pdf_evidence\\output\\manuscript_revised.md",
+  "format": "md",
+  "diff": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\pdf_evidence\\output\\manuscript.diff",
+  "previews": null,
+  "text": "# Notes on training and scaling deep networks\r\n\r\n## 1 Background\r\n\r\nResidual learning lets networks with more than 100 layers be trained and won the ILSVRC 2015 classification task [1]. Batch normalization normalizes layer inputs over each mini-batch and allows much higher learning rates [2]. The Transformer relies entirely on attention and dispenses with recurrence and convolutions [3].\r\n\r\n## 2 Scaling\r\n\r\nThe test loss of language models scales as a power law with model size, dataset size and the amount of compute used for training [1]. Larger models are significantly more sample-efficient [4]. It has been shown that dropout reduces overfitting in large networks.\r\n\r\n## References\r\n\r\n[1] He K, Zhang X, Ren S, et al. Deep residual learning for image recognition[C]//Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 2016: 770-778. DOI:10.1109/cvpr.2016.90.\r\n[2] Ioffe S, Szegedy C. Batch normalization: Accelerating deep network training by reducing internal covariate shift[C]//International Conference on Machine Learning, 2015: 448-456.\r\n[3] Vaswani A, Shazeer N, Parmar N, et al. Attention is all you need[C]//Advances in Neural Information Processing Systems, 2017: 5998-6008.\r\n[4] Kaplan J, McCandlish S, Henighan T, et al. Scaling laws for neural language models[J/OL]. arXiv preprint arXiv:2001.08361, 2020. https://arxiv.org/abs/2001.08361."
+ },
+ "references": [
+  "[1] He K, Zhang X, Ren S, et al. Deep residual learning for image recognition[C]//Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 2016: 770-778. DOI:10.1109/cvpr.2016.90.",
+  "[2] Ioffe S, Szegedy C. Batch normalization: Accelerating deep network training by reducing internal covariate shift[C]//International Conference on Machine Learning, 2015: 448-456.",
+  "[3] Vaswani A, Shazeer N, Parmar N, et al. Attention is all you need[C]//Advances in Neural Information Processing Systems, 2017: 5998-6008.",
+  "[4] Kaplan J, McCandlish S, Henighan T, et al. Scaling laws for neural language models[J/OL]. arXiv preprint arXiv:2001.08361, 2020. https://arxiv.org/abs/2001.08361."
+ ],
+ "claim_source_check": [
+  {
+   "occurrence": "c4_0",
+   "sentence_id": "u4s0",
+   "sentence": "Residual learning lets networks with more than 100 layers be trained and won the ILSVRC 2015 classification task.",
+   "old_marker": "[2]",
+   "new_marker": "[1]",
+   "references": [
+    {
+     "record": "M2",
+     "number": 1,
+     "text": "He 2016 Deep residual learning for image recognition",
+     "doi": "10.1109/cvpr.2016.90",
+     "verification": "verified_with_corrections"
+    }
+   ],
+   "verdict": "supported",
+   "verdict_source": "heuristic",
+   "note": null,
+   "match_basis": {
+    "M2": {
+     "heuristic": "supported",
+     "basis": "cited PDF p.1: \"This result won the 1st place on the ILSVRC 2015 classiﬁcation task. We also present analysis on CIFAR-10 with 100 and 1000 layers.\" (term overlap 0.583)"
+    }
+   },
+   "evidence": {
+    "M2": {
+     "page": 1,
+     "quote": "This result won the 1st place on the ILSVRC 2015 classiﬁcation task. We also present analysis on CIFAR-10 with 100 and 1000 layers.",
+     "score": 0.583,
+     "terms": [
+      "100",
+      "2015",
+      "classification",
+      "ilsvrc",
+      "layers",
+      "task",
+      "won"
+     ],
+     "file": "resnet.pdf"
+    }
+   }
+  },
+  {
+   "occurrence": "c4_1",
+   "sentence_id": "u4s1",
+   "sentence": "Batch normalization normalizes layer inputs over each mini-batch and allows much higher learning rates.",
+   "old_marker": "[4]",
+   "new_marker": "[2]",
+   "references": [
+    {
+     "record": "M4",
+     "number": 2,
+     "text": "Ioffe 2015 Batch normalization: Accelerating deep network training by r",
+     "doi": "",
+     "verification": "verified_by_pdf"
+    }
+   ],
+   "verdict": "supported",
+   "verdict_source": "heuristic",
+   "note": null,
+   "match_basis": {
+    "M4": {
+     "heuristic": "supported",
+     "basis": "cited PDF p.1: \"Our method draws its strength from making normalization a part of the model architecture and performing the normalization for each training mini-batch. Batch No\" (term overlap 0.7)"
+    }
+   },
+   "evidence": {
+    "M4": {
+     "page": 1,
+     "quote": "Our method draws its strength from making normalization a part of the model architecture and performing the normalization for each training mini-batch. Batch Normalization allows us to use much higher learning rates and be less careful about initialization.",
+     "score": 0.7,
+     "terms": [
+      "allows",
+      "batch",
+      "higher",
+      "learning",
+      "mini-batch",
+      "normalization",
+      "rates"
+     ],
+     "file": "batchnorm.pdf"
+    }
+   }
+  },
+  {
+   "occurrence": "c4_2",
+   "sentence_id": "u4s2",
+   "sentence": "The Transformer relies entirely on attention and dispenses with recurrence and convolutions.",
+   "old_marker": "[1]",
+   "new_marker": "[3]",
+   "references": [
+    {
+     "record": "M1",
+     "number": 3,
+     "text": "Vaswani 2017 Attention is all you need",
+     "doi": "",
+     "verification": "verified_by_pdf"
+    }
+   ],
+   "verdict": "supported",
+   "verdict_source": "heuristic",
+   "note": null,
+   "match_basis": {
+    "M1": {
+     "heuristic": "supported",
+     "basis": "cited PDF p.1: \"The best performing models also connect the encoder and decoder through an attention mechanism. We propose a new simple network architecture, the Transformer, b\" (term overlap 0.556)"
+    }
+   },
+   "evidence": {
+    "M1": {
+     "page": 1,
+     "quote": "The best performing models also connect the encoder and decoder through an attention mechanism. We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely.",
+     "score": 0.556,
+     "terms": [
+      "attention",
+      "convolutions",
+      "entirely",
+      "recurrence",
+      "transformer"
+     ],
+     "file": "attention.pdf"
+    }
+   }
+  },
+  {
+   "occurrence": "c8_0",
+   "sentence_id": "u8s0",
+   "sentence": "The test loss of language models scales as a power law with model size, dataset size and the amount of compute used for training.",
+   "old_marker": "[2]",
+   "new_marker": "[1]",
+   "references": [
+    {
+     "record": "M2",
+     "number": 1,
+     "text": "He 2016 Deep residual learning for image recognition",
+     "doi": "10.1109/cvpr.2016.90",
+     "verification": "verified_with_corrections"
+    }
+   ],
+   "verdict": "needs_check",
+   "verdict_source": "heuristic",
+   "note": null,
+   "match_basis": {
+    "M2": {
+     "heuristic": "needs_check",
+     "basis": "no term overlap with the cited work (metadata 0.0, PDF 0.231)"
+    }
+   },
+   "evidence": {
+    "M2": {
+     "page": 1,
+     "quote": "The deeper network has higher training error, and thus test error. Similar phenomena on ImageNet is presented in Fig. 4. greatly beneﬁted from very deep models.",
+     "score": 0.231,
+     "terms": [
+      "models",
+      "test",
+      "training"
+     ],
+     "file": "resnet.pdf"
+    }
+   }
+  },
+  {
+   "occurrence": "c8_1",
+   "sentence_id": "u8s1",
+   "sentence": "Larger models are significantly more sample-efficient.",
+   "old_marker": "[3]",
+   "new_marker": "[4]",
+   "references": [
+    {
+     "record": "M3",
+     "number": 4,
+     "text": "Kaplan 2020 Scaling laws for neural language models",
+     "doi": "",
+     "verification": "verified"
+    }
+   ],
+   "verdict": "supported",
+   "verdict_source": "heuristic",
+   "note": null,
+   "match_basis": {
+    "M3": {
+     "heuristic": "supported",
+     "basis": "cited PDF p.1: \"These relationships allow us to determine the optimal allocation of a ﬁxed compute budget. Larger models are signiﬁcantly more sampleefﬁcient, such that optimal\" (term overlap 0.75)"
+    }
+   },
+   "evidence": {
+    "M3": {
+     "page": 1,
+     "quote": "These relationships allow us to determine the optimal allocation of a ﬁxed compute budget. Larger models are signiﬁcantly more sampleefﬁcient, such that optimally compute-efﬁcient training involves training very large models on a relatively modest amount of data and stopping signiﬁcantly before convergence. ∗Equal contribution.",
+     "score": 0.75,
+     "terms": [
+      "larger",
+      "models",
+      "significantly"
+     ],
+     "file": "kaplan.pdf"
+    }
+   }
+  }
+ ],
+ "_contract_fields": [
+  "revised_manuscript",
+  "references",
+  "claim_source_check"
+ ],
+ "_contract_spec": {
+  "revised_manuscript": "edited manuscript",
+  "references": "GB/T 7714 list",
+  "claim_source_check": "per citation: does the cited PDF support the sentence"
+ },
+ "inputs": {
+  "case": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\pdf_evidence\\input\\case.json",
+  "task": null,
+  "manuscripts": [
+   {
+    "path": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\pdf_evidence\\input\\manuscript.md",
+    "sha256": "3006b1a2051bb7502f597c16d7ff74f5848f5528f19f36be17e5ed80ae681606",
+    "bytes": 1326
+   }
+  ],
+  "libraries": [],
+  "pdfs": [
+   {
+    "path": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\pdf_evidence\\input\\attention.pdf",
+    "sha256": "bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697",
+    "bytes": 2215244
+   },
+   {
+    "path": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\pdf_evidence\\input\\batchnorm.pdf",
+    "sha256": "bdc69e0b568f41d8d3181cc9077a461f58fcdd1c70c9f49efe60a05ee6109655",
+    "bytes": 173548
+   },
+   {
+    "path": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\pdf_evidence\\input\\kaplan.pdf",
+    "sha256": "a41bd7877fd1a6bcbba096b2619618bd2f90e02488f2365644903eb2f7c6a494",
+    "bytes": 2493004
+   },
+   {
+    "path": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\pdf_evidence\\input\\resnet.pdf",
+    "sha256": "1e0651b6810ecba34a3dbc5b5b0209226f889004607c1f203540a48d64e5a93a",
+    "bytes": 819383
+   }
+  ]
+ },
+ "status": "partial",
+ "status_reason": [
+  "1 citation occurrence(s) whose claim-source match could not be established automatically (verdict needs_check/unverifiable): judge them in edits.occurrences",
+  "1 claim sentence(s) without a citation: add a citation via edits.add_citations or leave them for the author",
+  "4 citation verdict(s) are heuristic (term overlap with title/abstract or the cited PDF), not read by a person"
+ ],
+ "style": "gbt7714",
+ "marker_style": "inline",
+ "artifacts": {
+  "revised_manuscript": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\pdf_evidence\\output\\manuscript_revised.md",
+  "references": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\pdf_evidence\\output\\references_gbt7714.txt",
+  "bibtex": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\pdf_evidence\\output\\references.bib",
+  "ris": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\pdf_evidence\\output\\references.ris",
+  "csl_json": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\pdf_evidence\\output\\references.csl.json",
+  "citation_map": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\pdf_evidence\\output\\citation_map.json",
+  "merge_log": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\pdf_evidence\\output\\merge_log.json",
+  "verification": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\pdf_evidence\\output\\verification.json",
+  "renumber_map": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\pdf_evidence\\output\\renumber_map.json",
+  "library_dedup": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\pdf_evidence\\output\\library_dedup.json",
+  "diff": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\pdf_evidence\\output\\manuscript.diff",
+  "review": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\pdf_evidence\\output\\review.md"
+ },
+ "summary": {
+  "records_in": 4,
+  "records_after_dedup": 4,
+  "merged_clusters": 0,
+  "occurrences": 5,
+  "occurrences_out": 5,
+  "references_out": 4,
+  "orphans": 0,
+  "uncited_removed": 0,
+  "auto_moves": 0,
+  "placement_suggestions": 0,
+  "verified": 4,
+  "verification_status_counts": {
+   "verified_by_pdf": 2,
+   "verified_with_corrections": 1,
+   "verified": 1
+  },
+  "review_items": 5,
+  "review_by_type": {
+   "source_unconfirmed": 2,
+   "claim_without_citation": 1,
+   "weak_lexical_support": 1,
+   "possible_miscitation": 1
+  },
+  "parse_problems": 0,
+  "seconds": 0.7
+ },
+ "consistency_check": {
+  "ok": true,
+  "errors": [],
+  "warnings": [],
+  "max_number": 4,
+  "list_entries": 4,
+  "markers": 5,
+  "marker_styles": {
+   "inline": 5
+  }
+ },
+ "references_list": [
+  "[1] He K, Zhang X, Ren S, et al. Deep residual learning for image recognition[C]//Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 2016: 770-778. DOI:10.1109/cvpr.2016.90.",
+  "[2] Ioffe S, Szegedy C. Batch normalization: Accelerating deep network training by reducing internal covariate shift[C]//International Conference on Machine Learning, 2015: 448-456.",
+  "[3] Vaswani A, Shazeer N, Parmar N, et al. Attention is all you need[C]//Advances in Neural Information Processing Systems, 2017: 5998-6008.",
+  "[4] Kaplan J, McCandlish S, Henighan T, et al. Scaling laws for neural language models[J/OL]. arXiv preprint arXiv:2001.08361, 2020. https://arxiv.org/abs/2001.08361."
+ ],
+ "changes": [
+  {
+   "kind": "metadata_correction",
+   "record": "M2",
+   "field": "doi",
+   "old": null,
+   "new": "10.1109/cvpr.2016.90",
+   "source": "crossref title search"
+  },
+  {
+   "kind": "metadata_correction",
+   "record": "M2",
+   "field": "authors",
+   "old": "3 author(s)",
+   "new": "4 authors",
+   "source": "crossref (registry lists 4 authors; record had 3)"
+  }
+ ],
+ "needs_review": [
+  {
+   "type": "source_unconfirmed",
+   "record": "M1",
+   "msg": "no Crossref/arXiv record with matching title+authors+year; common for proceedings without DOI, books, Chinese journals - check by hand",
+   "details": {
+    "doi": "10.65215/pc26a033",
+    "title": "Attention Is All You Need",
+    "year": "2025",
+    "similarity": 1.0,
+    "author_overlap": 1.0,
+    "accepted": false
+   }
+  },
+  {
+   "type": "source_unconfirmed",
+   "record": "M4",
+   "msg": "no Crossref/arXiv record with matching title+authors+year; common for proceedings without DOI, books, Chinese journals - check by hand",
+   "details": {
+    "doi": "10.21203/rs.3.rs-1027530/v1",
+    "title": "BNDNN: Batch Normalization Based Deep Neural Network for Predicting Flood in Urban Areas",
+    "year": "2021",
+    "similarity": 0.603,
+    "author_overlap": 0.0,
+    "accepted": false
+   }
+  },
+  {
+   "type": "claim_without_citation",
+   "sentence": "u8s2",
+   "cue": "has been shown",
+   "text": "It has been shown that dropout reduces overfitting in large networks."
+  },
+  {
+   "type": "weak_lexical_support",
+   "occurrence": "c8_0",
+   "record": "M2",
+   "score": 0.0,
+   "msg": "sentence shares almost no terms with the cited work: check claim-source match"
+  },
+  {
+   "type": "possible_miscitation",
+   "occurrence": "c8_0",
+   "records": [
+    "M2"
+   ],
+   "better": {
+    "record": "M3",
+    "title": "Scaling laws for neural language models",
+    "page": 3,
+    "quote": "Dataset Size tokens Parameters non-embedding Compute PF-days, non-embedding Test Loss Figure 1 Language modeling performance improves smoothly as we increase the model size, datasetset size, and amoun",
+    "score": 0.692,
+    "cited_score": 0.231
+   },
+   "msg": "the supplied PDF of M3 matches this sentence much better (0.692 vs 0.231) than the cited work"
+  }
+ ],
+ "parse_problems": [],
+ "edits_applied": null,
+ "uncertainty": "Each citation verdict is either the agent's (verdict_source=agent) or a heuristic from term overlap between the sentence and the cited work's title/abstract and the matched passage of its PDF (verdict_source=heuristic; not a reading of the source). Online metadata from Crossref/arXiv may itself be incomplete (e.g. shortened author lists).",
+ "_contract_autofilled": {
+  "revised_manuscript": true,
+  "references": true,
+  "claim_source_check": true
+ },
+ "contract_mapping": {
+  "revised_manuscript": "manuscript",
+  "references": "references",
+  "claim_source_check": "citation_map"
+ },
+ "contract_unfilled": []
+}

@@ -20,15 +20,25 @@
     "learning"
    ]
   },
-  "sentence_text": "Deep learning has transformed speech and visual recognition .",
-  "verdict": null,
+  "evidence": {},
+  "heuristic_verdict": "supported",
+  "sentence_text": "Deep learning has transformed speech and visual recognition.",
+  "verdict": "supported",
+  "verdict_source": "heuristic",
   "verdict_note": null,
+  "match_basis": {
+   "L1-5": {
+    "heuristic": "supported",
+    "basis": "sentence shares title/abstract terms ['deep', 'learning'] (support 0.8)"
+   }
+  },
   "references": [
    {
     "record": "L1-5",
     "number": null,
     "text": "LeCun 2015 Deep learning",
-    "doi": "10.1038/nature14539"
+    "doi": "10.1038/nature14539",
+    "verification": "verified"
    }
   ]
  },
@@ -52,15 +62,25 @@
     "residual"
    ]
   },
-  "sentence_text": "Residual networks made models with more than a hundred layers trainable , and identity shortcuts further eased optimization .",
-  "verdict": null,
+  "evidence": {},
+  "heuristic_verdict": "partial",
+  "sentence_text": "Residual networks made models with more than a hundred layers trainable, and identity shortcuts further eased optimization.",
+  "verdict": "partial",
+  "verdict_source": "heuristic",
   "verdict_note": null,
+  "match_basis": {
+   "L1-4": {
+    "heuristic": "partial",
+    "basis": "weak overlap (metadata 0.19)"
+   }
+  },
   "references": [
    {
     "record": "L1-4",
     "number": null,
     "text": "He 2016 Deep Residual Learning for Image Recognition",
-    "doi": "10.1109/CVPR.2016.90"
+    "doi": "10.1109/CVPR.2016.90",
+    "verification": "verified"
    }
   ]
  },
@@ -86,15 +106,25 @@
     "residual"
    ]
   },
-  "sentence_text": "Residual networks made models with more than a hundred layers trainable , and identity shortcuts further eased optimization .",
-  "verdict": null,
+  "evidence": {},
+  "heuristic_verdict": "supported",
+  "sentence_text": "Residual networks made models with more than a hundred layers trainable, and identity shortcuts further eased optimization.",
+  "verdict": "supported",
+  "verdict_source": "heuristic",
   "verdict_note": null,
+  "match_basis": {
+   "M2": {
+    "heuristic": "supported",
+    "basis": "sentence shares title/abstract terms ['identity', 'networks', 'residual'] (support 0.57)"
+   }
+  },
   "references": [
    {
     "record": "M2",
     "number": null,
     "text": "He 2016 Identity mappings in deep residual networks",
-    "doi": "10.1007/978-3-319-46493-0_38"
+    "doi": "10.1007/978-3-319-46493-0_38",
+    "verification": "verified_with_corrections"
    }
   ]
  },
@@ -116,15 +146,25 @@
   "matched_terms": {
    "M7": []
   },
-  "sentence_text": "Residual networks made models with more than a hundred layers trainable , and identity shortcuts further eased optimization .",
-  "verdict": null,
+  "evidence": {},
+  "heuristic_verdict": "needs_check",
+  "sentence_text": "Residual networks made models with more than a hundred layers trainable, and identity shortcuts further eased optimization.",
+  "verdict": "needs_check",
+  "verdict_source": "heuristic",
   "verdict_note": null,
+  "match_basis": {
+   "M7": {
+    "heuristic": "needs_check",
+    "basis": "no term overlap with the cited work (metadata 0.0)"
+   }
+  },
   "references": [
    {
     "record": "M7",
     "number": null,
     "text": "Vaswani 2017 Attention is all you need",
-    "doi": ""
+    "doi": "",
+    "verification": "verified_via_arxiv"
    }
   ]
  },
@@ -155,15 +195,25 @@
     "training"
    ]
   },
-  "sentence_text": "Batch normalization accelerates training by reducing internal covariate shift .",
-  "verdict": null,
+  "evidence": {},
+  "heuristic_verdict": "supported",
+  "sentence_text": "Batch normalization accelerates training by reducing internal covariate shift.",
+  "verdict": "supported",
+  "verdict_source": "heuristic",
   "verdict_note": null,
+  "match_basis": {
+   "M3": {
+    "heuristic": "supported",
+    "basis": "sentence shares title/abstract terms ['accelerating', 'batch', 'covariate', 'internal', 'normalization', 'reducing'] (support 0.86)"
+   }
+  },
   "references": [
    {
     "record": "M3",
     "number": null,
     "text": "Ioffe 2015 Batch normalization: Accelerating deep network training by r",
-    "doi": ""
+    "doi": "",
+    "verification": "verified"
    }
   ]
  },
@@ -188,15 +238,25 @@
     "models"
    ]
   },
-  "sentence_text": "Language-model loss falls as a power law in model size, data and compute .",
-  "verdict": null,
+  "evidence": {},
+  "heuristic_verdict": "supported",
+  "sentence_text": "Language-model loss falls as a power law in model size, data and compute.",
+  "verdict": "supported",
+  "verdict_source": "heuristic",
   "verdict_note": null,
+  "match_basis": {
+   "M4": {
+    "heuristic": "supported",
+    "basis": "sentence shares title/abstract terms ['laws', 'models'] (support 0.38)"
+   }
+  },
   "references": [
    {
     "record": "M4",
     "number": null,
     "text": "Kaplan 2020 Scaling laws for neural language models",
-    "doi": ""
+    "doi": "",
+    "verification": "verified"
    }
   ]
  }

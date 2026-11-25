@@ -17,15 +17,25 @@
   "matched_terms": {
    "L1-1": []
   },
-  "sentence_text": "Attention-only models were introduced in .",
-  "verdict": null,
+  "evidence": {},
+  "heuristic_verdict": "needs_check",
+  "sentence_text": "Attention-only models were introduced in.",
+  "verdict": "needs_check",
+  "verdict_source": "heuristic",
   "verdict_note": null,
+  "match_basis": {
+   "L1-1": {
+    "heuristic": "needs_check",
+    "basis": "no term overlap with the cited work (metadata 0.0)"
+   }
+  },
   "references": [
    {
     "record": "L1-1",
     "number": null,
     "text": "Vaswani 2017 Attention is all you need",
-    "doi": ""
+    "doi": "",
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -50,15 +60,25 @@
     "residual"
    ]
   },
+  "evidence": {},
+  "heuristic_verdict": "supported",
   "sentence_text": "Very deep residual networks and the deep-learning review are standard references.",
-  "verdict": null,
+  "verdict": "supported",
+  "verdict_source": "heuristic",
   "verdict_note": null,
+  "match_basis": {
+   "L1-4": {
+    "heuristic": "supported",
+    "basis": "sentence shares title/abstract terms ['deep', 'residual'] (support 0.38)"
+   }
+  },
   "references": [
    {
     "record": "L1-4",
     "number": null,
     "text": "He 2016 Deep Residual Learning for Image Recognition",
-    "doi": "10.1109/CVPR.2016.90"
+    "doi": "10.1109/CVPR.2016.90",
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -82,15 +102,25 @@
     "deep"
    ]
   },
+  "evidence": {},
+  "heuristic_verdict": "supported",
   "sentence_text": "Very deep residual networks and the deep-learning review are standard references.",
-  "verdict": null,
+  "verdict": "supported",
+  "verdict_source": "heuristic",
   "verdict_note": null,
+  "match_basis": {
+   "L1-5": {
+    "heuristic": "supported",
+    "basis": "sentence shares title/abstract terms ['deep'] (support 0.4)"
+   }
+  },
   "references": [
    {
     "record": "L1-5",
     "number": null,
     "text": "LeCun 2015 Deep learning",
-    "doi": "10.1038/nature14539"
+    "doi": "10.1038/nature14539",
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -114,15 +144,25 @@
   "matched_terms": {
    "MISSING-nokey2020": []
   },
+  "evidence": {},
+  "heuristic_verdict": "unverifiable",
   "sentence_text": "A missing key should be reported.",
-  "verdict": null,
+  "verdict": "unverifiable",
+  "verdict_source": "heuristic",
   "verdict_note": null,
+  "match_basis": {
+   "MISSING-nokey2020": {
+    "heuristic": "unverifiable",
+    "basis": "no reference entry for this marker"
+   }
+  },
   "references": [
    {
     "record": "MISSING-nokey2020",
     "number": null,
     "text": "? ? 【缺失文献：原稿引用 nokey2020 在参考文献表中找不到，需人工补充】",
-    "doi": null
+    "doi": null,
+    "verification": null
    }
   ]
  }

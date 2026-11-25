@@ -1,9 +1,9 @@
 {
  "case_id": null,
- "tool": "cite-sync 0.1.0",
+ "tool": "cite-sync 0.2.0",
  "status": "failed",
  "status_reason": [
-  "manuscript not usable: unsupported manuscript format '.doc': use .md/.txt/.tex/.docx (convert .doc/.pdf/.odt first)"
+  "manuscript not usable: .doc needs LibreOffice (soffice) to convert to .docx; not installed"
  ],
  "parse_problems": []
 }

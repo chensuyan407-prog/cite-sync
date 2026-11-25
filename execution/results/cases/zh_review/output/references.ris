@@ -41,9 +41,10 @@ EP  - 778
 ER  - 
 
 TY  - CPAPER
-AU  - He, K
-AU  - Zhang, X
-AU  - Ren, S
+AU  - He, Kaiming
+AU  - Zhang, Xiangyu
+AU  - Ren, Shaoqing
+AU  - Sun, Jian
 TI  - Identity mappings in deep residual networks
 T2  - European Conference on Computer Vision. Springer
 PY  - 2016
@@ -156,6 +157,37 @@ TY  - JOUR
 AU  - Jumper, John
 AU  - Evans, Richard
 AU  - Pritzel, Alexander
+AU  - Green, Tim
+AU  - Figurnov, Michael
+AU  - Ronneberger, Olaf
+AU  - Tunyasuvunakool, Kathryn
+AU  - Bates, Russ
+AU  - Žídek, Augustin
+AU  - Potapenko, Anna
+AU  - Bridgland, Alex
+AU  - Meyer, Clemens
+AU  - Kohl, Simon A. A.
+AU  - Ballard, Andrew J.
+AU  - Cowie, Andrew
+AU  - Romera-Paredes, Bernardino
+AU  - Nikolov, Stanislav
+AU  - Jain, Rishub
+AU  - Adler, Jonas
+AU  - Back, Trevor
+AU  - Petersen, Stig
+AU  - Reiman, David
+AU  - Clancy, Ellen
+AU  - Zielinski, Michal
+AU  - Steinegger, Martin
+AU  - Pacholska, Michalina
+AU  - Berghammer, Tamas
+AU  - Bodenstein, Sebastian
+AU  - Silver, David
+AU  - Vinyals, Oriol
+AU  - Senior, Andrew W.
+AU  - Kavukcuoglu, Koray
+AU  - Kohli, Pushmeet
+AU  - Hassabis, Demis
 TI  - Highly accurate protein structure prediction with AlphaFold
 T2  - Nature
 PY  - 2021

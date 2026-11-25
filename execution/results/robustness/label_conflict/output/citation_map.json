@@ -22,15 +22,25 @@
     "learning"
    ]
   },
+  "evidence": {},
+  "heuristic_verdict": "supported",
   "sentence_text": "深度学习综述见文献。",
-  "verdict": null,
+  "verdict": "supported",
+  "verdict_source": "heuristic",
   "verdict_note": null,
+  "match_basis": {
+   "M2": {
+    "heuristic": "supported",
+    "basis": "sentence shares title/abstract terms ['deep', 'learning'] (support 0.8)"
+   }
+  },
   "references": [
    {
     "record": "M2",
     "number": 1,
     "text": "LeCun 2015 Deep learning",
-    "doi": ""
+    "doi": "",
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -62,21 +72,36 @@
    ],
    "M2": []
   },
+  "evidence": {},
+  "heuristic_verdict": "needs_check",
   "sentence_text": "长短期记忆网络见。",
-  "verdict": null,
+  "verdict": "needs_check",
+  "verdict_source": "heuristic",
   "verdict_note": null,
+  "match_basis": {
+   "M1": {
+    "heuristic": "supported",
+    "basis": "sentence shares title/abstract terms ['long', 'memory', 'short-term'] (support 0.85)"
+   },
+   "M2": {
+    "heuristic": "needs_check",
+    "basis": "no term overlap with the cited work (metadata 0.0)"
+   }
+  },
   "references": [
    {
     "record": "M1",
     "number": 2,
     "text": "Hochreiter 1997 Long short-term memory",
-    "doi": ""
+    "doi": "",
+    "verification": "unverified_offline"
    },
    {
     "record": "M2",
     "number": 1,
     "text": "LeCun 2015 Deep learning",
-    "doi": ""
+    "doi": "",
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -102,15 +127,25 @@
   "matched_terms": {
    "MISSING-7": []
   },
+  "evidence": {},
+  "heuristic_verdict": "unverifiable",
   "sentence_text": "另见。",
-  "verdict": null,
+  "verdict": "unverifiable",
+  "verdict_source": "heuristic",
   "verdict_note": null,
+  "match_basis": {
+   "MISSING-7": {
+    "heuristic": "unverifiable",
+    "basis": "no reference entry for this marker"
+   }
+  },
   "references": [
    {
     "record": "MISSING-7",
     "number": 3,
     "text": "? ? 【缺失文献：原稿引用 7 在参考文献表中找不到，需人工补充】",
-    "doi": null
+    "doi": null,
+    "verification": null
    }
   ]
  }

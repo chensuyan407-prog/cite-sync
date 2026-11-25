@@ -56,18 +56,21 @@
   "authors": [
    {
     "family": "He",
-    "given": "K"
+    "given": "Kaiming"
    },
    {
     "family": "Zhang",
-    "given": "X"
+    "given": "Xiangyu"
    },
    {
     "family": "Ren",
-    "given": "S"
+    "given": "Shaoqing"
+   },
+   {
+    "family": "Sun",
+    "given": "Jian"
    }
   ],
-  "authors_truncated": true,
   "year": "2016",
   "container": "European Conference on Computer Vision. Springer",
   "pages": "630-645",
@@ -82,7 +85,8 @@
   "merge_needs_review": false,
   "cid": "M2",
   "field_provenance": {
-   "doi": "crossref title search"
+   "doi": "crossref title search",
+   "authors": "crossref (registry lists 4 authors; record had 3)"
   },
   "number": 4,
   "sources": [
@@ -463,6 +467,130 @@
    {
     "family": "Pritzel",
     "given": "Alexander"
+   },
+   {
+    "family": "Green",
+    "given": "Tim"
+   },
+   {
+    "family": "Figurnov",
+    "given": "Michael"
+   },
+   {
+    "family": "Ronneberger",
+    "given": "Olaf"
+   },
+   {
+    "family": "Tunyasuvunakool",
+    "given": "Kathryn"
+   },
+   {
+    "family": "Bates",
+    "given": "Russ"
+   },
+   {
+    "family": "Žídek",
+    "given": "Augustin"
+   },
+   {
+    "family": "Potapenko",
+    "given": "Anna"
+   },
+   {
+    "family": "Bridgland",
+    "given": "Alex"
+   },
+   {
+    "family": "Meyer",
+    "given": "Clemens"
+   },
+   {
+    "family": "Kohl",
+    "given": "Simon A. A."
+   },
+   {
+    "family": "Ballard",
+    "given": "Andrew J."
+   },
+   {
+    "family": "Cowie",
+    "given": "Andrew"
+   },
+   {
+    "family": "Romera-Paredes",
+    "given": "Bernardino"
+   },
+   {
+    "family": "Nikolov",
+    "given": "Stanislav"
+   },
+   {
+    "family": "Jain",
+    "given": "Rishub"
+   },
+   {
+    "family": "Adler",
+    "given": "Jonas"
+   },
+   {
+    "family": "Back",
+    "given": "Trevor"
+   },
+   {
+    "family": "Petersen",
+    "given": "Stig"
+   },
+   {
+    "family": "Reiman",
+    "given": "David"
+   },
+   {
+    "family": "Clancy",
+    "given": "Ellen"
+   },
+   {
+    "family": "Zielinski",
+    "given": "Michal"
+   },
+   {
+    "family": "Steinegger",
+    "given": "Martin"
+   },
+   {
+    "family": "Pacholska",
+    "given": "Michalina"
+   },
+   {
+    "family": "Berghammer",
+    "given": "Tamas"
+   },
+   {
+    "family": "Bodenstein",
+    "given": "Sebastian"
+   },
+   {
+    "family": "Silver",
+    "given": "David"
+   },
+   {
+    "family": "Vinyals",
+    "given": "Oriol"
+   },
+   {
+    "family": "Senior",
+    "given": "Andrew W."
+   },
+   {
+    "family": "Kavukcuoglu",
+    "given": "Koray"
+   },
+   {
+    "family": "Kohli",
+    "given": "Pushmeet"
+   },
+   {
+    "family": "Hassabis",
+    "given": "Demis"
    }
   ],
   "year": "2021",
@@ -478,9 +606,11 @@
    "M11",
    "L2-2"
   ],
-  "authors_truncated": true,
   "merge_needs_review": false,
   "cid": "L2-2",
+  "field_provenance": {
+   "authors": "crossref (registry lists 34 authors; record had 3)"
+  },
   "number": 12,
   "sources": [
    {

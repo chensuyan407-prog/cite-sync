@@ -1,0 +1,168 @@
+[
+ {
+  "type": "paper-conference",
+  "title": "Attention is all you need",
+  "authors": [
+   {
+    "family": "Vaswani",
+    "given": "A"
+   },
+   {
+    "family": "Shazeer",
+    "given": "N"
+   },
+   {
+    "family": "Parmar",
+    "given": "N"
+   }
+  ],
+  "authors_truncated": true,
+  "year": "2017",
+  "container": "Advances in Neural Information Processing Systems",
+  "pages": "5998-6008",
+  "lang": "en",
+  "label": 1,
+  "id": "M1",
+  "origin": "manuscript_list",
+  "doi": "",
+  "merged_from": [
+   "M1"
+  ],
+  "merge_needs_review": false,
+  "cid": "M1",
+  "number": 3,
+  "sources": [
+   {
+    "file": "manuscript.md",
+    "index": 1,
+    "format": "reftext",
+    "raw": "Vaswani A, Shazeer N, Parmar N, et al. Attention is all you need[C]//Advances in Neural Information Processing Systems. 2017: 5998-6008."
+   }
+  ]
+ },
+ {
+  "type": "paper-conference",
+  "title": "Deep residual learning for image recognition",
+  "authors": [
+   {
+    "family": "He",
+    "given": "Kaiming"
+   },
+   {
+    "family": "Zhang",
+    "given": "Xiangyu"
+   },
+   {
+    "family": "Ren",
+    "given": "Shaoqing"
+   },
+   {
+    "family": "Sun",
+    "given": "Jian"
+   }
+  ],
+  "year": "2016",
+  "container": "Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition",
+  "pages": "770-778",
+  "lang": "en",
+  "label": 2,
+  "id": "M2",
+  "origin": "manuscript_list",
+  "doi": "10.1109/cvpr.2016.90",
+  "merged_from": [
+   "M2"
+  ],
+  "merge_needs_review": false,
+  "cid": "M2",
+  "field_provenance": {
+   "doi": "crossref title search",
+   "authors": "crossref (registry lists 4 authors; record had 3)"
+  },
+  "number": 1,
+  "sources": [
+   {
+    "file": "manuscript.md",
+    "index": 2,
+    "format": "reftext",
+    "raw": "He K, Zhang X, Ren S, et al. Deep residual learning for image recognition[C]//Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition. 2016: 770-778."
+   }
+  ]
+ },
+ {
+  "arxiv": "2001.08361",
+  "type": "preprint",
+  "title": "Scaling laws for neural language models",
+  "authors": [
+   {
+    "family": "Kaplan",
+    "given": "J"
+   },
+   {
+    "family": "McCandlish",
+    "given": "S"
+   },
+   {
+    "family": "Henighan",
+    "given": "T"
+   }
+  ],
+  "authors_truncated": true,
+  "year": "2020",
+  "container": "arXiv preprint arXiv:2001.08361",
+  "lang": "en",
+  "label": 3,
+  "id": "M3",
+  "origin": "manuscript_list",
+  "doi": "",
+  "merged_from": [
+   "M3"
+  ],
+  "merge_needs_review": false,
+  "cid": "M3",
+  "number": 4,
+  "sources": [
+   {
+    "file": "manuscript.md",
+    "index": 3,
+    "format": "reftext",
+    "raw": "Kaplan J, McCandlish S, Henighan T, et al. Scaling laws for neural language models[J]. arXiv preprint arXiv:2001.08361, 2020."
+   }
+  ]
+ },
+ {
+  "type": "paper-conference",
+  "title": "Batch normalization: Accelerating deep network training by reducing internal covariate shift",
+  "authors": [
+   {
+    "family": "Ioffe",
+    "given": "S"
+   },
+   {
+    "family": "Szegedy",
+    "given": "C"
+   }
+  ],
+  "year": "2015",
+  "container": "International Conference on Machine Learning",
+  "pages": "448-456",
+  "lang": "en",
+  "label": 4,
+  "id": "M4",
+  "origin": "manuscript_list",
+  "doi": "",
+  "merged_from": [
+   "M4"
+  ],
+  "merge_needs_review": false,
+  "cid": "M4",
+  "number": 2,
+  "sources": [
+   {
+    "file": "manuscript.md",
+    "index": 4,
+    "format": "reftext",
+    "raw": "Ioffe S, Szegedy C. Batch normalization: Accelerating deep network training by reducing internal covariate shift[C]//International Conference on Machine Learning. 2015: 448-456."
+   }
+  ]
+ }
+]

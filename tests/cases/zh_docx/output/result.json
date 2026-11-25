@@ -1,7 +1,12 @@
 {
  "case_id": "dev-zh-docx",
- "tool": "cite-sync 0.1.0",
- "revised_manuscript": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\zh_docx\\output\\manuscript_revised.docx",
+ "tool": "cite-sync 0.2.0",
+ "revised_manuscript": {
+  "path": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\zh_docx\\output\\manuscript_revised.docx",
+  "format": "docx",
+  "diff": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\zh_docx\\output\\manuscript_changes.md",
+  "previews": null
+ },
  "references": [
   "[1] LeCun Y, Bengio Y, Hinton G. Deep learning[J]. Nature, 2015, 521(7553): 436-444. DOI:10.1038/nature14539.",
   "[2] Krizhevsky A, Sutskever I, Hinton G E. ImageNet classification with deep convolutional neural networks[J]. Communications of the ACM, 2017, 60(6): 84-90. DOI:10.1145/3065386.",
@@ -49,7 +54,24 @@
    "type": "claim_without_citation",
    "sentence": "u10s1",
    "cue": "有研究",
-   "text": "另有研究报道残差注意力网络在多个尺度上存在普适的缩放规律。"
+   "text": "另有研究报道残差注意力网络在多个尺度上存在普适的缩放规律。",
+   "suggest": [
+    {
+     "record": "M14",
+     "score": 0.57,
+     "title": "Universal scaling of residual attention networks",
+     "year": "2019",
+     "already_cited": false
+    }
+   ],
+   "edit": {
+    "sentence": "text:另有研究报道残差注意力网络在多个尺度上存在普适的缩放规律。",
+    "refs": [
+     "M14"
+    ],
+    "verdict": "supported",
+    "note": "<why this source supports the sentence>"
+   }
   },
   {
    "type": "caption_citation",
@@ -62,6 +84,11 @@
   "references",
   "needs_review"
  ],
+ "_contract_spec": {
+  "revised_manuscript": "",
+  "references": "",
+  "needs_review": ""
+ },
  "inputs": {
   "case": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\zh_docx\\input\\case.json",
   "task": null,
@@ -93,7 +120,8 @@
  },
  "status": "partial",
  "status_reason": [
-  "1 citation(s) removed by edit; the sentence(s) need a real source or rewording (human)"
+  "1 citation(s) removed by edit; the sentence(s) need a real source or rewording (human)",
+  "1 claim sentence(s) without a citation (1 with a suggested library record): add a citation via edits.add_citations or leave them for the author"
  ],
  "style": "gbt7714",
  "marker_style": "docx-sup",
@@ -124,8 +152,8 @@
   "placement_suggestions": 0,
   "verified": 11,
   "verification_status_counts": {
-   "verified": 5,
-   "verified_with_corrections": 4,
+   "verified": 4,
+   "verified_with_corrections": 5,
    "verified_via_arxiv": 2,
    "doi_not_found": 1
   },
@@ -137,7 +165,7 @@
    "caption_citation": 1
   },
   "parse_problems": 0,
-  "seconds": 0.14
+  "seconds": 0.15
  },
  "consistency_check": {
   "ok": true,
@@ -267,6 +295,14 @@
   },
   {
    "kind": "metadata_correction",
+   "record": "M2",
+   "field": "authors",
+   "old": "3 author(s)",
+   "new": "4 authors",
+   "source": "crossref (registry lists 4 authors; record had 3)"
+  },
+  {
+   "kind": "metadata_correction",
    "record": "M4",
    "field": "doi",
    "old": null,
@@ -296,6 +332,14 @@
    "old": null,
    "new": "10.18653/v1/n19-1423",
    "source": "crossref title search"
+  },
+  {
+   "kind": "metadata_correction",
+   "record": "L2-2",
+   "field": "authors",
+   "old": "3 author(s)",
+   "new": "34 authors",
+   "source": "crossref (registry lists 34 authors; record had 3)"
   },
   {
    "kind": "citation_moved",
@@ -353,5 +397,14 @@
  ],
  "parse_problems": [],
  "edits_applied": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\zh_docx\\edits_agent.json",
- "uncertainty": "Claim-source verdicts come from the agent reading sentence + reference metadata (and PDFs when given); lexical support scores are hints only. Online metadata from Crossref/arXiv may itself be incomplete (e.g. shortened author lists)."
+ "uncertainty": "Each citation verdict is either the agent's (verdict_source=agent) or a heuristic from term overlap between the sentence and the cited work's title/abstract (verdict_source=heuristic; not a reading of the source). Online metadata from Crossref/arXiv may itself be incomplete (e.g. shortened author lists).",
+ "_contract_autofilled": {
+  "revised_manuscript": true,
+  "references": true
+ },
+ "contract_mapping": {
+  "revised_manuscript": "manuscript",
+  "references": "references"
+ },
+ "contract_unfilled": []
 }

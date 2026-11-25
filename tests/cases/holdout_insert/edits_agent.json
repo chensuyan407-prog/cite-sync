@@ -1,0 +1,45 @@
+{
+ "_note": "agent pass 2: accepted the first suggestion for 5 claims after checking titles; quantum-computing claim left for the author",
+ "add_citations": [
+  {
+   "sentence": "text:研究表明，深度学习通过多层表示学习显著提升了语音识别和图像识",
+   "refs": [
+    "L2-2"
+   ],
+   "verdict": "supported",
+   "note": "LeCun et al. 2015 review: deep representation learning improved speech and visual recognition"
+  },
+  {
+   "sentence": "text:长短期记忆网络被广泛用于序列建模，其门控结构缓解了梯度消失问",
+   "refs": [
+    "L3-2"
+   ],
+   "verdict": "supported",
+   "note": "Hochreiter & Schmidhuber 1997 introduce LSTM gates against vanishing gradients"
+  },
+  {
+   "sentence": "text:卷积神经网络在 ImageNet 图像分类任务上取得了突破。",
+   "refs": [
+    "L2-1"
+   ],
+   "verdict": "supported",
+   "note": "Krizhevsky et al. 2012: CNN breakthrough on ImageNet classification"
+  },
+  {
+   "sentence": "text:AlphaFold 取得了接近实验精度的蛋白质结构预测结果。",
+   "refs": [
+    "L3-1"
+   ],
+   "verdict": "supported",
+   "note": "Jumper et al. 2021 AlphaFold: near-experimental accuracy"
+  },
+  {
+   "sentence": "text:已有研究对卷积神经网络中的池化方法进行了系统综述。",
+   "refs": [
+    "L1-1"
+   ],
+   "verdict": "supported",
+   "note": "袁铭阳等 2020: survey of CNN pooling methods"
+  }
+ ]
+}

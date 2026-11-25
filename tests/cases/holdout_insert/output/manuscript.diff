@@ -1,0 +1,15 @@
+--- original
++++ revised
+@@ -5 +5 @@
+-研究表明，深度学习通过多层表示学习显著提升了语音识别和图像识别的性能。长短期记忆网络被广泛用于序列建模，其门控结构缓解了梯度消失问题。卷积神经网络在 ImageNet 图像分类任务上取得了突破。
++研究表明，深度学习通过多层表示学习显著提升了语音识别和图像识别的性能[1]。长短期记忆网络被广泛用于序列建模，其门控结构缓解了梯度消失问题[2]。卷积神经网络在 ImageNet 图像分类任务上取得了突破[3]。
+@@ -9 +9 @@
+-AlphaFold 取得了接近实验精度的蛋白质结构预测结果。已有研究对卷积神经网络中的池化方法进行了系统综述。有研究指出，量子计算将在十年内全面取代经典计算。
++AlphaFold 取得了接近实验精度的蛋白质结构预测结果[4]。已有研究对卷积神经网络中的池化方法进行了系统综述[5]。有研究指出，量子计算将在十年内全面取代经典计算。
+@@ -13,0 +14,6 @@
++
++[1] LeCun Y, Bengio Y, Hinton G. Deep learning[J]. Nature, 2015, 521(7553): 436-444. DOI:10.1038/nature14539.
++[2] Hochreiter S, Schmidhuber J. Long Short-Term Memory[J]. Neural Computation, 1997, 9(8): 1735-1780. DOI:10.1162/neco.1997.9.8.1735.
++[3] Krizhevsky A, Sutskever I, Hinton G E. ImageNet classification with deep convolutional neural networks[C]//Advances in Neural Information Processing Systems, 2012: 1097-1105.
++[4] Jumper J, Evans R, Pritzel A, et al. Highly accurate protein structure prediction with AlphaFold[J]. Nature, 2021, 596(7873): 583-589. DOI:10.1038/s41586-021-03819-2.
++[5] 袁铭阳, 周长胜, 黄宏博, 等. 卷积神经网络池化方法综述[J]. 软件工程与应用, 2020, 9(5): 360-372. DOI:10.12677/SEA.2020.95041.

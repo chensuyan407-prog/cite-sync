@@ -1,0 +1,341 @@
+[
+ {
+  "type": "article-journal",
+  "title": "卷积神经网络池化方法综述",
+  "authors": [
+   {
+    "literal": "袁铭阳"
+   },
+   {
+    "literal": "周长胜"
+   },
+   {
+    "literal": "黄宏博"
+   },
+   {
+    "literal": "胡志颖"
+   },
+   {
+    "literal": "李颖"
+   }
+  ],
+  "year": "2020",
+  "container": "软件工程与应用",
+  "volume": "9",
+  "issue": "5",
+  "pages": "360-372",
+  "doi": "10.12677/SEA.2020.95041",
+  "abstract": "池化层是卷积神经网络的重要组成部分，池化层通过池化计算对经过卷积层后的特征图进行降维。",
+  "keywords": [
+   "卷积神经网络",
+   "池化方法",
+   "池化层"
+  ],
+  "lang": "zh",
+  "id": "L1-1",
+  "origin": "library:cnki.enw",
+  "merged_from": [
+   "L1-1"
+  ],
+  "merge_needs_review": false,
+  "cid": "L1-1",
+  "number": 5,
+  "sources": [
+   {
+    "file": "cnki.enw",
+    "index": 1,
+    "format": "endnote",
+    "raw": "%0 Journal Article\n%A 袁铭阳;周长胜;黄宏博;胡志颖;李颖\n%+ 北京信息科技大学计算机学院;\n%T 卷积神经网络池化方法综述\n%J 软件工程与应用\n%D 2020\n%V 9\n%N 5\n%P 360-372\n%K 卷积神经网络;池化方法;池化层\n%X 池化层是卷积神经网络的重要组成部分，池化层通过池化计算对经过卷积层后的特征图进行降维。\n%R 10.12677/SEA.2020.95041\n%W CNKI"
+   }
+  ]
+ },
+ {
+  "bibkey": "krizhevsky2012imagenet",
+  "type": "paper-conference",
+  "title": "ImageNet classification with deep convolutional neural networks",
+  "authors": [
+   {
+    "family": "Krizhevsky",
+    "given": "Alex"
+   },
+   {
+    "family": "Sutskever",
+    "given": "Ilya"
+   },
+   {
+    "family": "Hinton",
+    "given": "Geoffrey E"
+   }
+  ],
+  "year": "2012",
+  "container": "Advances in Neural Information Processing Systems",
+  "volume": "25",
+  "pages": "1097-1105",
+  "lang": "en",
+  "id": "L2-1",
+  "origin": "library:lib.bib",
+  "doi": "",
+  "merged_from": [
+   "L2-1"
+  ],
+  "merge_needs_review": false,
+  "cid": "L2-1",
+  "number": 3,
+  "sources": [
+   {
+    "file": "lib.bib",
+    "index": 1,
+    "format": "bibtex",
+    "raw": "@inproceedings{krizhevsky2012imagenet,\r\n  title={ImageNet classification with deep convolutional neural networks},\r\n  author={Krizhevsky, Alex and Sutskever, Ilya and Hinton, Geoffrey E},\r\n  booktitle={Advances in Neural Information Processing Systems},\r\n  volume={25},\r\n  pages={1097--1105},\r\n  year={2012}\r\n}"
+   }
+  ]
+ },
+ {
+  "bibkey": "lecun2015deep",
+  "type": "article-journal",
+  "title": "Deep learning",
+  "authors": [
+   {
+    "family": "LeCun",
+    "given": "Yann"
+   },
+   {
+    "family": "Bengio",
+    "given": "Yoshua"
+   },
+   {
+    "family": "Hinton",
+    "given": "Geoffrey"
+   }
+  ],
+  "year": "2015",
+  "container": "Nature",
+  "volume": "521",
+  "issue": "7553",
+  "pages": "436-444",
+  "publisher": "Nature Publishing Group",
+  "doi": "10.1038/nature14539",
+  "lang": "en",
+  "id": "L2-2",
+  "origin": "library:lib.bib",
+  "merged_from": [
+   "L2-2"
+  ],
+  "merge_needs_review": false,
+  "cid": "L2-2",
+  "number": 1,
+  "sources": [
+   {
+    "file": "lib.bib",
+    "index": 2,
+    "format": "bibtex",
+    "raw": "@article{lecun2015deep,\r\n  title={Deep learning},\r\n  author={LeCun, Yann and Bengio, Yoshua and Hinton, Geoffrey},\r\n  journal={Nature},\r\n  volume={521},\r\n  number={7553},\r\n  pages={436--444},\r\n  year={2015},\r\n  publisher={Nature Publishing Group},\r\n  doi={10.1038/nature14539}\r\n}"
+   }
+  ]
+ },
+ {
+  "type": "article-journal",
+  "title": "Highly accurate protein structure prediction with AlphaFold",
+  "authors": [
+   {
+    "family": "Jumper",
+    "given": "John"
+   },
+   {
+    "family": "Evans",
+    "given": "Richard"
+   },
+   {
+    "family": "Pritzel",
+    "given": "Alexander"
+   },
+   {
+    "family": "Green",
+    "given": "Tim"
+   },
+   {
+    "family": "Figurnov",
+    "given": "Michael"
+   },
+   {
+    "family": "Ronneberger",
+    "given": "Olaf"
+   },
+   {
+    "family": "Tunyasuvunakool",
+    "given": "Kathryn"
+   },
+   {
+    "family": "Bates",
+    "given": "Russ"
+   },
+   {
+    "family": "Žídek",
+    "given": "Augustin"
+   },
+   {
+    "family": "Potapenko",
+    "given": "Anna"
+   },
+   {
+    "family": "Bridgland",
+    "given": "Alex"
+   },
+   {
+    "family": "Meyer",
+    "given": "Clemens"
+   },
+   {
+    "family": "Kohl",
+    "given": "Simon A. A."
+   },
+   {
+    "family": "Ballard",
+    "given": "Andrew J."
+   },
+   {
+    "family": "Cowie",
+    "given": "Andrew"
+   },
+   {
+    "family": "Romera-Paredes",
+    "given": "Bernardino"
+   },
+   {
+    "family": "Nikolov",
+    "given": "Stanislav"
+   },
+   {
+    "family": "Jain",
+    "given": "Rishub"
+   },
+   {
+    "family": "Adler",
+    "given": "Jonas"
+   },
+   {
+    "family": "Back",
+    "given": "Trevor"
+   },
+   {
+    "family": "Petersen",
+    "given": "Stig"
+   },
+   {
+    "family": "Reiman",
+    "given": "David"
+   },
+   {
+    "family": "Clancy",
+    "given": "Ellen"
+   },
+   {
+    "family": "Zielinski",
+    "given": "Michal"
+   },
+   {
+    "family": "Steinegger",
+    "given": "Martin"
+   },
+   {
+    "family": "Pacholska",
+    "given": "Michalina"
+   },
+   {
+    "family": "Berghammer",
+    "given": "Tamas"
+   },
+   {
+    "family": "Bodenstein",
+    "given": "Sebastian"
+   },
+   {
+    "family": "Silver",
+    "given": "David"
+   },
+   {
+    "family": "Vinyals",
+    "given": "Oriol"
+   },
+   {
+    "family": "Senior",
+    "given": "Andrew W."
+   },
+   {
+    "family": "Kavukcuoglu",
+    "given": "Koray"
+   },
+   {
+    "family": "Kohli",
+    "given": "Pushmeet"
+   },
+   {
+    "family": "Hassabis",
+    "given": "Demis"
+   }
+  ],
+  "year": "2021",
+  "container": "Nature",
+  "volume": "596",
+  "issue": "7873",
+  "pages": "583-589",
+  "doi": "10.1038/s41586-021-03819-2",
+  "lang": "en",
+  "id": "L3-1",
+  "origin": "library:refs.ris",
+  "merged_from": [
+   "L3-1"
+  ],
+  "merge_needs_review": false,
+  "cid": "L3-1",
+  "field_provenance": {
+   "authors": "crossref (registry lists 34 authors; record had 3)"
+  },
+  "number": 4,
+  "sources": [
+   {
+    "file": "refs.ris",
+    "index": 1,
+    "format": "ris",
+    "raw": "TY  - JOUR\nAU  - Jumper, John\nAU  - Evans, Richard\nAU  - Pritzel, Alexander\nTI  - Highly accurate protein structure prediction with AlphaFold\nT2  - Nature\nPY  - 2021\nVL  - 596\nIS  - 7873\nSP  - 583\nEP  - 589\nDO  - 10.1038/s41586-021-03819-2\nER  - "
+   }
+  ]
+ },
+ {
+  "type": "article-journal",
+  "title": "Long Short-Term Memory",
+  "authors": [
+   {
+    "family": "Hochreiter",
+    "given": "Sepp"
+   },
+   {
+    "family": "Schmidhuber",
+    "given": "Jürgen"
+   }
+  ],
+  "year": "1997",
+  "container": "Neural Computation",
+  "volume": "9",
+  "issue": "8",
+  "pages": "1735-1780",
+  "doi": "10.1162/neco.1997.9.8.1735",
+  "lang": "en",
+  "id": "L3-2",
+  "origin": "library:refs.ris",
+  "merged_from": [
+   "L3-2"
+  ],
+  "merge_needs_review": false,
+  "cid": "L3-2",
+  "number": 2,
+  "sources": [
+   {
+    "file": "refs.ris",
+    "index": 2,
+    "format": "ris",
+    "raw": "TY  - JOUR\nAU  - Hochreiter, Sepp\nAU  - Schmidhuber, Jürgen\nTI  - Long Short-Term Memory\nT2  - Neural Computation\nPY  - 1997\nVL  - 9\nIS  - 8\nSP  - 1735\nEP  - 1780\nDO  - 10.1162/neco.1997.9.8.1735\nER  - "
+   }
+  ]
+ }
+]

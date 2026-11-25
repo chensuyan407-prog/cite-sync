@@ -1,0 +1,100 @@
+TY  - JOUR
+AU  - LeCun, Yann
+AU  - Bengio, Yoshua
+AU  - Hinton, Geoffrey
+TI  - Deep learning
+T2  - Nature
+PY  - 2015
+VL  - 521
+IS  - 7553
+PB  - Nature Publishing Group
+DO  - 10.1038/nature14539
+SP  - 436
+EP  - 444
+ER  - 
+
+TY  - JOUR
+AU  - Hochreiter, Sepp
+AU  - Schmidhuber, Jürgen
+TI  - Long Short-Term Memory
+T2  - Neural Computation
+PY  - 1997
+VL  - 9
+IS  - 8
+DO  - 10.1162/neco.1997.9.8.1735
+SP  - 1735
+EP  - 1780
+ER  - 
+
+TY  - CPAPER
+AU  - Krizhevsky, Alex
+AU  - Sutskever, Ilya
+AU  - Hinton, Geoffrey E
+TI  - ImageNet classification with deep convolutional neural networks
+T2  - Advances in Neural Information Processing Systems
+PY  - 2012
+VL  - 25
+SP  - 1097
+EP  - 1105
+ER  - 
+
+TY  - JOUR
+AU  - Jumper, John
+AU  - Evans, Richard
+AU  - Pritzel, Alexander
+AU  - Green, Tim
+AU  - Figurnov, Michael
+AU  - Ronneberger, Olaf
+AU  - Tunyasuvunakool, Kathryn
+AU  - Bates, Russ
+AU  - Žídek, Augustin
+AU  - Potapenko, Anna
+AU  - Bridgland, Alex
+AU  - Meyer, Clemens
+AU  - Kohl, Simon A. A.
+AU  - Ballard, Andrew J.
+AU  - Cowie, Andrew
+AU  - Romera-Paredes, Bernardino
+AU  - Nikolov, Stanislav
+AU  - Jain, Rishub
+AU  - Adler, Jonas
+AU  - Back, Trevor
+AU  - Petersen, Stig
+AU  - Reiman, David
+AU  - Clancy, Ellen
+AU  - Zielinski, Michal
+AU  - Steinegger, Martin
+AU  - Pacholska, Michalina
+AU  - Berghammer, Tamas
+AU  - Bodenstein, Sebastian
+AU  - Silver, David
+AU  - Vinyals, Oriol
+AU  - Senior, Andrew W.
+AU  - Kavukcuoglu, Koray
+AU  - Kohli, Pushmeet
+AU  - Hassabis, Demis
+TI  - Highly accurate protein structure prediction with AlphaFold
+T2  - Nature
+PY  - 2021
+VL  - 596
+IS  - 7873
+DO  - 10.1038/s41586-021-03819-2
+SP  - 583
+EP  - 589
+ER  - 
+
+TY  - JOUR
+AU  - 袁铭阳
+AU  - 周长胜
+AU  - 黄宏博
+AU  - 胡志颖
+AU  - 李颖
+TI  - 卷积神经网络池化方法综述
+T2  - 软件工程与应用
+PY  - 2020
+VL  - 9
+IS  - 5
+DO  - 10.12677/SEA.2020.95041
+SP  - 360
+EP  - 372
+ER  - 

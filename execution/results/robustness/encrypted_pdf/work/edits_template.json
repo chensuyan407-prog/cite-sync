@@ -1,0 +1,126 @@
+{
+ "_help": "verdict: supported | partial | mismatch | unverifiable. action: keep | remove | replace (refs) | drop_refs (refs). move_to: sentence id (optionally move_refs). add_citations: [{sentence, refs, note}]. record_overrides: {record_id: {field: value, _source: '...'}}. force_merge / forbid_merge: [[id, id]]. Re-run `cite.py run ... --edits <this file>`.",
+ "occurrences": {
+  "c4_0": {
+   "sentence": "深度学习通过多层表示学习显著提升了语音识别、视觉目标识别等任务的性能。",
+   "refs": [
+    "L1-5"
+   ],
+   "verdict": null,
+   "note": "",
+   "action": "keep"
+  },
+  "c4_1": {
+   "sentence": "卷积神经网络在 ImageNet 图像分类竞赛中取得突破，大幅降低了 top-5 错误率。",
+   "refs": [
+    "M5"
+   ],
+   "verdict": null,
+   "note": "",
+   "action": "keep"
+  },
+  "c4_2": {
+   "sentence": "随后，残差学习框架使得训练上百层的网络成为可能；同一团队又分析了恒等映射在残差单元中的作用。",
+   "refs": [
+    "L1-4"
+   ],
+   "verdict": null,
+   "note": "",
+   "action": "keep"
+  },
+  "c4_3": {
+   "sentence": "随后，残差学习框架使得训练上百层的网络成为可能；同一团队又分析了恒等映射在残差单元中的作用。",
+   "refs": [
+    "M2"
+   ],
+   "verdict": null,
+   "note": "",
+   "action": "keep"
+  },
+  "ins_u8s0": {
+   "sentence": "长短期记忆网络通过门控机制缓解了循环网络的梯度消失问题。",
+   "refs": [
+    "M4"
+   ],
+   "verdict": null,
+   "note": "",
+   "action": "keep"
+  },
+  "ins_u8s1": {
+   "sentence": "Transformer 完全基于注意力机制，在机器翻译任务上取得了当时最好的结果。",
+   "refs": [
+    "L1-1"
+   ],
+   "verdict": null,
+   "note": "",
+   "action": "keep"
+  },
+  "c8_0": {
+   "sentence": "BERT 通过双向预训练显著提升了多项语言理解任务的表现。",
+   "refs": [
+    "M9"
+   ],
+   "verdict": null,
+   "note": "",
+   "action": "keep"
+  },
+  "c14_0": {
+   "sentence": "批归一化通过减少内部协变量偏移加速了深层网络训练。",
+   "refs": [
+    "M6"
+   ],
+   "verdict": null,
+   "note": "",
+   "action": "keep"
+  },
+  "c14_1": {
+   "sentence": "Adam 优化器被广泛用于训练上述模型。",
+   "refs": [
+    "M10"
+   ],
+   "verdict": null,
+   "note": "",
+   "action": "keep"
+  },
+  "c14_2": {
+   "sentence": "池化层在卷积神经网络中承担特征降维的作用。",
+   "refs": [
+    "M12"
+   ],
+   "verdict": null,
+   "note": "",
+   "action": "keep"
+  },
+  "c16_0": {
+   "sentence": "![图1 残差单元结构示意（引自文献）](fig1.png)",
+   "refs": [
+    "L1-4"
+   ],
+   "verdict": null,
+   "note": "",
+   "action": "keep"
+  },
+  "c20_0": {
+   "sentence": "AlphaFold 能够以接近实验精度预测蛋白质三维结构。",
+   "refs": [
+    "M11"
+   ],
+   "verdict": null,
+   "note": "",
+   "action": "keep"
+  },
+  "c20_1": {
+   "sentence": "另有研究报道残差注意力网络在多个尺度上存在普适的缩放规律。",
+   "refs": [
+    "M14"
+   ],
+   "verdict": null,
+   "note": "",
+   "action": "keep"
+  }
+ },
+ "add_citations": [],
+ "record_overrides": {},
+ "force_merge": [],
+ "forbid_merge": []
+}

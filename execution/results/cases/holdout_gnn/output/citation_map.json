@@ -14,22 +14,33 @@
   ],
   "unresolved": [],
   "support": {
-   "M7": 0.19
+   "M7": 0.38
   },
   "matched_terms": {
    "M7": [
-    "convolutional"
+    "convolutional",
+    "graph"
    ]
   },
+  "evidence": {},
+  "heuristic_verdict": "supported",
   "sentence_text": "图卷积网络将卷积运算推广到图结构数据。",
-  "verdict": null,
+  "verdict": "supported",
+  "verdict_source": "heuristic",
   "verdict_note": null,
+  "match_basis": {
+   "M7": {
+    "heuristic": "supported",
+    "basis": "sentence shares title/abstract terms ['convolutional', 'graph'] (support 0.38)"
+   }
+  },
   "references": [
    {
     "record": "M7",
     "number": 1,
     "text": "Kipf 2017 Semi-supervised classification with graph convolutional netw",
-    "doi": ""
+    "doi": "",
+    "verification": "verified_via_arxiv"
    }
   ]
  },
@@ -55,15 +66,25 @@
     "attention"
    ]
   },
+  "evidence": {},
+  "heuristic_verdict": "partial",
   "sentence_text": "图注意力网络为邻居节点分配不同的注意力权重。",
-  "verdict": null,
+  "verdict": "partial",
+  "verdict_source": "heuristic",
   "verdict_note": null,
+  "match_basis": {
+   "L2-1": {
+    "heuristic": "partial",
+    "basis": "weak overlap (metadata 0.283)"
+   }
+  },
   "references": [
    {
     "record": "L2-1",
     "number": 2,
     "text": "Veličković 2018 Graph Attention Networks",
-    "doi": ""
+    "doi": "",
+    "verification": "unverified_no_registry_match"
    }
   ]
  },
@@ -92,15 +113,25 @@
     "models"
    ]
   },
+  "evidence": {},
+  "heuristic_verdict": "supported",
   "sentence_text": "在自然语言处理领域，GPT-3 展示了大规模语言模型的少样本学习能力，而 BERT 采用掩码语言模型进行双向预训练。",
-  "verdict": null,
+  "verdict": "supported",
+  "verdict_source": "heuristic",
   "verdict_note": null,
+  "match_basis": {
+   "M2": {
+    "heuristic": "supported",
+    "basis": "sentence shares title/abstract terms ['few-shot', 'language', 'learners', 'models'] (support 0.9)"
+   }
+  },
   "references": [
    {
     "record": "M2",
     "number": 3,
     "text": "Brown 2020 Language models are few-shot learners",
-    "doi": ""
+    "doi": "",
+    "verification": "unverified_no_registry_match"
    }
   ]
  },
@@ -129,15 +160,25 @@
     "pre-training"
    ]
   },
+  "evidence": {},
+  "heuristic_verdict": "supported",
   "sentence_text": "在自然语言处理领域，GPT-3 展示了大规模语言模型的少样本学习能力，而 BERT 采用掩码语言模型进行双向预训练。",
-  "verdict": null,
+  "verdict": "supported",
+  "verdict_source": "heuristic",
   "verdict_note": null,
+  "match_basis": {
+   "L1-1": {
+    "heuristic": "supported",
+    "basis": "sentence shares title/abstract terms ['bert', 'bidirectional', 'language', 'pre-training'] (support 0.6)"
+   }
+  },
   "references": [
    {
     "record": "L1-1",
     "number": 4,
     "text": "Devlin 2019 BERT: Pre-training of Deep Bidirectional Transformers for La",
-    "doi": "10.18653/v1/N19-1423"
+    "doi": "10.18653/v1/N19-1423",
+    "verification": "verified"
    }
   ]
  },
@@ -165,15 +206,25 @@
     "stochastic"
    ]
   },
+  "evidence": {},
+  "heuristic_verdict": "supported",
   "sentence_text": "本文采用的优化器为 Adam，并在训练中使用 Dropout 防止过拟合。",
-  "verdict": null,
+  "verdict": "supported",
+  "verdict_source": "heuristic",
   "verdict_note": null,
+  "match_basis": {
+   "M5": {
+    "heuristic": "supported",
+    "basis": "sentence shares title/abstract terms ['adam', 'optimization', 'stochastic'] (support 0.675)"
+   }
+  },
   "references": [
    {
     "record": "M5",
     "number": 5,
     "text": "Kingma 2015 Adam: A method for stochastic optimization",
-    "doi": ""
+    "doi": "",
+    "verification": "unverified_no_registry_match"
    }
   ]
  },
@@ -200,15 +251,25 @@
     "overfitting"
    ]
   },
+  "evidence": {},
+  "heuristic_verdict": "supported",
   "sentence_text": "本文采用的优化器为 Adam，并在训练中使用 Dropout 防止过拟合。",
-  "verdict": null,
+  "verdict": "supported",
+  "verdict_source": "heuristic",
   "verdict_note": null,
+  "match_basis": {
+   "M6": {
+    "heuristic": "supported",
+    "basis": "sentence shares title/abstract terms ['dropout', 'overfitting'] (support 0.3)"
+   }
+  },
   "references": [
    {
     "record": "M6",
     "number": 6,
     "text": "Srivastava 2014 Dropout: a simple way to prevent neural networks from overfi",
-    "doi": ""
+    "doi": "",
+    "verification": "unverified_no_registry_match"
    }
   ]
  },
@@ -236,21 +297,36 @@
    "M7": [],
    "L1-1": []
   },
+  "evidence": {},
+  "heuristic_verdict": "needs_check",
   "sentence_text": "相关的图表示学习方法可参见文献。",
-  "verdict": null,
+  "verdict": "needs_check",
+  "verdict_source": "heuristic",
   "verdict_note": null,
+  "match_basis": {
+   "M7": {
+    "heuristic": "needs_check",
+    "basis": "no term overlap with the cited work (metadata 0.0)"
+   },
+   "L1-1": {
+    "heuristic": "needs_check",
+    "basis": "no term overlap with the cited work (metadata 0.0)"
+   }
+  },
   "references": [
    {
     "record": "M7",
     "number": 1,
     "text": "Kipf 2017 Semi-supervised classification with graph convolutional netw",
-    "doi": ""
+    "doi": "",
+    "verification": "verified_via_arxiv"
    },
    {
     "record": "L1-1",
     "number": 4,
     "text": "Devlin 2019 BERT: Pre-training of Deep Bidirectional Transformers for La",
-    "doi": "10.18653/v1/N19-1423"
+    "doi": "10.18653/v1/N19-1423",
+    "verification": "verified"
    }
   ]
  },
@@ -274,15 +350,25 @@
   "matched_terms": {
    "M7": []
   },
+  "evidence": {},
+  "heuristic_verdict": "needs_check",
   "sentence_text": "实验表明，模型在 Cora 数据集上的准确率达到 83.0%。",
-  "verdict": null,
+  "verdict": "needs_check",
+  "verdict_source": "heuristic",
   "verdict_note": null,
+  "match_basis": {
+   "M7": {
+    "heuristic": "needs_check",
+    "basis": "no term overlap with the cited work (metadata 0.0)"
+   }
+  },
   "references": [
    {
     "record": "M7",
     "number": 1,
     "text": "Kipf 2017 Semi-supervised classification with graph convolutional netw",
-    "doi": ""
+    "doi": "",
+    "verification": "verified_via_arxiv"
    }
   ]
  },
@@ -308,15 +394,25 @@
   "matched_terms": {
    "MISSING-9": []
   },
+  "evidence": {},
+  "heuristic_verdict": "unverifiable",
   "sentence_text": "我们进一步参考了 Transformer 架构。",
-  "verdict": null,
+  "verdict": "unverifiable",
+  "verdict_source": "heuristic",
   "verdict_note": null,
+  "match_basis": {
+   "MISSING-9": {
+    "heuristic": "unverifiable",
+    "basis": "no reference entry for this marker"
+   }
+  },
   "references": [
    {
     "record": "MISSING-9",
     "number": 7,
     "text": "? ? 【缺失文献：原稿引用 9 在参考文献表中找不到，需人工补充】",
-    "doi": null
+    "doi": null,
+    "verification": null
    }
   ]
  }

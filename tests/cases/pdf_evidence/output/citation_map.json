@@ -1,0 +1,303 @@
+[
+ {
+  "id": "c4_0",
+  "unit": 4,
+  "sentence": "u4s0",
+  "role": "body",
+  "old": "[2]",
+  "new": "[1]",
+  "records": [
+   "M2"
+  ],
+  "numbers": [
+   1
+  ],
+  "unresolved": [],
+  "support": {
+   "M2": 0.38
+  },
+  "matched_terms": {
+   "M2": [
+    "learning",
+    "residual"
+   ]
+  },
+  "evidence": {
+   "M2": {
+    "page": 1,
+    "quote": "This result won the 1st place on the ILSVRC 2015 classiﬁcation task. We also present analysis on CIFAR-10 with 100 and 1000 layers.",
+    "score": 0.583,
+    "terms": [
+     "100",
+     "2015",
+     "classification",
+     "ilsvrc",
+     "layers",
+     "task",
+     "won"
+    ],
+    "file": "resnet.pdf"
+   }
+  },
+  "heuristic_verdict": "supported",
+  "sentence_text": "Residual learning lets networks with more than 100 layers be trained and won the ILSVRC 2015 classification task.",
+  "verdict": "supported",
+  "verdict_source": "heuristic",
+  "verdict_note": null,
+  "match_basis": {
+   "M2": {
+    "heuristic": "supported",
+    "basis": "cited PDF p.1: \"This result won the 1st place on the ILSVRC 2015 classiﬁcation task. We also present analysis on CIFAR-10 with 100 and 1000 layers.\" (term overlap 0.583)"
+   }
+  },
+  "references": [
+   {
+    "record": "M2",
+    "number": 1,
+    "text": "He 2016 Deep residual learning for image recognition",
+    "doi": "10.1109/cvpr.2016.90",
+    "verification": "verified_with_corrections"
+   }
+  ]
+ },
+ {
+  "id": "c4_1",
+  "unit": 4,
+  "sentence": "u4s1",
+  "role": "body",
+  "old": "[4]",
+  "new": "[2]",
+  "records": [
+   "M4"
+  ],
+  "numbers": [
+   2
+  ],
+  "unresolved": [],
+  "support": {
+   "M4": 0.24
+  },
+  "matched_terms": {
+   "M4": [
+    "batch",
+    "normalization"
+   ]
+  },
+  "evidence": {
+   "M4": {
+    "page": 1,
+    "quote": "Our method draws its strength from making normalization a part of the model architecture and performing the normalization for each training mini-batch. Batch Normalization allows us to use much higher learning rates and be less careful about initialization.",
+    "score": 0.7,
+    "terms": [
+     "allows",
+     "batch",
+     "higher",
+     "learning",
+     "mini-batch",
+     "normalization",
+     "rates"
+    ],
+    "file": "batchnorm.pdf"
+   }
+  },
+  "heuristic_verdict": "supported",
+  "sentence_text": "Batch normalization normalizes layer inputs over each mini-batch and allows much higher learning rates.",
+  "verdict": "supported",
+  "verdict_source": "heuristic",
+  "verdict_note": null,
+  "match_basis": {
+   "M4": {
+    "heuristic": "supported",
+    "basis": "cited PDF p.1: \"Our method draws its strength from making normalization a part of the model architecture and performing the normalization for each training mini-batch. Batch No\" (term overlap 0.7)"
+   }
+  },
+  "references": [
+   {
+    "record": "M4",
+    "number": 2,
+    "text": "Ioffe 2015 Batch normalization: Accelerating deep network training by r",
+    "doi": "",
+    "verification": "verified_by_pdf"
+   }
+  ]
+ },
+ {
+  "id": "c4_2",
+  "unit": 4,
+  "sentence": "u4s2",
+  "role": "body",
+  "old": "[1]",
+  "new": "[3]",
+  "records": [
+   "M1"
+  ],
+  "numbers": [
+   3
+  ],
+  "unresolved": [],
+  "support": {
+   "M1": 0.9
+  },
+  "matched_terms": {
+   "M1": [
+    "all",
+    "attention",
+    "need",
+    "you"
+   ]
+  },
+  "evidence": {
+   "M1": {
+    "page": 1,
+    "quote": "The best performing models also connect the encoder and decoder through an attention mechanism. We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely.",
+    "score": 0.556,
+    "terms": [
+     "attention",
+     "convolutions",
+     "entirely",
+     "recurrence",
+     "transformer"
+    ],
+    "file": "attention.pdf"
+   }
+  },
+  "heuristic_verdict": "supported",
+  "sentence_text": "The Transformer relies entirely on attention and dispenses with recurrence and convolutions.",
+  "verdict": "supported",
+  "verdict_source": "heuristic",
+  "verdict_note": null,
+  "match_basis": {
+   "M1": {
+    "heuristic": "supported",
+    "basis": "cited PDF p.1: \"The best performing models also connect the encoder and decoder through an attention mechanism. We propose a new simple network architecture, the Transformer, b\" (term overlap 0.556)"
+   }
+  },
+  "references": [
+   {
+    "record": "M1",
+    "number": 3,
+    "text": "Vaswani 2017 Attention is all you need",
+    "doi": "",
+    "verification": "verified_by_pdf"
+   }
+  ]
+ },
+ {
+  "id": "c8_0",
+  "unit": 8,
+  "sentence": "u8s0",
+  "role": "body",
+  "old": "[2]",
+  "new": "[1]",
+  "records": [
+   "M2"
+  ],
+  "numbers": [
+   1
+  ],
+  "unresolved": [],
+  "support": {
+   "M2": 0.0
+  },
+  "matched_terms": {
+   "M2": []
+  },
+  "evidence": {
+   "M2": {
+    "page": 1,
+    "quote": "The deeper network has higher training error, and thus test error. Similar phenomena on ImageNet is presented in Fig. 4. greatly beneﬁted from very deep models.",
+    "score": 0.231,
+    "terms": [
+     "models",
+     "test",
+     "training"
+    ],
+    "file": "resnet.pdf"
+   }
+  },
+  "better_source": {
+   "record": "M3",
+   "title": "Scaling laws for neural language models",
+   "page": 3,
+   "quote": "Dataset Size tokens Parameters non-embedding Compute PF-days, non-embedding Test Loss Figure 1 Language modeling performance improves smoothly as we increase the model size, datasetset size, and amoun",
+   "score": 0.692,
+   "cited_score": 0.231
+  },
+  "heuristic_verdict": "needs_check",
+  "sentence_text": "The test loss of language models scales as a power law with model size, dataset size and the amount of compute used for training.",
+  "verdict": "needs_check",
+  "verdict_source": "heuristic",
+  "verdict_note": null,
+  "match_basis": {
+   "M2": {
+    "heuristic": "needs_check",
+    "basis": "no term overlap with the cited work (metadata 0.0, PDF 0.231)"
+   }
+  },
+  "references": [
+   {
+    "record": "M2",
+    "number": 1,
+    "text": "He 2016 Deep residual learning for image recognition",
+    "doi": "10.1109/cvpr.2016.90",
+    "verification": "verified_with_corrections"
+   }
+  ]
+ },
+ {
+  "id": "c8_1",
+  "unit": 8,
+  "sentence": "u8s1",
+  "role": "body",
+  "old": "[3]",
+  "new": "[4]",
+  "records": [
+   "M3"
+  ],
+  "numbers": [
+   4
+  ],
+  "unresolved": [],
+  "support": {
+   "M3": 0.19
+  },
+  "matched_terms": {
+   "M3": [
+    "models"
+   ]
+  },
+  "evidence": {
+   "M3": {
+    "page": 1,
+    "quote": "These relationships allow us to determine the optimal allocation of a ﬁxed compute budget. Larger models are signiﬁcantly more sampleefﬁcient, such that optimally compute-efﬁcient training involves training very large models on a relatively modest amount of data and stopping signiﬁcantly before convergence. ∗Equal contribution.",
+    "score": 0.75,
+    "terms": [
+     "larger",
+     "models",
+     "significantly"
+    ],
+    "file": "kaplan.pdf"
+   }
+  },
+  "heuristic_verdict": "supported",
+  "sentence_text": "Larger models are significantly more sample-efficient.",
+  "verdict": "supported",
+  "verdict_source": "heuristic",
+  "verdict_note": null,
+  "match_basis": {
+   "M3": {
+    "heuristic": "supported",
+    "basis": "cited PDF p.1: \"These relationships allow us to determine the optimal allocation of a ﬁxed compute budget. Larger models are signiﬁcantly more sampleefﬁcient, such that optimal\" (term overlap 0.75)"
+   }
+  },
+  "references": [
+   {
+    "record": "M3",
+    "number": 4,
+    "text": "Kaplan 2020 Scaling laws for neural language models",
+    "doi": "",
+    "verification": "verified"
+   }
+  ]
+ }
+]

@@ -312,6 +312,8 @@ def compress(nums, range_sep="-", list_sep=","):
 
 def numeric_marker(nums, style="inline", range_sep="-", list_sep=","):
     body = "[" + compress(nums, range_sep, list_sep) + "]"
+    if style == "unicode-sup":
+        return compress(nums, "⁻", ",").translate(str.maketrans("0123456789", "⁰¹²³⁴⁵⁶⁷⁸⁹"))
     return {"inline": body, "pandoc-sup": f"^{body}^", "html-sup": f"<sup>{body}</sup>",
             "latex-sup": f"\\textsuperscript{{{body}}}", "docx-sup": body}.get(style, body)
 

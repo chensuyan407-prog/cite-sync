@@ -1,7 +1,13 @@
 {
  "case_id": "dev-zh-review",
- "tool": "cite-sync 0.1.0",
- "revised_manuscript": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\zh_review\\output\\manuscript_revised.md",
+ "tool": "cite-sync 0.2.0",
+ "revised_manuscript": {
+  "path": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\zh_review\\output\\manuscript_revised.md",
+  "format": "md",
+  "diff": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\zh_review\\output\\manuscript.diff",
+  "previews": null,
+  "text": "# 深度神经网络结构演进简述\n\n## 1 引言\n\n深度学习通过多层表示学习显著提升了语音识别、视觉目标识别等任务的性能[1]。卷积神经网络在 ImageNet 图像分类竞赛中取得突破，大幅降低了 top-5 错误率[2]。随后，残差学习框架使得训练上百层的网络成为可能[3]；同一团队又分析了恒等映射在残差单元中的作用[4]。\n\n## 2 序列建模与注意力\n\n长短期记忆网络通过门控机制缓解了循环网络的梯度消失问题[5]。Transformer 完全基于注意力机制，在机器翻译任务上取得了当时最好的结果[6]。BERT 通过双向预训练显著提升了多项语言理解任务的表现[7]。\n\n已有研究表明，语言模型的测试损失随模型参数量、数据集规模和训练算力呈幂律下降[8]。\n\n## 3 训练技巧\n\n批归一化通过减少内部协变量偏移加速了深层网络训练[9]。Adam 优化器被广泛用于训练上述模型[10]。池化层在卷积神经网络中承担特征降维的作用[11]。\n\n![图1 残差单元结构示意（引自文献[3]）](fig1.png)\n\n## 4 结构生物学中的应用\n\nAlphaFold 能够以接近实验精度预测蛋白质三维结构[12]。另有研究报道残差注意力网络在多个尺度上存在普适的缩放规律。\n\n## 参考文献\n\n[1] LeCun Y, Bengio Y, Hinton G. Deep learning[J]. Nature, 2015, 521(7553): 436-444. DOI:10.1038/nature14539.\n[2] Krizhevsky A, Sutskever I, Hinton G E. ImageNet classification with deep convolutional neural networks[J]. Communications of the ACM, 2017, 60(6): 84-90. DOI:10.1145/3065386.\n[3] He K, Zhang X, Ren S, et al. Deep Residual Learning for Image Recognition[C]//2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016: 770-778. DOI:10.1109/CVPR.2016.90.\n[4] He K, Zhang X, Ren S, et al. Identity mappings in deep residual networks[C]//European Conference on Computer Vision. Springer, 2016: 630-645. DOI:10.1007/978-3-319-46493-0_38.\n[5] Hochreiter S, Schmidhuber J. Long short-term memory[J]. Neural Computation, 1997, 9(8): 1735-1780. DOI:10.1162/neco.1997.9.8.1735.\n[6] Vaswani A, Shazeer N, Parmar N, et al. Attention is all you need[C]//Advances in Neural Information Processing Systems, 2017: 5998-6008.\n[7] Devlin J, Chang M W, Lee K, et al. BERT: Pre-training of deep bidirectional transformers for language understanding[C]//Proceedings of NAACL-HLT, 2019: 4171-4186. DOI:10.18653/v1/n19-1423.\n[8] Kaplan J, McCandlish S, Henighan T, et al. Scaling laws for neural language models[J/OL]. arXiv preprint arXiv:2001.08361, 2020. https://arxiv.org/abs/2001.08361.\n[9] Ioffe S, Szegedy C. Batch normalization: Accelerating deep network training by reducing internal covariate shift[C]//International Conference on Machine Learning, 2015: 448-456.\n[10] Kingma D P, Ba J. Adam: A method for stochastic optimization[J/OL]. arXiv preprint arXiv:1412.6980, 2014. https://arxiv.org/abs/1412.6980.\n[11] 袁铭阳, 周长胜, 黄宏博, 等. 卷积神经网络池化方法综述[J]. 软件工程与应用, 2020, 9(5): 360-372. DOI:10.12677/SEA.2020.95041.\n[12] Jumper J, Evans R, Pritzel A, et al. Highly accurate protein structure prediction with AlphaFold[J]. Nature, 2021, 596(7873): 583-589. DOI:10.1038/s41586-021-03819-2."
+ },
  "references": [
   "[1] LeCun Y, Bengio Y, Hinton G. Deep learning[J]. Nature, 2015, 521(7553): 436-444. DOI:10.1038/nature14539.",
   "[2] Krizhevsky A, Sutskever I, Hinton G E. ImageNet classification with deep convolutional neural networks[J]. Communications of the ACM, 2017, 60(6): 84-90. DOI:10.1145/3065386.",
@@ -16,9 +22,750 @@
   "[11] 袁铭阳, 周长胜, 黄宏博, 等. 卷积神经网络池化方法综述[J]. 软件工程与应用, 2020, 9(5): 360-372. DOI:10.12677/SEA.2020.95041.",
   "[12] Jumper J, Evans R, Pritzel A, et al. Highly accurate protein structure prediction with AlphaFold[J]. Nature, 2021, 596(7873): 583-589. DOI:10.1038/s41586-021-03819-2."
  ],
- "citation_map": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\zh_review\\output\\citation_map.json",
- "merge_log": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\zh_review\\output\\merge_log.json",
- "verification": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\zh_review\\output\\verification.json",
+ "citation_map": [
+  {
+   "occurrence": "c4_0",
+   "sentence_id": "u4s0",
+   "sentence": "深度学习通过多层表示学习显著提升了语音识别、视觉目标识别等任务的性能。",
+   "old_marker": "[3]",
+   "new_marker": "[1]",
+   "references": [
+    {
+     "record": "L1-5",
+     "number": 1,
+     "text": "LeCun 2015 Deep learning",
+     "doi": "10.1038/nature14539",
+     "verification": "verified"
+    }
+   ],
+   "verdict": "supported",
+   "verdict_source": "agent",
+   "note": "LeCun 2015 review: deep learning improved speech recognition and visual object recognition",
+   "match_basis": {
+    "L1-5": {
+     "heuristic": "supported",
+     "basis": "sentence shares title/abstract terms ['deep', 'learning'] (support 0.8)"
+    }
+   },
+   "evidence": null
+  },
+  {
+   "occurrence": "c4_1",
+   "sentence_id": "u4s1",
+   "sentence": "卷积神经网络在 ImageNet 图像分类竞赛中取得突破，大幅降低了 top-5 错误率。",
+   "old_marker": "[5]",
+   "new_marker": "[2]",
+   "references": [
+    {
+     "record": "M5",
+     "number": 2,
+     "text": "Krizhevsky 2017 ImageNet classification with deep convolutional neural netwo",
+     "doi": "10.1145/3065386",
+     "verification": "verified_with_corrections"
+    }
+   ],
+   "verdict": "supported",
+   "verdict_source": "agent",
+   "note": "AlexNet; CACM 2017 reprint of the NIPS 2012 paper - consider citing the original (human choice)",
+   "match_basis": {
+    "M5": {
+     "heuristic": "supported",
+     "basis": "sentence shares title/abstract terms ['classification', 'convolutional', 'imagenet', 'networks', 'neural'] (support 0.833)"
+    }
+   },
+   "evidence": null
+  },
+  {
+   "occurrence": "c4_2",
+   "sentence_id": "u4s2",
+   "sentence": "随后，残差学习框架使得训练上百层的网络成为可能；同一团队又分析了恒等映射在残差单元中的作用。",
+   "old_marker": "[1]",
+   "new_marker": "[3]",
+   "references": [
+    {
+     "record": "L1-4",
+     "number": 3,
+     "text": "He 2016 Deep Residual Learning for Image Recognition",
+     "doi": "10.1109/CVPR.2016.90",
+     "verification": "verified"
+    }
+   ],
+   "verdict": "supported",
+   "verdict_source": "agent",
+   "note": "ResNet enables training of 100+ layer networks",
+   "match_basis": {
+    "L1-4": {
+     "heuristic": "supported",
+     "basis": "sentence shares title/abstract terms ['deep', 'learning', 'residual'] (support 0.57)"
+    }
+   },
+   "evidence": null
+  },
+  {
+   "occurrence": "c4_3",
+   "sentence_id": "u4s2",
+   "sentence": "随后，残差学习框架使得训练上百层的网络成为可能；同一团队又分析了恒等映射在残差单元中的作用。",
+   "old_marker": "[2]",
+   "new_marker": "[4]",
+   "references": [
+    {
+     "record": "M2",
+     "number": 4,
+     "text": "He 2016 Identity mappings in deep residual networks",
+     "doi": "10.1007/978-3-319-46493-0_38",
+     "verification": "verified_with_corrections"
+    }
+   ],
+   "verdict": "supported",
+   "verdict_source": "agent",
+   "note": "Identity mappings paper analyses identity shortcuts in residual units",
+   "match_basis": {
+    "M2": {
+     "heuristic": "supported",
+     "basis": "sentence shares title/abstract terms ['deep', 'identity', 'mappings', 'residual'] (support 0.76)"
+    }
+   },
+   "evidence": null
+  },
+  {
+   "occurrence": "ins_u8s0",
+   "sentence_id": "u8s0",
+   "sentence": "长短期记忆网络通过门控机制缓解了循环网络的梯度消失问题。",
+   "old_marker": "",
+   "new_marker": "[5]",
+   "references": [
+    {
+     "record": "M4",
+     "number": 5,
+     "text": "Hochreiter 1997 Long short-term memory",
+     "doi": "10.1162/neco.1997.9.8.1735",
+     "verification": "verified_with_corrections"
+    }
+   ],
+   "verdict": "supported",
+   "verdict_source": "agent",
+   "note": "LSTM gating against vanishing gradients (moved here from the paragraph-end cluster)",
+   "match_basis": {
+    "M4": {
+     "heuristic": "supported",
+     "basis": "sentence shares title/abstract terms [] (support 0.85)"
+    }
+   },
+   "evidence": null
+  },
+  {
+   "occurrence": "ins_u8s1",
+   "sentence_id": "u8s1",
+   "sentence": "Transformer 完全基于注意力机制，在机器翻译任务上取得了当时最好的结果。",
+   "old_marker": "",
+   "new_marker": "[6]",
+   "references": [
+    {
+     "record": "L1-1",
+     "number": 6,
+     "text": "Vaswani 2017 Attention is all you need",
+     "doi": "",
+     "verification": "verified_via_arxiv"
+    }
+   ],
+   "verdict": "supported",
+   "verdict_source": "agent",
+   "note": "Transformer: attention only, SOTA on WMT translation (moved here)",
+   "match_basis": {
+    "L1-1": {
+     "heuristic": "supported",
+     "basis": "sentence shares title/abstract terms [] (support 0.9)"
+    }
+   },
+   "evidence": null
+  },
+  {
+   "occurrence": "c8_0",
+   "sentence_id": "u8s2",
+   "sentence": "BERT 通过双向预训练显著提升了多项语言理解任务的表现。",
+   "old_marker": "[4][7][9]",
+   "new_marker": "[7]",
+   "references": [
+    {
+     "record": "M9",
+     "number": 7,
+     "text": "Devlin 2019 BERT: Pre-training of deep bidirectional transformers for la",
+     "doi": "10.18653/v1/n19-1423",
+     "verification": "verified_with_corrections"
+    }
+   ],
+   "verdict": "supported",
+   "verdict_source": "agent",
+   "note": "BERT bidirectional pre-training; LSTM and Transformer moved to their own sentences",
+   "match_basis": {
+    "M9": {
+     "heuristic": "supported",
+     "basis": "sentence shares title/abstract terms ['bert', 'bidirectional', 'language', 'pre-training', 'understanding'] (support 0.75)"
+    }
+   },
+   "evidence": null
+  },
+  {
+   "occurrence": "ins_u10s0",
+   "sentence_id": "u10s0",
+   "sentence": "已有研究表明，语言模型的测试损失随模型参数量、数据集规模和训练算力呈幂律下降。",
+   "old_marker": "",
+   "new_marker": "[8]",
+   "references": [
+    {
+     "record": "L1-2",
+     "number": 8,
+     "text": "Kaplan 2020 Scaling laws for neural language models",
+     "doi": "",
+     "verification": null
+    }
+   ],
+   "verdict": "supported",
+   "verdict_source": "agent",
+   "note": null,
+   "match_basis": {
+    "L1-2": {
+     "heuristic": "supported",
+     "basis": "sentence shares title/abstract terms [] (support 0.76)"
+    }
+   },
+   "evidence": null
+  },
+  {
+   "occurrence": "c14_0",
+   "sentence_id": "u14s0",
+   "sentence": "批归一化通过减少内部协变量偏移加速了深层网络训练。",
+   "old_marker": "[6,8]",
+   "new_marker": "[9]",
+   "references": [
+    {
+     "record": "M6",
+     "number": 9,
+     "text": "Ioffe 2015 Batch normalization: Accelerating deep network training by r",
+     "doi": "",
+     "verification": "verified_via_arxiv"
+    }
+   ],
+   "verdict": "supported",
+   "verdict_source": "agent",
+   "note": "BN reduces internal covariate shift; [6] and [8] were the same work",
+   "match_basis": {
+    "M6": {
+     "heuristic": "supported",
+     "basis": "sentence shares title/abstract terms ['accelerating', 'batch', 'covariate', 'deep', 'normalization', 'shift'] (support 0.79)"
+    }
+   },
+   "evidence": null
+  },
+  {
+   "occurrence": "c14_1",
+   "sentence_id": "u14s1",
+   "sentence": "Adam 优化器被广泛用于训练上述模型。",
+   "old_marker": "<sup>[10]</sup>",
+   "new_marker": "[10]",
+   "references": [
+    {
+     "record": "M10",
+     "number": 10,
+     "text": "Kingma 2014 Adam: A method for stochastic optimization",
+     "doi": "",
+     "verification": "verified"
+    }
+   ],
+   "verdict": "partial",
+   "verdict_source": "agent",
+   "note": "Adam paper proposes the optimizer; 'widely used' is not something the Adam paper itself can support",
+   "match_basis": {
+    "M10": {
+     "heuristic": "supported",
+     "basis": "sentence shares title/abstract terms ['adam', 'optimization', 'stochastic'] (support 0.675)"
+    }
+   },
+   "evidence": null
+  },
+  {
+   "occurrence": "c14_2",
+   "sentence_id": "u14s2",
+   "sentence": "池化层在卷积神经网络中承担特征降维的作用。",
+   "old_marker": "[12]",
+   "new_marker": "[11]",
+   "references": [
+    {
+     "record": "L3-1",
+     "number": 11,
+     "text": "袁铭阳 2020 卷积神经网络池化方法综述",
+     "doi": "10.12677/SEA.2020.95041",
+     "verification": "verified"
+    }
+   ],
+   "verdict": "supported",
+   "verdict_source": "agent",
+   "note": "Chinese survey on pooling: pooling reduces feature-map dimension (abstract)",
+   "match_basis": {
+    "L3-1": {
+     "heuristic": "supported",
+     "basis": "sentence shares title/abstract terms ['convolutional', 'network', 'neural', 'pooling', '卷积', '池化'] (support 0.712)"
+    }
+   },
+   "evidence": null
+  },
+  {
+   "occurrence": "c16_0",
+   "sentence_id": "u16s0",
+   "sentence": "![图1 残差单元结构示意（引自文献）](fig1.png)",
+   "old_marker": "[1]",
+   "new_marker": "[3]",
+   "references": [
+    {
+     "record": "L1-4",
+     "number": 3,
+     "text": "He 2016 Deep Residual Learning for Image Recognition",
+     "doi": "10.1109/CVPR.2016.90",
+     "verification": "verified"
+    }
+   ],
+   "verdict": "supported",
+   "verdict_source": "agent",
+   "note": "figure adapted from ResNet",
+   "match_basis": {
+    "L1-4": {
+     "heuristic": "partial",
+     "basis": "weak overlap (metadata 0.19)"
+    }
+   },
+   "evidence": null
+  },
+  {
+   "occurrence": "c20_0",
+   "sentence_id": "u20s0",
+   "sentence": "AlphaFold 能够以接近实验精度预测蛋白质三维结构。",
+   "old_marker": "[11]",
+   "new_marker": "[12]",
+   "references": [
+    {
+     "record": "L2-2",
+     "number": 12,
+     "text": "Jumper 2021 Highly accurate protein structure prediction with AlphaFold",
+     "doi": "10.1038/s41586-021-03819-2",
+     "verification": "verified_with_corrections"
+    }
+   ],
+   "verdict": "supported",
+   "verdict_source": "agent",
+   "note": "AlphaFold Nature 2021",
+   "match_basis": {
+    "L2-2": {
+     "heuristic": "supported",
+     "basis": "sentence shares title/abstract terms ['accurate', 'alphafold', 'protein', 'structure'] (support 0.667)"
+    }
+   },
+   "evidence": null
+  },
+  {
+   "occurrence": "c20_1",
+   "sentence_id": "u20s1",
+   "sentence": "另有研究报道残差注意力网络在多个尺度上存在普适的缩放规律。",
+   "old_marker": "[14]",
+   "new_marker": "",
+   "references": [],
+   "verdict": "unverifiable",
+   "verdict_source": "agent",
+   "note": "DOI 10.1038/s41586-019-9999-9 does not resolve and no matching work found in Crossref: citation removed, sentence needs a real source or deletion (human)",
+   "match_basis": {},
+   "evidence": null
+  }
+ ],
+ "merge_log": [
+  {
+   "kept": "L1-4",
+   "members": [
+    "M1",
+    "L1-4"
+   ],
+   "title": "Deep Residual Learning for Image Recognition",
+   "rules": [
+    {
+     "pair": [
+      "M1",
+      "L1-4"
+     ],
+     "rule": "D4",
+     "reason": "same normalised title, same first author"
+    }
+   ],
+   "field_provenance": null
+  },
+  {
+   "kept": "L1-5",
+   "members": [
+    "M3",
+    "L1-5"
+   ],
+   "title": "Deep learning",
+   "rules": [
+    {
+     "pair": [
+      "M3",
+      "L1-5"
+     ],
+     "rule": "D4",
+     "reason": "same normalised title, same first author"
+    }
+   ],
+   "field_provenance": null
+  },
+  {
+   "kept": "M6",
+   "members": [
+    "M6",
+    "M8"
+   ],
+   "title": "Batch normalization: Accelerating deep network training by reducing internal covariate shift",
+   "rules": [
+    {
+     "pair": [
+      "M6",
+      "M8"
+     ],
+     "rule": "D4",
+     "reason": "same normalised title, same first author, preprint and published version"
+    }
+   ],
+   "field_provenance": {
+    "arxiv": "M8"
+   }
+  },
+  {
+   "kept": "L1-1",
+   "members": [
+    "M7",
+    "L1-1"
+   ],
+   "title": "Attention is all you need",
+   "rules": [
+    {
+     "pair": [
+      "M7",
+      "L1-1"
+     ],
+     "rule": "D4",
+     "reason": "same normalised title, same first author, preprint and published version"
+    }
+   ],
+   "field_provenance": {
+    "arxiv": "M7"
+   }
+  },
+  {
+   "kept": "M9",
+   "members": [
+    "M9",
+    "L2-1"
+   ],
+   "title": "BERT: Pre-training of deep bidirectional transformers for language understanding",
+   "rules": [
+    {
+     "pair": [
+      "M9",
+      "L2-1"
+     ],
+     "rule": "D4",
+     "reason": "same normalised title, same first author, preprint and published version, years 2019/2018"
+    }
+   ],
+   "field_provenance": {
+    "arxiv": "L2-1",
+    "url": "L2-1",
+    "authors": "L2-1",
+    "doi": "crossref title search"
+   }
+  },
+  {
+   "kept": "L2-2",
+   "members": [
+    "M11",
+    "L2-2"
+   ],
+   "title": "Highly accurate protein structure prediction with AlphaFold",
+   "rules": [
+    {
+     "pair": [
+      "M11",
+      "L2-2"
+     ],
+     "rule": "D4",
+     "reason": "same normalised title, same first author"
+    }
+   ],
+   "field_provenance": {
+    "authors": "crossref (registry lists 34 authors; record had 3)"
+   }
+  },
+  {
+   "kept": "L3-1",
+   "members": [
+    "M12",
+    "L2-3",
+    "L3-1"
+   ],
+   "title": "卷积神经网络池化方法综述",
+   "rules": [
+    {
+     "pair": [
+      "M12",
+      "L3-1"
+     ],
+     "rule": "D4",
+     "reason": "same normalised title, same first author"
+    },
+    {
+     "pair": [
+      "L2-3",
+      "L3-1"
+     ],
+     "rule": "D1",
+     "reason": "same DOI 10.12677/sea.2020.95041; titles in two languages (bilingual record of one article)"
+    }
+   ],
+   "field_provenance": {
+    "title_alt": "L2-3"
+   }
+  },
+  {
+   "not_merged": [
+    "M5",
+    "L1-3"
+   ],
+   "rule": "G4",
+   "reason": "same title but years 2017/2012 far apart: treated as different versions (e.g. reprint); choose one by hand"
+  }
+ ],
+ "verification": [
+  {
+   "record": "L1-4",
+   "number": 3,
+   "reference": "He 2016 Deep Residual Learning for Image Recognition",
+   "status": "verified",
+   "issues": [],
+   "corrections": {},
+   "pdf": null,
+   "registry": {
+    "doi": "10.1109/cvpr.2016.90",
+    "title": "Deep Residual Learning for Image Recognition",
+    "year": "2016",
+    "container": "2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+    "volume": null,
+    "issue": null,
+    "pages": "770-778"
+   }
+  },
+  {
+   "record": "M2",
+   "number": 4,
+   "reference": "He 2016 Identity mappings in deep residual networks",
+   "status": "verified_with_corrections",
+   "issues": [],
+   "corrections": {
+    "doi": {
+     "old": null,
+     "new": "10.1007/978-3-319-46493-0_38",
+     "source": "crossref title search"
+    },
+    "authors": {
+     "old": "3 author(s)",
+     "new": "4 authors",
+     "source": "crossref (registry lists 4 authors; record had 3)"
+    }
+   },
+   "pdf": null,
+   "registry": {
+    "doi": "10.1007/978-3-319-46493-0_38",
+    "title": "Identity Mappings in Deep Residual Networks",
+    "year": "2016",
+    "container": "Computer Vision – ECCV 2016",
+    "volume": null,
+    "issue": null,
+    "pages": "630-645"
+   }
+  },
+  {
+   "record": "L1-5",
+   "number": 1,
+   "reference": "LeCun 2015 Deep learning",
+   "status": "verified",
+   "issues": [],
+   "corrections": {},
+   "pdf": null,
+   "registry": {
+    "doi": "10.1038/nature14539",
+    "title": "Deep learning",
+    "year": "2015",
+    "container": "Nature",
+    "volume": "521",
+    "issue": "7553",
+    "pages": "436-444"
+   }
+  },
+  {
+   "record": "M4",
+   "number": 5,
+   "reference": "Hochreiter 1997 Long short-term memory",
+   "status": "verified_with_corrections",
+   "issues": [],
+   "corrections": {
+    "doi": {
+     "old": null,
+     "new": "10.1162/neco.1997.9.8.1735",
+     "source": "crossref title search"
+    },
+    "pages": {
+     "old": "1735-1785",
+     "new": "1735-1780",
+     "source": "crossref"
+    }
+   },
+   "pdf": null,
+   "registry": {
+    "doi": "10.1162/neco.1997.9.8.1735",
+    "title": "Long Short-Term Memory",
+    "year": "1997",
+    "container": "Neural Computation",
+    "volume": "9",
+    "issue": "8",
+    "pages": "1735-1780"
+   }
+  },
+  {
+   "record": "M5",
+   "number": 2,
+   "reference": "Krizhevsky 2017 ImageNet classification with deep convolutional neural netwo",
+   "status": "verified_with_corrections",
+   "issues": [],
+   "corrections": {
+    "doi": {
+     "old": null,
+     "new": "10.1145/3065386",
+     "source": "crossref title search"
+    }
+   },
+   "pdf": null,
+   "registry": {
+    "doi": "10.1145/3065386",
+    "title": "ImageNet classification with deep convolutional neural networks",
+    "year": "2017",
+    "container": "Communications of the ACM",
+    "volume": "60",
+    "issue": "6",
+    "pages": "84-90"
+   }
+  },
+  {
+   "record": "M6",
+   "number": 9,
+   "reference": "Ioffe 2015 Batch normalization: Accelerating deep network training by r",
+   "status": "verified_via_arxiv",
+   "issues": [],
+   "corrections": {},
+   "pdf": null,
+   "registry": null
+  },
+  {
+   "record": "L1-1",
+   "number": 6,
+   "reference": "Vaswani 2017 Attention is all you need",
+   "status": "verified_via_arxiv",
+   "issues": [],
+   "corrections": {},
+   "pdf": null,
+   "registry": null
+  },
+  {
+   "record": "M9",
+   "number": 7,
+   "reference": "Devlin 2019 BERT: Pre-training of deep bidirectional transformers for la",
+   "status": "verified_with_corrections",
+   "issues": [],
+   "corrections": {
+    "doi": {
+     "old": null,
+     "new": "10.18653/v1/n19-1423",
+     "source": "crossref title search"
+    }
+   },
+   "pdf": null,
+   "registry": {
+    "doi": "10.18653/v1/n19-1423",
+    "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+    "year": "2019",
+    "container": "Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)",
+    "volume": null,
+    "issue": null,
+    "pages": "4171-4186"
+   }
+  },
+  {
+   "record": "M10",
+   "number": 10,
+   "reference": "Kingma 2014 Adam: A method for stochastic optimization",
+   "status": "verified",
+   "issues": [],
+   "corrections": {},
+   "pdf": null,
+   "registry": null
+  },
+  {
+   "record": "L2-2",
+   "number": 12,
+   "reference": "Jumper 2021 Highly accurate protein structure prediction with AlphaFold",
+   "status": "verified_with_corrections",
+   "issues": [],
+   "corrections": {
+    "authors": {
+     "old": "3 author(s)",
+     "new": "34 authors",
+     "source": "crossref (registry lists 34 authors; record had 3)"
+    }
+   },
+   "pdf": null,
+   "registry": {
+    "doi": "10.1038/s41586-021-03819-2",
+    "title": "Highly accurate protein structure prediction with AlphaFold",
+    "year": "2021",
+    "container": "Nature",
+    "volume": "596",
+    "issue": "7873",
+    "pages": "583-589"
+   }
+  },
+  {
+   "record": "L3-1",
+   "number": 11,
+   "reference": "袁铭阳 2020 卷积神经网络池化方法综述",
+   "status": "verified",
+   "issues": [],
+   "corrections": {},
+   "pdf": null,
+   "registry": {
+    "doi": "10.12677/sea.2020.95041",
+    "title": "Survey on Convolutional Neural Network Pooling Methods",
+    "year": "2020",
+    "container": "Software Engineering and Applications",
+    "volume": "09",
+    "issue": "05",
+    "pages": "360-372"
+   }
+  },
+  {
+   "record": "M14",
+   "number": null,
+   "reference": "Smith 2019 Universal scaling of residual attention networks",
+   "status": "doi_not_found",
+   "issues": [],
+   "corrections": {},
+   "pdf": null,
+   "registry": null
+  }
+ ],
  "changes": [
   {
    "kind": "merge",
@@ -122,6 +869,14 @@
   },
   {
    "kind": "metadata_correction",
+   "record": "M2",
+   "field": "authors",
+   "old": "3 author(s)",
+   "new": "4 authors",
+   "source": "crossref (registry lists 4 authors; record had 3)"
+  },
+  {
+   "kind": "metadata_correction",
    "record": "M4",
    "field": "doi",
    "old": null,
@@ -151,6 +906,14 @@
    "old": null,
    "new": "10.18653/v1/n19-1423",
    "source": "crossref title search"
+  },
+  {
+   "kind": "metadata_correction",
+   "record": "L2-2",
+   "field": "authors",
+   "old": "3 author(s)",
+   "new": "34 authors",
+   "source": "crossref (registry lists 34 authors; record had 3)"
   },
   {
    "kind": "citation_moved",
@@ -246,7 +1009,24 @@
    "type": "claim_without_citation",
    "sentence": "u20s1",
    "cue": "有研究",
-   "text": "另有研究报道残差注意力网络在多个尺度上存在普适的缩放规律。"
+   "text": "另有研究报道残差注意力网络在多个尺度上存在普适的缩放规律。",
+   "suggest": [
+    {
+     "record": "M14",
+     "score": 0.57,
+     "title": "Universal scaling of residual attention networks",
+     "year": "2019",
+     "already_cited": false
+    }
+   ],
+   "edit": {
+    "sentence": "text:另有研究报道残差注意力网络在多个尺度上存在普适的缩放规律。",
+    "refs": [
+     "M14"
+    ],
+    "verdict": "supported",
+    "note": "<why this source supports the sentence>"
+   }
   },
   {
    "type": "caption_citation",
@@ -263,6 +1043,15 @@
   "changes",
   "needs_review"
  ],
+ "_contract_spec": {
+  "revised_manuscript": "path",
+  "references": "list",
+  "citation_map": "path",
+  "merge_log": "path",
+  "verification": "path",
+  "changes": "list",
+  "needs_review": "list"
+ },
  "inputs": {
   "case": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\zh_review\\input\\case.json",
   "task": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\zh_review\\input\\task.md",
@@ -294,7 +1083,8 @@
  },
  "status": "partial",
  "status_reason": [
-  "1 citation(s) removed by edit; the sentence(s) need a real source or rewording (human)"
+  "1 citation(s) removed by edit; the sentence(s) need a real source or rewording (human)",
+  "1 claim sentence(s) without a citation (1 with a suggested library record): add a citation via edits.add_citations or leave them for the author"
  ],
  "style": "gbt7714",
  "marker_style": "inline",
@@ -325,8 +1115,8 @@
   "placement_suggestions": 0,
   "verified": 11,
   "verification_status_counts": {
-   "verified": 5,
-   "verified_with_corrections": 4,
+   "verified": 4,
+   "verified_with_corrections": 5,
    "verified_via_arxiv": 2,
    "doi_not_found": 1
   },
@@ -367,5 +1157,20 @@
  ],
  "parse_problems": [],
  "edits_applied": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\zh_review\\edits_agent.json",
- "uncertainty": "Claim-source verdicts come from the agent reading sentence + reference metadata (and PDFs when given); lexical support scores are hints only. Online metadata from Crossref/arXiv may itself be incomplete (e.g. shortened author lists)."
+ "uncertainty": "Each citation verdict is either the agent's (verdict_source=agent) or a heuristic from term overlap between the sentence and the cited work's title/abstract (verdict_source=heuristic; not a reading of the source). Online metadata from Crossref/arXiv may itself be incomplete (e.g. shortened author lists).",
+ "_contract_autofilled": {
+  "revised_manuscript": true,
+  "references": true,
+  "citation_map": true,
+  "merge_log": true,
+  "verification": true
+ },
+ "contract_mapping": {
+  "revised_manuscript": "manuscript",
+  "references": "references",
+  "citation_map": "citation_map",
+  "merge_log": "merges",
+  "verification": "verification"
+ },
+ "contract_unfilled": []
 }

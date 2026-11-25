@@ -1,0 +1,20 @@
+{
+ "case_id": "libonly",
+ "case_error": null,
+ "task_file": null,
+ "manuscripts": [],
+ "libraries": [
+  "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\library_only\\input\\cnki.enw",
+  "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\library_only\\input\\library.bib",
+  "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\library_only\\input\\zotero.ris"
+ ],
+ "pdfs": [],
+ "other_files": [],
+ "contract_fields": [
+  "references",
+  "dedup_log"
+ ],
+ "style_guess": "gbt7714",
+ "case_scalars": {},
+ "seconds": 0.0
+}

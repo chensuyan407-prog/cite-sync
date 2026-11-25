@@ -1,7 +1,7 @@
 # cite-sync review - case holdout-gnn
 
 status: **partial**  
-reasons: 1 blocking item(s) need human confirmation; 9 citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict)
+reasons: 1 blocking item(s) need human confirmation; 3 citation occurrence(s) whose claim-source match could not be established automatically (verdict needs_check/unverifiable): judge them in edits.occurrences; 6 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person
 
 ## Summary
 ```
@@ -74,12 +74,12 @@ ok = True; markers use 1..7; list entries 7
 
 | occ | sentence | marker old -> new | records | support | verdict |
 |-|-|-|-|-|-|
-| c4_0 | 图卷积网络将卷积运算推广到图结构数据。 | `^[3]^` -> `^[1]^` | M7 | {'M7': 0.19} | - |
-| c4_1 | 图注意力网络为邻居节点分配不同的注意力权重。 | `^[1]^` -> `^[2]^` | L2-1 | {'L2-1': 0.283} | - |
-| c4_2 | 在自然语言处理领域，GPT-3 展示了大规模语言模型的少样本学习能力，而 BERT 采用掩码语言模型进行双向预训练。 | `^[2]^` -> `^[3]^` | M2 | {'M2': 0.9} | - |
-| c4_3 | 在自然语言处理领域，GPT-3 展示了大规模语言模型的少样本学习能力，而 BERT 采用掩码语言模型进行双向预训练。 | `^[4]^` -> `^[4]^` | L1-1 | {'L1-1': 0.6} | - |
-| c8_0 | 本文采用的优化器为 Adam，并在训练中使用 Dropout 防止过拟合。 | `^[5]^` -> `^[5]^` | M5 | {'M5': 0.675} | - |
-| c8_1 | 本文采用的优化器为 Adam，并在训练中使用 Dropout 防止过拟合。 | `^[6]^` -> `^[6]^` | M6 | {'M6': 0.3} | - |
-| c8_2 | 相关的图表示学习方法可参见文献。 | `^[3-5]^` -> `^[1,4]^` | M7, L1-1 | {'M7': 0.0, 'L1-1': 0.0} | - |
-| c10_0 | 实验表明，模型在 Cora 数据集上的准确率达到 83.0%。 | `^[7]^` -> `^[1]^` | M7 | {'M7': 0.0} | - |
-| c12_0 | 我们进一步参考了 Transformer 架构。 | `^[9]^` -> `^[7]^` | MISSING-9 | {'MISSING-9': 0.0} | - |
+| c4_0 | 图卷积网络将卷积运算推广到图结构数据。 | `^[3]^` -> `^[1]^` | M7 | {'M7': 0.38} | supported |
+| c4_1 | 图注意力网络为邻居节点分配不同的注意力权重。 | `^[1]^` -> `^[2]^` | L2-1 | {'L2-1': 0.283} | partial |
+| c4_2 | 在自然语言处理领域，GPT-3 展示了大规模语言模型的少样本学习能力，而 BERT 采用掩码语言模型进行双向预训练。 | `^[2]^` -> `^[3]^` | M2 | {'M2': 0.9} | supported |
+| c4_3 | 在自然语言处理领域，GPT-3 展示了大规模语言模型的少样本学习能力，而 BERT 采用掩码语言模型进行双向预训练。 | `^[4]^` -> `^[4]^` | L1-1 | {'L1-1': 0.6} | supported |
+| c8_0 | 本文采用的优化器为 Adam，并在训练中使用 Dropout 防止过拟合。 | `^[5]^` -> `^[5]^` | M5 | {'M5': 0.675} | supported |
+| c8_1 | 本文采用的优化器为 Adam，并在训练中使用 Dropout 防止过拟合。 | `^[6]^` -> `^[6]^` | M6 | {'M6': 0.3} | supported |
+| c8_2 | 相关的图表示学习方法可参见文献。 | `^[3-5]^` -> `^[1,4]^` | M7, L1-1 | {'M7': 0.0, 'L1-1': 0.0} | needs_check |
+| c10_0 | 实验表明，模型在 Cora 数据集上的准确率达到 83.0%。 | `^[7]^` -> `^[1]^` | M7 | {'M7': 0.0} | needs_check |
+| c12_0 | 我们进一步参考了 Transformer 架构。 | `^[9]^` -> `^[7]^` | MISSING-9 | {'MISSING-9': 0.0} | unverifiable |

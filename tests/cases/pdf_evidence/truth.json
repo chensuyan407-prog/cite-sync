@@ -1,0 +1,70 @@
+{
+ "manuscript": "manuscript.md",
+ "libraries": [],
+ "pdfs": [
+  "attention.pdf",
+  "batchnorm.pdf",
+  "kaplan.pdf",
+  "resnet.pdf"
+ ],
+ "style": "gbt7714",
+ "auto": true,
+ "note": "written for v0.2.0 (PDF evidence); dev case",
+ "checks": [
+  {
+   "id": "P01",
+   "kind": "review",
+   "defect": "sentence on power-law scaling cites ResNet: flagged, Kaplan PDF suggested",
+   "type": "possible_miscitation",
+   "text": "Scaling laws"
+  },
+  {
+   "id": "P02",
+   "kind": "verdict_is",
+   "defect": "mis-cited sentence not passed as supported",
+   "sentence": "The test loss of language models",
+   "verdict": "needs_check"
+  },
+  {
+   "id": "P03",
+   "kind": "evidence_found",
+   "defect": "BatchNorm sentence: passage quoted from the BatchNorm PDF with page",
+   "sentence": "Batch normalization normalizes"
+  },
+  {
+   "id": "P04",
+   "kind": "verdict_is",
+   "defect": "ResNet sentence supported by its PDF",
+   "sentence": "Residual learning lets",
+   "verdict": "supported"
+  },
+  {
+   "id": "P05",
+   "kind": "order",
+   "defect": "first-appearance numbering",
+   "titles": [
+    "Deep residual learning",
+    "Batch normalization",
+    "Attention is all you need",
+    "Scaling laws"
+   ]
+  },
+  {
+   "id": "P06",
+   "kind": "consistent",
+   "defect": "numbering / list consistent"
+  },
+  {
+   "id": "P07",
+   "kind": "review",
+   "defect": "uncited claim about dropout flagged",
+   "type": "claim_without_citation",
+   "text": "dropout"
+  },
+  {
+   "id": "P08",
+   "kind": "contract_filled",
+   "defect": "every output_contract field carries content (incl. claim_source_check)"
+  }
+ ]
+}

@@ -89,7 +89,8 @@
     "M2"
    ],
    "field_provenance": {
-    "doi": "crossref title search"
+    "doi": "crossref title search",
+    "authors": "crossref (registry lists 4 authors; record had 3)"
    }
   },
   {
@@ -165,7 +166,9 @@
     "M11",
     "L2-2"
    ],
-   "field_provenance": null
+   "field_provenance": {
+    "authors": "crossref (registry lists 34 authors; record had 3)"
+   }
   },
   {
    "kept": "L3-1",

@@ -1,0 +1,279 @@
+[
+ {
+  "id": "lecun2015deep",
+  "type": "article-journal",
+  "title": "Deep learning",
+  "author": [
+   {
+    "family": "LeCun",
+    "given": "Yann"
+   },
+   {
+    "family": "Bengio",
+    "given": "Yoshua"
+   },
+   {
+    "family": "Hinton",
+    "given": "Geoffrey"
+   }
+  ],
+  "container-title": "Nature",
+  "volume": "521",
+  "issue": "7553",
+  "page": "436-444",
+  "publisher": "Nature Publishing Group",
+  "DOI": "10.1038/nature14539",
+  "issued": {
+   "date-parts": [
+    [
+     2015
+    ]
+   ]
+  }
+ },
+ {
+  "id": "L3-2",
+  "type": "article-journal",
+  "title": "Long Short-Term Memory",
+  "author": [
+   {
+    "family": "Hochreiter",
+    "given": "Sepp"
+   },
+   {
+    "family": "Schmidhuber",
+    "given": "Jürgen"
+   }
+  ],
+  "container-title": "Neural Computation",
+  "volume": "9",
+  "issue": "8",
+  "page": "1735-1780",
+  "DOI": "10.1162/neco.1997.9.8.1735",
+  "issued": {
+   "date-parts": [
+    [
+     1997
+    ]
+   ]
+  }
+ },
+ {
+  "id": "krizhevsky2012imagenet",
+  "type": "paper-conference",
+  "title": "ImageNet classification with deep convolutional neural networks",
+  "author": [
+   {
+    "family": "Krizhevsky",
+    "given": "Alex"
+   },
+   {
+    "family": "Sutskever",
+    "given": "Ilya"
+   },
+   {
+    "family": "Hinton",
+    "given": "Geoffrey E"
+   }
+  ],
+  "container-title": "Advances in Neural Information Processing Systems",
+  "volume": "25",
+  "page": "1097-1105",
+  "issued": {
+   "date-parts": [
+    [
+     2012
+    ]
+   ]
+  }
+ },
+ {
+  "id": "L3-1",
+  "type": "article-journal",
+  "title": "Highly accurate protein structure prediction with AlphaFold",
+  "author": [
+   {
+    "family": "Jumper",
+    "given": "John"
+   },
+   {
+    "family": "Evans",
+    "given": "Richard"
+   },
+   {
+    "family": "Pritzel",
+    "given": "Alexander"
+   },
+   {
+    "family": "Green",
+    "given": "Tim"
+   },
+   {
+    "family": "Figurnov",
+    "given": "Michael"
+   },
+   {
+    "family": "Ronneberger",
+    "given": "Olaf"
+   },
+   {
+    "family": "Tunyasuvunakool",
+    "given": "Kathryn"
+   },
+   {
+    "family": "Bates",
+    "given": "Russ"
+   },
+   {
+    "family": "Žídek",
+    "given": "Augustin"
+   },
+   {
+    "family": "Potapenko",
+    "given": "Anna"
+   },
+   {
+    "family": "Bridgland",
+    "given": "Alex"
+   },
+   {
+    "family": "Meyer",
+    "given": "Clemens"
+   },
+   {
+    "family": "Kohl",
+    "given": "Simon A. A."
+   },
+   {
+    "family": "Ballard",
+    "given": "Andrew J."
+   },
+   {
+    "family": "Cowie",
+    "given": "Andrew"
+   },
+   {
+    "family": "Romera-Paredes",
+    "given": "Bernardino"
+   },
+   {
+    "family": "Nikolov",
+    "given": "Stanislav"
+   },
+   {
+    "family": "Jain",
+    "given": "Rishub"
+   },
+   {
+    "family": "Adler",
+    "given": "Jonas"
+   },
+   {
+    "family": "Back",
+    "given": "Trevor"
+   },
+   {
+    "family": "Petersen",
+    "given": "Stig"
+   },
+   {
+    "family": "Reiman",
+    "given": "David"
+   },
+   {
+    "family": "Clancy",
+    "given": "Ellen"
+   },
+   {
+    "family": "Zielinski",
+    "given": "Michal"
+   },
+   {
+    "family": "Steinegger",
+    "given": "Martin"
+   },
+   {
+    "family": "Pacholska",
+    "given": "Michalina"
+   },
+   {
+    "family": "Berghammer",
+    "given": "Tamas"
+   },
+   {
+    "family": "Bodenstein",
+    "given": "Sebastian"
+   },
+   {
+    "family": "Silver",
+    "given": "David"
+   },
+   {
+    "family": "Vinyals",
+    "given": "Oriol"
+   },
+   {
+    "family": "Senior",
+    "given": "Andrew W."
+   },
+   {
+    "family": "Kavukcuoglu",
+    "given": "Koray"
+   },
+   {
+    "family": "Kohli",
+    "given": "Pushmeet"
+   },
+   {
+    "family": "Hassabis",
+    "given": "Demis"
+   }
+  ],
+  "container-title": "Nature",
+  "volume": "596",
+  "issue": "7873",
+  "page": "583-589",
+  "DOI": "10.1038/s41586-021-03819-2",
+  "issued": {
+   "date-parts": [
+    [
+     2021
+    ]
+   ]
+  }
+ },
+ {
+  "id": "L1-1",
+  "type": "article-journal",
+  "title": "卷积神经网络池化方法综述",
+  "author": [
+   {
+    "literal": "袁铭阳"
+   },
+   {
+    "literal": "周长胜"
+   },
+   {
+    "literal": "黄宏博"
+   },
+   {
+    "literal": "胡志颖"
+   },
+   {
+    "literal": "李颖"
+   }
+  ],
+  "container-title": "软件工程与应用",
+  "volume": "9",
+  "issue": "5",
+  "page": "360-372",
+  "DOI": "10.12677/SEA.2020.95041",
+  "issued": {
+   "date-parts": [
+    [
+     2020
+    ]
+   ]
+  }
+ }
+]

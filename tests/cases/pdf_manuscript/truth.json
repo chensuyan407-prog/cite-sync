@@ -1,0 +1,43 @@
+{
+ "manuscript": "manuscript_draft.pdf",
+ "libraries": [],
+ "style": "gbt7714",
+ "auto": true,
+ "revised": "manuscript_draft_revised.md",
+ "note": "written for v0.2.0 (PDF manuscript); dev case",
+ "checks": [
+  {
+   "id": "Q01",
+   "kind": "review",
+   "defect": "PDF manuscript converted to editable markdown and reported",
+   "type": "manuscript_converted"
+  },
+  {
+   "id": "Q02",
+   "kind": "consistent",
+   "defect": "numbering / list consistent after conversion"
+  },
+  {
+   "id": "Q03",
+   "kind": "list_count",
+   "defect": "4 references parsed from the PDF",
+   "n": 4
+  },
+  {
+   "id": "Q04",
+   "kind": "order",
+   "defect": "first-appearance numbering",
+   "titles": [
+    "Deep residual learning",
+    "Batch normalization",
+    "Attention is all you need",
+    "Scaling laws"
+   ]
+  },
+  {
+   "id": "Q05",
+   "kind": "contract_filled",
+   "defect": "contract fields filled"
+  }
+ ]
+}

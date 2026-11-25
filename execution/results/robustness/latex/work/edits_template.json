@@ -2,7 +2,7 @@
  "_help": "verdict: supported | partial | mismatch | unverifiable. action: keep | remove | replace (refs) | drop_refs (refs). move_to: sentence id (optionally move_refs). add_citations: [{sentence, refs, note}]. record_overrides: {record_id: {field: value, _source: '...'}}. force_merge / forbid_merge: [[id, id]]. Re-run `cite.py run ... --edits <this file>`.",
  "occurrences": {
   "c2_0": {
-   "sentence": "Attention-only models were introduced in .",
+   "sentence": "Attention-only models were introduced in.",
    "refs": [
     "L1-1"
    ],

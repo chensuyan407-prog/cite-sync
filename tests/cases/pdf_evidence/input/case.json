@@ -1,0 +1,1 @@
+{"case_id": "dev-pdf-evidence", "manuscript": "manuscript.md", "sources": ["resnet.pdf", "attention.pdf", "batchnorm.pdf", "kaplan.pdf"], "output_contract": {"revised_manuscript": "edited manuscript", "references": "GB/T 7714 list", "claim_source_check": "per citation: does the cited PDF support the sentence"}}

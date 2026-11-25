@@ -1,0 +1,142 @@
+{
+ "online": false,
+ "network": {
+  "requests": 0,
+  "offline_reason": "online checks not requested",
+  "errors": []
+ },
+ "records": {
+  "L1-4": {
+   "status": "unverified_offline",
+   "details": {
+    "reason": "online checks not requested (--online)"
+   },
+   "corrections": {},
+   "issues": [],
+   "record": "He 2016 Deep Residual Learning for Image Recognition"
+  },
+  "M2": {
+   "status": "unverified_offline",
+   "details": {
+    "reason": "online checks not requested (--online)"
+   },
+   "corrections": {},
+   "issues": [
+    {
+     "code": "authors_truncated",
+     "severity": "info",
+     "msg": "source list was truncated ('et al./等'); full author list not available offline"
+    }
+   ],
+   "record": "He 2016 Identity mappings in deep residual networks"
+  },
+  "L1-5": {
+   "status": "unverified_offline",
+   "details": {
+    "reason": "online checks not requested (--online)"
+   },
+   "corrections": {},
+   "issues": [],
+   "record": "LeCun 2015 Deep learning"
+  },
+  "M4": {
+   "status": "unverified_offline",
+   "details": {
+    "reason": "online checks not requested (--online)"
+   },
+   "corrections": {},
+   "issues": [],
+   "record": "Hochreiter 1997 Long short-term memory"
+  },
+  "M5": {
+   "status": "unverified_offline",
+   "details": {
+    "reason": "online checks not requested (--online)"
+   },
+   "corrections": {},
+   "issues": [],
+   "record": "Krizhevsky 2017 ImageNet classification with deep convolutional neural netwo"
+  },
+  "M6": {
+   "status": "unverified_offline",
+   "details": {
+    "reason": "online checks not requested (--online)"
+   },
+   "corrections": {},
+   "issues": [],
+   "record": "Ioffe 2015 Batch normalization: Accelerating deep network training by r"
+  },
+  "L1-1": {
+   "status": "unverified_offline",
+   "details": {
+    "reason": "online checks not requested (--online)"
+   },
+   "corrections": {},
+   "issues": [],
+   "record": "Vaswani 2017 Attention is all you need"
+  },
+  "M9": {
+   "status": "unverified_offline",
+   "details": {
+    "reason": "online checks not requested (--online)"
+   },
+   "corrections": {},
+   "issues": [
+    {
+     "code": "authors_truncated",
+     "severity": "info",
+     "msg": "source list was truncated ('et al./等'); full author list not available offline"
+    }
+   ],
+   "record": "Devlin 2019 BERT: Pre-training of deep bidirectional transformers for la"
+  },
+  "M10": {
+   "status": "unverified_offline",
+   "details": {
+    "reason": "online checks not requested (--online)"
+   },
+   "corrections": {},
+   "issues": [],
+   "record": "Kingma 2014 Adam: A method for stochastic optimization"
+  },
+  "M11": {
+   "status": "unverified_offline",
+   "details": {
+    "reason": "online checks not requested (--online)"
+   },
+   "corrections": {},
+   "issues": [
+    {
+     "code": "authors_truncated",
+     "severity": "info",
+     "msg": "source list was truncated ('et al./等'); full author list not available offline"
+    }
+   ],
+   "record": "Jumper 2021 Highly accurate protein structure prediction with AlphaFold"
+  },
+  "M12": {
+   "status": "unverified_offline",
+   "details": {
+    "reason": "online checks not requested (--online)"
+   },
+   "corrections": {},
+   "issues": [
+    {
+     "code": "authors_truncated",
+     "severity": "info",
+     "msg": "source list was truncated ('et al./等'); full author list not available offline"
+    }
+   ],
+   "record": "袁铭阳 2020 卷积神经网络池化方法综述"
+  },
+  "M14": {
+   "status": "unverified_offline",
+   "details": {
+    "reason": "online checks not requested (--online)"
+   },
+   "corrections": {},
+   "issues": [],
+   "record": "Smith 2019 Universal scaling of residual attention networks"
+  }
+ }
+}

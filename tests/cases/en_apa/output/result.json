@@ -1,7 +1,13 @@
 {
  "case_id": "dev-en-apa",
- "tool": "cite-sync 0.1.0",
- "revised_manuscript": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\en_apa\\output\\manuscript_revised.md",
+ "tool": "cite-sync 0.2.0",
+ "revised_manuscript": {
+  "path": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\en_apa\\output\\manuscript_revised.md",
+  "format": "md",
+  "diff": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\en_apa\\output\\manuscript.diff",
+  "previews": null,
+  "text": "# Why depth works: a short note\n\nDeep learning has transformed speech and visual recognition (LeCun et al., 2015). Residual networks made models with more than a hundred layers trainable (He et al., 2016a), and identity shortcuts further eased optimization (He et al., 2016b). Vaswani et al. (2017) replaced recurrence with attention in the Transformer. Batch normalization accelerates training by reducing internal covariate shift (Ioffe & Szegedy, 2015). Language-model loss falls as a power law in model size, data and compute (Kaplan et al., 2020). Prior work has shown that dropout prevents overfitting.\n\n## References\n\nHe, K., Zhang, X., Ren, S., & Sun, J. (2016a). Deep Residual Learning for Image Recognition. In 2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR) (pp. 770–778). https://doi.org/10.1109/CVPR.2016.90\nHe, K., Zhang, X., Ren, S., & Sun, J. (2016b). Identity mappings in deep residual networks. In European Conference on Computer Vision (pp. 630–645). Springer. https://doi.org/10.1007/978-3-319-46493-0_38\nIoffe, S., & Szegedy, C. (2015). Batch normalization: Accelerating deep network training by reducing internal covariate shift (arXiv:1502.03167). arXiv. https://doi.org/10.48550/arXiv.1502.03167\nKaplan, J., McCandlish, S., Henighan, T., Brown, T. B., Chess, B., Child, R., Gray, S., Radford, A., Wu, J., & Amodei, D. (2020). Scaling laws for neural language models (arXiv:2001.08361). arXiv. https://doi.org/10.48550/arXiv.2001.08361\nLeCun, Y., Bengio, Y., & Hinton, G. (2015). Deep learning. Nature, 521(7553), 436–444. https://doi.org/10.1038/nature14539\nVaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, L., & Polosukhin, I. (2017). Attention is all you need. Advances in Neural Information Processing Systems, 30, 5998–6008."
+ },
  "references": [
   "He, K., Zhang, X., Ren, S., & Sun, J. (2016a). Deep Residual Learning for Image Recognition. In 2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR) (pp. 770–778). https://doi.org/10.1109/CVPR.2016.90",
   "He, K., Zhang, X., Ren, S., & Sun, J. (2016b). Identity mappings in deep residual networks. In European Conference on Computer Vision (pp. 630–645). Springer. https://doi.org/10.1007/978-3-319-46493-0_38",
@@ -30,6 +36,7 @@
   "references",
   "needs_review"
  ],
+ "_contract_spec": {},
  "inputs": {
   "case": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\en_apa\\input\\case.json",
   "task": null,
@@ -51,7 +58,9 @@
  },
  "status": "partial",
  "status_reason": [
-  "6 citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict)"
+  "1 citation occurrence(s) whose claim-source match could not be established automatically (verdict needs_check/unverifiable): judge them in edits.occurrences",
+  "1 claim sentence(s) without a citation: add a citation via edits.add_citations or leave them for the author",
+  "5 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person"
  ],
  "style": "apa7",
  "marker_style": "author-year",
@@ -170,5 +179,14 @@
  ],
  "parse_problems": [],
  "edits_applied": null,
- "uncertainty": "Claim-source verdicts come from the agent reading sentence + reference metadata (and PDFs when given); lexical support scores are hints only. Online metadata from Crossref/arXiv may itself be incomplete (e.g. shortened author lists)."
+ "uncertainty": "Each citation verdict is either the agent's (verdict_source=agent) or a heuristic from term overlap between the sentence and the cited work's title/abstract (verdict_source=heuristic; not a reading of the source). Online metadata from Crossref/arXiv may itself be incomplete (e.g. shortened author lists).",
+ "_contract_autofilled": {
+  "revised_manuscript": true,
+  "references": true
+ },
+ "contract_mapping": {
+  "revised_manuscript": "manuscript",
+  "references": "references"
+ },
+ "contract_unfilled": []
 }

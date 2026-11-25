@@ -24,6 +24,8 @@ PATTERNS = [
     ("latex-cite", re.compile(r"\\(?:cite|citep|citet|parencite|textcite|autocite|supercite)\*?(?:\[[^\]]*\]){0,2}\{([^}]+)\}")),
     ("pandoc-key", re.compile(r"\[(@[\w:\-\./]+(?:\s*;\s*-?@[\w:\-\./]+)*)\]")),
 ]
+USUP_MAP = str.maketrans("⁰¹²³⁴⁵⁶⁷⁸⁹⁻", "0123456789-")
+USUP = re.compile(r"(?<=\S)[⁰¹²³⁴⁵⁶⁷⁸⁹]+(?:[,，⁻–\-][⁰¹²³⁴⁵⁶⁷⁸⁹]+)*")
 AY_PAREN = re.compile(r"[\(（]([^()（）]{2,200}?(?:19|20)\d\d[a-z]?(?:[^()（）]{0,200}?))[\)）]")
 AY_ITEM = re.compile(r"^\s*(?:e\.g\.,?\s*|see\s+|参见\s*|如\s*)?([A-Z][\w'’\-]+(?:\s+(?:et al\.?|and|&)\s*(?:[A-Z][\w'’\-]+)?)?|[\u4e00-\u9fff]{1,4}(?:等|和[\u4e00-\u9fff]{1,4})?)\s*[,，]?\s*((?:19|20)\d\d)([a-z]?)\s*$")
 AY_NARR = re.compile(r"([A-Z][\w'’\-]+(?:\s+(?:et al\.|and [A-Z][\w'’\-]+|& [A-Z][\w'’\-]+))?|[\u4e00-\u9fff]{1,4}等?)\s*[\(（]((?:19|20)\d\d)([a-z]?)[\)）]")
@@ -163,6 +165,13 @@ def find_markers(u):
                 nums = parse_nums(m.group(1))
                 if nums and max(nums) < 2000:
                     add(m.start(), m.end(), style=style, kind="num", nums=nums)
+    for m in USUP.finditer(t):  # unicode superscripts: 文献¹ / text¹⁻³ / ¹,²
+        before = t[max(0, m.start() - 8):m.start()]
+        if re.search(r"(\d\s*[A-Za-zμ°]{0,4}|(?<![A-Za-z])[A-Za-z]|[=+\-*/^(])$", before):
+            continue  # units / maths (5 m², x², 10³), not citations
+        nums = parse_nums(m.group(0).translate(USUP_MAP))
+        if nums and max(nums) < 2000:
+            add(m.start(), m.end(), style="unicode-sup", kind="num", nums=nums)
     if u.get("sup"):
         i = 0
         while i < len(t):
@@ -295,7 +304,7 @@ def plain(text, markers=()):
         out.append(text[last:m["start"]])
         last = m["end"]
     out.append(text[last:])
-    return re.sub(r"\s+", " ", "".join(out)).strip()
+    return re.sub(r"\s+([.,;:!?。，；：])", r"\1", re.sub(r"\s+", " ", "".join(out))).strip()
 
 
 # ---------------------------------------------------------------- rewriting

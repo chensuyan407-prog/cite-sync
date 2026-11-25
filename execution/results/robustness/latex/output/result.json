@@ -1,10 +1,11 @@
 {
  "case_id": null,
- "tool": "cite-sync 0.1.0",
+ "tool": "cite-sync 0.2.0",
  "status": "partial",
  "status_reason": [
   "1 blocking item(s) need human confirmation",
-  "4 citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict)",
+  "2 citation occurrence(s) whose claim-source match could not be established automatically (verdict needs_check/unverifiable): judge them in edits.occurrences",
+  "2 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person",
   "sources not checked online (offline run)"
  ],
  "style": "gbt7714",
@@ -44,7 +45,7 @@
    "weak_lexical_support": 1
   },
   "parse_problems": 1,
-  "seconds": 0.02
+  "seconds": 0.01
  },
  "consistency_check": null,
  "references_list": [
@@ -113,5 +114,8 @@
   ]
  },
  "edits_applied": null,
- "uncertainty": "Claim-source verdicts come from the agent reading sentence + reference metadata (and PDFs when given); lexical support scores are hints only. No online verification in this run."
+ "uncertainty": "Each citation verdict is either the agent's (verdict_source=agent) or a heuristic from term overlap between the sentence and the cited work's title/abstract (verdict_source=heuristic; not a reading of the source). No online verification in this run.",
+ "_contract_autofilled": {},
+ "contract_mapping": {},
+ "contract_unfilled": []
 }

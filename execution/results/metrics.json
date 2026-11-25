@@ -4,7 +4,9 @@
    "holdout": false,
    "status": "partial",
    "status_reason": [
-    "6 citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict)"
+    "1 citation occurrence(s) whose claim-source match could not be established automatically (verdict needs_check/unverifiable): judge them in edits.occurrences",
+    "1 claim sentence(s) without a citation: add a citation via edits.add_citations or leave them for the author",
+    "5 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person"
    ],
    "seconds": 0.16,
    "checks": 8,
@@ -43,9 +45,10 @@
    "status": "partial",
    "status_reason": [
     "1 blocking item(s) need human confirmation",
-    "9 citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict)"
+    "3 citation occurrence(s) whose claim-source match could not be established automatically (verdict needs_check/unverifiable): judge them in edits.occurrences",
+    "6 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person"
    ],
-   "seconds": 0.16,
+   "seconds": 0.18,
    "checks": 16,
    "passed": 16,
    "b0_passed": 7,
@@ -79,13 +82,139 @@
     "seconds": 0.03
    }
   },
+  "holdout_insert": {
+   "holdout": true,
+   "status": "partial",
+   "status_reason": [
+    "1 blocking item(s) need human confirmation",
+    "1 claim sentence(s) without a citation: add a citation via edits.add_citations or leave them for the author"
+   ],
+   "seconds": 0.16,
+   "checks": 17,
+   "passed": 17,
+   "b0_passed": 2,
+   "b1_passed": 2,
+   "failed": [],
+   "summary": {
+    "records_in": 5,
+    "records_after_dedup": 5,
+    "merged_clusters": 0,
+    "occurrences": 0,
+    "occurrences_out": 5,
+    "references_out": 5,
+    "orphans": 0,
+    "uncited_removed": 0,
+    "auto_moves": 0,
+    "placement_suggestions": 0,
+    "verified": 3,
+    "verification_status_counts": {
+     "mismatch": 1,
+     "unverified_no_registry_match": 1,
+     "verified": 2,
+     "verified_with_corrections": 1
+    },
+    "review_items": 3,
+    "review_by_type": {
+     "source_mismatch": 1,
+     "source_unconfirmed": 1,
+     "claim_without_citation": 1
+    },
+    "parse_problems": 0,
+    "seconds": 0.02
+   }
+  },
+  "pdf_evidence": {
+   "holdout": false,
+   "status": "partial",
+   "status_reason": [
+    "1 citation occurrence(s) whose claim-source match could not be established automatically (verdict needs_check/unverifiable): judge them in edits.occurrences",
+    "1 claim sentence(s) without a citation: add a citation via edits.add_citations or leave them for the author",
+    "4 citation verdict(s) are heuristic (term overlap with title/abstract or the cited PDF), not read by a person"
+   ],
+   "seconds": 0.86,
+   "checks": 8,
+   "passed": 8,
+   "b0_passed": 0,
+   "b1_passed": 2,
+   "failed": [],
+   "summary": {
+    "records_in": 4,
+    "records_after_dedup": 4,
+    "merged_clusters": 0,
+    "occurrences": 5,
+    "occurrences_out": 5,
+    "references_out": 4,
+    "orphans": 0,
+    "uncited_removed": 0,
+    "auto_moves": 0,
+    "placement_suggestions": 0,
+    "verified": 4,
+    "verification_status_counts": {
+     "verified_by_pdf": 2,
+     "verified_with_corrections": 1,
+     "verified": 1
+    },
+    "review_items": 5,
+    "review_by_type": {
+     "source_unconfirmed": 2,
+     "claim_without_citation": 1,
+     "weak_lexical_support": 1,
+     "possible_miscitation": 1
+    },
+    "parse_problems": 0,
+    "seconds": 0.7
+   }
+  },
+  "pdf_manuscript": {
+   "holdout": false,
+   "status": "partial",
+   "status_reason": [
+    "1 citation occurrence(s) whose claim-source match could not be established automatically (verdict needs_check/unverifiable): judge them in edits.occurrences",
+    "1 claim sentence(s) without a citation: add a citation via edits.add_citations or leave them for the author",
+    "4 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person"
+   ],
+   "seconds": 0.27,
+   "checks": 5,
+   "passed": 5,
+   "b0_passed": 0,
+   "b1_passed": null,
+   "failed": [],
+   "summary": {
+    "records_in": 4,
+    "records_after_dedup": 4,
+    "merged_clusters": 0,
+    "occurrences": 5,
+    "occurrences_out": 5,
+    "references_out": 4,
+    "orphans": 0,
+    "uncited_removed": 0,
+    "auto_moves": 0,
+    "placement_suggestions": 0,
+    "verified": 2,
+    "verification_status_counts": {
+     "unverified_no_registry_match": 2,
+     "verified_with_corrections": 1,
+     "verified": 1
+    },
+    "review_items": 5,
+    "review_by_type": {
+     "manuscript_converted": 1,
+     "source_unconfirmed": 2,
+     "claim_without_citation": 1,
+     "weak_lexical_support": 1
+    },
+    "parse_problems": 0,
+    "seconds": 0.1
+   }
+  },
   "zh_docx": {
    "holdout": false,
    "status": "partial",
    "status_reason": [
-    "1 citation(s) removed by edit; the sentence(s) need a real source or rewording (human)"
+    "1 citation(s) removed by edit; the sentence(s) need a real source or rewording (human)",
+    "1 claim sentence(s) without a citation (1 with a suggested library record): add a citation via edits.add_citations or leave them for the author"
    ],
-   "seconds": 0.29,
+   "seconds": 0.33,
    "checks": 26,
    "passed": 26,
    "b0_passed": 4,
@@ -104,8 +233,8 @@
     "placement_suggestions": 0,
     "verified": 11,
     "verification_status_counts": {
-     "verified": 5,
-     "verified_with_corrections": 4,
+     "verified": 4,
+     "verified_with_corrections": 5,
      "verified_via_arxiv": 2,
      "doi_not_found": 1
     },
@@ -117,16 +246,17 @@
      "caption_citation": 1
     },
     "parse_problems": 0,
-    "seconds": 0.14
+    "seconds": 0.15
    }
   },
   "zh_review": {
    "holdout": false,
    "status": "partial",
    "status_reason": [
-    "1 citation(s) removed by edit; the sentence(s) need a real source or rewording (human)"
+    "1 citation(s) removed by edit; the sentence(s) need a real source or rewording (human)",
+    "1 claim sentence(s) without a citation (1 with a suggested library record): add a citation via edits.add_citations or leave them for the author"
    ],
-   "seconds": 0.2,
+   "seconds": 0.22,
    "checks": 26,
    "passed": 26,
    "b0_passed": 3,
@@ -145,8 +275,8 @@
     "placement_suggestions": 0,
     "verified": 11,
     "verification_status_counts": {
-     "verified": 5,
-     "verified_with_corrections": 4,
+     "verified": 4,
+     "verified_with_corrections": 5,
      "verified_via_arxiv": 2,
      "doi_not_found": 1
     },
@@ -164,23 +294,23 @@
  },
  "offline": false,
  "dev": {
-  "checks": 60,
+  "checks": 73,
   "skill": 1.0,
-  "b0_untouched": 0.133,
-  "b1_regex_renumber": 0.15
+  "b0_untouched": 0.11,
+  "b1_regex_renumber": 0.151
  },
  "holdout": {
-  "checks": 14,
+  "checks": 30,
   "skill": 1.0,
-  "b0_untouched": 0.357,
-  "b1_regex_renumber": 0.5
+  "b0_untouched": 0.233,
+  "b1_regex_renumber": 0.3
  },
  "holdout_post_freeze_checks": {
-  "checks": 2,
+  "checks": 3,
   "skill_now": 1.0,
-  "note": "added after reading the held-out output; failed at freeze (Adam glued onto Dropout marker), fixed afterwards"
+  "note": "added after reading held-out outputs; failed at their freeze (v0.1: Adam glued onto the Dropout marker; v0.2: status complete with open uncited claims), fixed afterwards"
  },
- "wall_seconds": 2.4,
+ "wall_seconds": 4.6,
  "robustness": {
   "missing_case_json": {
    "status": "failed",
@@ -191,7 +321,7 @@
    "exit": 2,
    "status": "failed",
    "reason": [
-    "manuscript not usable: unsupported manuscript format '.doc': use .md/.txt/.tex/.docx (convert .doc/.pdf/.odt first)"
+    "manuscript not usable: .doc needs LibreOffice (soffice) to convert to .docx; not installed"
    ],
    "ok": true
   },
@@ -255,7 +385,20 @@
     ]
    ],
    "ok": true
+  },
+  "library_only": {
+   "exit": 0,
+   "n_refs": 8,
+   "unfilled": [],
+   "ok": true
+  },
+  "encrypted_pdf": {
+   "exit": 0,
+   "problems": [
+    "PDF not usable: encrypted PDF (password required)"
+   ],
+   "ok": true
   }
  },
- "robustness_passed": "8/8"
+ "robustness_passed": "10/10"
 }

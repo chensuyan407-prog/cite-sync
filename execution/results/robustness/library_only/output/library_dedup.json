@@ -1,0 +1,405 @@
+[
+ {
+  "type": "article-journal",
+  "title": "卷积神经网络池化方法综述",
+  "authors": [
+   {
+    "literal": "袁铭阳"
+   },
+   {
+    "literal": "周长胜"
+   },
+   {
+    "literal": "黄宏博"
+   },
+   {
+    "literal": "胡志颖"
+   },
+   {
+    "literal": "李颖"
+   }
+  ],
+  "year": "2020",
+  "container": "软件工程与应用",
+  "volume": "9",
+  "issue": "5",
+  "pages": "360-372",
+  "doi": "10.12677/SEA.2020.95041",
+  "abstract": "池化层是卷积神经网络的重要组成部分，池化层通过池化计算对经过卷积层后的特征图进行降维。",
+  "keywords": [
+   "卷积神经网络",
+   "池化方法",
+   "池化层"
+  ],
+  "lang": "zh",
+  "id": "L1-1",
+  "origin": "library:cnki.enw",
+  "merged_from": [
+   "L1-1",
+   "L3-3"
+  ],
+  "title_alt": "Survey on Convolutional Neural Network Pooling Methods",
+  "field_provenance": {
+   "title_alt": "L3-3"
+  },
+  "merge_needs_review": false,
+  "cid": "L1-1",
+  "number": 1,
+  "sources": [
+   {
+    "file": "cnki.enw",
+    "index": 1,
+    "format": "endnote",
+    "raw": "%0 Journal Article\n%A 袁铭阳;周长胜;黄宏博;胡志颖;李颖\n%+ 北京信息科技大学计算机学院;\n%T 卷积神经网络池化方法综述\n%J 软件工程与应用\n%D 2020\n%V 9\n%N 5\n%P 360-372\n%K 卷积神经网络;池化方法;池化层\n%X 池化层是卷积神经网络的重要组成部分，池化层通过池化计算对经过卷积层后的特征图进行降维。\n%R 10.12677/SEA.2020.95041\n%W CNKI"
+   },
+   {
+    "file": "zotero.ris",
+    "index": 3,
+    "format": "ris",
+    "raw": "TY  - JOUR\nAU  - 袁, 铭阳\nTI  - Survey on Convolutional Neural Network Pooling Methods\nT2  - Software Engineering and Applications\nPY  - 2020\nVL  - 09\nIS  - 05\nSP  - 360\nEP  - 372\nDO  - 10.12677/SEA.2020.95041\nER  - "
+   }
+  ]
+ },
+ {
+  "bibkey": "vaswani2017attention",
+  "type": "paper-conference",
+  "title": "Attention is all you need",
+  "authors": [
+   {
+    "family": "Vaswani",
+    "given": "Ashish"
+   },
+   {
+    "family": "Shazeer",
+    "given": "Noam"
+   },
+   {
+    "family": "Parmar",
+    "given": "Niki"
+   },
+   {
+    "family": "Uszkoreit",
+    "given": "Jakob"
+   },
+   {
+    "family": "Jones",
+    "given": "Llion"
+   },
+   {
+    "family": "Gomez",
+    "given": "Aidan N"
+   },
+   {
+    "family": "Kaiser",
+    "given": "Łukasz"
+   },
+   {
+    "family": "Polosukhin",
+    "given": "Illia"
+   }
+  ],
+  "year": "2017",
+  "container": "Advances in Neural Information Processing Systems",
+  "volume": "30",
+  "pages": "5998-6008",
+  "lang": "en",
+  "id": "L2-1",
+  "origin": "library:library.bib",
+  "doi": "",
+  "merged_from": [
+   "L2-1"
+  ],
+  "merge_needs_review": false,
+  "cid": "L2-1",
+  "number": 2,
+  "sources": [
+   {
+    "file": "library.bib",
+    "index": 1,
+    "format": "bibtex",
+    "raw": "@inproceedings{vaswani2017attention,\n  title={Attention is all you need},\n  author={Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N and Kaiser, {\\L}ukasz and Polosukhin, Illia},\n  booktitle={Advances in Neural Information Processing Systems},\n  volume={30},\n  pages={5998--6008},\n  year={2017}\n}"
+   }
+  ]
+ },
+ {
+  "bibkey": "kaplan2020scaling",
+  "type": "preprint",
+  "title": "Scaling laws for neural language models",
+  "authors": [
+   {
+    "family": "Kaplan",
+    "given": "Jared"
+   },
+   {
+    "family": "McCandlish",
+    "given": "Sam"
+   },
+   {
+    "family": "Henighan",
+    "given": "Tom"
+   },
+   {
+    "family": "Brown",
+    "given": "Tom B"
+   },
+   {
+    "family": "Chess",
+    "given": "Benjamin"
+   },
+   {
+    "family": "Child",
+    "given": "Rewon"
+   },
+   {
+    "family": "Gray",
+    "given": "Scott"
+   },
+   {
+    "family": "Radford",
+    "given": "Alec"
+   },
+   {
+    "family": "Wu",
+    "given": "Jeffrey"
+   },
+   {
+    "family": "Amodei",
+    "given": "Dario"
+   }
+  ],
+  "year": "2020",
+  "container": "arXiv preprint arXiv:2001.08361",
+  "arxiv": "2001.08361",
+  "lang": "en",
+  "id": "L2-2",
+  "origin": "library:library.bib",
+  "doi": "",
+  "merged_from": [
+   "L2-2"
+  ],
+  "merge_needs_review": false,
+  "cid": "L2-2",
+  "number": 3,
+  "sources": [
+   {
+    "file": "library.bib",
+    "index": 2,
+    "format": "bibtex",
+    "raw": "@article{kaplan2020scaling,\n  title={Scaling laws for neural language models},\n  author={Kaplan, Jared and McCandlish, Sam and Henighan, Tom and Brown, Tom B and Chess, Benjamin and Child, Rewon and Gray, Scott and Radford, Alec and Wu, Jeffrey and Amodei, Dario},\n  journal={arXiv preprint arXiv:2001.08361},\n  year={2020}\n}"
+   }
+  ]
+ },
+ {
+  "bibkey": "krizhevsky2012imagenet",
+  "type": "paper-conference",
+  "title": "ImageNet classification with deep convolutional neural networks",
+  "authors": [
+   {
+    "family": "Krizhevsky",
+    "given": "Alex"
+   },
+   {
+    "family": "Sutskever",
+    "given": "Ilya"
+   },
+   {
+    "family": "Hinton",
+    "given": "Geoffrey E"
+   }
+  ],
+  "year": "2012",
+  "container": "Advances in Neural Information Processing Systems",
+  "volume": "25",
+  "pages": "1097-1105",
+  "lang": "en",
+  "id": "L2-3",
+  "origin": "library:library.bib",
+  "doi": "",
+  "merged_from": [
+   "L2-3"
+  ],
+  "merge_needs_review": false,
+  "cid": "L2-3",
+  "number": 4,
+  "sources": [
+   {
+    "file": "library.bib",
+    "index": 3,
+    "format": "bibtex",
+    "raw": "@inproceedings{krizhevsky2012imagenet,\n  title={ImageNet classification with deep convolutional neural networks},\n  author={Krizhevsky, Alex and Sutskever, Ilya and Hinton, Geoffrey E},\n  booktitle={Advances in Neural Information Processing Systems},\n  volume={25},\n  pages={1097--1105},\n  year={2012}\n}"
+   }
+  ]
+ },
+ {
+  "bibkey": "he2016deep",
+  "type": "paper-conference",
+  "title": "Deep Residual Learning for Image Recognition",
+  "authors": [
+   {
+    "family": "He",
+    "given": "Kaiming"
+   },
+   {
+    "family": "Zhang",
+    "given": "Xiangyu"
+   },
+   {
+    "family": "Ren",
+    "given": "Shaoqing"
+   },
+   {
+    "family": "Sun",
+    "given": "Jian"
+   }
+  ],
+  "year": "2016",
+  "container": "2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+  "pages": "770-778",
+  "doi": "10.1109/CVPR.2016.90",
+  "lang": "en",
+  "id": "L2-4",
+  "origin": "library:library.bib",
+  "merged_from": [
+   "L2-4"
+  ],
+  "merge_needs_review": false,
+  "cid": "L2-4",
+  "number": 5,
+  "sources": [
+   {
+    "file": "library.bib",
+    "index": 4,
+    "format": "bibtex",
+    "raw": "@inproceedings{he2016deep,\n  title={Deep Residual Learning for Image Recognition},\n  author={He, Kaiming and Zhang, Xiangyu and Ren, Shaoqing and Sun, Jian},\n  booktitle={2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},\n  pages={770--778},\n  year={2016},\n  doi={10.1109/CVPR.2016.90}\n}"
+   }
+  ]
+ },
+ {
+  "bibkey": "lecun2015deep",
+  "type": "article-journal",
+  "title": "Deep learning",
+  "authors": [
+   {
+    "family": "LeCun",
+    "given": "Yann"
+   },
+   {
+    "family": "Bengio",
+    "given": "Yoshua"
+   },
+   {
+    "family": "Hinton",
+    "given": "Geoffrey"
+   }
+  ],
+  "year": "2015",
+  "container": "Nature",
+  "volume": "521",
+  "issue": "7553",
+  "pages": "436-444",
+  "publisher": "Nature Publishing Group",
+  "doi": "10.1038/nature14539",
+  "lang": "en",
+  "id": "L2-5",
+  "origin": "library:library.bib",
+  "merged_from": [
+   "L2-5"
+  ],
+  "merge_needs_review": false,
+  "cid": "L2-5",
+  "number": 6,
+  "sources": [
+   {
+    "file": "library.bib",
+    "index": 5,
+    "format": "bibtex",
+    "raw": "@article{lecun2015deep,\n  title={Deep learning},\n  author={LeCun, Yann and Bengio, Yoshua and Hinton, Geoffrey},\n  journal={Nature},\n  volume={521},\n  number={7553},\n  pages={436--444},\n  year={2015},\n  publisher={Nature Publishing Group},\n  doi={10.1038/nature14539}\n}"
+   }
+  ]
+ },
+ {
+  "type": "preprint",
+  "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+  "authors": [
+   {
+    "family": "Devlin",
+    "given": "Jacob"
+   },
+   {
+    "family": "Chang",
+    "given": "Ming-Wei"
+   },
+   {
+    "family": "Lee",
+    "given": "Kenton"
+   },
+   {
+    "family": "Toutanova",
+    "given": "Kristina"
+   }
+  ],
+  "year": "2018",
+  "url": "http://arxiv.org/abs/1810.04805",
+  "note": "arXiv: 1810.04805",
+  "arxiv": "1810.04805",
+  "lang": "en",
+  "id": "L3-1",
+  "origin": "library:zotero.ris",
+  "doi": "",
+  "merged_from": [
+   "L3-1"
+  ],
+  "merge_needs_review": false,
+  "cid": "L3-1",
+  "number": 7,
+  "sources": [
+   {
+    "file": "zotero.ris",
+    "index": 1,
+    "format": "ris",
+    "raw": "TY  - UNPB\nAU  - Devlin, Jacob\nAU  - Chang, Ming-Wei\nAU  - Lee, Kenton\nAU  - Toutanova, Kristina\nTI  - BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding\nPY  - 2018\nUR  - http://arxiv.org/abs/1810.04805\nN1  - arXiv: 1810.04805\nER  - "
+   }
+  ]
+ },
+ {
+  "type": "article-journal",
+  "title": "Highly accurate protein structure prediction with AlphaFold",
+  "authors": [
+   {
+    "family": "Jumper",
+    "given": "John"
+   },
+   {
+    "family": "Evans",
+    "given": "Richard"
+   },
+   {
+    "family": "Pritzel",
+    "given": "Alexander"
+   }
+  ],
+  "year": "2021",
+  "container": "Nature",
+  "volume": "596",
+  "issue": "7873",
+  "pages": "583-589",
+  "doi": "10.1038/s41586-021-03819-2",
+  "lang": "en",
+  "id": "L3-2",
+  "origin": "library:zotero.ris",
+  "merged_from": [
+   "L3-2"
+  ],
+  "merge_needs_review": false,
+  "cid": "L3-2",
+  "number": 8,
+  "sources": [
+   {
+    "file": "zotero.ris",
+    "index": 2,
+    "format": "ris",
+    "raw": "TY  - JOUR\nAU  - Jumper, John\nAU  - Evans, Richard\nAU  - Pritzel, Alexander\nTI  - Highly accurate protein structure prediction with AlphaFold\nT2  - Nature\nPY  - 2021\nVL  - 596\nIS  - 7873\nSP  - 583\nEP  - 589\nDO  - 10.1038/s41586-021-03819-2\nER  - "
+   }
+  ]
+ }
+]

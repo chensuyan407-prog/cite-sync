@@ -1,0 +1,1 @@
+{"case_id": "holdout-insert", "manuscript": "draft.md", "libraries": ["lib.bib", "refs.ris", "cnki.enw"], "target_style": "GB/T 7714-2015", "output_contract": {"revised_manuscript": "插入引用后的稿件", "references": "GB/T 7714 文献表", "insertion_log": "每处插入的位置与依据"}}

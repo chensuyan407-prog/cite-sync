@@ -1,0 +1,207 @@
+[
+ {
+  "id": "ins_u4s0",
+  "unit": 4,
+  "sentence": "u4s0",
+  "role": "body",
+  "old": "",
+  "new": "[1]",
+  "records": [
+   "L2-2"
+  ],
+  "numbers": [
+   1
+  ],
+  "unresolved": [],
+  "support": {
+   "L2-2": 0.8
+  },
+  "inserted": true,
+  "edit_verdict": "supported",
+  "evidence": {},
+  "heuristic_verdict": "supported",
+  "sentence_text": "研究表明，深度学习通过多层表示学习显著提升了语音识别和图像识别的性能。",
+  "verdict": "supported",
+  "verdict_source": "agent",
+  "verdict_note": null,
+  "match_basis": {
+   "L2-2": {
+    "heuristic": "supported",
+    "basis": "sentence shares title/abstract terms [] (support 0.8)"
+   }
+  },
+  "references": [
+   {
+    "record": "L2-2",
+    "number": 1,
+    "text": "LeCun 2015 Deep learning",
+    "doi": "10.1038/nature14539",
+    "verification": "verified"
+   }
+  ]
+ },
+ {
+  "id": "ins_u4s1",
+  "unit": 4,
+  "sentence": "u4s1",
+  "role": "body",
+  "old": "",
+  "new": "[2]",
+  "records": [
+   "L3-2"
+  ],
+  "numbers": [
+   2
+  ],
+  "unresolved": [],
+  "support": {
+   "L3-2": 0.85
+  },
+  "inserted": true,
+  "edit_verdict": "supported",
+  "evidence": {},
+  "heuristic_verdict": "supported",
+  "sentence_text": "长短期记忆网络被广泛用于序列建模，其门控结构缓解了梯度消失问题。",
+  "verdict": "supported",
+  "verdict_source": "agent",
+  "verdict_note": null,
+  "match_basis": {
+   "L3-2": {
+    "heuristic": "supported",
+    "basis": "sentence shares title/abstract terms [] (support 0.85)"
+   }
+  },
+  "references": [
+   {
+    "record": "L3-2",
+    "number": 2,
+    "text": "Hochreiter 1997 Long Short-Term Memory",
+    "doi": "10.1162/neco.1997.9.8.1735",
+    "verification": "verified"
+   }
+  ]
+ },
+ {
+  "id": "ins_u4s2",
+  "unit": 4,
+  "sentence": "u4s2",
+  "role": "body",
+  "old": "",
+  "new": "[3]",
+  "records": [
+   "L2-1"
+  ],
+  "numbers": [
+   3
+  ],
+  "unresolved": [],
+  "support": {
+   "L2-1": 0.833
+  },
+  "inserted": true,
+  "edit_verdict": "supported",
+  "evidence": {},
+  "heuristic_verdict": "supported",
+  "sentence_text": "卷积神经网络在 ImageNet 图像分类任务上取得了突破。",
+  "verdict": "supported",
+  "verdict_source": "agent",
+  "verdict_note": null,
+  "match_basis": {
+   "L2-1": {
+    "heuristic": "supported",
+    "basis": "sentence shares title/abstract terms [] (support 0.833)"
+   }
+  },
+  "references": [
+   {
+    "record": "L2-1",
+    "number": 3,
+    "text": "Krizhevsky 2012 ImageNet classification with deep convolutional neural netwo",
+    "doi": "",
+    "verification": "unverified_no_registry_match"
+   }
+  ]
+ },
+ {
+  "id": "ins_u8s0",
+  "unit": 8,
+  "sentence": "u8s0",
+  "role": "body",
+  "old": "",
+  "new": "[4]",
+  "records": [
+   "L3-1"
+  ],
+  "numbers": [
+   4
+  ],
+  "unresolved": [],
+  "support": {
+   "L3-1": 0.833
+  },
+  "inserted": true,
+  "edit_verdict": "supported",
+  "evidence": {},
+  "heuristic_verdict": "supported",
+  "sentence_text": "AlphaFold 取得了接近实验精度的蛋白质结构预测结果。",
+  "verdict": "supported",
+  "verdict_source": "agent",
+  "verdict_note": null,
+  "match_basis": {
+   "L3-1": {
+    "heuristic": "supported",
+    "basis": "sentence shares title/abstract terms [] (support 0.833)"
+   }
+  },
+  "references": [
+   {
+    "record": "L3-1",
+    "number": 4,
+    "text": "Jumper 2021 Highly accurate protein structure prediction with AlphaFold",
+    "doi": "10.1038/s41586-021-03819-2",
+    "verification": "verified_with_corrections"
+   }
+  ]
+ },
+ {
+  "id": "ins_u8s1",
+  "unit": 8,
+  "sentence": "u8s1",
+  "role": "body",
+  "old": "",
+  "new": "[5]",
+  "records": [
+   "L1-1"
+  ],
+  "numbers": [
+   5
+  ],
+  "unresolved": [],
+  "support": {
+   "L1-1": 0.873
+  },
+  "inserted": true,
+  "edit_verdict": "supported",
+  "evidence": {},
+  "heuristic_verdict": "unverifiable",
+  "sentence_text": "已有研究对卷积神经网络中的池化方法进行了系统综述。",
+  "verdict": "supported",
+  "verdict_source": "agent",
+  "verdict_note": null,
+  "match_basis": {
+   "L1-1": {
+    "heuristic": "unverifiable",
+    "basis": "source check: mismatch"
+   }
+  },
+  "references": [
+   {
+    "record": "L1-1",
+    "number": 5,
+    "text": "袁铭阳 2020 卷积神经网络池化方法综述",
+    "doi": "10.12677/SEA.2020.95041",
+    "verification": "mismatch"
+   }
+  ]
+ }
+]

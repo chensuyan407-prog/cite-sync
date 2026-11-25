@@ -8,17 +8,17 @@
    "score": 1.0,
    "tolerance": 0.1,
    "evidence_artifact": "metrics",
-   "explanation": "60 checks on 3 cases; baselines: untouched 0.133, regex renumber 0.15"
+   "explanation": "73 checks on 5 cases; baselines: untouched 0.11, regex renumber 0.151"
   },
   {
-   "target": "planted defects fixed/detected (held-out case, at code freeze)",
+   "target": "planted defects fixed/detected (held-out cases, at code freeze)",
    "metric": "absolute_error",
    "actual_value": 1.0,
    "reference_value": 1.0,
    "score": 1.0,
    "tolerance": 0.2,
    "evidence_artifact": "metrics",
-   "explanation": "14 pre-registered checks; baselines: untouched 0.357, regex renumber 0.5. Reading the output found one more defect (Adam glued onto the Dropout marker) not covered by the checks; fixed after the freeze (2 post-freeze checks)."
+   "explanation": "30 pre-registered checks; baselines: untouched 0.233, regex renumber 0.3. 2 cases (v0.1 GNN review, v0.2 citation insertion). Reading the outputs found defects not covered by the checks: v0.1 Adam glued onto the Dropout marker; v0.2 status 'complete' while claims still lacked citations. Both fixed after the freeze (3 post-freeze checks)."
   },
   {
    "target": "robustness checks passed",
@@ -28,7 +28,7 @@
    "score": 1.0,
    "tolerance": 0.1,
    "evidence_artifact": "metrics",
-   "explanation": "missing_case_json, unsupported_doc, corrupt_library, no_network, no_records, label_conflict, latex_keys, determinism"
+   "explanation": "missing_case_json, unsupported_doc, corrupt_library, no_network, no_records, label_conflict, latex_keys, determinism, library_only, encrypted_pdf"
   },
   {
    "target": "post-write numbering/list consistency (all cases)",

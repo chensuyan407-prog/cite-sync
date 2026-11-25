@@ -1,7 +1,7 @@
 # cite-sync review - case None
 
 status: **partial**  
-reasons: 1 blocking item(s) need human confirmation; 4 citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict); sources not checked online (offline run)
+reasons: 1 blocking item(s) need human confirmation; 2 citation occurrence(s) whose claim-source match could not be established automatically (verdict needs_check/unverifiable): judge them in edits.occurrences; 2 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person; sources not checked online (offline run)
 
 ## Summary
 ```
@@ -26,7 +26,7 @@ reasons: 1 blocking item(s) need human confirmation; 4 citation occurrence(s) wi
   "weak_lexical_support": 1
  },
  "parse_problems": 1,
- "seconds": 0.02
+ "seconds": 0.01
 }
 ```
 
@@ -52,7 +52,7 @@ reasons: 1 blocking item(s) need human confirmation; 4 citation occurrence(s) wi
 
 | occ | sentence | marker old -> new | records | support | verdict |
 |-|-|-|-|-|-|
-| c2_0 | Attention-only models were introduced in . | `\cite{vaswani2017attention,vaswani2017arxiv}` -> `\cite{vaswani2017attention}` | L1-1 | {'L1-1': 0.0} | - |
-| c3_0 | Very deep residual networks and the deep-learning review are standard  | `\citep{he2016deep}` -> `\citep{he2016deep}` | L1-4 | {'L1-4': 0.38} | - |
-| c3_1 | Very deep residual networks and the deep-learning review are standard  | `\cite{lecun2015deep}` -> `\cite{lecun2015deep}` | L1-5 | {'L1-5': 0.4} | - |
-| c4_0 | A missing key should be reported. | `\cite{nokey2020}` -> `\cite{nokey2020}` | MISSING-nokey2020 | {'MISSING-nokey2020': 0.0} | - |
+| c2_0 | Attention-only models were introduced in. | `\cite{vaswani2017attention,vaswani2017arxiv}` -> `\cite{vaswani2017attention}` | L1-1 | {'L1-1': 0.0} | needs_check |
+| c3_0 | Very deep residual networks and the deep-learning review are standard  | `\citep{he2016deep}` -> `\citep{he2016deep}` | L1-4 | {'L1-4': 0.38} | supported |
+| c3_1 | Very deep residual networks and the deep-learning review are standard  | `\cite{lecun2015deep}` -> `\cite{lecun2015deep}` | L1-5 | {'L1-5': 0.4} | supported |
+| c4_0 | A missing key should be reported. | `\cite{nokey2020}` -> `\cite{nokey2020}` | MISSING-nokey2020 | {'MISSING-nokey2020': 0.0} | unverifiable |

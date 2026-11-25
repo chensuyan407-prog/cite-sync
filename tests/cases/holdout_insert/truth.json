@@ -1,0 +1,139 @@
+{
+ "manuscript": "draft.md",
+ "auto": true,
+ "holdout": true,
+ "edits": "edits_agent.json",
+ "note": "v0.2.0 held-out case; checks written before the first run; edits written by reading brief.md of pass 1",
+ "checks": [
+  {
+   "id": "I01",
+   "kind": "suggests",
+   "stage": "detect",
+   "defect": "uncited claim gets the right library record as first suggestion (Deep learning)",
+   "sentence": "深度学习通过多层",
+   "title": "Deep learning"
+  },
+  {
+   "id": "I02",
+   "kind": "suggests",
+   "stage": "detect",
+   "defect": "uncited claim gets the right library record as first suggestion (Long Short-Term Memory)",
+   "sentence": "长短期记忆网络",
+   "title": "Long Short-Term Memory"
+  },
+  {
+   "id": "I03",
+   "kind": "suggests",
+   "stage": "detect",
+   "defect": "uncited claim gets the right library record as first suggestion (ImageNet classification)",
+   "sentence": "ImageNet 图像分类",
+   "title": "ImageNet classification"
+  },
+  {
+   "id": "I04",
+   "kind": "suggests",
+   "stage": "detect",
+   "defect": "uncited claim gets the right library record as first suggestion (AlphaFold)",
+   "sentence": "AlphaFold",
+   "title": "AlphaFold"
+  },
+  {
+   "id": "I05",
+   "kind": "suggests",
+   "stage": "detect",
+   "defect": "uncited claim gets the right library record as first suggestion (卷积神经网络池化方法综述)",
+   "sentence": "池化方法",
+   "title": "卷积神经网络池化方法综述"
+  },
+  {
+   "id": "I06",
+   "kind": "no_suggestion",
+   "stage": "detect",
+   "defect": "claim with no fitting record (quantum computing) flagged without a forced suggestion",
+   "sentence": "量子计算"
+  },
+  {
+   "id": "I07",
+   "kind": "not_flagged",
+   "stage": "detect",
+   "defect": "own-work sentence (本文提出) not flagged as needing a source",
+   "sentence": "本文提出了一种新的训练方法"
+  },
+  {
+   "id": "I08",
+   "kind": "cites",
+   "defect": "after the agent accepts the suggestion, the sentence cites Deep learning",
+   "sentence": "深度学习通过多层",
+   "titles": [
+    "Deep learning"
+   ]
+  },
+  {
+   "id": "I09",
+   "kind": "cites",
+   "defect": "after the agent accepts the suggestion, the sentence cites Long Short-Term Memory",
+   "sentence": "长短期记忆网络",
+   "titles": [
+    "Long Short-Term Memory"
+   ]
+  },
+  {
+   "id": "I10",
+   "kind": "cites",
+   "defect": "after the agent accepts the suggestion, the sentence cites ImageNet classification",
+   "sentence": "ImageNet 图像分类",
+   "titles": [
+    "ImageNet classification"
+   ]
+  },
+  {
+   "id": "I11",
+   "kind": "cites",
+   "defect": "after the agent accepts the suggestion, the sentence cites AlphaFold",
+   "sentence": "AlphaFold",
+   "titles": [
+    "AlphaFold"
+   ]
+  },
+  {
+   "id": "I12",
+   "kind": "cites",
+   "defect": "after the agent accepts the suggestion, the sentence cites 卷积神经网络池化方法综述",
+   "sentence": "池化方法",
+   "titles": [
+    "卷积神经网络池化方法综述"
+   ]
+  },
+  {
+   "id": "I13",
+   "kind": "consistent",
+   "defect": "numbering / list consistent"
+  },
+  {
+   "id": "I14",
+   "kind": "list_count",
+   "defect": "exactly the 5 inserted works in the list",
+   "n": 5
+  },
+  {
+   "id": "I15",
+   "kind": "contract_filled",
+   "defect": "insertion_log etc. filled with content"
+  },
+  {
+   "id": "I16",
+   "kind": "review",
+   "defect": "quantum sentence still reported for the author",
+   "type": "claim_without_citation",
+   "text": "量子计算"
+  },
+  {
+   "id": "I17",
+   "kind": "status_is",
+   "stage": "detect",
+   "status": "partial",
+   "post_freeze": true,
+   "defect": "POST-FREEZE (seen in pass-1 brief): status was 'complete' although 6 claims had no citation"
+  }
+ ]
+}

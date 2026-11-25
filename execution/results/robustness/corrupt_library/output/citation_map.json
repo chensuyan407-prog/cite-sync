@@ -22,15 +22,25 @@
     "learning"
    ]
   },
+  "evidence": {},
+  "heuristic_verdict": "supported",
   "sentence_text": "深度学习通过多层表示学习显著提升了语音识别、视觉目标识别等任务的性能。",
-  "verdict": null,
+  "verdict": "supported",
+  "verdict_source": "heuristic",
   "verdict_note": null,
+  "match_basis": {
+   "L1-5": {
+    "heuristic": "supported",
+    "basis": "sentence shares title/abstract terms ['deep', 'learning'] (support 0.8)"
+   }
+  },
   "references": [
    {
     "record": "L1-5",
     "number": 1,
     "text": "LeCun 2015 Deep learning",
-    "doi": "10.1038/nature14539"
+    "doi": "10.1038/nature14539",
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -60,15 +70,25 @@
     "neural"
    ]
   },
+  "evidence": {},
+  "heuristic_verdict": "supported",
   "sentence_text": "卷积神经网络在 ImageNet 图像分类竞赛中取得突破，大幅降低了 top-5 错误率。",
-  "verdict": null,
+  "verdict": "supported",
+  "verdict_source": "heuristic",
   "verdict_note": null,
+  "match_basis": {
+   "M5": {
+    "heuristic": "supported",
+    "basis": "sentence shares title/abstract terms ['classification', 'convolutional', 'imagenet', 'networks', 'neural'] (support 0.833)"
+   }
+  },
   "references": [
    {
     "record": "M5",
     "number": 2,
     "text": "Krizhevsky 2017 ImageNet classification with deep convolutional neural netwo",
-    "doi": ""
+    "doi": "",
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -87,22 +107,34 @@
   ],
   "unresolved": [],
   "support": {
-   "L1-4": 0.19
+   "L1-4": 0.57
   },
   "matched_terms": {
    "L1-4": [
+    "deep",
+    "learning",
     "residual"
    ]
   },
+  "evidence": {},
+  "heuristic_verdict": "supported",
   "sentence_text": "随后，残差学习框架使得训练上百层的网络成为可能；同一团队又分析了恒等映射在残差单元中的作用。",
-  "verdict": null,
+  "verdict": "supported",
+  "verdict_source": "heuristic",
   "verdict_note": null,
+  "match_basis": {
+   "L1-4": {
+    "heuristic": "supported",
+    "basis": "sentence shares title/abstract terms ['deep', 'learning', 'residual'] (support 0.57)"
+   }
+  },
   "references": [
    {
     "record": "L1-4",
     "number": 3,
     "text": "He 2016 Deep Residual Learning for Image Recognition",
-    "doi": "10.1109/CVPR.2016.90"
+    "doi": "10.1109/CVPR.2016.90",
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -121,24 +153,35 @@
   ],
   "unresolved": [],
   "support": {
-   "M2": 0.57
+   "M2": 0.76
   },
   "matched_terms": {
    "M2": [
+    "deep",
     "identity",
     "mappings",
     "residual"
    ]
   },
+  "evidence": {},
+  "heuristic_verdict": "supported",
   "sentence_text": "随后，残差学习框架使得训练上百层的网络成为可能；同一团队又分析了恒等映射在残差单元中的作用。",
-  "verdict": null,
+  "verdict": "supported",
+  "verdict_source": "heuristic",
   "verdict_note": null,
+  "match_basis": {
+   "M2": {
+    "heuristic": "supported",
+    "basis": "sentence shares title/abstract terms ['deep', 'identity', 'mappings', 'residual'] (support 0.76)"
+   }
+  },
   "references": [
    {
     "record": "M2",
     "number": 4,
     "text": "He 2016 Identity mappings in deep residual networks",
-    "doi": ""
+    "doi": "",
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -161,15 +204,25 @@
   },
   "inserted": true,
   "edit_verdict": null,
+  "evidence": {},
+  "heuristic_verdict": "supported",
   "sentence_text": "长短期记忆网络通过门控机制缓解了循环网络的梯度消失问题。",
-  "verdict": null,
+  "verdict": "supported",
+  "verdict_source": "heuristic",
   "verdict_note": null,
+  "match_basis": {
+   "M4": {
+    "heuristic": "supported",
+    "basis": "sentence shares title/abstract terms [] (support 0.85)"
+   }
+  },
   "references": [
    {
     "record": "M4",
     "number": 5,
     "text": "Hochreiter 1997 Long short-term memory",
-    "doi": ""
+    "doi": "",
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -192,15 +245,25 @@
   },
   "inserted": true,
   "edit_verdict": null,
+  "evidence": {},
+  "heuristic_verdict": "supported",
   "sentence_text": "Transformer 完全基于注意力机制，在机器翻译任务上取得了当时最好的结果。",
-  "verdict": null,
+  "verdict": "supported",
+  "verdict_source": "heuristic",
   "verdict_note": null,
+  "match_basis": {
+   "L1-1": {
+    "heuristic": "supported",
+    "basis": "sentence shares title/abstract terms [] (support 0.9)"
+   }
+  },
   "references": [
    {
     "record": "L1-1",
     "number": 6,
     "text": "Vaswani 2017 Attention is all you need",
-    "doi": ""
+    "doi": "",
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -230,15 +293,25 @@
     "understanding"
    ]
   },
+  "evidence": {},
+  "heuristic_verdict": "supported",
   "sentence_text": "BERT 通过双向预训练显著提升了多项语言理解任务的表现。",
-  "verdict": null,
+  "verdict": "supported",
+  "verdict_source": "heuristic",
   "verdict_note": null,
+  "match_basis": {
+   "M9": {
+    "heuristic": "supported",
+    "basis": "sentence shares title/abstract terms ['bert', 'bidirectional', 'language', 'pre-training', 'understanding'] (support 0.75)"
+   }
+  },
   "references": [
    {
     "record": "M9",
     "number": 7,
     "text": "Devlin 2019 BERT: Pre-training of deep bidirectional transformers for la",
-    "doi": ""
+    "doi": "",
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -257,27 +330,38 @@
   ],
   "unresolved": [],
   "support": {
-   "M6": 0.72
+   "M6": 0.79
   },
   "matched_terms": {
    "M6": [
     "accelerating",
     "batch",
     "covariate",
+    "deep",
     "normalization",
     "shift",
     "training"
    ]
   },
+  "evidence": {},
+  "heuristic_verdict": "supported",
   "sentence_text": "批归一化通过减少内部协变量偏移加速了深层网络训练。",
-  "verdict": null,
+  "verdict": "supported",
+  "verdict_source": "heuristic",
   "verdict_note": null,
+  "match_basis": {
+   "M6": {
+    "heuristic": "supported",
+    "basis": "sentence shares title/abstract terms ['accelerating', 'batch', 'covariate', 'deep', 'normalization', 'shift'] (support 0.79)"
+   }
+  },
   "references": [
    {
     "record": "M6",
     "number": 8,
     "text": "Ioffe 2015 Batch normalization: Accelerating deep network training by r",
-    "doi": ""
+    "doi": "",
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -305,15 +389,25 @@
     "stochastic"
    ]
   },
+  "evidence": {},
+  "heuristic_verdict": "supported",
   "sentence_text": "Adam 优化器被广泛用于训练上述模型。",
-  "verdict": null,
+  "verdict": "supported",
+  "verdict_source": "heuristic",
   "verdict_note": null,
+  "match_basis": {
+   "M10": {
+    "heuristic": "supported",
+    "basis": "sentence shares title/abstract terms ['adam', 'optimization', 'stochastic'] (support 0.675)"
+   }
+  },
   "references": [
    {
     "record": "M10",
     "number": 9,
     "text": "Kingma 2014 Adam: A method for stochastic optimization",
-    "doi": ""
+    "doi": "",
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -344,15 +438,25 @@
     "网络"
    ]
   },
+  "evidence": {},
+  "heuristic_verdict": "supported",
   "sentence_text": "池化层在卷积神经网络中承担特征降维的作用。",
-  "verdict": null,
+  "verdict": "supported",
+  "verdict_source": "heuristic",
   "verdict_note": null,
+  "match_basis": {
+   "M12": {
+    "heuristic": "supported",
+    "basis": "sentence shares title/abstract terms ['卷积', '池化', '神经', '积神', '经网', '网络'] (support 0.682)"
+   }
+  },
   "references": [
    {
     "record": "M12",
     "number": 10,
     "text": "袁铭阳 2020 卷积神经网络池化方法综述",
-    "doi": ""
+    "doi": "",
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -378,15 +482,25 @@
     "residual"
    ]
   },
+  "evidence": {},
+  "heuristic_verdict": "partial",
   "sentence_text": "![图1 残差单元结构示意（引自文献）](fig1.png)",
-  "verdict": null,
+  "verdict": "partial",
+  "verdict_source": "heuristic",
   "verdict_note": null,
+  "match_basis": {
+   "L1-4": {
+    "heuristic": "partial",
+    "basis": "weak overlap (metadata 0.19)"
+   }
+  },
   "references": [
    {
     "record": "L1-4",
     "number": 3,
     "text": "He 2016 Deep Residual Learning for Image Recognition",
-    "doi": "10.1109/CVPR.2016.90"
+    "doi": "10.1109/CVPR.2016.90",
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -415,15 +529,25 @@
     "structure"
    ]
   },
+  "evidence": {},
+  "heuristic_verdict": "supported",
   "sentence_text": "AlphaFold 能够以接近实验精度预测蛋白质三维结构。",
-  "verdict": null,
+  "verdict": "supported",
+  "verdict_source": "heuristic",
   "verdict_note": null,
+  "match_basis": {
+   "L2-2": {
+    "heuristic": "supported",
+    "basis": "sentence shares title/abstract terms ['accurate', 'alphafold', 'protein', 'structure'] (support 0.667)"
+   }
+  },
   "references": [
    {
     "record": "L2-2",
     "number": 11,
     "text": "Jumper 2021 Highly accurate protein structure prediction with AlphaFold",
-    "doi": "10.1038/s41586-021-03819-2"
+    "doi": "10.1038/s41586-021-03819-2",
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -451,15 +575,25 @@
     "scaling"
    ]
   },
+  "evidence": {},
+  "heuristic_verdict": "supported",
   "sentence_text": "另有研究报道残差注意力网络在多个尺度上存在普适的缩放规律。",
-  "verdict": null,
+  "verdict": "supported",
+  "verdict_source": "heuristic",
   "verdict_note": null,
+  "match_basis": {
+   "M14": {
+    "heuristic": "supported",
+    "basis": "sentence shares title/abstract terms ['attention', 'residual', 'scaling'] (support 0.57)"
+   }
+  },
   "references": [
    {
     "record": "M14",
     "number": 12,
     "text": "Smith 2019 Universal scaling of residual attention networks",
-    "doi": "10.1038/s41586-019-9999-9"
+    "doi": "10.1038/s41586-019-9999-9",
+    "verification": "unverified_offline"
    }
   ]
  }

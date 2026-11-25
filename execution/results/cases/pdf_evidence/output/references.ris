@@ -1,0 +1,43 @@
+TY  - CPAPER
+AU  - He, Kaiming
+AU  - Zhang, Xiangyu
+AU  - Ren, Shaoqing
+AU  - Sun, Jian
+TI  - Deep residual learning for image recognition
+T2  - Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition
+PY  - 2016
+DO  - 10.1109/cvpr.2016.90
+SP  - 770
+EP  - 778
+ER  - 
+
+TY  - CPAPER
+AU  - Ioffe, S
+AU  - Szegedy, C
+TI  - Batch normalization: Accelerating deep network training by reducing internal covariate shift
+T2  - International Conference on Machine Learning
+PY  - 2015
+SP  - 448
+EP  - 456
+ER  - 
+
+TY  - CPAPER
+AU  - Vaswani, A
+AU  - Shazeer, N
+AU  - Parmar, N
+TI  - Attention is all you need
+T2  - Advances in Neural Information Processing Systems
+PY  - 2017
+SP  - 5998
+EP  - 6008
+ER  - 
+
+TY  - UNPB
+AU  - Kaplan, J
+AU  - McCandlish, S
+AU  - Henighan, T
+TI  - Scaling laws for neural language models
+T2  - arXiv preprint arXiv:2001.08361
+PY  - 2020
+N1  - arXiv:2001.08361
+ER  - 

@@ -3,7 +3,7 @@
 Columns: occurrence | sentence (markers removed) | cited record (title / venue / year) | lexical support hint
 
 ## c2_0  (u2s0, body)  `\cite{vaswani2017attention,vaswani2017arxiv}` -> `\cite{vaswani2017attention}`
-> Attention-only models were introduced in .
+> Attention-only models were introduced in.
 - L1-1 [] Attention is all you need |  | Advances in Neural Information Processing Systems 2017 | support=0.0 terms=[]
 
 ## c3_0  (u3s0, body)  `\citep{he2016deep}` -> `\citep{he2016deep}`
