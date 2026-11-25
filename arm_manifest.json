@@ -18,8 +18,8 @@
  "execution": {
   "log_path": "execution/run.log",
   "exit_code": 0,
-  "ran_at": "2026-11-25T05:21:51.712008Z",
-  "wall_time_s": 10.91,
+  "ran_at": "2026-11-25T10:39:30.284742Z",
+  "wall_time_s": 9.93,
   "ran_by": "agent",
   "artifacts": [
    {
@@ -27,70 +27,70 @@
     "path": "execution/results/metrics.json",
     "type": "metric",
     "format": "json",
-    "checksum_sha256": "deb3d1fabdc0b854840f30c964713222191d93ad53bff6a4d7bf9401d7dba3a5"
+    "checksum_sha256": "4844d29379eadf8678d166f19b907ef26e277ed3a01ea74a978551e36adc5d41"
    },
    {
     "id": "eval_rows",
     "path": "execution/results/eval_rows.json",
     "type": "data",
     "format": "json",
-    "checksum_sha256": "9688234003f6817384eba7312d1a55119b779f404fe0a7a87ca70873c976ef97"
+    "checksum_sha256": "4632bd25c344170fb62053376a0c3adffc6a3f139ed3df16e3b576374c3b0929"
    },
    {
     "id": "en_apa_citation_map",
     "path": "execution/results/cases/en_apa/output/citation_map.json",
     "type": "data",
     "format": "json",
-    "checksum_sha256": "935df5806e4126252ece2bb2844511bfd448d555fca9d2bc498407f47a853e6a"
+    "checksum_sha256": "21b59c24a3e2ef1f4127efbf94b73b8af6f0f8f0e14a36995d375f4e2b2fd7a6"
    },
    {
     "id": "en_apa_manuscript",
     "path": "execution/results/cases/en_apa/output/manuscript.diff",
     "type": "data",
     "format": "other",
-    "checksum_sha256": "5af578a77b80fbae379b8083a61336f11e979eec90c64709c567fbb22a1b98fb"
+    "checksum_sha256": "fd4b2f1a5d81d871916f5c74690c8a409cd6ff799eaa8ced595b03d1f4d3ece1"
    },
    {
     "id": "en_apa_manuscript_revised",
     "path": "execution/results/cases/en_apa/output/manuscript_revised.md",
     "type": "data",
     "format": "other",
-    "checksum_sha256": "4d21ffbec5795c6be58f2a9e7cf4b6881e35c993a3a688974a4ac3108b07f310"
+    "checksum_sha256": "095138451a90ccd493c3347eef3fa7188c9c936569ca60ab283e326ff7096080"
    },
    {
     "id": "en_apa_merge_log",
     "path": "execution/results/cases/en_apa/output/merge_log.json",
     "type": "data",
     "format": "json",
-    "checksum_sha256": "ce589ff5d2d7f28e300b0017a0a80cbf1e411ddb7a27110ab60057317a70d989"
+    "checksum_sha256": "f7d3622571a5b78aa6e0d7edddbe46bdf89fff060951f2d308345125b0feae6f"
    },
    {
     "id": "en_apa_references_apa7",
     "path": "execution/results/cases/en_apa/output/references_apa7.txt",
     "type": "data",
     "format": "txt",
-    "checksum_sha256": "36971c5a1780ff81dd606c29c6d5f0978932546faa14291eb43b2aff548c4936"
+    "checksum_sha256": "64b8c2ae8ae96e15fa1686c116af93406cfd7d13214f7cad78af0fb1ff63cb0d"
    },
    {
     "id": "en_apa_result",
     "path": "execution/results/cases/en_apa/output/result.json",
     "type": "data",
     "format": "json",
-    "checksum_sha256": "24c3f193940b26713cdbfe05b4d8064687359eee449cac9dca2b404ef4306252"
+    "checksum_sha256": "feb857cb68199b35511904d02a72b3de8d424d515c1d2a3ec35f6f49f8333750"
    },
    {
     "id": "en_apa_review",
     "path": "execution/results/cases/en_apa/output/review.md",
     "type": "data",
     "format": "other",
-    "checksum_sha256": "fead31d9c4a760dfb5c7cdc4d498e0fa2d2ec80adce3666b3236bd805ff4d00b"
+    "checksum_sha256": "2f6e483d33228cde069e98e3e4285992bb46880c44992b24912bfa693b0ef494"
    },
    {
     "id": "holdout_gnn_citation_map",
     "path": "execution/results/cases/holdout_gnn/output/citation_map.json",
     "type": "data",
     "format": "json",
-    "checksum_sha256": "b0c0f5e96dd76ca4001f33a29d645dd9857525fde95e6461dccee65f1e0b0ef0"
+    "checksum_sha256": "31c4f229dd8ead9997a93328ce294f51d51f7a74b341b4376c704770b036a673"
    },
    {
     "id": "holdout_gnn_manuscript",
@@ -125,252 +125,252 @@
     "path": "execution/results/cases/holdout_gnn/output/result.json",
     "type": "data",
     "format": "json",
-    "checksum_sha256": "df6ca3b2b1c16ef4e23b8c51852f96f55e9045cbf663a08f453f6d403615d589"
+    "checksum_sha256": "1a34206dd0b064b2e8585cd5a1e27e609cc574cde809f5c6e0b727670672fafc"
    },
    {
     "id": "holdout_gnn_review",
     "path": "execution/results/cases/holdout_gnn/output/review.md",
     "type": "data",
     "format": "other",
-    "checksum_sha256": "754ddf82c759db1e7bdbd19806306b11bcd087f5a5eccfc96f168da09f69fa4b"
+    "checksum_sha256": "a1d6dd8b82c65b370e79d031b3c72480a9251a6159b6762830feac4ea7cddcc2"
    },
    {
     "id": "holdout_insert_citation_map",
     "path": "execution/results/cases/holdout_insert/output/citation_map.json",
     "type": "data",
     "format": "json",
-    "checksum_sha256": "f0dd5c368a740f9404f81e276df8db2ac8f9d623f5fa81a15dd563902cc9a358"
+    "checksum_sha256": "fb6593b2826a47d378d0b16bfc27d3bd62fe91400b340e6f2ff4b9f17102b75d"
    },
    {
     "id": "holdout_insert_draft_revised",
     "path": "execution/results/cases/holdout_insert/output/draft_revised.md",
     "type": "data",
     "format": "other",
-    "checksum_sha256": "2ea4dbcc3f6334a4e0d355a69ea55c274e80688a845727f5526e2895ac122ff7"
+    "checksum_sha256": "0f996214b56573984ac5240c5e70c1577403666149b8e17401b184eaec0a0497"
    },
    {
     "id": "holdout_insert_manuscript",
     "path": "execution/results/cases/holdout_insert/output/manuscript.diff",
     "type": "data",
     "format": "other",
-    "checksum_sha256": "9fba02c68523c9e0270c27fe4e935c0559ce61e766d03a08878c06c2ffd57dc3"
+    "checksum_sha256": "05b5b236701cfde5ed180da0ba4cd97a00f04bc01a27282035b92564f281a120"
    },
    {
     "id": "holdout_insert_merge_log",
     "path": "execution/results/cases/holdout_insert/output/merge_log.json",
     "type": "data",
     "format": "json",
-    "checksum_sha256": "dd8f0c6706e63875637b55a132b2ffa9d67920c3dcd0442193aba44e22c798f9"
+    "checksum_sha256": "f2cd39053f68aa58e9fe999edc6bb5b3e38d0ba81aed917f3b12e8a15ee31d50"
    },
    {
     "id": "holdout_insert_references_gbt7714",
     "path": "execution/results/cases/holdout_insert/output/references_gbt7714.txt",
     "type": "data",
     "format": "txt",
-    "checksum_sha256": "a33bbeda92a58e8453946b257f75273f0d8ebf5435b53e84eea4a1d5570b1965"
+    "checksum_sha256": "b3b5efa4aee53a8deed4516afd5beaedc847146fcf173421d78cadce6d47a945"
    },
    {
     "id": "holdout_insert_result",
     "path": "execution/results/cases/holdout_insert/output/result.json",
     "type": "data",
     "format": "json",
-    "checksum_sha256": "06707bdc6fc8abcee636c6affd6784c5d742bdfb20c08646c14390113e08d523"
+    "checksum_sha256": "41e2d850c342af5f51041f18d84b89bf0754c354bd898dce4ac7d8ce95eef8df"
    },
    {
     "id": "holdout_insert_review",
     "path": "execution/results/cases/holdout_insert/output/review.md",
     "type": "data",
     "format": "other",
-    "checksum_sha256": "41bab4c713ac305920748aec5c6b480814987341f86c7b225e50e80faf25fb7a"
+    "checksum_sha256": "e9e7189bb0a74150da101fc6bdfe95aa3c9842d6577f99afea24b39ba6ebe6f4"
    },
    {
     "id": "pdf_evidence_citation_map",
     "path": "execution/results/cases/pdf_evidence/output/citation_map.json",
     "type": "data",
     "format": "json",
-    "checksum_sha256": "085ddd696c0ec761e0274e06d8a340b8f09bd61ce142225202acbd84f2232090"
+    "checksum_sha256": "e0b6f5752f2f010e2d4e7fee813d9f1dad0c6acbeeb64c3c16a5cb1ca43f094e"
    },
    {
     "id": "pdf_evidence_manuscript",
     "path": "execution/results/cases/pdf_evidence/output/manuscript.diff",
     "type": "data",
     "format": "other",
-    "checksum_sha256": "fc720b0dc71ab876f1611af3c041922a7a91abd27066562c7d2270ae6abf656c"
+    "checksum_sha256": "de95aed2d0b86e6da56f38ab0b9ed4ef6e18c6b42267e500392f299c2b5dfb1e"
    },
    {
     "id": "pdf_evidence_manuscript_revised",
     "path": "execution/results/cases/pdf_evidence/output/manuscript_revised.md",
     "type": "data",
     "format": "other",
-    "checksum_sha256": "61d5b563a8af86a4108e7453c78d9527cee7a123ebe51256dbc76f5a613a7693"
+    "checksum_sha256": "626849d50906511382a74c05250a430823677993a8b24333e01ff8933a9d6d8a"
    },
    {
     "id": "pdf_evidence_merge_log",
     "path": "execution/results/cases/pdf_evidence/output/merge_log.json",
     "type": "data",
     "format": "json",
-    "checksum_sha256": "70f99573f611eb9770ebf0a56c9fe1d1be31f2a1ccf9d6f6531bee3816a7ea76"
+    "checksum_sha256": "b734b46bca9cb90e02368b1b2b52fc3199b2a3d34603fd1f863d70ad64a3126b"
    },
    {
     "id": "pdf_evidence_references_gbt7714",
     "path": "execution/results/cases/pdf_evidence/output/references_gbt7714.txt",
     "type": "data",
     "format": "txt",
-    "checksum_sha256": "7da274896721b03464a871afa726ddb478af6b1de337c92659ba0919a4b8ba9d"
+    "checksum_sha256": "68c331a7a4aac8551e0bed16b23dbbb1117e8ff45f9c9dd0edb245b52c70d5ba"
    },
    {
     "id": "pdf_evidence_result",
     "path": "execution/results/cases/pdf_evidence/output/result.json",
     "type": "data",
     "format": "json",
-    "checksum_sha256": "a2105c1c14d07f159e347740d26296378388874083294c25e03cef83f58a6e82"
+    "checksum_sha256": "dbb7b7020758588f746a41ed79531ec6141573b7ee550b6ab746d31fc9d3c721"
    },
    {
     "id": "pdf_evidence_review",
     "path": "execution/results/cases/pdf_evidence/output/review.md",
     "type": "data",
     "format": "other",
-    "checksum_sha256": "e9319d7561d7c470c1816b2ba22300cf2c19ffb4df951d60d8f60dc9c5d425c4"
+    "checksum_sha256": "e43ff4afd5a4874d6e4f7d31183b006b4260f924a3ce01016fd09452225657fc"
    },
    {
     "id": "pdf_manuscript_citation_map",
     "path": "execution/results/cases/pdf_manuscript/output/citation_map.json",
     "type": "data",
     "format": "json",
-    "checksum_sha256": "c6cc6258bf468d5b47380ec3a894e553fdc7447055c2721e3b754fd9c3f91c87"
+    "checksum_sha256": "53c18ffc1199eb496eb66af5314f05b82720655185bbb78a253a649285efe738"
    },
    {
     "id": "pdf_manuscript_manuscript",
     "path": "execution/results/cases/pdf_manuscript/output/manuscript.diff",
     "type": "data",
     "format": "other",
-    "checksum_sha256": "0c1c21755a3020a77ec2a5cca3f976a1e74bb110e4ad9a47d6b01745d8b4dbc4"
+    "checksum_sha256": "92cf882b7a35dd9f5e4aedbb96bf47d04672f46428df1933b77d36b10c8405a5"
    },
    {
     "id": "pdf_manuscript_manuscript_draft_revised",
     "path": "execution/results/cases/pdf_manuscript/output/manuscript_draft_revised.md",
     "type": "data",
     "format": "other",
-    "checksum_sha256": "a84781f2d9da7e224ef7808b9b0a73db4477185913efe4070f6bc6ee7a0e7c01"
+    "checksum_sha256": "75f2b4102454f062cbd1c0832c5f3ac8b8d19822332aaecb2c91c8567f7b7d3d"
    },
    {
     "id": "pdf_manuscript_merge_log",
     "path": "execution/results/cases/pdf_manuscript/output/merge_log.json",
     "type": "data",
     "format": "json",
-    "checksum_sha256": "70f99573f611eb9770ebf0a56c9fe1d1be31f2a1ccf9d6f6531bee3816a7ea76"
+    "checksum_sha256": "b734b46bca9cb90e02368b1b2b52fc3199b2a3d34603fd1f863d70ad64a3126b"
    },
    {
     "id": "pdf_manuscript_references_gbt7714",
     "path": "execution/results/cases/pdf_manuscript/output/references_gbt7714.txt",
     "type": "data",
     "format": "txt",
-    "checksum_sha256": "7da274896721b03464a871afa726ddb478af6b1de337c92659ba0919a4b8ba9d"
+    "checksum_sha256": "68c331a7a4aac8551e0bed16b23dbbb1117e8ff45f9c9dd0edb245b52c70d5ba"
    },
    {
     "id": "pdf_manuscript_result",
     "path": "execution/results/cases/pdf_manuscript/output/result.json",
     "type": "data",
     "format": "json",
-    "checksum_sha256": "bb6e8348a5725ac3c12490d9aa686dae2b0ec7e146a70d507acf1f617625e4c2"
+    "checksum_sha256": "6c14720f4926cc09cf7ff0a885d38caf104d3ff820005f5e89108f1d1c20546b"
    },
    {
     "id": "pdf_manuscript_review",
     "path": "execution/results/cases/pdf_manuscript/output/review.md",
     "type": "data",
     "format": "other",
-    "checksum_sha256": "db5ecdaf75d6c22e4afacddbaf8aa0661f10b8888fc78bbc3348c2ab04ef2f3a"
+    "checksum_sha256": "bf35dd5507a65b677feec9ac7efabec60c59457fa8cb35353c1c43948e125337"
    },
    {
     "id": "zh_docx_citation_map",
     "path": "execution/results/cases/zh_docx/output/citation_map.json",
     "type": "data",
     "format": "json",
-    "checksum_sha256": "7c2b4d173e4b9aec069e20711c6f2581ee255476bf546548918ce96abb802a46"
+    "checksum_sha256": "301155885620d9151e7e615ad3d492bdfaa00a7245f605a9b6335a742669e404"
    },
    {
     "id": "zh_docx_manuscript_revised",
     "path": "execution/results/cases/zh_docx/output/manuscript_revised.docx",
     "type": "data",
     "format": "other",
-    "checksum_sha256": "6eb9a889a251d71def0ac1e1052b88e8048d6fc2bf0630b9e536c5c0bb413cec"
+    "checksum_sha256": "a62991ebd073eed385938b3e5494254df03c5b2c66e7056ed3c7adcfedb0986c"
    },
    {
     "id": "zh_docx_merge_log",
     "path": "execution/results/cases/zh_docx/output/merge_log.json",
     "type": "data",
     "format": "json",
-    "checksum_sha256": "7032f2f1137a406f2e1b17afb74c44d00e1c00f676880a00cedc9a0be333d689"
+    "checksum_sha256": "c25afc1133bf20ef024224b9e72d6a6bf53cd71a0f4110dd188b3d8e2ba4cae8"
    },
    {
     "id": "zh_docx_references_gbt7714",
     "path": "execution/results/cases/zh_docx/output/references_gbt7714.txt",
     "type": "data",
     "format": "txt",
-    "checksum_sha256": "44be9b4314905100d83ddfe5d370486b9f256e5d418824ebc1e54bba0befc862"
+    "checksum_sha256": "076837e8c5894ef4308638a88a23552a42c4b231afae667d21f2b882b98258b4"
    },
    {
     "id": "zh_docx_result",
     "path": "execution/results/cases/zh_docx/output/result.json",
     "type": "data",
     "format": "json",
-    "checksum_sha256": "4c1aafa5c5a3617044ab3be8751cca41afa8ae531593f221a16d04ecd7f99bff"
+    "checksum_sha256": "d5f4a902175a5944c94654e4878f02ccc48fe63718bac6ac782b66414cc631ba"
    },
    {
     "id": "zh_docx_review",
     "path": "execution/results/cases/zh_docx/output/review.md",
     "type": "data",
     "format": "other",
-    "checksum_sha256": "aa2efff6dde1fcbdc41ed52e227ad6c9079f6f09e33d991b1e01636df3327ccc"
+    "checksum_sha256": "433c764d19d956eeafcc4c51e9e17e11007242469819e5ef39c4bed274142b23"
    },
    {
     "id": "zh_review_citation_map",
     "path": "execution/results/cases/zh_review/output/citation_map.json",
     "type": "data",
     "format": "json",
-    "checksum_sha256": "6690b1c57c7515d28e28e6a5572c50a7bdbbf98cb442848c71d6b9ff2662b6e5"
+    "checksum_sha256": "09ad7ef8fab47413ed28dd73977d21379701a57b45601f9c5b54d30e2943fca0"
    },
    {
     "id": "zh_review_manuscript",
     "path": "execution/results/cases/zh_review/output/manuscript.diff",
     "type": "data",
     "format": "other",
-    "checksum_sha256": "f72429b256885a7bacfd800135f5e695a51ee4d73e0993797cbd9ba4cbb7ffd2"
+    "checksum_sha256": "272a310573c9e4859af380ffd339b53a2f6be8c963b7aaf4a620c2b20fa9ed32"
    },
    {
     "id": "zh_review_manuscript_revised",
     "path": "execution/results/cases/zh_review/output/manuscript_revised.md",
     "type": "data",
     "format": "other",
-    "checksum_sha256": "0399aacdce748e7ba0e3efd5a39d9e2a59c7be6e6198e3522b91ee37ddcdc61c"
+    "checksum_sha256": "a817dbb1e423e70501d148b71578cc58d31cd11306b064ba8ca176abdce42292"
    },
    {
     "id": "zh_review_merge_log",
     "path": "execution/results/cases/zh_review/output/merge_log.json",
     "type": "data",
     "format": "json",
-    "checksum_sha256": "7032f2f1137a406f2e1b17afb74c44d00e1c00f676880a00cedc9a0be333d689"
+    "checksum_sha256": "c25afc1133bf20ef024224b9e72d6a6bf53cd71a0f4110dd188b3d8e2ba4cae8"
    },
    {
     "id": "zh_review_references_gbt7714",
     "path": "execution/results/cases/zh_review/output/references_gbt7714.txt",
     "type": "data",
     "format": "txt",
-    "checksum_sha256": "44be9b4314905100d83ddfe5d370486b9f256e5d418824ebc1e54bba0befc862"
+    "checksum_sha256": "076837e8c5894ef4308638a88a23552a42c4b231afae667d21f2b882b98258b4"
    },
    {
     "id": "zh_review_result",
     "path": "execution/results/cases/zh_review/output/result.json",
     "type": "data",
     "format": "json",
-    "checksum_sha256": "0f3953585b39a8cf8186cba4ff2b5e5076defdaf3b489af1042e022618fcf7e9"
+    "checksum_sha256": "ec3c4366690096b23d8ea4eb1ab5ad4ee46dafd2c6117a299a1b4a60372bf34b"
    },
    {
     "id": "zh_review_review",
     "path": "execution/results/cases/zh_review/output/review.md",
     "type": "data",
     "format": "other",
-    "checksum_sha256": "71f2669cfefd452cad3bcd34bc33e2571c06b42c491aea99c01eba2ccd63b3e9"
+    "checksum_sha256": "f7447f692e30960b0448f2b8321026831859296b1b3e37ed3e823a0a66bcd54f"
    }
   ]
  },

@@ -36,7 +36,7 @@
     "number": 1,
     "text": "LeCun 2015 Deep learning",
     "doi": "10.1038/nature14539",
-    "verification": "verified"
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -77,7 +77,7 @@
     "number": 2,
     "text": "Hochreiter 1997 Long Short-Term Memory",
     "doi": "10.1162/neco.1997.9.8.1735",
-    "verification": "verified"
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -118,7 +118,7 @@
     "number": 3,
     "text": "Krizhevsky 2012 ImageNet classification with deep convolutional neural netwo",
     "doi": "",
-    "verification": "unverified_no_registry_match"
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -159,7 +159,7 @@
     "number": 4,
     "text": "Jumper 2021 Highly accurate protein structure prediction with AlphaFold",
     "doi": "10.1038/s41586-021-03819-2",
-    "verification": "verified_with_corrections"
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -183,15 +183,15 @@
   "inserted": true,
   "edit_verdict": "supported",
   "evidence": {},
-  "heuristic_verdict": "unverifiable",
+  "heuristic_verdict": "supported",
   "sentence_text": "已有研究对卷积神经网络中的池化方法进行了系统综述。",
   "verdict": "supported",
   "verdict_source": "agent",
   "verdict_note": null,
   "match_basis": {
    "L1-1": {
-    "heuristic": "unverifiable",
-    "basis": "source check: mismatch"
+    "heuristic": "supported",
+    "basis": "sentence shares title/abstract terms [] (support 0.873)"
    }
   },
   "references": [
@@ -200,7 +200,7 @@
     "number": 5,
     "text": "袁铭阳 2020 卷积神经网络池化方法综述",
     "doi": "10.12677/SEA.2020.95041",
-    "verification": "mismatch"
+    "verification": "unverified_offline"
    }
   ]
  }

@@ -12,7 +12,11 @@ description: 参考文献与引用管理 / citation & reference-list management.
 
 1. **一条命令跑完全部**（约 5–60 s；在线核验有 120 s 上限，无网络会自动转离线）：
    ```bash
-   python $SKILL_DIR/scripts/cite.py auto --case /input/case.json --out /app/output --work /app/work
+   PY=$(command -v python3 || command -v python)
+   for d in "${SKILL_DIR:-}" /skills/weekly-skill /app/submission /app/skills "$(pwd)"; do
+     [ -f "$d/scripts/cite.py" ] && SKILL_DIR="$d" && break
+   done
+   "$PY" "$SKILL_DIR/scripts/cite.py" auto --case /input/case.json --out /app/output --work /app/work
    ```
    它会：找出稿件 / 文献库 / PDF / task.md → 去重 → 核验 → 重排编号、同步文献表 → 写出可编辑稿件和
    `/app/output/result.json`（含全部 output_contract 字段与 case_id）→ 写 `/app/work/brief.md`。

@@ -27,7 +27,7 @@ reasons: 1 claim sentence(s) without a citation (1 with a suggested library reco
   "caption_citation": 1
  },
  "parse_problems": 2,
- "seconds": 0.05
+ "seconds": 0.04
 }
 ```
 

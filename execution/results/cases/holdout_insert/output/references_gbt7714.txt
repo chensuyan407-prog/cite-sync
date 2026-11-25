@@ -1,5 +1,5 @@
 [1] LeCun Y, Bengio Y, Hinton G. Deep learning[J]. Nature, 2015, 521(7553): 436-444. DOI:10.1038/nature14539.
 [2] Hochreiter S, Schmidhuber J. Long Short-Term Memory[J]. Neural Computation, 1997, 9(8): 1735-1780. DOI:10.1162/neco.1997.9.8.1735.
 [3] Krizhevsky A, Sutskever I, Hinton G E. ImageNet classification with deep convolutional neural networks[C]//Advances in Neural Information Processing Systems, 2012: 1097-1105.
-[4] Jumper J, Evans R, Pritzel A, et al. Highly accurate protein structure prediction with AlphaFold[J]. Nature, 2021, 596(7873): 583-589. DOI:10.1038/s41586-021-03819-2.
+[4] Jumper J, Evans R, Pritzel A. Highly accurate protein structure prediction with AlphaFold[J]. Nature, 2021, 596(7873): 583-589. DOI:10.1038/s41586-021-03819-2.
 [5] 袁铭阳, 周长胜, 黄宏博, 等. 卷积神经网络池化方法综述[J]. 软件工程与应用, 2020, 9(5): 360-372. DOI:10.12677/SEA.2020.95041.

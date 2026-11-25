@@ -56,21 +56,18 @@
   "authors": [
    {
     "family": "He",
-    "given": "Kaiming"
+    "given": "K"
    },
    {
     "family": "Zhang",
-    "given": "Xiangyu"
+    "given": "X"
    },
    {
     "family": "Ren",
-    "given": "Shaoqing"
-   },
-   {
-    "family": "Sun",
-    "given": "Jian"
+    "given": "S"
    }
   ],
+  "authors_truncated": true,
   "year": "2016",
   "container": "European Conference on Computer Vision. Springer",
   "pages": "630-645",
@@ -78,16 +75,12 @@
   "label": 2,
   "id": "M2",
   "origin": "manuscript_list",
-  "doi": "10.1007/978-3-319-46493-0_38",
+  "doi": "",
   "merged_from": [
    "M2"
   ],
   "merge_needs_review": false,
   "cid": "M2",
-  "field_provenance": {
-   "doi": "crossref title search",
-   "authors": "crossref (registry lists 4 authors; record had 3)"
-  },
   "number": 4,
   "sources": [
    {
@@ -165,21 +158,17 @@
   "container": "Neural Computation",
   "volume": "9",
   "issue": "8",
-  "pages": "1735-1780",
+  "pages": "1735-1785",
   "lang": "en",
   "label": 4,
   "id": "M4",
   "origin": "manuscript_list",
-  "doi": "10.1162/neco.1997.9.8.1735",
+  "doi": "",
   "merged_from": [
    "M4"
   ],
   "merge_needs_review": false,
   "cid": "M4",
-  "field_provenance": {
-   "doi": "crossref title search",
-   "pages": "crossref"
-  },
   "number": 5,
   "sources": [
    {
@@ -216,15 +205,12 @@
   "label": 5,
   "id": "M5",
   "origin": "manuscript_list",
-  "doi": "10.1145/3065386",
+  "doi": "",
   "merged_from": [
    "M5"
   ],
   "merge_needs_review": false,
   "cid": "M5",
-  "field_provenance": {
-   "doi": "crossref title search"
-  },
   "number": 2,
   "sources": [
    {
@@ -384,7 +370,7 @@
   "label": 9,
   "id": "M9",
   "origin": "manuscript_list",
-  "doi": "10.18653/v1/n19-1423",
+  "doi": "",
   "merged_from": [
    "M9",
    "L2-1"
@@ -395,8 +381,7 @@
   "field_provenance": {
    "arxiv": "L2-1",
    "url": "L2-1",
-   "authors": "L2-1",
-   "doi": "crossref title search"
+   "authors": "L2-1"
   },
   "merge_needs_review": false,
   "cid": "M9",
@@ -467,130 +452,6 @@
    {
     "family": "Pritzel",
     "given": "Alexander"
-   },
-   {
-    "family": "Green",
-    "given": "Tim"
-   },
-   {
-    "family": "Figurnov",
-    "given": "Michael"
-   },
-   {
-    "family": "Ronneberger",
-    "given": "Olaf"
-   },
-   {
-    "family": "Tunyasuvunakool",
-    "given": "Kathryn"
-   },
-   {
-    "family": "Bates",
-    "given": "Russ"
-   },
-   {
-    "family": "Žídek",
-    "given": "Augustin"
-   },
-   {
-    "family": "Potapenko",
-    "given": "Anna"
-   },
-   {
-    "family": "Bridgland",
-    "given": "Alex"
-   },
-   {
-    "family": "Meyer",
-    "given": "Clemens"
-   },
-   {
-    "family": "Kohl",
-    "given": "Simon A. A."
-   },
-   {
-    "family": "Ballard",
-    "given": "Andrew J."
-   },
-   {
-    "family": "Cowie",
-    "given": "Andrew"
-   },
-   {
-    "family": "Romera-Paredes",
-    "given": "Bernardino"
-   },
-   {
-    "family": "Nikolov",
-    "given": "Stanislav"
-   },
-   {
-    "family": "Jain",
-    "given": "Rishub"
-   },
-   {
-    "family": "Adler",
-    "given": "Jonas"
-   },
-   {
-    "family": "Back",
-    "given": "Trevor"
-   },
-   {
-    "family": "Petersen",
-    "given": "Stig"
-   },
-   {
-    "family": "Reiman",
-    "given": "David"
-   },
-   {
-    "family": "Clancy",
-    "given": "Ellen"
-   },
-   {
-    "family": "Zielinski",
-    "given": "Michal"
-   },
-   {
-    "family": "Steinegger",
-    "given": "Martin"
-   },
-   {
-    "family": "Pacholska",
-    "given": "Michalina"
-   },
-   {
-    "family": "Berghammer",
-    "given": "Tamas"
-   },
-   {
-    "family": "Bodenstein",
-    "given": "Sebastian"
-   },
-   {
-    "family": "Silver",
-    "given": "David"
-   },
-   {
-    "family": "Vinyals",
-    "given": "Oriol"
-   },
-   {
-    "family": "Senior",
-    "given": "Andrew W."
-   },
-   {
-    "family": "Kavukcuoglu",
-    "given": "Koray"
-   },
-   {
-    "family": "Kohli",
-    "given": "Pushmeet"
-   },
-   {
-    "family": "Hassabis",
-    "given": "Demis"
    }
   ],
   "year": "2021",
@@ -606,11 +467,9 @@
    "M11",
    "L2-2"
   ],
+  "authors_truncated": true,
   "merge_needs_review": false,
   "cid": "L2-2",
-  "field_provenance": {
-   "authors": "crossref (registry lists 34 authors; record had 3)"
-  },
   "number": 12,
   "sources": [
    {

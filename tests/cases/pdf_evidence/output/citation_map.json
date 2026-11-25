@@ -55,8 +55,8 @@
     "record": "M2",
     "number": 1,
     "text": "He 2016 Deep residual learning for image recognition",
-    "doi": "10.1109/cvpr.2016.90",
-    "verification": "verified_with_corrections"
+    "doi": "",
+    "verification": "verified_by_pdf"
    }
   ]
  },
@@ -239,8 +239,8 @@
     "record": "M2",
     "number": 1,
     "text": "He 2016 Deep residual learning for image recognition",
-    "doi": "10.1109/cvpr.2016.90",
-    "verification": "verified_with_corrections"
+    "doi": "",
+    "verification": "verified_by_pdf"
    }
   ]
  },
@@ -296,7 +296,7 @@
     "number": 4,
     "text": "Kaplan 2020 Scaling laws for neural language models",
     "doi": "",
-    "verification": "verified"
+    "verification": "verified_by_pdf"
    }
   ]
  }

@@ -39,8 +39,8 @@
     "record": "M2",
     "number": 1,
     "text": "He 2016 Deep residual learning for image recognition",
-    "doi": "10.1109/cvpr.2016.90",
-    "verification": "verified_with_corrections"
+    "doi": "",
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -85,7 +85,7 @@
     "number": 2,
     "text": "Ioffe 2015 Batch normalization: Accelerating deep network training by r",
     "doi": "",
-    "verification": "unverified_no_registry_match"
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -132,7 +132,7 @@
     "number": 3,
     "text": "Vaswani 2017 Attention is all you need",
     "doi": "",
-    "verification": "unverified_no_registry_match"
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -173,8 +173,8 @@
     "record": "M2",
     "number": 1,
     "text": "He 2016 Deep residual learning for image recognition",
-    "doi": "10.1109/cvpr.2016.90",
-    "verification": "verified_with_corrections"
+    "doi": "",
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -218,7 +218,7 @@
     "number": 4,
     "text": "Kaplan 2020 Scaling laws for neural language models",
     "doi": "",
-    "verification": "verified"
+    "verification": "unverified_offline"
    }
   ]
  }

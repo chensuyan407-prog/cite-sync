@@ -1,22 +1,15 @@
 {
- "online": true,
+ "online": false,
  "network": {
   "requests": 0,
-  "offline_reason": null,
+  "offline_reason": "online checks not requested",
   "errors": []
  },
  "records": {
   "M1": {
-   "status": "unverified_no_registry_match",
+   "status": "unverified_offline",
    "details": {
-    "search_best": {
-     "doi": "10.65215/pc26a033",
-     "title": "Attention Is All You Need",
-     "year": "2025",
-     "similarity": 1.0,
-     "author_overlap": 1.0,
-     "accepted": false
-    }
+    "reason": "online checks not requested (--online)"
    },
    "corrections": {},
    "issues": [
@@ -29,50 +22,24 @@
    "record": "Vaswani 2017 Attention is all you need"
   },
   "M2": {
-   "status": "verified_with_corrections",
+   "status": "unverified_offline",
    "details": {
-    "search_best": {
-     "doi": "10.1109/cvpr.2016.90",
-     "title": "Deep Residual Learning for Image Recognition",
-     "year": "2016",
-     "similarity": 1.0,
-     "author_overlap": 1.0,
-     "accepted": true
-    },
-    "registry": {
-     "doi": "10.1109/cvpr.2016.90",
-     "title": "Deep Residual Learning for Image Recognition",
-     "year": "2016",
-     "container": "2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
-     "volume": null,
-     "issue": null,
-     "pages": "770-778"
-    },
-    "title_similarity": 1.0
+    "reason": "online checks not requested (--online)"
    },
-   "corrections": {
-    "doi": {
-     "old": null,
-     "new": "10.1109/cvpr.2016.90",
-     "source": "crossref title search"
-    },
-    "authors": {
-     "old": "3 author(s)",
-     "new": "4 authors",
-     "source": "crossref (registry lists 4 authors; record had 3)"
+   "corrections": {},
+   "issues": [
+    {
+     "code": "authors_truncated",
+     "severity": "info",
+     "msg": "source list was truncated ('et al./等'); full author list not available offline"
     }
-   },
-   "issues": [],
+   ],
    "record": "He 2016 Deep residual learning for image recognition"
   },
   "M3": {
-   "status": "verified",
+   "status": "unverified_offline",
    "details": {
-    "arxiv": {
-     "title": "Scaling Laws for Neural Language Models",
-     "year": "2020",
-     "title_similarity": 1.0
-    }
+    "reason": "online checks not requested (--online)"
    },
    "corrections": {},
    "issues": [
@@ -85,16 +52,9 @@
    "record": "Kaplan 2020 Scaling laws for neural language models"
   },
   "M4": {
-   "status": "unverified_no_registry_match",
+   "status": "unverified_offline",
    "details": {
-    "search_best": {
-     "doi": "10.21203/rs.3.rs-1027530/v1",
-     "title": "BNDNN: Batch Normalization Based Deep Neural Network for Predicting Flood in Urban Areas",
-     "year": "2021",
-     "similarity": 0.603,
-     "author_overlap": 0.0,
-     "accepted": false
-    }
+    "reason": "online checks not requested (--online)"
    },
    "corrections": {},
    "issues": [],

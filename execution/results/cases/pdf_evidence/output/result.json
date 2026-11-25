@@ -6,10 +6,10 @@
   "format": "md",
   "diff": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\pdf_evidence\\output\\manuscript.diff",
   "previews": null,
-  "text": "# Notes on training and scaling deep networks\r\n\r\n## 1 Background\r\n\r\nResidual learning lets networks with more than 100 layers be trained and won the ILSVRC 2015 classification task [1]. Batch normalization normalizes layer inputs over each mini-batch and allows much higher learning rates [2]. The Transformer relies entirely on attention and dispenses with recurrence and convolutions [3].\r\n\r\n## 2 Scaling\r\n\r\nThe test loss of language models scales as a power law with model size, dataset size and the amount of compute used for training [1]. Larger models are significantly more sample-efficient [4]. It has been shown that dropout reduces overfitting in large networks.\r\n\r\n## References\r\n\r\n[1] He K, Zhang X, Ren S, et al. Deep residual learning for image recognition[C]//Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 2016: 770-778. DOI:10.1109/cvpr.2016.90.\r\n[2] Ioffe S, Szegedy C. Batch normalization: Accelerating deep network training by reducing internal covariate shift[C]//International Conference on Machine Learning, 2015: 448-456.\r\n[3] Vaswani A, Shazeer N, Parmar N, et al. Attention is all you need[C]//Advances in Neural Information Processing Systems, 2017: 5998-6008.\r\n[4] Kaplan J, McCandlish S, Henighan T, et al. Scaling laws for neural language models[J/OL]. arXiv preprint arXiv:2001.08361, 2020. https://arxiv.org/abs/2001.08361."
+  "text": "# Notes on training and scaling deep networks\r\n\r\n## 1 Background\r\n\r\nResidual learning lets networks with more than 100 layers be trained and won the ILSVRC 2015 classification task [1]. Batch normalization normalizes layer inputs over each mini-batch and allows much higher learning rates [2]. The Transformer relies entirely on attention and dispenses with recurrence and convolutions [3].\r\n\r\n## 2 Scaling\r\n\r\nThe test loss of language models scales as a power law with model size, dataset size and the amount of compute used for training [1]. Larger models are significantly more sample-efficient [4]. It has been shown that dropout reduces overfitting in large networks.\r\n\r\n## References\r\n\r\n[1] He K, Zhang X, Ren S, et al. Deep residual learning for image recognition[C]//Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 2016: 770-778.\r\n[2] Ioffe S, Szegedy C. Batch normalization: Accelerating deep network training by reducing internal covariate shift[C]//International Conference on Machine Learning, 2015: 448-456.\r\n[3] Vaswani A, Shazeer N, Parmar N, et al. Attention is all you need[C]//Advances in Neural Information Processing Systems, 2017: 5998-6008.\r\n[4] Kaplan J, McCandlish S, Henighan T, et al. Scaling laws for neural language models[J/OL]. arXiv preprint arXiv:2001.08361, 2020. https://arxiv.org/abs/2001.08361."
  },
  "references": [
-  "[1] He K, Zhang X, Ren S, et al. Deep residual learning for image recognition[C]//Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 2016: 770-778. DOI:10.1109/cvpr.2016.90.",
+  "[1] He K, Zhang X, Ren S, et al. Deep residual learning for image recognition[C]//Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 2016: 770-778.",
   "[2] Ioffe S, Szegedy C. Batch normalization: Accelerating deep network training by reducing internal covariate shift[C]//International Conference on Machine Learning, 2015: 448-456.",
   "[3] Vaswani A, Shazeer N, Parmar N, et al. Attention is all you need[C]//Advances in Neural Information Processing Systems, 2017: 5998-6008.",
   "[4] Kaplan J, McCandlish S, Henighan T, et al. Scaling laws for neural language models[J/OL]. arXiv preprint arXiv:2001.08361, 2020. https://arxiv.org/abs/2001.08361."
@@ -26,8 +26,8 @@
      "record": "M2",
      "number": 1,
      "text": "He 2016 Deep residual learning for image recognition",
-     "doi": "10.1109/cvpr.2016.90",
-     "verification": "verified_with_corrections"
+     "doi": "",
+     "verification": "verified_by_pdf"
     }
    ],
    "verdict": "supported",
@@ -150,8 +150,8 @@
      "record": "M2",
      "number": 1,
      "text": "He 2016 Deep residual learning for image recognition",
-     "doi": "10.1109/cvpr.2016.90",
-     "verification": "verified_with_corrections"
+     "doi": "",
+     "verification": "verified_by_pdf"
     }
    ],
    "verdict": "needs_check",
@@ -189,7 +189,7 @@
      "number": 4,
      "text": "Kaplan 2020 Scaling laws for neural language models",
      "doi": "",
-     "verification": "verified"
+     "verification": "verified_by_pdf"
     }
    ],
    "verdict": "supported",
@@ -264,7 +264,8 @@
  "status_reason": [
   "1 citation occurrence(s) whose claim-source match could not be established automatically (verdict needs_check/unverifiable): judge them in edits.occurrences",
   "1 claim sentence(s) without a citation: add a citation via edits.add_citations or leave them for the author",
-  "4 citation verdict(s) are heuristic (term overlap with title/abstract or the cited PDF), not read by a person"
+  "4 citation verdict(s) are heuristic (term overlap with title/abstract or the cited PDF), not read by a person",
+  "sources not checked online (offline run)"
  ],
  "style": "gbt7714",
  "marker_style": "inline",
@@ -295,19 +296,16 @@
   "placement_suggestions": 0,
   "verified": 4,
   "verification_status_counts": {
-   "verified_by_pdf": 2,
-   "verified_with_corrections": 1,
-   "verified": 1
+   "verified_by_pdf": 4
   },
-  "review_items": 5,
+  "review_items": 3,
   "review_by_type": {
-   "source_unconfirmed": 2,
    "claim_without_citation": 1,
    "weak_lexical_support": 1,
    "possible_miscitation": 1
   },
   "parse_problems": 0,
-  "seconds": 0.7
+  "seconds": 0.62
  },
  "consistency_check": {
   "ok": true,
@@ -321,56 +319,13 @@
   }
  },
  "references_list": [
-  "[1] He K, Zhang X, Ren S, et al. Deep residual learning for image recognition[C]//Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 2016: 770-778. DOI:10.1109/cvpr.2016.90.",
+  "[1] He K, Zhang X, Ren S, et al. Deep residual learning for image recognition[C]//Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 2016: 770-778.",
   "[2] Ioffe S, Szegedy C. Batch normalization: Accelerating deep network training by reducing internal covariate shift[C]//International Conference on Machine Learning, 2015: 448-456.",
   "[3] Vaswani A, Shazeer N, Parmar N, et al. Attention is all you need[C]//Advances in Neural Information Processing Systems, 2017: 5998-6008.",
   "[4] Kaplan J, McCandlish S, Henighan T, et al. Scaling laws for neural language models[J/OL]. arXiv preprint arXiv:2001.08361, 2020. https://arxiv.org/abs/2001.08361."
  ],
- "changes": [
-  {
-   "kind": "metadata_correction",
-   "record": "M2",
-   "field": "doi",
-   "old": null,
-   "new": "10.1109/cvpr.2016.90",
-   "source": "crossref title search"
-  },
-  {
-   "kind": "metadata_correction",
-   "record": "M2",
-   "field": "authors",
-   "old": "3 author(s)",
-   "new": "4 authors",
-   "source": "crossref (registry lists 4 authors; record had 3)"
-  }
- ],
+ "changes": [],
  "needs_review": [
-  {
-   "type": "source_unconfirmed",
-   "record": "M1",
-   "msg": "no Crossref/arXiv record with matching title+authors+year; common for proceedings without DOI, books, Chinese journals - check by hand",
-   "details": {
-    "doi": "10.65215/pc26a033",
-    "title": "Attention Is All You Need",
-    "year": "2025",
-    "similarity": 1.0,
-    "author_overlap": 1.0,
-    "accepted": false
-   }
-  },
-  {
-   "type": "source_unconfirmed",
-   "record": "M4",
-   "msg": "no Crossref/arXiv record with matching title+authors+year; common for proceedings without DOI, books, Chinese journals - check by hand",
-   "details": {
-    "doi": "10.21203/rs.3.rs-1027530/v1",
-    "title": "BNDNN: Batch Normalization Based Deep Neural Network for Predicting Flood in Urban Areas",
-    "year": "2021",
-    "similarity": 0.603,
-    "author_overlap": 0.0,
-    "accepted": false
-   }
-  },
   {
    "type": "claim_without_citation",
    "sentence": "u8s2",
@@ -403,7 +358,7 @@
  ],
  "parse_problems": [],
  "edits_applied": null,
- "uncertainty": "Each citation verdict is either the agent's (verdict_source=agent) or a heuristic from term overlap between the sentence and the cited work's title/abstract and the matched passage of its PDF (verdict_source=heuristic; not a reading of the source). Online metadata from Crossref/arXiv may itself be incomplete (e.g. shortened author lists).",
+ "uncertainty": "Each citation verdict is either the agent's (verdict_source=agent) or a heuristic from term overlap between the sentence and the cited work's title/abstract and the matched passage of its PDF (verdict_source=heuristic; not a reading of the source). No online verification in this run.",
  "_contract_autofilled": {
   "revised_manuscript": true,
   "references": true,

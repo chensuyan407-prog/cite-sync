@@ -53,7 +53,6 @@
   "volume": "60",
   "issue": "6",
   "page": "84-90",
-  "DOI": "10.1145/3065386",
   "issued": {
    "date-parts": [
     [
@@ -102,24 +101,19 @@
   "author": [
    {
     "family": "He",
-    "given": "Kaiming"
+    "given": "K"
    },
    {
     "family": "Zhang",
-    "given": "Xiangyu"
+    "given": "X"
    },
    {
     "family": "Ren",
-    "given": "Shaoqing"
-   },
-   {
-    "family": "Sun",
-    "given": "Jian"
+    "given": "S"
    }
   ],
   "container-title": "European Conference on Computer Vision. Springer",
   "page": "630-645",
-  "DOI": "10.1007/978-3-319-46493-0_38",
   "issued": {
    "date-parts": [
     [
@@ -145,8 +139,7 @@
   "container-title": "Neural Computation",
   "volume": "9",
   "issue": "8",
-  "page": "1735-1780",
-  "DOI": "10.1162/neco.1997.9.8.1735",
+  "page": "1735-1785",
   "issued": {
    "date-parts": [
     [
@@ -229,7 +222,6 @@
   ],
   "container-title": "Proceedings of NAACL-HLT",
   "page": "4171-4186",
-  "DOI": "10.18653/v1/n19-1423",
   "URL": "http://arxiv.org/abs/1810.04805",
   "issued": {
    "date-parts": [
@@ -394,130 +386,6 @@
    {
     "family": "Pritzel",
     "given": "Alexander"
-   },
-   {
-    "family": "Green",
-    "given": "Tim"
-   },
-   {
-    "family": "Figurnov",
-    "given": "Michael"
-   },
-   {
-    "family": "Ronneberger",
-    "given": "Olaf"
-   },
-   {
-    "family": "Tunyasuvunakool",
-    "given": "Kathryn"
-   },
-   {
-    "family": "Bates",
-    "given": "Russ"
-   },
-   {
-    "family": "Žídek",
-    "given": "Augustin"
-   },
-   {
-    "family": "Potapenko",
-    "given": "Anna"
-   },
-   {
-    "family": "Bridgland",
-    "given": "Alex"
-   },
-   {
-    "family": "Meyer",
-    "given": "Clemens"
-   },
-   {
-    "family": "Kohl",
-    "given": "Simon A. A."
-   },
-   {
-    "family": "Ballard",
-    "given": "Andrew J."
-   },
-   {
-    "family": "Cowie",
-    "given": "Andrew"
-   },
-   {
-    "family": "Romera-Paredes",
-    "given": "Bernardino"
-   },
-   {
-    "family": "Nikolov",
-    "given": "Stanislav"
-   },
-   {
-    "family": "Jain",
-    "given": "Rishub"
-   },
-   {
-    "family": "Adler",
-    "given": "Jonas"
-   },
-   {
-    "family": "Back",
-    "given": "Trevor"
-   },
-   {
-    "family": "Petersen",
-    "given": "Stig"
-   },
-   {
-    "family": "Reiman",
-    "given": "David"
-   },
-   {
-    "family": "Clancy",
-    "given": "Ellen"
-   },
-   {
-    "family": "Zielinski",
-    "given": "Michal"
-   },
-   {
-    "family": "Steinegger",
-    "given": "Martin"
-   },
-   {
-    "family": "Pacholska",
-    "given": "Michalina"
-   },
-   {
-    "family": "Berghammer",
-    "given": "Tamas"
-   },
-   {
-    "family": "Bodenstein",
-    "given": "Sebastian"
-   },
-   {
-    "family": "Silver",
-    "given": "David"
-   },
-   {
-    "family": "Vinyals",
-    "given": "Oriol"
-   },
-   {
-    "family": "Senior",
-    "given": "Andrew W."
-   },
-   {
-    "family": "Kavukcuoglu",
-    "given": "Koray"
-   },
-   {
-    "family": "Kohli",
-    "given": "Pushmeet"
-   },
-   {
-    "family": "Hassabis",
-    "given": "Demis"
    }
   ],
   "container-title": "Nature",

@@ -95,15 +95,14 @@ def cmd_init(a):
             other.append(p)
     hint = {k: v for k, v in case.items() if isinstance(v, (str, int, float)) and k not in ("case_id",)} if isinstance(case, dict) else {}
     style = guess_style(json.dumps(case, ensure_ascii=False) + (read_text(task) if task else ""))
-    contract = contract_fields(case)
+    contract, cspec = parse_contract(case)
     inv = {"case_id": case.get("case_id") if isinstance(case, dict) else None, "case_error": case_err, "task_file": task,
            "manuscripts": ms, "libraries": libs, "pdfs": pdfs, "other_files": other, "contract_fields": contract,
            "style_guess": style, "case_scalars": hint, "seconds": round(time.time() - t0, 2)}
     dump(os.path.join(work, "inventory.json"), inv)
     res = base_result(inv["case_id"], contract)
     res["_contract_fields"] = contract
-    oc = case.get("output_contract") if isinstance(case, dict) else None
-    res["_contract_spec"] = oc if isinstance(oc, dict) else {(x.get("name") or x.get("field")): x for x in oc if isinstance(x, dict)} if isinstance(oc, list) else {}
+    res["_contract_spec"] = cspec
     res["status"] = "failed" if case_err or not (ms or libs) else "partial"
     res["status_reason"] = case_err or ("no manuscript or reference library found in the input" if not (ms or libs) else
                                         "init only: run `cite.py run` next")
@@ -123,13 +122,29 @@ def guess_style(text):
     return "gbt7714"
 
 
-def contract_fields(case):
-    oc = case.get("output_contract") if isinstance(case, dict) else None
-    if isinstance(oc, dict):
-        return list(oc.keys())
+def parse_contract(case):
+    if not isinstance(case, dict):
+        return [], {}
+    oc = case.get("output_contract") or case.get("output_fields") or case.get("schema") or case.get("deliverables")
     if isinstance(oc, list):
-        return [x if isinstance(x, str) else (x.get("name") or x.get("field")) for x in oc]
-    return []
+        fields = [x if isinstance(x, str) else (x.get("name") or x.get("field")) for x in oc]
+        fields = [f for f in fields if isinstance(f, str) and f]
+        spec = {(x.get("name") or x.get("field")): x for x in oc if isinstance(x, dict)}
+        return fields, spec
+    if not isinstance(oc, dict):
+        return [], {}
+    src = oc.get("deliverables") if isinstance(oc.get("deliverables"), dict) and len(oc) == 1 else oc
+    if "properties" in src or ("required" in src and isinstance(src.get("required"), list)):
+        spec = dict(src.get("properties") or {}) if isinstance(src.get("properties"), dict) else {}
+        for nm in (src.get("required") or []):
+            if isinstance(nm, str) and nm not in spec:
+                spec[nm] = {}
+        return list(spec.keys()), spec
+    return list(src.keys()), src
+
+
+def contract_fields(case):
+    return parse_contract(case)[0]
 
 
 def base_result(case_id, contract):
@@ -850,8 +865,32 @@ CONTRACT_RULES = [  # (pattern on field name + description, producer) - first ma
     (r"manuscript|draft|revised|paper|document|text|body|稿|正文|文稿|论文", "manuscript"),
     (r"bib|reference|refs|literature|文献|书目|列表|list", "references"),
     (r"format|style|格式|规范|convert|转换|export|导出", "exports"),
-    (r"summary|overview|摘要|概要|统计", "summary"),
+    (r"summary|overview|answer|report|output|摘要|概要|统计|总结|报告", "summary"),
+    (r"notes|remark|备注|说明", "uncertainty"),
 ]
+
+
+def _coerce_contract_val(val, sp):
+    if not isinstance(sp, dict) or not isinstance(sp.get("type"), str) or val is None:
+        return val
+    t = sp["type"].lower()
+    if t == "string":
+        if isinstance(val, str):
+            return val
+        if isinstance(val, list) and all(isinstance(x, str) for x in val):
+            return "\n".join(val)
+        return json.dumps(val, ensure_ascii=False)
+    if t == "array" and not isinstance(val, list):
+        return [{"key": k, "value": v} for k, v in val.items()] if isinstance(val, dict) else [val]
+    if t == "object" and not isinstance(val, dict):
+        return {"items": val} if isinstance(val, list) else {"value": val}
+    if t == "integer" and not isinstance(val, int):
+        return len(val) if isinstance(val, (list, dict, str)) else 0
+    if t == "number" and not isinstance(val, (int, float)):
+        return float(len(val)) if isinstance(val, (list, dict, str)) else 0.0
+    if t == "boolean":
+        return bool(val)
+    return val
 
 
 def fill_contract(res, prev, ctx):
@@ -899,7 +938,7 @@ def fill_contract(res, prev, ctx):
         hit = next((p for rx, p in CONTRACT_RULES if re.search(rx, f.lower())), None) or \
             next((p for rx, p in CONTRACT_RULES if re.search(rx, key)), None)
         if hit and prod.get(hit) is not None:
-            res[f] = prod[hit]
+            res[f] = _coerce_contract_val(prod[hit], spec.get(f))
             mapping[f] = hit
         else:
             unfilled.append(f)

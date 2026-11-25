@@ -1,7 +1,7 @@
 # cite-sync review - case dev-en-apa
 
 status: **partial**  
-reasons: 1 citation occurrence(s) whose claim-source match could not be established automatically (verdict needs_check/unverifiable): judge them in edits.occurrences; 1 claim sentence(s) without a citation: add a citation via edits.add_citations or leave them for the author; 5 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person
+reasons: 1 citation occurrence(s) whose claim-source match could not be established automatically (verdict needs_check/unverifiable): judge them in edits.occurrences; 1 claim sentence(s) without a citation: add a citation via edits.add_citations or leave them for the author; 5 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person; sources not checked online (offline run)
 
 ## Summary
 ```
@@ -16,11 +16,9 @@ reasons: 1 citation occurrence(s) whose claim-source match could not be establis
  "uncited_removed": 0,
  "auto_moves": 0,
  "placement_suggestions": 0,
- "verified": 6,
+ "verified": 0,
  "verification_status_counts": {
-  "verified": 4,
-  "verified_with_corrections": 1,
-  "verified_via_arxiv": 1
+  "unverified_offline": 6
  },
  "review_items": 2,
  "review_by_type": {
@@ -28,7 +26,7 @@ reasons: 1 citation occurrence(s) whose claim-source match could not be establis
   "weak_lexical_support": 1
  },
  "parse_problems": 0,
- "seconds": 0.03
+ "seconds": 0.02
 }
 ```
 
@@ -44,18 +42,17 @@ reasons: 1 citation occurrence(s) whose claim-source match could not be establis
 - {"kind": "merge", "kept": "L1-5", "members": ["M5", "L1-5"], "rules": ["D1"], "needs_review": false}
 - {"kind": "merge", "kept": "M7", "members": ["M6", "M7", "L1-1"], "rules": ["D4"], "needs_review": false}
 - {"kind": "duplicate_refs_collapsed", "occurrence": "c2_4", "old": "(Ioffe & Szegedy, 2015; Ioffe & Szegedy, 2015)", "reason": "two cited entries are the same work (see merge_log)"}
-- {"kind": "metadata_correction", "record": "M2", "field": "doi", "old": null, "new": "10.1007/978-3-319-46493-0_38", "source": "crossref title search"}
 
 ## Source verification
 
 | record | status | issues | corrections |
 |-|-|-|-|
-| L1-4 He 2016 Deep Residual Learning for Image Recogniti | verified |  |  |
-| M2 He 2016 Identity mappings in deep residual network | verified_with_corrections |  | doi |
-| M3 Ioffe 2015 Batch normalization: Accelerating deep  | verified |  |  |
-| M4 Kaplan 2020 Scaling laws for neural language model | verified |  |  |
-| L1-5 LeCun 2015 Deep learning | verified |  |  |
-| M7 Vaswani 2017 Attention is all you need | verified_via_arxiv |  |  |
+| L1-4 He 2016 Deep Residual Learning for Image Recogniti | unverified_offline |  |  |
+| M2 He 2016 Identity mappings in deep residual network | unverified_offline |  |  |
+| M3 Ioffe 2015 Batch normalization: Accelerating deep  | unverified_offline |  |  |
+| M4 Kaplan 2020 Scaling laws for neural language model | unverified_offline |  |  |
+| L1-5 LeCun 2015 Deep learning | unverified_offline |  |  |
+| M7 Vaswani 2017 Attention is all you need | unverified_offline |  |  |
 
 ## Citation occurrences
 

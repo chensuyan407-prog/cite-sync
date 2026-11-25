@@ -1,105 +1,51 @@
 {
- "online": true,
+ "online": false,
  "network": {
   "requests": 0,
-  "offline_reason": null,
+  "offline_reason": "online checks not requested",
   "errors": []
  },
  "records": {
   "L1-1": {
-   "status": "mismatch",
+   "status": "unverified_offline",
    "details": {
-    "crossref_doi": "ok",
-    "registry": {
-     "doi": "10.12677/sea.2020.95041",
-     "title": "Survey on Convolutional Neural Network Pooling Methods",
-     "year": "2020",
-     "container": "Software Engineering and Applications",
-     "volume": "09",
-     "issue": "05",
-     "pages": "360-372"
-    },
-    "title_similarity": 0.0,
-    "problem": "DOI resolves to a different work (title differs)"
+    "reason": "online checks not requested (--online)"
    },
    "corrections": {},
    "issues": [],
    "record": "袁铭阳 2020 卷积神经网络池化方法综述"
   },
   "L2-1": {
-   "status": "unverified_no_registry_match",
+   "status": "unverified_offline",
    "details": {
-    "search_best": {
-     "doi": "10.1145/3065386",
-     "title": "ImageNet classification with deep convolutional neural networks",
-     "year": "2017",
-     "similarity": 1.0,
-     "author_overlap": 1.0,
-     "accepted": false
-    }
+    "reason": "online checks not requested (--online)"
    },
    "corrections": {},
    "issues": [],
    "record": "Krizhevsky 2012 ImageNet classification with deep convolutional neural netwo"
   },
   "L2-2": {
-   "status": "verified",
+   "status": "unverified_offline",
    "details": {
-    "crossref_doi": "ok",
-    "registry": {
-     "doi": "10.1038/nature14539",
-     "title": "Deep learning",
-     "year": "2015",
-     "container": "Nature",
-     "volume": "521",
-     "issue": "7553",
-     "pages": "436-444"
-    },
-    "title_similarity": 1.0
+    "reason": "online checks not requested (--online)"
    },
    "corrections": {},
    "issues": [],
    "record": "LeCun 2015 Deep learning"
   },
   "L3-1": {
-   "status": "verified_with_corrections",
+   "status": "unverified_offline",
    "details": {
-    "crossref_doi": "ok",
-    "registry": {
-     "doi": "10.1038/s41586-021-03819-2",
-     "title": "Highly accurate protein structure prediction with AlphaFold",
-     "year": "2021",
-     "container": "Nature",
-     "volume": "596",
-     "issue": "7873",
-     "pages": "583-589"
-    },
-    "title_similarity": 1.0
+    "reason": "online checks not requested (--online)"
    },
-   "corrections": {
-    "authors": {
-     "old": "3 author(s)",
-     "new": "34 authors",
-     "source": "crossref (registry lists 34 authors; record had 3)"
-    }
-   },
+   "corrections": {},
    "issues": [],
    "record": "Jumper 2021 Highly accurate protein structure prediction with AlphaFold"
   },
   "L3-2": {
-   "status": "verified",
+   "status": "unverified_offline",
    "details": {
-    "crossref_doi": "ok",
-    "registry": {
-     "doi": "10.1162/neco.1997.9.8.1735",
-     "title": "Long Short-Term Memory",
-     "year": "1997",
-     "container": "Neural Computation",
-     "volume": "9",
-     "issue": "8",
-     "pages": "1735-1780"
-    },
-    "title_similarity": 1.0
+    "reason": "online checks not requested (--online)"
    },
    "corrections": {},
    "issues": [],

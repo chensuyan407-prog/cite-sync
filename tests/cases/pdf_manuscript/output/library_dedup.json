@@ -46,21 +46,18 @@
   "authors": [
    {
     "family": "He",
-    "given": "Kaiming"
+    "given": "K"
    },
    {
     "family": "Zhang",
-    "given": "Xiangyu"
+    "given": "X"
    },
    {
     "family": "Ren",
-    "given": "Shaoqing"
-   },
-   {
-    "family": "Sun",
-    "given": "Jian"
+    "given": "S"
    }
   ],
+  "authors_truncated": true,
   "year": "2016",
   "container": "Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition",
   "pages": "770-778",
@@ -68,16 +65,12 @@
   "label": 2,
   "id": "M2",
   "origin": "manuscript_list",
-  "doi": "10.1109/cvpr.2016.90",
+  "doi": "",
   "merged_from": [
    "M2"
   ],
   "merge_needs_review": false,
   "cid": "M2",
-  "field_provenance": {
-   "doi": "crossref title search",
-   "authors": "crossref (registry lists 4 authors; record had 3)"
-  },
   "number": 1,
   "sources": [
    {

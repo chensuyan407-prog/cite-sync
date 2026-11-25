@@ -38,7 +38,7 @@
     "number": null,
     "text": "LeCun 2015 Deep learning",
     "doi": "10.1038/nature14539",
-    "verification": "verified"
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -80,7 +80,7 @@
     "number": null,
     "text": "He 2016 Deep Residual Learning for Image Recognition",
     "doi": "10.1109/CVPR.2016.90",
-    "verification": "verified"
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -123,8 +123,8 @@
     "record": "M2",
     "number": null,
     "text": "He 2016 Identity mappings in deep residual networks",
-    "doi": "10.1007/978-3-319-46493-0_38",
-    "verification": "verified_with_corrections"
+    "doi": "",
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -164,7 +164,7 @@
     "number": null,
     "text": "Vaswani 2017 Attention is all you need",
     "doi": "",
-    "verification": "verified_via_arxiv"
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -213,7 +213,7 @@
     "number": null,
     "text": "Ioffe 2015 Batch normalization: Accelerating deep network training by r",
     "doi": "",
-    "verification": "verified"
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -256,7 +256,7 @@
     "number": null,
     "text": "Kaplan 2020 Scaling laws for neural language models",
     "doi": "",
-    "verification": "verified"
+    "verification": "unverified_offline"
    }
   ]
  }

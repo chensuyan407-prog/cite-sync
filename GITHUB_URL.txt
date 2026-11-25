@@ -1,1 +1,2 @@
-https://github.com/chensuyan407-prog/cite-sync/tree/main/submission
+https://github.com/chensuyan407-prog/cite-sync
+submission/SKILL.md

@@ -40,7 +40,7 @@
     "number": 1,
     "text": "Kipf 2017 Semi-supervised classification with graph convolutional netw",
     "doi": "",
-    "verification": "verified_via_arxiv"
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -84,7 +84,7 @@
     "number": 2,
     "text": "Veličković 2018 Graph Attention Networks",
     "doi": "",
-    "verification": "unverified_no_registry_match"
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -131,7 +131,7 @@
     "number": 3,
     "text": "Brown 2020 Language models are few-shot learners",
     "doi": "",
-    "verification": "unverified_no_registry_match"
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -178,7 +178,7 @@
     "number": 4,
     "text": "Devlin 2019 BERT: Pre-training of Deep Bidirectional Transformers for La",
     "doi": "10.18653/v1/N19-1423",
-    "verification": "verified"
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -224,7 +224,7 @@
     "number": 5,
     "text": "Kingma 2015 Adam: A method for stochastic optimization",
     "doi": "",
-    "verification": "unverified_no_registry_match"
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -269,7 +269,7 @@
     "number": 6,
     "text": "Srivastava 2014 Dropout: a simple way to prevent neural networks from overfi",
     "doi": "",
-    "verification": "unverified_no_registry_match"
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -319,14 +319,14 @@
     "number": 1,
     "text": "Kipf 2017 Semi-supervised classification with graph convolutional netw",
     "doi": "",
-    "verification": "verified_via_arxiv"
+    "verification": "unverified_offline"
    },
    {
     "record": "L1-1",
     "number": 4,
     "text": "Devlin 2019 BERT: Pre-training of Deep Bidirectional Transformers for La",
     "doi": "10.18653/v1/N19-1423",
-    "verification": "verified"
+    "verification": "unverified_offline"
    }
   ]
  },
@@ -368,7 +368,7 @@
     "number": 1,
     "text": "Kipf 2017 Semi-supervised classification with graph convolutional netw",
     "doi": "",
-    "verification": "verified_via_arxiv"
+    "verification": "unverified_offline"
    }
   ]
  },

@@ -1,7 +1,7 @@
 # cite-sync review - case dev-pdf-manuscript
 
 status: **partial**  
-reasons: 1 citation occurrence(s) whose claim-source match could not be established automatically (verdict needs_check/unverifiable): judge them in edits.occurrences; 1 claim sentence(s) without a citation: add a citation via edits.add_citations or leave them for the author; 4 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person
+reasons: 1 citation occurrence(s) whose claim-source match could not be established automatically (verdict needs_check/unverifiable): judge them in edits.occurrences; 1 claim sentence(s) without a citation: add a citation via edits.add_citations or leave them for the author; 4 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person; sources not checked online (offline run)
 
 ## Summary
 ```
@@ -16,21 +16,18 @@ reasons: 1 citation occurrence(s) whose claim-source match could not be establis
  "uncited_removed": 0,
  "auto_moves": 0,
  "placement_suggestions": 0,
- "verified": 2,
+ "verified": 0,
  "verification_status_counts": {
-  "unverified_no_registry_match": 2,
-  "verified_with_corrections": 1,
-  "verified": 1
+  "unverified_offline": 4
  },
- "review_items": 5,
+ "review_items": 3,
  "review_by_type": {
   "manuscript_converted": 1,
-  "source_unconfirmed": 2,
   "claim_without_citation": 1,
   "weak_lexical_support": 1
  },
  "parse_problems": 0,
- "seconds": 0.1
+ "seconds": 0.08
 }
 ```
 
@@ -40,25 +37,21 @@ ok = True; markers use 1..4; list entries 4
 ## Items that need a human decision
 
 - **manuscript_converted** msg=PDF manuscript converted to editable markdown from its text layer; layout, fonts and figures are not kept - check headings and the reference list
-- **source_unconfirmed** record=M1 msg=no Crossref/arXiv record with matching title+authors+year; common for proceedings without DOI, books, Chinese journals - check by hand
-- **source_unconfirmed** record=M4 msg=no Crossref/arXiv record with matching title+authors+year; common for proceedings without DOI, books, Chinese journals - check by hand
 - **claim_without_citation** sentence=u8s2 cue=has been shown text=It has been shown that dropout reduces overfitting in large networks.
 - **weak_lexical_support** occurrence=c8_0 record=M2 score=0.0 msg=sentence shares almost no terms with the cited work: check claim-source match
 
 ## Changes
 
 - {"kind": "manuscript_converted", "from": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\pdf_manuscript\\input\\manuscript_draft.pdf", "to": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\pdf_manuscript\\work\\manuscript_draft.md", "reason": "PDF manuscript converted to editable markdown from its text layer; layout, fonts and figures are not kept - check headings and the reference list"}
-- {"kind": "metadata_correction", "record": "M2", "field": "doi", "old": null, "new": "10.1109/cvpr.2016.90", "source": "crossref title search"}
-- {"kind": "metadata_correction", "record": "M2", "field": "authors", "old": "3 author(s)", "new": "4 authors", "source": "crossref (registry lists 4 authors; record had 3)"}
 
 ## Source verification
 
 | record | status | issues | corrections |
 |-|-|-|-|
-| M1 Vaswani 2017 Attention is all you need | unverified_no_registry_match | authors_truncated |  |
-| M2 He 2016 Deep residual learning for image recogniti | verified_with_corrections |  | doi, authors |
-| M3 Kaplan 2020 Scaling laws for neural language model | verified | authors_truncated |  |
-| M4 Ioffe 2015 Batch normalization: Accelerating deep  | unverified_no_registry_match |  |  |
+| M1 Vaswani 2017 Attention is all you need | unverified_offline | authors_truncated |  |
+| M2 He 2016 Deep residual learning for image recogniti | unverified_offline | authors_truncated |  |
+| M3 Kaplan 2020 Scaling laws for neural language model | unverified_offline | authors_truncated |  |
+| M4 Ioffe 2015 Batch normalization: Accelerating deep  | unverified_offline |  |  |
 
 ## Citation occurrences
 

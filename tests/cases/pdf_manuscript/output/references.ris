@@ -1,12 +1,10 @@
 TY  - CPAPER
-AU  - He, Kaiming
-AU  - Zhang, Xiangyu
-AU  - Ren, Shaoqing
-AU  - Sun, Jian
+AU  - He, K
+AU  - Zhang, X
+AU  - Ren, S
 TI  - Deep residual learning for image recognition
 T2  - Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition
 PY  - 2016
-DO  - 10.1109/cvpr.2016.90
 SP  - 770
 EP  - 778
 ER  - 

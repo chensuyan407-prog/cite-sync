@@ -14,10 +14,7 @@
    "members": [
     "M2"
    ],
-   "field_provenance": {
-    "doi": "crossref title search",
-    "authors": "crossref (registry lists 4 authors; record had 3)"
-   }
+   "field_provenance": null
   },
   {
    "kept": "M3",
