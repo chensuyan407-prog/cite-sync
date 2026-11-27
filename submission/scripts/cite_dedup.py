@@ -60,6 +60,11 @@ def decide(a, b):
     if ts == 1.0 and first_ok and (dy is None or dy <= 2):
         pre = is_preprint(a) != is_preprint(b)
         return True, "D4", "same normalised title, same first author" + (", preprint and published version" if pre else "") + (f", years {ya}/{yb}" if dy else ""), False
+    if is_preprint(a) != is_preprint(b) and first_ok and (dy is None or dy <= 2):
+        main_a = title_key(str(a.get("title") or "").split(":", 1)[0].split("—", 1)[0].split(" - ", 1)[0])
+        main_b = title_key(str(b.get("title") or "").split(":", 1)[0].split("—", 1)[0].split(" - ", 1)[0])
+        if main_a and main_a == main_b and len(main_a) >= 12:
+            return True, "D4", "same main title (subtitle stripped), same first author, preprint and published version" + (f", years {ya}/{yb}" if dy else ""), True
     if ts >= 0.93 and (ov is None or ov >= 0.5) and (dy is None or dy <= 2):
         return True, "D5", f"near-identical titles (similarity {ts:.2f}), author overlap {ov if ov is None else round(ov, 2)}", True
     if ts == 1.0 and dy is not None and dy > 2:

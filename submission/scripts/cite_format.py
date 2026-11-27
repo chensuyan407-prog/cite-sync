@@ -116,9 +116,11 @@ def render_gbt(r, opts=None):
                 miss.append("url")
     else:
         s = f"{head}[Z]. " + ", ".join(x for x in (r.get("container"), r.get("publisher"), year) if x)
-    s = s.rstrip(". ")
+    s = re.sub(r"\s+", " ", s).strip().rstrip(". ")
     if r.get("doi") and not s.lower().endswith(r["doi"].lower()):
-        s += f". DOI:{r['doi']}"
+        doi_clean = re.sub(r"^(https?://)?(dx\.)?doi\.org/", "", str(r["doi"]).strip(), flags=re.I)
+        s += f". DOI:{doi_clean}"
+    s = re.sub(r"(?<!\.)\.\.(?!\.)", ".", s)
     return s + ".", miss
 
 
@@ -184,7 +186,8 @@ def render_apa(r, opts=None):
     else:
         s = f"{au} {year}. {title}." + (f" {r['container']}." if r.get("container") else "")
     if r.get("doi"):
-        s += f" https://doi.org/{r['doi']}"
+        doi_clean = re.sub(r"^(https?://)?(dx\.)?doi\.org/", "", str(r["doi"]).strip(), flags=re.I)
+        s += f" https://doi.org/{doi_clean}"
     elif r.get("url"):
         s += f" {r['url']}"
 
