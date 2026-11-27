@@ -107,7 +107,7 @@ def offline_checks(r, style="gbt7714"):
 
 # ---------------------------------------------------------------- online
 class Net:
-    def __init__(self, cache_path, enabled=True, budget_s=150, max_requests=80, timeout=8):
+    def __init__(self, cache_path, enabled=True, budget_s=20, max_requests=40, timeout=4):
         self.cache_path = cache_path
         self.cache = {}
         if cache_path and os.path.exists(cache_path):
@@ -145,7 +145,7 @@ class Net:
             except Exception as e:  # DNS / timeout / no network: stop trying
                 self.errors.append(f"{url}: {e!r}")
                 self.net_fail = getattr(self, "net_fail", 0) + 1
-                if self.net_fail >= 2:
+                if self.net_fail >= 1:  # first DNS/timeout/connection failure: go offline at once
                     self.offline_reason = f"network unavailable ({e!r})"
                 return None
             self.cache[url] = val

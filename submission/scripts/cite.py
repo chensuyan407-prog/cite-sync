@@ -29,7 +29,7 @@ from cite_dedup import dedup  # noqa: E402
 from cite_parse import load_library, parse_refstring, split_reflist  # noqa: E402
 import cite_verify as V  # noqa: E402
 
-VERSION = "0.2.0"
+VERSION = "0.2.1"
 MS_EXT = (".md", ".markdown", ".docx", ".tex", ".txt")
 LIB_EXT = (".bib", ".bibtex", ".ris", ".enw", ".endnote", ".json", ".csl", ".txt", ".net")
 
@@ -86,7 +86,15 @@ def cmd_init(a):
         txt = read_text(p)[:20000] if ext in LIB_EXT + MS_EXT else ""
         looks_lib = ext in (".bib", ".bibtex", ".ris", ".enw", ".endnote", ".net", ".csl") or bool(
             re.search(r"^\s*@\w+\s*\{|^TY  - |^%0 |^\{Reference Type\}", txt, re.M)) or (ext == ".json" and re.search(r'"(title|DOI|author)"', txt))
-        looks_ms = ext in (".md", ".markdown", ".docx", ".tex") or (ext == ".txt" and len(re.findall(r"[\[［]\d+[\]］]", txt)) >= 3 and len(txt) > 1500)
+        looks_ms = ext in (".md", ".markdown", ".docx", ".tex") or (
+            ext == ".txt" and (
+                (len(re.findall(r"[\[［]\d+[\]］]", txt)) >= 3 and len(txt) > 1500)
+                or (isinstance(case, dict) and any(
+                    isinstance(case.get(k), str) and os.path.abspath(os.path.join(base, case[k])) == p
+                    for k in ("primary_source", "manuscript", "draft", "paper", "document", "稿件", "主稿", "正文")
+                ))
+            )
+        )
         if looks_lib:
             libs.append(p)
         elif looks_ms:
@@ -107,7 +115,15 @@ def cmd_init(a):
     res["status_reason"] = case_err or ("no manuscript or reference library found in the input" if not (ms or libs) else
                                         "init only: run `cite.py run` next")
     res["inputs"] = {"case": a.case, "task": task, "manuscripts": [fi(p) for p in ms], "libraries": [fi(p) for p in libs], "pdfs": [fi(p) for p in pdfs]}
-    dump(os.path.join(out, "result.json"), res)
+    out_res = os.path.join(out, "result.json")
+    prev_ok = False
+    if res["status"] == "failed" and os.path.exists(out_res):
+        try:
+            prev_ok = jload(out_res).get("status") == "success"
+        except Exception:
+            prev_ok = False
+    if not prev_ok:
+        dump(out_res, res)
     print(json.dumps(inv, ensure_ascii=False, indent=1))
 
 
@@ -196,13 +212,148 @@ def resolve_ay(item, recs):
     return cands
 
 
+VERDICT_SYN = {"supported": "supported", "support": "supported", "ok": "supported", "yes": "supported", "true": "supported", "match": "supported",
+               "correct": "supported", "支持": "supported", "对应": "supported", "正确": "supported", "匹配": "supported",
+               "partial": "partial", "partly": "partial", "weak": "partial", "部分": "partial", "部分支持": "partial",
+               "mismatch": "mismatch", "wrong": "mismatch", "miscited": "mismatch", "no": "mismatch", "false": "mismatch", "不匹配": "mismatch", "错引": "mismatch",
+               "unverifiable": "unverifiable", "unknown": "unverifiable", "fabricated": "unverifiable", "无法核验": "unverifiable", "编造": "unverifiable", "疑似编造": "unverifiable",
+               "reject": "reject", "skip": "reject", "拒绝": "reject", "不采用": "reject", "跳过": "reject"}
+ACTION_SYN = {"keep": "keep", "remove": "remove", "delete": "remove", "drop": "remove", "删除": "remove", "replace": "replace", "change": "replace", "替换": "replace",
+              "drop_refs": "drop_refs", "drop-refs": "drop_refs", "remove_refs": "drop_refs"}
+
+
+def _refs_list(v):
+    """'M3, L2-2' / ['[3]', 4] / 'M3' -> ['M3', 'L2-2'] / ['3', '4'] (record ids, original numbers or BibTeX keys)."""
+    if v is None:
+        return []
+    if not isinstance(v, list):
+        v = re.split(r"[,;，；\s]+", str(v))
+    return [str(x).strip().strip("[]［］()（） ") for x in v if str(x).strip().strip("[]［］()（） ")]
+
+
+def load_edits(path, problems):
+    """Read edits.json leniently so one sloppy field never aborts the run: accepts a list or a dict for
+    occurrences, verdict/action synonyms (incl. Chinese), refs as a string, `sentence` given as raw text,
+    placeholder values like '<supported|...>' (ignored), and unknown keys (ignored, reported)."""
+    if not path or not os.path.exists(path):
+        return {}
+    try:
+        raw = json.loads(re.sub(r"^﻿", "", read_text(path)))
+    except Exception as e:  # trailing commas / comments are the usual LLM slips
+        txt = re.sub(r"//[^\n]*", "", read_text(path))
+        txt = re.sub(r",\s*([}\]])", r"\1", txt)
+        try:
+            raw = json.loads(txt)
+            problems.append({"file": "edits", "index": 0, "problem": f"edits.json was not strict JSON ({e}); repaired (comments/trailing commas removed)"})
+        except Exception as e2:
+            problems.append({"file": "edits", "index": 0, "problem": f"edits.json unreadable, ignored: {e2}"})
+            return {}
+    if not isinstance(raw, dict):
+        raw = {"occurrences": raw} if isinstance(raw, list) else {}
+    known = {"occurrences", "add_citations", "record_overrides", "force_merge", "forbid_merge"}
+    for k in raw:
+        if k not in known and not k.startswith("_"):
+            problems.append({"file": "edits", "index": 0, "problem": f"unknown top-level key '{k}' ignored (allowed: {', '.join(sorted(known))})"})
+
+    def clean_v(e):
+        e = dict(e)
+        for f, syn in (("verdict", VERDICT_SYN), ("action", ACTION_SYN)):
+            val = e.get(f)
+            if isinstance(val, bool):
+                val = str(val).lower()
+            if isinstance(val, str):
+                vv = val.strip().lower()
+                if vv.startswith("<") or "|" in vv or not vv:
+                    e.pop(f)  # template placeholder left unfilled
+                    e["_unfilled_" + f] = True
+                elif vv in syn:
+                    e[f] = syn[vv]
+                else:
+                    problems.append({"file": "edits", "index": 0, "problem": f"{f} '{val}' not understood, ignored"})
+                    e.pop(f)
+        for f in ("refs", "move_refs"):
+            if f in e:
+                e[f] = _refs_list(e[f])
+        if "ref" in e and "refs" not in e:
+            e["refs"] = _refs_list(e.pop("ref"))
+        if "records" in e and "refs" not in e:
+            e["refs"] = _refs_list(e.pop("records"))
+        if isinstance(e.get("note"), str) and e["note"].startswith("<"):
+            e["note"] = ""
+        if e.get("action") == "replace" and not e.get("refs"):
+            problems.append({"file": "edits", "index": 0, "problem": "action 'replace' without refs: kept the citation"})
+            e["action"] = "keep"
+        return e
+
+    occ = raw.get("occurrences") or {}
+    if isinstance(occ, list):
+        occ = {str(x.get("id") or x.get("occurrence") or x.get("occ")): x for x in occ if isinstance(x, dict)}
+    elif not isinstance(occ, dict):
+        problems.append({"file": "edits", "index": 0, "problem": f"occurrences must be object/list, got {type(occ).__name__}: ignored"})
+        occ = {}
+    out = {"occurrences": {str(k): clean_v(v) for k, v in occ.items() if isinstance(v, dict)}}
+    for e in out["occurrences"].values():
+        if e.get("verdict") == "reject":
+            e["verdict"] = "mismatch"
+    adds = []
+    for ad in raw.get("add_citations") or []:
+        if not isinstance(ad, dict):
+            continue
+        ad = clean_v(ad)
+        s = ad.get("sentence") or ad.get("sentence_id") or ad.get("text")
+        if not s or not ad.get("refs"):
+            problems.append({"file": "edits", "index": 0, "problem": f"add_citations item without sentence/refs ignored: {json.dumps(ad, ensure_ascii=False)[:120]}"})
+            continue
+        if ad.get("verdict") in ("reject", "mismatch", "unverifiable") and not ad.get("_unfilled_verdict"):
+            ss = str(s)
+            out.setdefault("_rejected", []).append({"sentence": ss if re.fullmatch(r"u\d+s\d+", ss) or ss.startswith("text:") else "text:" + ss,
+                                                    "note": ad.get("note") or ""})
+        if ad.get("_unfilled_verdict") or ad.get("verdict") in ("reject", "mismatch", "unverifiable"):
+            problems.append({"file": "edits", "index": 0, "problem": f"add_citations item not applied ({'verdict left as placeholder' if ad.get('_unfilled_verdict') else 'verdict ' + ad['verdict']}): {str(s)[:60]}"})
+            continue
+        s = str(s)
+        if not re.fullmatch(r"u\d+s\d+", s) and not s.startswith("text:"):
+            s = "text:" + s  # raw sentence text given
+        ad["sentence"] = s
+        adds.append(ad)
+    out["add_citations"] = adds
+    ro = raw.get("record_overrides") or {}
+    out["record_overrides"] = {str(k): dict(v) for k, v in ro.items() if isinstance(v, dict)} if isinstance(ro, dict) else {}
+    for f in ("force_merge", "forbid_merge"):
+        out[f] = [_refs_list(p) for p in (raw.get(f) or []) if len(_refs_list(p)) >= 2]
+    for k in ("move_to",):
+        for e in out["occurrences"].values():
+            if isinstance(e.get(k), str) and not re.fullmatch(r"u\d+s\d+", e[k]) and not e[k].startswith("text:"):
+                e[k] = "text:" + e[k]
+    return out
+
+
+def match_text_sentence(sid, sents):
+    """'text:<fragment>' -> sentence ids; tolerant of whitespace, punctuation and a truncated/edited fragment."""
+    needle = re.sub(r"\s+", "", sid[5:])
+    hit = [x for x in sents if needle and needle in re.sub(r"\s+", "", x["plain"])]
+    if len(hit) == 1 or not needle:
+        return hit
+    if len(hit) > 1:  # several sentences contain the fragment: keep only body text; still ambiguous -> caller reports it
+        body = [x for x in hit if x["role"] in ("body", "appendix")]
+        return body if body else hit
+    strip = lambda t: re.sub(r"[\W_]+", "", t)  # noqa: E731
+    n2 = strip(needle)
+    hit = [x for x in sents if n2 and n2 in strip(x["plain"])]
+    if not hit and len(n2) >= 8:  # fragment slightly edited: use the longest common block
+        sc = sorted(((difflib.SequenceMatcher(None, n2, strip(x["plain"])).find_longest_match(0, len(n2), 0, len(strip(x["plain"]))).size / len(n2), x) for x in sents),
+                    key=lambda t: -t[0])
+        hit = [sc[0][1]] if sc and sc[0][0] >= 0.7 and (len(sc) < 2 or sc[0][0] - sc[1][0] >= 0.15) else []
+    return hit
+
+
 def cmd_run(a):
     t0 = time.time()
     os.makedirs(a.out, exist_ok=True)
     os.makedirs(a.work, exist_ok=True)
-    edits = jload(a.edits) if a.edits and os.path.exists(a.edits) else {}
-    style = a.style
     review, changes, problems = [], [], []
+    edits = load_edits(a.edits, problems)
+    style = a.style
     doc = None
     a.manuscript_original = a.manuscript
     if a.manuscript and os.path.splitext(a.manuscript)[1].lower() in (".pdf", ".doc", ".odt", ".rtf", ".wps"):
@@ -246,6 +397,14 @@ def cmd_run(a):
             r["origin"] = f"library:{os.path.basename(lp)}"
             records.append(r)
     for rid, ov in (edits.get("record_overrides") or {}).items():
+        ids = {r["id"] for r in records}
+        if rid not in ids:  # '7' / '[7]' -> M7 ; BibTeX key -> its record
+            k = rid.strip("[]［］ ")
+            alt = f"M{k}" if f"M{k}" in ids else next((r["id"] for r in records if r.get("bibkey") == k), None)
+            if not alt:
+                problems.append({"file": "edits", "index": 0, "problem": f"record_overrides: unknown record {rid}"})
+                continue
+            rid = alt
         for r in records:
             if r["id"] == rid:
                 src = ov.pop("_source", "agent edit")
@@ -447,19 +606,45 @@ def cmd_run(a):
                 problems.append({"file": "edits", "index": 0, "problem": f"edit refers to unknown record {x}"})
         return out
 
+    def resolve_occ(oid):
+        """occurrence key -> occurrence: 'c4_2', '4_2', 'text:<sentence fragment>', or the old marker number '3' / '[3]'
+        when exactly one occurrence matches."""
+        if oid in occ_by_id:
+            return occ_by_id[oid]
+        k = oid.strip()
+        if re.fullmatch(r"\d+_\d+", k) and "c" + k in occ_by_id:
+            return occ_by_id["c" + k]
+        if k.startswith("text:"):
+            ss = {x["id"] for x in match_text_sentence(k, sents)}
+            cand = [o for o in occs if o["sentence"] in ss]
+        elif re.fullmatch(r"[\[［]?\d+[\]］]?", k):
+            n = int(re.sub(r"\D", "", k))
+            cand = [o for o in occs if o["kind"] == "num" and n in (o.get("nums") or [])]
+        else:
+            cand = [o for o in occs if o.get("raw", "").strip() == k or k in (o.get("keys") or [])]
+        if len(cand) == 1:
+            changes.append({"kind": "edit_key_resolved", "given": oid, "occurrence": cand[0]["id"]})
+            return cand[0]
+        if cand:
+            problems.append({"file": "edits", "index": 0, "problem": f"occurrence key '{oid}' is ambiguous ({', '.join(o['id'] for o in cand[:6])}); use the occurrence id from brief.md"})
+        return None
+
     for oid, e in (edits.get("occurrences") or {}).items():
-        o = occ_by_id.get(oid)
         if oid.startswith("ins_"):
             verdicts[oid] = e
             continue
+        o = resolve_occ(oid)
         if not o:
-            problems.append({"file": "edits", "index": 0, "problem": f"unknown occurrence {oid}"})
+            if not any(p["problem"].startswith(f"occurrence key '{oid}'") for p in problems):
+                problems.append({"file": "edits", "index": 0, "problem": f"unknown occurrence {oid} (ids look like c4_2; see brief.md)"})
             continue
+        oid = o["id"]
         if e.get("verdicts") or e.get("verdict"):
             verdicts[oid] = e
         act = e.get("action", "keep")
         if act == "remove":
             changes.append({"kind": "citation_removed", "occurrence": oid, "old": o["raw"], "reason": e.get("note", "")})
+            o["removed_cids"] = list(o["cids"])
             o["cids"] = []
             o["removed"] = True
         elif act == "replace":
@@ -493,10 +678,10 @@ def cmd_run(a):
     insert_at = {}
     for sid, cids, why, vd in adds:
         if isinstance(sid, str) and sid.startswith("text:"):  # address a sentence by its words (stable across formats)
-            needle = re.sub(r"\s+", "", sid[5:])
-            hit = [x for x in sents if needle and needle in re.sub(r"\s+", "", x["plain"])]
+            hit = match_text_sentence(sid, sents)
             if len(hit) != 1:
-                problems.append({"file": "edits", "index": 0, "problem": f"sentence '{sid[5:]}' matched {len(hit)} sentences"})
+                problems.append({"file": "edits", "index": 0, "problem": f"sentence '{sid[5:]}' matched {len(hit)} sentences"
+                                 + (": " + ", ".join(x["id"] for x in hit[:6]) + " - use a longer fragment or the sentence id" if hit else " - copy a fragment from brief.md")})
                 continue
             sid = hit[0]["id"]
         s = sent_by_id.get(sid)
@@ -641,12 +826,19 @@ def cmd_run(a):
             changes.append({"kind": "entry_removed_uncited", "record": c["id"], "members": c["merged_from"]})
     # claims without citations
     cited_sents = {o["sentence"] for o in occ_out if o["records"]}
+    # never suggest a source that does not resolve / looks fabricated, nor the one the agent just removed from that sentence
+    bad_src = {k for k, v in verification.items() if v["status"] in ("not_found", "doi_not_found", "mismatch")}
+    removed_here = {}
+    for o in occs:
+        if o.get("removed"):
+            removed_here.setdefault(o["sentence"], set()).update(o.get("removed_cids") or [])
     for s in sents:
         if s["role"] in ("body", "appendix") and s["id"] not in cited_sents:
             cue = V.claim_cue(s["plain"])
             if cue:
                 item = {"type": "claim_without_citation", "sentence": s["id"], "cue": cue, "text": s["plain"][:200]}
-                cand = sorted(((V.support(s["plain"], c)[0], c) for c in canon if not c.get("placeholder")), key=lambda x: -x[0])[:3]
+                cand = sorted(((V.support(s["plain"], c)[0], c) for c in canon if not c.get("placeholder") and c["id"] not in bad_src
+                               and c["id"] not in removed_here.get(s["id"], set())), key=lambda x: -x[0])[:3]
                 cand = [(sc, c) for sc, c in cand if sc >= 0.25]
                 if cand:  # library records that fit the sentence (cited elsewhere or not cited yet)
                     item["suggest"] = [{"record": c["id"], "score": sc, "title": c.get("title"), "year": c.get("year"),
@@ -743,22 +935,48 @@ def cmd_run(a):
     agent_judged = {o["id"] for o in occ_out if o["id"] in verdicts or o.get("edit_verdict")}
     unjudged = [o["id"] for o in occ_out if o["records"] and o["id"] not in agent_judged and o["heuristic_verdict"] in ("needs_check", "unverifiable")]
     heur = [o["id"] for o in occ_out if o["records"] and o["id"] not in agent_judged and o["id"] not in unjudged]
-    status = "complete"
-    reasons = []
+    # Status tiers. HARD (-> partial): the deliverable itself is wrong or unfinished - numbering/list check failed, a marker
+    # points to no entry, a still-cited source does not resolve / is fabricated, an unresolved dedup conflict, a citation
+    # whose source is missing or fabricated, or a claim for which the supplied library has a fitting record that nobody
+    # has decided on yet. ADVISORY (status stays success, item stays in needs_review with severity=advisory): heuristic
+    # 'needs_check' verdicts, sources without a registry record (books, Chinese journals, proceedings), offline runs,
+    # citations the agent removed on purpose, and claims the inputs contain no source for (author's job).
+    status = "success"
+    reasons, advisory = [], []
     if needs:
-        status, _ = "partial", reasons.append(f"{len(needs)} blocking item(s) need human confirmation")
+        status, _ = "partial", reasons.append(f"{len(needs)} blocking item(s) need human confirmation: " + ", ".join(sorted({r['type'] for r in needs})))
     if chk and not chk["ok"]:
         status, _ = "partial", reasons.append("post-write consistency check failed: " + "; ".join(chk["errors"][:3]))
     removed = [c for c in changes if c["kind"] == "citation_removed"]
     if removed:
-        status, _ = "partial", reasons.append(f"{len(removed)} citation(s) removed by edit; the sentence(s) need a real source or rewording (human)")
-    if unjudged:
-        status, _ = "partial", reasons.append(f"{len(unjudged)} citation occurrence(s) whose claim-source match could not be established automatically (verdict needs_check/unverifiable): judge them in edits.occurrences")
+        advisory.append(f"{len(removed)} citation(s) removed by edit; the sentence(s) are flagged for the author to source or reword")
+    miscite = []  # possible mis-citations stay advisory (listed in needs_review / brief), they do not lower the status
+    hard_unjudged = [i for i in unjudged if next(o for o in occ_out if o["id"] == i)["heuristic_verdict"] == "unverifiable"]
+    soft_unjudged = [i for i in unjudged if i not in hard_unjudged]
+    if hard_unjudged:
+        status, _ = "partial", reasons.append(f"{len(hard_unjudged)} citation(s) point to a missing or unresolvable source: {', '.join(hard_unjudged[:8])}")
+    if soft_unjudged:
+        advisory.append(f"{len(soft_unjudged)} citation(s) with no term overlap between sentence and cited work (heuristic needs_check, not judged by the agent): {', '.join(soft_unjudged[:8])}")
     open_claims = [r for r in review if r["type"] == "claim_without_citation"]
-    if open_claims:
-        status, _ = "partial", reasons.append(f"{len(open_claims)} claim sentence(s) without a citation" +
-                                              (f" ({sum(1 for r in open_claims if r.get('suggest'))} with a suggested library record)" if any(r.get("suggest") for r in open_claims) else "") +
-                                              ": add a citation via edits.add_citations or leave them for the author")
+    rej = {}
+    for x in edits.get("_rejected") or []:
+        for hs in (match_text_sentence(x["sentence"], sents) if x["sentence"].startswith("text:") else [sent_by_id.get(x["sentence"])]):
+            if hs:
+                rej[hs["id"]] = x["note"]
+    for r in open_claims:
+        if r["sentence"] in rej:
+            r["decided"] = "agent rejected the suggested record(s): " + (rej[r["sentence"]] or "no reason given") + "; left for the author"
+    open_sug = [r for r in open_claims if r.get("suggest") and not r.get("decided")]
+    if open_sug:
+        status, _ = "partial", reasons.append(f"{len(open_sug)} claim sentence(s) without a citation although the library has a fitting record: decide via edits.add_citations")
+    if len(open_claims) > len(open_sug):
+        advisory.append(f"{len(open_claims) - len(open_sug)} claim sentence(s) without a citation and no fitting record in the inputs: left for the author (not invented)")
+    hard_types = {"orphan_citation", "source_not_found", "source_doi_not_found", "source_mismatch", "dedup_conflict"}
+    for r in review:
+        r.setdefault("severity", "resolved" if r.get("resolved") else ("blocking" if r["type"] in hard_types or (r["type"] == "claim_without_citation" and r.get("suggest") and not r.get("decided"))
+                                                                       or (r["type"] == "possible_miscitation" and r.get("occurrence") in miscite) else "advisory"))
+    blocking = list(reasons)
+    reasons += advisory
     if heur:
         reasons.append(f"{len(heur)} citation verdict(s) are heuristic (term overlap with title/abstract" + (" or the cited PDF" if pdf_idx else "") + "), not read by a person")
     if not a.online:
@@ -774,7 +992,7 @@ def cmd_run(a):
     res_path = os.path.join(out, "result.json")
     prev = jload(res_path) if os.path.exists(res_path) else {}
     res = {k: v for k, v in prev.items() if k not in ("status", "status_reason")}
-    res.update({"case_id": prev.get("case_id") or a.case_id, "tool": f"cite-sync {VERSION}", "status": status, "status_reason": reasons,
+    res.update({"case_id": prev.get("case_id") or a.case_id, "tool": f"cite-sync {VERSION}", "status": status, "status_reason": reasons, "warnings": advisory,
                 "style": style, "marker_style": mstyle if numeric else "author-year",
                 "artifacts": {k: v for k, v in {"revised_manuscript": revised, "references": ref_txt, "bibtex": os.path.join(out, "references.bib"),
                                                 "ris": os.path.join(out, "references.ris"), "csl_json": os.path.join(out, "references.csl.json"),
@@ -789,6 +1007,22 @@ def cmd_run(a):
                 "uncertainty": "Each citation verdict is either the agent's (verdict_source=agent) or a heuristic from term overlap between the sentence and the cited work's title/abstract"
                                + (" and the matched passage of its PDF" if pdf_idx else "") + " (verdict_source=heuristic; not a reading of the source). "
                                + ("Online metadata from Crossref/arXiv may itself be incomplete (e.g. shortened author lists)." if a.online else "No online verification in this run.")})
+    res["status_detail"] = {"blocking": blocking, "advisory": advisory,
+                            "rule": "partial only for blocking items (deliverable wrong/unfinished); advisory items are listed in needs_review with severity=advisory and do not lower the status"}
+    res["renumber_map"] = renumber
+    vc = count([o["verdict"] or "none" for o in cmap])
+    res["actions_coverage"] = {
+        "1_citation_placement": {"inserted": sum(1 for o in occ_out if o.get("inserted")), "moved_from_paragraph_end": summary["auto_moves"],
+                                 "placement_suggestions": summary["placement_suggestions"], "claims_without_citation": len(open_claims),
+                                 "claims_with_library_candidate": len(open_sug)},
+        "2_renumbering": {"markers": len(occ_out), "references_out": len(final), "renumbered_labels": sum(1 for k, v in renumber.items() if str(v) != k),
+                          "consistency_ok": (chk or {}).get("ok") if chk else None, "order_rule": "first appearance" if numeric else "author-year"},
+        "3_dedup": {"records_in": len(records), "records_after": summary["records_after_dedup"], "merged_clusters": summary["merged_clusters"],
+                    "rules_used": count([e["rule"] for e in mlog if e["merged"]]), "kept_apart": count([e["rule"] for e in mlog if not e["merged"]])},
+        "4_format": {"style": style, "entries": len(entries), "exports": ["bibtex", "ris", "csl_json"], "records_missing_target_fields": sum(1 for m in missing_fields.values() if m)},
+        "5_source_verification": summary["verification_status_counts"],
+        "6_claim_source_match": {"verdicts": vc, "by_agent": sum(1 for o in cmap if o["verdict_source"] == "agent"),
+                                 "with_pdf_evidence": sum(1 for o in cmap if o.get("evidence"))}}
     for c in final:
         byid[c["id"]]["number"] = c.get("number")
     fill_contract(res, prev, {"cmap": cmap, "verification": verification, "mlog": mlog, "canon": canon, "byid": byid, "renumber": renumber})
@@ -951,14 +1185,24 @@ MS_HINT = re.compile(r"manuscript|draft|paper|article|稿|正文|论文|文稿|�
 
 
 def pick_inputs(inv, case):
-    """Choose manuscript / libraries / PDFs from the inventory. Explicit case.json names win."""
+    """Choose manuscript / libraries / PDFs from the inventory. Explicit case.json primary roles & paths win."""
     named = json.dumps(case, ensure_ascii=False) if isinstance(case, dict) else ""
     ms = inv["manuscripts"][:]
     pdfs = inv["pdfs"][:]
+    primary_vals = []
+    if isinstance(case, dict):
+        for k in ("primary_source", "manuscript", "draft", "paper", "document", "稿件", "主稿", "正文"):
+            v = case.get(k)
+            if isinstance(v, str) and v.strip():
+                primary_vals.append(v.strip().replace("\\", "/"))
 
     def score(p):
+        p_norm = p.replace("\\", "/")
         b = os.path.basename(p)
-        return (b in named) * 4 + bool(MS_HINT.search(b)) * 2 + (os.path.splitext(b)[1].lower() in (".docx", ".md"))
+        exact_primary = any(p_norm.endswith("/" + pv) or p_norm == pv for pv in primary_vals)
+        base_primary = any(os.path.basename(pv) == b for pv in primary_vals)
+        return (exact_primary * 16 + base_primary * 8 + (b in named) * 4
+                + bool(MS_HINT.search(b)) * 2 + (os.path.splitext(b)[1].lower() in (".docx", ".md")))
     manuscript = max(ms, key=score) if ms else None
     if not manuscript:  # manuscript given only as PDF / .doc
         cand = [p for p in pdfs + inv["other_files"] if os.path.splitext(p)[1].lower() in (".pdf", ".doc", ".odt", ".rtf")
@@ -998,10 +1242,27 @@ def brief_md(res, cmap, review, moves, byid, num_of, numeric, a):
     """Short to-do list for the agent (fits one read): what to decide, with ready-to-paste edits."""
     keys = ("records_in", "records_after_dedup", "merged_clusters", "occurrences_out", "references_out", "orphans", "uncited_removed", "auto_moves", "verified")
     L = [f"# cite-sync brief - case {res.get('case_id')} - status {res['status']}", "",
+         "Selected manuscript: " + str((res.get("artifacts") or {}).get("manuscript") or "none"),
          "Done by the scripts: " + json.dumps({k: res["summary"].get(k) for k in keys}, ensure_ascii=False),
          "Consistency check: " + (str(res["consistency_check"]["ok"]) if res.get("consistency_check") else "n/a"),
-         "Status reasons: " + ("; ".join(res["status_reason"]) or "-"), "",
-         "Write decisions to /app/work/edits.json (shape: /app/work/edits_template.json) and re-run the same command with --edits /app/work/edits.json.", ""]
+         "Status reasons: " + ("; ".join(res["status_reason"]) or "-"), ""]
+    if (res.get("artifacts") or {}).get("manuscript", "").lower().endswith((".docx", ".doc")) and not (res.get("artifacts") or {}).get("previews"):
+        L += ["Preview: none (soffice/LibreOffice not available in this environment)", ""]
+    if res.get("contract_unfilled"):
+        L += ["## 0 Contract fields still unfilled (fill in /app/output/result.json)",
+              "- " + ", ".join(res["contract_unfilled"]), ""]
+    draft = edits_draft(res, cmap, review)
+    dump(os.path.join(a.work, "edits_draft.json"), draft)
+    if not (draft["occurrences"] or draft["add_citations"]) and not res.get("contract_unfilled"):
+        L += ["## 0 Nothing to decide", "No blocking item and no open judgement: the result in /app/output is final. Optionally read the PDF evidence / sources and"
+              " change heuristic verdicts; otherwise stop here.", ""]
+    elif draft["occurrences"] or draft["add_citations"]:
+        L += ["## 0 Fastest path (copy, fill, re-run - one round is enough)",
+              "1. `cp /app/work/edits_draft.json /app/work/edits.json` (the draft below, already holding every item to decide).",
+              "2. Replace each `<...>` placeholder: occurrences -> `supported` / `partial` / `mismatch` / `unverifiable` + a one-line `note`;"
+              " add_citations -> `supported` to insert the citation or `reject` to leave the sentence for the author. Delete nothing else; unknown or unfilled entries are skipped, not fatal.",
+              "3. Re-run the same `auto` command with `--edits /app/work/edits.json`. Keys may also be the old marker (`\"3\"`) or `\"text:<sentence fragment>\"`; refs may be `\"M3\"`, `\"L2-1\"`, `\"3\"` or a BibTeX key.",
+              "```json", json.dumps(draft, ensure_ascii=False, indent=1)[:3500], "```", ""]
     block = [r for r in review if not r.get("resolved") and r["type"] in ("orphan_citation", "source_not_found", "source_doi_not_found", "source_mismatch",
                                                                          "dedup_conflict", "merge_uncertain", "metadata_conflict", "manuscript_converted", "possible_miscitation")]
     if block:
@@ -1039,16 +1300,53 @@ def brief_md(res, cmap, review, moves, byid, num_of, numeric, a):
     return "\n".join(L) + "\n"
 
 
+def edits_draft(res, cmap, review):
+    """Pre-filled edits.json: exactly the items brief.md asks to decide, with placeholders the loader ignores until filled."""
+    occ = {}
+    for o in cmap:
+        if o["verdict_source"] == "heuristic" and (o["verdict"] in ("needs_check", "unverifiable") or o.get("better_source")):
+            occ[o["id"]] = {"verdict": "<supported|partial|mismatch|unverifiable>", "note": "<why, from the source>",
+                            "_sentence": (o.get("sentence_text") or "")[:90], "_refs": o["records"]}
+            if o.get("better_source"):
+                occ[o["id"]]["_hint"] = f"supplied PDF of {o['better_source']['record']} fits better: use action replace + refs [{o['better_source']['record']}] if confirmed"
+    adds = []
+    for r in review:
+        if r["type"] == "claim_without_citation" and r.get("edit"):
+            adds.append(dict(r["edit"], verdict="<supported|reject>", note="<why this source supports the sentence>",
+                             _candidates=[f"{x['record']}: {(x.get('title') or '')[:50]} ({x['score']})" for x in r.get("suggest", [])]))
+    return {"_help": "fill the <...> placeholders, keep or delete entries; keys starting with _ are ignored", "occurrences": occ, "add_citations": adds}
+
+
 def review_md(res, cmap, ver, byid, numeric, moves):
-    L = [f"# cite-sync review - case {res.get('case_id')}", "", f"status: **{res['status']}**  ", "reasons: " + ("; ".join(res["status_reason"]) or "-"), "",
-         "## Summary", "```", json.dumps(res["summary"], ensure_ascii=False, indent=1), "```", ""]
+    sd = res.get("status_detail") or {}
+    L = [f"# cite-sync review - case {res.get('case_id')}", "", f"status: **{res['status']}**  ",
+         "blocking: " + ("; ".join(sd.get("blocking") or []) or "none") + "  ", "advisory (does not lower the status): " + ("; ".join(sd.get("advisory") or []) or "none"), ""]
+    ac = res.get("actions_coverage") or {}
+    if ac:
+        L += ["## The six actions at a glance", "", "| action | result |", "|-|-|"]
+        names = {"1_citation_placement": "插入/定位 placement", "2_renumbering": "编号同步 renumbering", "3_dedup": "去重 dedup", "4_format": "格式 format",
+                 "5_source_verification": "来源核验 verification", "6_claim_source_match": "论断-文献对应 claim match"}
+        for k, v in ac.items():
+            L.append(f"| {names.get(k, k)} | {json.dumps(v, ensure_ascii=False)[:300]} |")
+        L.append("")
+    rn = res.get("renumber_map") or {}
+    ren = [c for c in res["changes"] if c["kind"] in ("merge",)]
+    L += ["## Summary", "```", json.dumps(res["summary"], ensure_ascii=False, indent=1), "```", ""]
+    if ren or any(c["kind"] == "merge" for c in res["changes"]):
+        L += ["## Dedup decisions (why records were merged)", "", "| kept | merged records | rules | needs review |", "|-|-|-|-|"]
+        for c in ren:
+            L.append(f"| {c['kept']} | {', '.join(c['members'])} | {', '.join(c['rules'])} | {'yes' if c.get('needs_review') else 'no'} |")
+        L += ["", "Rules: D1 same DOI · D2 same arXiv id · D3 title is the other's translation · D4 same normalised title + first author, year gap <=2 (preprint vs published) · "
+              "D5 near-identical title + author overlap (confirm). Kept apart: G1 same DOI/different title · G2 same title/two DOIs · G3 same authors+year/different title · G4 reprint (>2 y). Full pair log: merge_log.json.", ""]
+    if rn:
+        L += ["## Old number -> new number", "", " · ".join(f"[{k}]->{'[' + str(v) + ']' if v else 'removed'}" for k, v in rn.items()), ""]
     if res.get("consistency_check"):
         c = res["consistency_check"]
         L += ["## Numbering / list consistency (re-parsed from the written file)", f"ok = {c['ok']}; markers use 1..{c['max_number']}; list entries {c['list_entries']}",
               *[f"- error: {e}" for e in c["errors"]], *[f"- warning: {e}" for e in c["warnings"]], ""]
     L += ["## Items that need a human decision", ""]
     for r in res["needs_review"]:
-        L.append(f"- **{r['type']}** " + " ".join(f"{k}={v}" for k, v in r.items() if k not in ("type", "details")))
+        L.append(f"- [{r.get('severity', '-')}] **{r['type']}** " + " ".join(f"{k}={v}" for k, v in r.items() if k not in ("type", "details", "severity")))
     L += ["", "## Changes", ""]
     for c in res["changes"]:
         L.append("- " + json.dumps(c, ensure_ascii=False))
@@ -1229,7 +1527,7 @@ def main():
     r.add_argument("--range-sep", default="-")
     r.add_argument("--upper", action="store_true", help="GB/T: upper-case Western family names")
     r.add_argument("--online", action="store_true")
-    r.add_argument("--net-budget", type=int, default=150)
+    r.add_argument("--net-budget", type=int, default=20)
     r.add_argument("--no-apply-corrections", dest="apply_corrections", action="store_false")
     r.add_argument("--no-auto-move", dest="auto_move", action="store_false")
     r.add_argument("--no-preview", action="store_true")
@@ -1248,7 +1546,7 @@ def main():
     au.add_argument("--library", action="append")
     au.add_argument("--pdf", action="append")
     au.add_argument("--offline", action="store_true")
-    au.add_argument("--net-budget", type=int, default=120)
+    au.add_argument("--net-budget", type=int, default=20)
     c = sp.add_parser("check")
     c.add_argument("--manuscript", required=True)
     c.add_argument("--style", default="gbt7714")
