@@ -10,7 +10,6 @@ Exit code 0 even when problems are found (they are reported); 2 for unusable inp
 """
 import argparse
 import difflib
-import glob
 import json
 import os
 import re
@@ -18,6 +17,7 @@ import shutil
 import subprocess
 import sys
 import time
+import tempfile
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from cite_common import (dump, has_cjk, load as jload, norm_doi, read_text, sha256, short, sim, surname, title_key,  # noqa: E402
@@ -38,7 +38,7 @@ def log(msg):
 
 
 # ---------------------------------------------------------------- init
-def cmd_init(a):
+def cmd_init(a, save=True):
     t0 = time.time()
     out, work = a.out, a.work
     os.makedirs(out, exist_ok=True)
@@ -49,43 +49,60 @@ def cmd_init(a):
     else:
         try:
             case = jload(a.case)
+            if not isinstance(case, dict):
+                case, case_err = {}, "case.json must contain an object"
         except Exception as e:
             case_err = f"case.json unreadable: {e!r}"
     base = os.path.dirname(os.path.abspath(a.case))
     files = []
-    for root in {base, os.path.join(base, "input"), "/input"}:
-        if os.path.isdir(root):
-            for p in glob.glob(os.path.join(root, "**", "*"), recursive=True):
-                if os.path.isfile(p) and os.path.abspath(p) not in files:
-                    files.append(os.path.abspath(p))
+    excluded = {os.path.abspath(path) for path in (out, work)}
+    for root, dirs, names in os.walk(base):
+        dirs[:] = sorted(name for name in dirs if not name.startswith(".") and os.path.join(root, name) not in excluded)
+        files.extend(os.path.join(root, name) for name in sorted(names) if not name.startswith("."))
     named = []
+    preferred = {"manuscript": [], "library": []}
 
-    def walk(v):
-        if isinstance(v, str):
-            for cand in (v, os.path.join(base, v)):
-                if os.path.isfile(cand):
-                    named.append(os.path.abspath(cand))
-        elif isinstance(v, dict):
-            for x in v.values():
-                walk(x)
-        elif isinstance(v, list):
-            for x in v:
-                walk(x)
+    def walk(value, role=None):
+        if isinstance(value, str):
+            for candidate in (os.path.join(base, value), os.path.join(base, "input", value)):
+                if os.path.isfile(candidate):
+                    path = os.path.abspath(candidate)
+                    named.append(path)
+                    if role:
+                        preferred[role].append(path)
+                    break
+        elif isinstance(value, dict):
+            for key, item in value.items():
+                if key == "output_contract":
+                    continue
+                child = role
+                if re.search(r"manuscript|draft|^paper$|main_paper|稿", key, re.I):
+                    child = "manuscript"
+                elif re.search(r"librar|bibliograph|references|文献库", key, re.I):
+                    child = "library"
+                walk(item, child)
+        elif isinstance(value, list):
+            for item in value:
+                walk(item, role)
+
     walk(case)
     task = next((p for p in files if os.path.basename(p).lower() in ("task.md", "task.txt")), None)
     ms, libs, pdfs, other = [], [], [], []
     for p in sorted(set(files + named)):
         b = os.path.basename(p).lower()
         ext = os.path.splitext(b)[1]
-        if p == task or b in ("case.json",):
+        if p == task or p == os.path.abspath(a.case) or p in preferred["library"] or p in preferred["manuscript"]:
             continue
         if ext == ".pdf":
             pdfs.append(p)
             continue
-        txt = read_text(p)[:20000] if ext in LIB_EXT + MS_EXT else ""
+        txt = ""
+        if ext in (".json", ".txt"):
+            with open(p, "rb") as stream:
+                txt = stream.read(20000).decode("utf-8-sig", "replace")
         looks_lib = ext in (".bib", ".bibtex", ".ris", ".enw", ".endnote", ".net", ".csl") or bool(
             re.search(r"^\s*@\w+\s*\{|^TY  - |^%0 |^\{Reference Type\}", txt, re.M)) or (ext == ".json" and re.search(r'"(title|DOI|author)"', txt))
-        looks_ms = ext in (".md", ".markdown", ".docx", ".tex") or (ext == ".txt" and len(re.findall(r"[\[［]\d+[\]］]", txt)) >= 3 and len(txt) > 1500)
+        looks_ms = ext in (".md", ".markdown", ".docx", ".tex") or (ext == ".txt" and len(re.findall(r"[\[［]\d+[\]］]", txt)) >= 3 and len(txt) > 40)
         if looks_lib:
             libs.append(p)
         elif looks_ms:
@@ -93,20 +110,27 @@ def cmd_init(a):
         else:
             other.append(p)
     hint = {k: v for k, v in case.items() if isinstance(v, (str, int, float)) and k not in ("case_id",)} if isinstance(case, dict) else {}
-    style = guess_style(json.dumps(case, ensure_ascii=False) + (read_text(task) if task else ""))
+    hint_style = next((case[k] for k in ("target_style", "citation_style", "reference_style", "style") if case.get(k)), None)
+    style = guess_style(str(hint_style) if hint_style else (read_text(task) if task else ""))
+    ms = list(dict.fromkeys(preferred["manuscript"])) or sorted(ms, key=lambda path: (
+        not bool(re.search(r"manuscript|draft|paper|正文|稿", os.path.basename(path), re.I)),
+        bool(re.search(r"readme|notes|说明", os.path.basename(path), re.I)), path))
+    libs = list(dict.fromkeys(preferred["library"] + libs))
     contract = contract_fields(case)
-    inv = {"case_id": case.get("case_id") if isinstance(case, dict) else None, "case_error": case_err, "task_file": task,
-           "manuscripts": ms, "libraries": libs, "pdfs": pdfs, "other_files": other, "contract_fields": contract,
+    inv = {"case_id": case.get("case_id", case.get("id")), "case_error": case_err, "task_file": task,
+           "manuscripts": ms, "libraries": libs, "pdfs": pdfs, "other_files": other, "output_contract": contract,
            "style_guess": style, "case_scalars": hint, "seconds": round(time.time() - t0, 2)}
     dump(os.path.join(work, "inventory.json"), inv)
     res = base_result(inv["case_id"], contract)
-    res["_contract_fields"] = contract
     res["status"] = "failed" if case_err or not (ms or libs) else "partial"
     res["status_reason"] = case_err or ("no manuscript or reference library found in the input" if not (ms or libs) else
                                         "init only: run `cite.py run` next")
     res["inputs"] = {"case": a.case, "task": task, "manuscripts": [fi(p) for p in ms], "libraries": [fi(p) for p in libs], "pdfs": [fi(p) for p in pdfs]}
-    dump(os.path.join(out, "result.json"), res)
-    print(json.dumps(inv, ensure_ascii=False, indent=1))
+    if save:
+        if not os.path.exists(os.path.join(out, "result.json")):
+            save_result(out, res, contract, True)
+        print(json.dumps(inv, ensure_ascii=False, indent=1))
+    return inv, res
 
 
 def fi(p):
@@ -121,12 +145,42 @@ def guess_style(text):
 
 
 def contract_fields(case):
-    oc = case.get("output_contract") if isinstance(case, dict) else None
-    if isinstance(oc, dict):
-        return list(oc.keys())
-    if isinstance(oc, list):
-        return [x if isinstance(x, str) else (x.get("name") or x.get("field")) for x in oc]
-    return []
+    contract = case.get("output_contract")
+    if isinstance(contract, dict):
+        properties = contract.get("properties")
+        fields = dict(properties) if isinstance(properties, dict) else dict(contract)
+        if isinstance(contract.get("required"), list):
+            fields.pop("required", None)
+            for name in contract["required"]:
+                if isinstance(name, str):
+                    fields.setdefault(name, None)
+        return fields
+    if isinstance(contract, list):
+        fields = {}
+        for item in contract:
+            name = item if isinstance(item, str) else (item.get("name") or item.get("field")) if isinstance(item, dict) else None
+            if isinstance(name, str) and name:
+                fields[name] = item if isinstance(item, dict) else None
+        return fields
+    return {}
+
+
+def save_result(out, report, contract, clean):
+    def write_atomic(name, content):
+        with tempfile.NamedTemporaryFile(dir=out, delete=False) as stream:
+            temp = stream.name
+        try:
+            dump(temp, content)
+            os.replace(temp, os.path.join(out, name))
+        finally:
+            if os.path.exists(temp):
+                os.unlink(temp)
+
+    result = report
+    if clean and contract:
+        result = {"case_id": report.get("case_id"), **{key: report.get(key) for key in contract if key != "case_id"}}
+        write_atomic("run_report.json", report)
+    write_atomic("result.json", result)
 
 
 def base_result(case_id, contract):
@@ -148,14 +202,77 @@ def resolve_ay(item, recs):
     return cands
 
 
+def pdf_manuscript(path, work):
+    import pymupdf as fitz
+
+    blocks = []
+    with fitz.open(path) as pdf:
+        if pdf.needs_pass:
+            raise ValueError("PDF is password protected")
+        for page in pdf:
+            for block in page.get_text("blocks", sort=True):
+                if block[6] != 0:
+                    continue
+                text = block[4].strip()
+                if text and not text.isdecimal():
+                    blocks.append(text)
+    if not blocks:
+        raise ValueError("PDF has no extractable text; supply OCR text or an editable manuscript")
+    target = os.path.join(work, os.path.splitext(os.path.basename(path))[0] + ".md")
+    write(target, "\n\n".join(blocks) + "\n")
+    return target
+
+
 def cmd_run(a):
     t0 = time.time()
     os.makedirs(a.out, exist_ok=True)
     os.makedirs(a.work, exist_ok=True)
-    edits = jload(a.edits) if a.edits and os.path.exists(a.edits) else {}
-    style = a.style
+    inv = {}
+    a.case = a.case or ("/input/case.json" if not a.manuscript and not a.library and os.path.isfile("/input/case.json") else None)
+    a.clean = bool(a.case)
+    inventory_path = os.path.join(a.work, "inventory.json")
+    if a.case:
+        inv, _ = cmd_init(a, save=False)
+        a.manuscript = a.manuscript or next(iter(inv["manuscripts"]), None)
+        a.library = a.library or inv["libraries"]
+        a.style = a.style or inv["style_guess"]
+    elif os.path.isfile(inventory_path):
+        inv = jload(inventory_path)
+    if inv.get("case_id") is not None:
+        a.case_id = inv["case_id"]
+    a.contract = inv.get("output_contract") or {}
+    a.previous = {}
+    result_path = os.path.join(a.out, "result.json")
+    if os.path.exists(result_path):
+        try:
+            a.previous = jload(result_path)
+        except (OSError, ValueError):
+            a.previous = None
+        if (not isinstance(a.previous, dict)
+                or a.previous.get("case_id") is not None and a.previous.get("case_id") != a.case_id):
+            log("result.json belongs to another case or is unreadable; choose a different output directory")
+            raise SystemExit(2)
     review, changes, problems = [], [], []
+    edits = {}
+    if a.edits:
+        try:
+            supplied = jload(a.edits)
+            if not isinstance(supplied, dict):
+                raise ValueError("edits must contain an object")
+            edits = supplied
+        except (OSError, ValueError) as exc:
+            review.append({"type": "invalid_edits", "msg": str(exc)})
+    if inv.get("case_error"):
+        review.append({"type": "case_input", "msg": inv["case_error"]})
+    style = a.style or "gbt7714"
     doc = None
+    original_manuscript = a.manuscript
+    if a.clean and a.manuscript and a.manuscript.lower().endswith(".pdf"):
+        try:
+            a.manuscript = pdf_manuscript(a.manuscript, a.work)
+            review.append({"type": "pdf_text_conversion", "msg": "Review the recovered Markdown against the PDF, including layout and figures"})
+        except (ImportError, OSError, RuntimeError, ValueError) as exc:
+            fail(a, f"PDF manuscript could not be extracted: {exc}", [])
     if a.manuscript:
         try:
             doc = cite_doc.load(a.manuscript)
@@ -270,7 +387,9 @@ def cmd_run(a):
     byid = {c["id"]: c for c in canon}
     # ---------------- online / offline verification of records that matter
     cited_ids = {c for o in occs for c in o["cids"]}
-    targets = [c for c in canon if not c.get("placeholder") and (c["id"] in cited_ids or not occs)]
+    targets = [c for c in canon if not c.get("placeholder")
+               and (c["id"] in cited_ids or not occs or a.clean and a.edits)]
+    targets.sort(key=lambda c: c["id"] not in cited_ids)
     net = V.Net(os.path.join(a.work, "net_cache.json"), enabled=a.online, budget_s=a.net_budget)
     verification = {}
     for c in targets:
@@ -288,6 +407,8 @@ def cmd_run(a):
         verification[c["id"]] = {"status": st, "details": det, "corrections": applied, "issues": iss, "record": short(c)}
         if st in ("not_found", "doi_not_found", "mismatch"):
             review.append({"type": "source_" + st, "record": c["id"], "msg": det.get("problem") or ("DOI does not resolve" if st == "doi_not_found" else "no matching record found in Crossref/arXiv: possibly fabricated or mis-cited"), "details": det})
+        if st == "unverified_offline" and a.clean:
+            review.append({"type": "source_unconfirmed", "record": c["id"], "msg": det.get("reason") or "offline verification only"})
         if st == "unverified_no_registry_match":
             review.append({"type": "source_unconfirmed", "record": c["id"], "msg": "no Crossref/arXiv record with matching title+authors+year; common for proceedings without DOI, books, Chinese journals - check by hand", "details": det.get("search_best")})
         for i in iss:
@@ -326,7 +447,8 @@ def cmd_run(a):
     verdicts = {}
     adds = []  # (sentence_id, [cids], reason)
     for mv in moves:
-        if mv["auto"]:
+        override = (edits.get("occurrences") or {}).get(mv["occ"], {})
+        if mv["auto"] and override.get("action", "keep") == "keep" and not override.get("move_to"):
             o = occ_by_id[mv["occ"]]
             if mv["cid"] in o["cids"] and len(o["cids"]) > 1:
                 o["cids"].remove(mv["cid"])
@@ -367,9 +489,19 @@ def cmd_run(a):
             o["cids"] = []
             o["removed"] = True
         elif act == "replace":
-            new = to_cids(e.get("refs", []))
-            changes.append({"kind": "citation_replaced", "occurrence": oid, "old": o["cids"], "new": new, "reason": e.get("note", "")})
+            if a.clean and not (e.get("evidence") or e.get("note")):
+                review.append({"type": "replacement_not_applied", "occurrence": oid, "msg": "provide a source locator for this replacement"})
+                verdicts.pop(oid, None)
+                continue
+            refs = e.get("refs") or []
+            new = to_cids(refs)
+            if not new or len(new) != len(refs):
+                review.append({"type": "replacement_not_applied", "occurrence": oid, "msg": "replacement record could not be resolved"})
+                verdicts.pop(oid, None)
+                continue
+            changes.append({"kind": "citation_replaced", "occurrence": oid, "old": o["cids"], "new": new, "reason": e.get("note", ""), "evidence": e.get("evidence") or e.get("note")})
             o["cids"] = new
+            o["unresolved"] = []
         elif act == "drop_refs":
             dr = set(to_cids(e.get("refs", [])))
             changes.append({"kind": "citation_refs_dropped", "occurrence": oid, "dropped": sorted(dr), "reason": e.get("note", "")})
@@ -380,9 +512,12 @@ def cmd_run(a):
             adds.append((e["move_to"], mv_c, e.get("note", "agent move"), e.get("verdict")))
             changes.append({"kind": "citation_moved", "occurrence": oid, "records": mv_c, "from_sentence": o["sentence"], "to_sentence": e["move_to"], "reason": e.get("note", ""), "source": "edit"})
     for ad in edits.get("add_citations") or []:
+        if a.clean and not (ad.get("evidence") or ad.get("note")):
+            review.append({"type": "insertion_not_applied", "sentence": ad.get("sentence"), "msg": "provide a source locator for this insertion"})
+            continue
         c = to_cids(ad.get("refs", []))
-        adds.append((ad["sentence"], c, ad.get("note", "agent addition"), ad.get("verdict")))
-        changes.append({"kind": "citation_added", "sentence": ad["sentence"], "records": c, "reason": ad.get("note", ""), "source": "edit"})
+        if c and ad.get("sentence"):
+            adds.append((ad["sentence"], c, ad.get("evidence") or ad.get("note", "agent addition"), ad.get("verdict")))
     # ---------------- build ordered occurrence list (originals + insertions) and number by first appearance
     numeric = style != "apa7" and not (doc and doc["kind"] == "tex")
     style_counts = {}
@@ -415,6 +550,8 @@ def cmd_run(a):
             cids = [c for c in cids if c not in already]
             if not cids:
                 continue
+        if cids:
+            changes.append({"kind": "citation_added", "sentence": sid, "records": cids, "evidence": why})
         # merge into an existing marker that already sits at the end of that sentence
         tgt = next((o for o in occs if o["sentence"] == sid and o["end"] >= cite_doc.insertion_point(u["text"], s["start"], s["end"]) - 1
                     and not o.get("narrative")), None)
@@ -585,7 +722,7 @@ def cmd_run(a):
     for o in occ_out:
         s = sent_by_id.get(o["sentence"], {})
         v = verdicts.get(o["id"]) or ({"verdict": o["edit_verdict"]} if o.get("edit_verdict") else {})
-        cmap.append(dict(o, sentence_text=s.get("plain"), verdict=v.get("verdict"), verdict_note=v.get("note"),
+        cmap.append(dict(o, sentence_text=s.get("plain"), verdict=v.get("verdict"), verdict_note=v.get("note"), evidence=v.get("evidence"),
                          references=[{"record": c, "number": num_of.get(c) if numeric else None, "text": short(byid[c]), "doi": byid[c].get("doi")} for c in o["records"]]))
     dump(os.path.join(out, "citation_map.json"), cmap)
     dump(os.path.join(out, "renumber_map.json"), {"old_label_to_new_number": renumber, "order_rule": "first appearance in body text incl. captions/appendix (GB/T 7714-2015 顺序编码制)" if numeric else "author-year (no numbers)"})
@@ -609,6 +746,12 @@ def cmd_run(a):
     for r in review:  # a bad source that is no longer cited does not block the result
         if r.get("record") and r["type"].startswith("source_") and r["record"] not in num_of:
             r["resolved"] = "record no longer cited after edits"
+    final_by_id = {row["id"]: row for row in cmap}
+    for item in review:
+        if item["type"] == "orphan_citation" and all(
+                item["marker"] not in {str(value) for value in final_by_id.get(oid, {}).get("unresolved", [])}
+                for oid in item["occurrences"]):
+            item["resolved"] = "original marker replaced or removed"
     needs = [r for r in review if not r.get("resolved") and r["type"] in ("orphan_citation", "source_not_found", "source_doi_not_found", "source_mismatch", "dedup_conflict")]
     unjudged = [o["id"] for o in occ_out if o["records"] and o["id"] not in verdicts and not o.get("edit_verdict")]
     status = "complete"
@@ -622,6 +765,17 @@ def cmd_run(a):
         status, _ = "partial", reasons.append(f"{len(removed)} citation(s) removed by edit; the sentence(s) need a real source or rewording (human)")
     if unjudged:
         status, _ = "partial", reasons.append(f"{len(unjudged)} citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict)")
+    if a.clean:
+        for occurrence in cmap:
+            if occurrence["verdict"] in ("partial", "mismatch", "unverifiable") or not occurrence["verdict"]:
+                review.append({"type": "claim_source_review", "occurrence": occurrence["id"], "sentence": occurrence["sentence"],
+                               "msg": occurrence["verdict"] or "claim-source match needs confirmation"})
+        open_types = {"claim_source_review", "claim_without_citation", "source_unconfirmed", "case_input", "invalid_edits", "replacement_not_applied", "insertion_not_applied", "pdf_text_conversion"}
+        if doc and doc["kind"] == "docx" and not a.no_preview and not previews:
+            review.append({"type": "preview_missing", "msg": "DOCX preview renderer did not produce a PDF"})
+            open_types.add("preview_missing")
+        if problems or any(item["type"] in open_types and not item.get("resolved") for item in review):
+            status, _ = "partial", reasons.append("see review.md for unresolved source, input or editing items")
     if not a.online:
         reasons.append("sources not checked online (offline run)")
     if warn:
@@ -633,9 +787,8 @@ def cmd_run(a):
                "verification_status_counts": count([v["status"] for v in verification.values()]), "review_items": len(review),
                "review_by_type": count([r["type"] for r in review]), "parse_problems": len(problems), "seconds": round(time.time() - t0, 2)}
     res_path = os.path.join(out, "result.json")
-    prev = jload(res_path) if os.path.exists(res_path) else {}
-    res = {k: v for k, v in prev.items() if k not in ("status", "status_reason")}
-    res.update({"case_id": prev.get("case_id") or a.case_id, "tool": f"cite-sync {VERSION}", "status": status, "status_reason": reasons,
+    res = base_result(a.case_id, a.contract)
+    res.update({"case_id": a.case_id, "tool": f"cite-sync {VERSION}", "status": status, "status_reason": reasons,
                 "style": style, "marker_style": mstyle if numeric else "author-year",
                 "artifacts": {k: v for k, v in {"revised_manuscript": revised, "references": ref_txt, "bibtex": os.path.join(out, "references.bib"),
                                                 "ris": os.path.join(out, "references.ris"), "csl_json": os.path.join(out, "references.csl.json"),
@@ -645,12 +798,19 @@ def cmd_run(a):
                                                 "previews": previews or None}.items() if v},
                 "summary": summary, "consistency_check": chk, "references_list": [(f"[{i}] " if numeric else "") + e for i, e in enumerate(entries, 1)],
                 "changes": changes, "needs_review": review, "parse_problems": problems,
-                "inputs": prev.get("inputs") or {"manuscript": fi(a.manuscript) if a.manuscript else None, "libraries": [fi(p) for p in a.library or [] if os.path.exists(p)]},
+                "inputs": {"case": a.case, "evidence_pdfs": inv.get("pdfs", []), "manuscript": fi(original_manuscript) if original_manuscript else None, "libraries": [fi(p) for p in a.library or [] if os.path.exists(p)]},
                 "edits_applied": a.edits if edits else None,
                 "uncertainty": "Claim-source verdicts come from the agent reading sentence + reference metadata (and PDFs when given); lexical support scores are hints only. "
                                + ("Online metadata from Crossref/arXiv may itself be incomplete (e.g. shortened author lists)." if a.online else "No online verification in this run.")})
-    fill_contract(res, prev)
-    dump(res_path, res)
+    res["unmapped_contract_fields"] = fill_contract(res, a.contract, a.work, {
+        "citation_map": cmap, "verification": verification, "renumber_map": renumber, "library_dedup": lib_out, "merge_log": mlog,
+    })
+    if a.clean and res["unmapped_contract_fields"]:
+        res["status"] = status = "partial"
+        reasons.append("some contract fields need confirmation or a case-specific override")
+    save_result(out, res, a.contract, a.clean)
+    if a.clean:
+        write(os.path.join(a.work, "priority_review.md"), priority_review(review, cmap, canon, inv.get("pdfs", [])))
     write(os.path.join(out, "review.md"), review_md(res, cmap, verification, byid, numeric, moves))
     dump(os.path.join(a.work, "edits_template.json"), edits_template(occ_out, sent_by_id, byid, num_of, numeric, edits))
     write(os.path.join(a.work, "claim_matrix.md"), claim_matrix(occ_out, sent_by_id, byid, num_of, numeric, review))
@@ -677,31 +837,91 @@ def detect_prefix(doc):
     return "[{n}] "
 
 
-def fill_contract(res, prev):
-    """Map common output_contract names onto the produced values (unknown names stay as they were)."""
-    art = res["artifacts"]
-    fields = prev.get("_contract_fields") or []
-    for f in fields:
-        if f in ("case_id", "status", "tool", "summary", "artifacts") or res.get(f) not in (None, ""):
+def fill_contract(res, fields, work, structured):
+    artifact = res["artifacts"]
+    overrides = os.path.join(work, "contract_overrides.json")
+    try:
+        custom = jload(overrides) if os.path.isfile(overrides) else {}
+    except (ValueError, OSError):
+        custom = {}
+    aliases = (
+        (r"preview|pdf|png|预览", "previews"), (r"renumber|重编号", "renumber_map"),
+        (r"dedup|去重", "library_dedup"), (r"merge|合并", "merge_log"),
+        (r"verif|核验", "verification"), (r"citation|claim|evidence|source_map|引文|论断|证据|引用", "citation_map"),
+        (r"diff", "diff"), (r"bibtex|references_bib", "bibtex"),
+        (r"^ris$|references_ris", "ris"), (r"csl", "csl_json"),
+        (r"manuscript|draft|revised|paper|稿", "revised_manuscript"),
+        (r"bibliograph|references?|文献|ref_list", "references"),
+    )
+    missing = []
+    for field, spec in fields.items():
+        if field in ("case_id", "status"):
             continue
-        k = f.lower()
-        val = None
-        if re.search(r"manuscript|draft|revised|paper|稿", k):
-            val = art.get("revised_manuscript")
-        elif re.search(r"bib|reference|文献|ref_list", k):
-            val = res["references_list"]
-        elif re.search(r"map|citation|引用|claim", k):
-            val = art.get("citation_map")
-        elif re.search(r"dedup|merge|去重|合并", k):
-            val = art.get("merge_log")
-        elif re.search(r"verif|check|核验|source", k):
-            val = art.get("verification")
-        elif re.search(r"change|diff|修改|log", k):
-            val = res["changes"]
-        elif re.search(r"review|uncertain|人工|confirm|issue", k):
-            val = res["needs_review"]
-        if val is not None:
-            res[f] = val
+        if isinstance(custom, dict) and field in custom:
+            res[field] = custom[field]
+            continue
+        if res.get(field) is not None:
+            continue
+        kind = spec.get("type", "") if isinstance(spec, dict) else str(spec or "")
+        name = next((key for pattern, key in aliases if re.search(pattern, field, re.I)), None)
+        if re.search(r"review|confirm|question|人工|确认|issue", field, re.I):
+            value = res["needs_review"]
+        elif name == "references":
+            value = artifact.get(name) if "path" in kind.lower() or re.search(r"file|path", field, re.I) else res["references_list"]
+        elif name == "previews":
+            vals = artifact.get(name) or []
+            ext = next((ext for ext in (".pdf", ".png") if ext[1:] in field.lower()), None)
+            vals = [path for path in vals if ext is None or path.endswith(ext)]
+            value = vals if kind in ("array", "list") or field.endswith("s") else next(iter(vals), None)
+        elif kind in ("array", "list", "object", "dict") and name in structured:
+            value = structured[name]
+        elif name:
+            value = artifact.get(name)
+        elif re.search(r"change|revision|修改", field, re.I):
+            value = res["changes"]
+        elif re.search(r"consisten|一致", field, re.I):
+            value = res["consistency_check"]
+        else:
+            value = None
+        res[field] = value
+        if value is None:
+            missing.append(field)
+    return missing
+
+
+def priority_review(review, occurrences, records, pdfs):
+    issues = [(item.get("sentence"), item.get("text"), set()) for item in review if item["type"] == "claim_without_citation"]
+    suspect = {item.get("occurrence") for item in review if item["type"] in ("weak_lexical_support", "replacement_not_applied")}
+    bad = {item.get("record") for item in review if item["type"] in ("source_mismatch", "source_not_found", "source_doi_not_found")}
+    for item in occurrences:
+        claim = item["sentence_text"] or ""
+        cited = set(item["records"])
+        score = max((value or 0 for value in item.get("support", {}).values()), default=0)
+        stronger = score < 0.45 and any(
+            V.support(claim, record)[0] >= max(0.45, score + 0.25)
+            for record in records if record["id"] not in cited and not record.get("placeholder"))
+        if stronger or item["id"] in suspect or item["unresolved"] or bad.intersection(cited):
+            issues.append((item["id"], claim, cited))
+    lines = ["# Priority citation review", "", "Candidate matches are retrieval hints. Confirm the actual source passage before editing.", ""]
+    if pdfs:
+        lines += ["## Supplied PDF sources", ""] + [f"- {path}" for path in pdfs] + [""]
+    for locator, claim, current in issues:
+        if not claim:
+            continue
+        lines += [f"## {locator}", "", f"> {claim}", ""]
+        ranked = []
+        for record in records:
+            if record["id"] in current or record.get("placeholder"):
+                continue
+            score, terms = V.support(claim, record)
+            if score >= 0.18:
+                ranked.append((score, record["id"], record, terms))
+        for score, rid, record, terms in sorted(ranked, key=lambda row: (-row[0], row[1]))[:3]:
+            lines.append(f"- {rid}: {short(record)} | terms {', '.join(terms)} | {record.get('doi') or record.get('url') or ''}")
+        if not ranked:
+            lines.append("- No indexed candidate. Inspect supplied sources or leave this item for review.")
+        lines.append("")
+    return "\n".join(lines)
 
 
 def review_md(res, cmap, ver, byid, numeric, moves):
@@ -765,16 +985,48 @@ def render_preview(path, out):
         for p in (r"C:\Program Files\LibreOffice\program\soffice.exe", "/usr/bin/soffice", "/usr/lib/libreoffice/program/soffice"):
             if os.path.exists(p):
                 exe = p
-    if not exe:
-        return []
-    try:
-        subprocess.run([exe, "--headless", "--convert-to", "pdf", "--outdir", out, path], capture_output=True, timeout=120)
-    except Exception:
-        return []
     pdf = os.path.join(out, os.path.splitext(os.path.basename(path))[0] + ".pdf")
+    rendered = False
+    if exe:
+        try:
+            with tempfile.TemporaryDirectory(dir=out) as rendering:
+                command = [exe, "--headless", "--convert-to", "pdf", "--outdir", rendering, os.path.abspath(path)]
+                subprocess.run(command, capture_output=True, timeout=25, check=True)
+                converted = os.path.join(rendering, os.path.basename(pdf))
+                if os.path.isfile(converted):
+                    os.replace(converted, pdf)
+                    rendered = True
+        except (OSError, subprocess.SubprocessError):
+            pass
+    if not rendered:
+        try:
+            from html import escape
+            from io import BytesIO
+            import pymupdf as fitz
+            doc = cite_doc.load(path)
+            html = "".join("<p>" + escape(unit["text"]) + "</p>" for unit in doc["units"] if unit["text"].strip())
+            story = fitz.Story(html=html, user_css="body {font-size: 11pt;} p {margin-bottom: 0.45em;}")
+            page = fitz.paper_rect("a4")
+            with tempfile.TemporaryDirectory(dir=out) as rendering:
+                generated = os.path.join(rendering, os.path.basename(pdf))
+                buffer = BytesIO()
+                writer = fitz.DocumentWriter(buffer)
+                more = True
+                while more:
+                    device = writer.begin_page(page)
+                    more, _ = story.place(page + (48, 48, -48, -48))
+                    story.draw(device)
+                    writer.end_page()
+                writer.close()
+                with open(generated, "wb") as stream:
+                    stream.write(buffer.getvalue())
+                os.replace(generated, pdf)
+        except (ImportError, OSError, RuntimeError, ValueError) as exc:
+            log(f"DOCX preview unavailable: {exc}")
+            return []
     res = [pdf] if os.path.exists(pdf) else []
     try:
-        import fitz
+        import pymupdf as fitz
         d = fitz.open(pdf)
         for i, pg in enumerate(d):
             if i >= 3:
@@ -788,10 +1040,19 @@ def render_preview(path, out):
 
 
 def fail(a, reason, problems):
-    res_path = os.path.join(a.out, "result.json")
-    prev = jload(res_path) if os.path.exists(res_path) else {}
-    prev.update({"case_id": prev.get("case_id") or a.case_id, "tool": f"cite-sync {VERSION}", "status": "failed", "status_reason": [reason], "parse_problems": problems})
-    dump(res_path, prev)
+    report_path = os.path.join(a.out, "run_report.json")
+    previous = a.previous
+    if os.path.isfile(report_path):
+        try:
+            saved = jload(report_path)
+            if isinstance(saved, dict) and saved.get("case_id") == a.case_id:
+                previous = saved
+        except (OSError, ValueError):
+            pass
+    if not previous.get("artifacts") and not a.previous.get("artifacts"):
+        report = base_result(a.case_id, a.contract)
+        report.update(status="failed", status_reason=[reason], parse_problems=problems)
+        save_result(a.out, report, a.contract, a.clean)
     print(json.dumps({"status": "failed", "reason": reason, "parse_problems": problems}, ensure_ascii=False, indent=1))
     sys.exit(2)
 
@@ -891,14 +1152,15 @@ def main():
     i.add_argument("--out", required=True)
     i.add_argument("--work", required=True)
     r = sp.add_parser("run")
+    r.add_argument("--case", help="Detect case inputs and honor output_contract")
     r.add_argument("--manuscript")
     r.add_argument("--library", action="append")
-    r.add_argument("--style", default="gbt7714", choices=["gbt7714", "apa7"])
+    r.add_argument("--style", choices=["gbt7714", "apa7"])
     r.add_argument("--marker-style", default="auto", choices=["auto", "inline", "pandoc-sup", "html-sup", "latex-sup", "docx-sup"])
     r.add_argument("--range-sep", default="-")
     r.add_argument("--upper", action="store_true", help="GB/T: upper-case Western family names")
     r.add_argument("--online", action="store_true")
-    r.add_argument("--net-budget", type=int, default=150)
+    r.add_argument("--net-budget", type=int, default=18)
     r.add_argument("--no-apply-corrections", dest="apply_corrections", action="store_false")
     r.add_argument("--no-auto-move", dest="auto_move", action="store_false")
     r.add_argument("--no-preview", action="store_true")

@@ -11,6 +11,8 @@ keywords, with a small zh<->en term lexicon and method-name aliases. The score i
 writes the final verdict per citation occurrence.
 """
 import datetime as dt
+from queue import Empty, Queue
+from threading import Thread
 import json
 import os
 import re
@@ -107,7 +109,7 @@ def offline_checks(r, style="gbt7714"):
 
 # ---------------------------------------------------------------- online
 class Net:
-    def __init__(self, cache_path, enabled=True, budget_s=150, max_requests=80, timeout=8):
+    def __init__(self, cache_path, enabled=True, budget_s=18, max_requests=20, timeout=2):
         self.cache_path = cache_path
         self.cache = {}
         if cache_path and os.path.exists(cache_path):
@@ -116,7 +118,7 @@ class Net:
             except Exception:
                 self.cache = {}
         self.enabled, self.budget, self.maxr, self.timeout = enabled, budget_s, max_requests, timeout
-        self.t0, self.n, self.offline_reason = time.time(), 0, None if enabled else "online checks not requested"
+        self.t0, self.n, self.offline_reason = time.monotonic(), 0, None if enabled else "online checks not requested"
         self.errors = []
 
     def get(self, url, kind="json"):
@@ -124,32 +126,40 @@ class Net:
             return self.cache[url]
         if not self.enabled or self.offline_reason:
             return None
-        if time.time() - self.t0 > self.budget or self.n >= self.maxr:
-            self.offline_reason = f"network budget used ({self.n} requests, {round(time.time() - self.t0)} s)"
+        remaining = self.budget - (time.monotonic() - self.t0)
+        if remaining <= 0 or self.n >= self.maxr:
+            self.offline_reason = f"network budget used ({self.n} requests)"
             return None
-        for attempt in range(2):
-            self.n += 1
+        limit = min(self.timeout, remaining)
+        result = Queue(maxsize=1)
+
+        def request():
             try:
                 req = urllib.request.Request(url, headers={"User-Agent": UA})
-                with urllib.request.urlopen(req, timeout=self.timeout) as resp:
-                    body = resp.read().decode("utf-8", "replace")
-                val = {"status": 200, "body": json.loads(body) if kind == "json" else body}
-            except urllib.error.HTTPError as e:
-                val = {"status": e.code, "body": None}
-                if e.code == 429 or e.code >= 500:  # rate limit / server error: wait, retry once, never cache
-                    self.errors.append(f"{url}: HTTP {e.code}")
-                    if attempt == 0:
-                        time.sleep(3)
-                        continue
-                    return val
-            except Exception as e:  # DNS / timeout / no network: stop trying
-                self.errors.append(f"{url}: {e!r}")
-                self.net_fail = getattr(self, "net_fail", 0) + 1
-                if self.net_fail >= 2:
-                    self.offline_reason = f"network unavailable ({e!r})"
-                return None
-            self.cache[url] = val
-            return val
+                with urllib.request.urlopen(req, timeout=limit) as response:
+                    raw = response.read(2_000_001)
+                if len(raw) > 2_000_000:
+                    raise ValueError("registry response exceeds 2 MB")
+                body = raw.decode("utf-8", "replace")
+                result.put({"status": 200, "body": json.loads(body) if kind == "json" else body})
+            except urllib.error.HTTPError as exc:
+                result.put({"status": exc.code, "body": None})
+            except Exception as exc:
+                result.put(exc)
+
+        self.n += 1
+        Thread(target=request, daemon=True).start()
+        try:
+            value = result.get(timeout=limit)
+        except Empty:
+            value = TimeoutError("registry request timed out")
+        if isinstance(value, Exception) or value["status"] == 429 or value["status"] >= 500:
+            detail = repr(value) if isinstance(value, Exception) else f"HTTP {value['status']}"
+            self.errors.append(f"{url}: {detail}")
+            self.offline_reason = f"registry unavailable ({detail})"
+            return None
+        self.cache[url] = value
+        return value
 
     def save(self):
         if self.cache_path:
