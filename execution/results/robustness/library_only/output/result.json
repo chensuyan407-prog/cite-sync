@@ -1,6 +1,6 @@
 {
  "case_id": "libonly",
- "tool": "cite-sync 0.2.0",
+ "tool": "cite-sync 0.2.1",
  "references": [
   "[1] 袁铭阳, 周长胜, 黄宏博, 等. 卷积神经网络池化方法综述[J]. 软件工程与应用, 2020, 9(5): 360-372. DOI:10.12677/SEA.2020.95041.",
   "[2] Vaswani A, Shazeer N, Parmar N, et al. Attention is all you need[C]//Advances in Neural Information Processing Systems, 2017: 5998-6008.",
@@ -65,10 +65,11 @@
   ],
   "pdfs": []
  },
- "status": "complete",
+ "status": "success",
  "status_reason": [
   "sources not checked online (offline run)"
  ],
+ "warnings": [],
  "style": "gbt7714",
  "marker_style": "inline",
  "artifacts": {
@@ -132,6 +133,55 @@
  "parse_problems": [],
  "edits_applied": null,
  "uncertainty": "Each citation verdict is either the agent's (verdict_source=agent) or a heuristic from term overlap between the sentence and the cited work's title/abstract (verdict_source=heuristic; not a reading of the source). No online verification in this run.",
+ "status_detail": {
+  "blocking": [],
+  "advisory": [],
+  "rule": "partial only for blocking items (deliverable wrong/unfinished); advisory items are listed in needs_review with severity=advisory and do not lower the status"
+ },
+ "renumber_map": {},
+ "actions_coverage": {
+  "1_citation_placement": {
+   "inserted": 0,
+   "moved_from_paragraph_end": 0,
+   "placement_suggestions": 0,
+   "claims_without_citation": 0,
+   "claims_with_library_candidate": 0
+  },
+  "2_renumbering": {
+   "markers": 0,
+   "references_out": 8,
+   "renumbered_labels": 0,
+   "consistency_ok": null,
+   "order_rule": "first appearance"
+  },
+  "3_dedup": {
+   "records_in": 9,
+   "records_after": 8,
+   "merged_clusters": 1,
+   "rules_used": {
+    "D1": 1
+   },
+   "kept_apart": {}
+  },
+  "4_format": {
+   "style": "gbt7714",
+   "entries": 8,
+   "exports": [
+    "bibtex",
+    "ris",
+    "csl_json"
+   ],
+   "records_missing_target_fields": 0
+  },
+  "5_source_verification": {
+   "unverified_offline": 8
+  },
+  "6_claim_source_match": {
+   "verdicts": {},
+   "by_agent": 0,
+   "with_pdf_evidence": 0
+  }
+ },
  "_contract_autofilled": {
   "references": true,
   "dedup_log": true

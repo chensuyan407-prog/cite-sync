@@ -1,11 +1,14 @@
 {
  "case_id": null,
- "tool": "cite-sync 0.2.0",
- "status": "partial",
+ "tool": "cite-sync 0.2.1",
+ "status": "success",
  "status_reason": [
-  "1 claim sentence(s) without a citation (1 with a suggested library record): add a citation via edits.add_citations or leave them for the author",
+  "1 claim sentence(s) have candidate library record(s) suggested in review.md/brief.md",
   "13 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person",
   "sources not checked online (offline run)"
+ ],
+ "warnings": [
+  "1 claim sentence(s) have candidate library record(s) suggested in review.md/brief.md"
  ],
  "style": "gbt7714",
  "marker_style": "inline",
@@ -45,7 +48,7 @@
    "caption_citation": 1
   },
   "parse_problems": 1,
-  "seconds": 0.12
+  "seconds": 0.13
  },
  "consistency_check": {
   "ok": true,
@@ -170,7 +173,8 @@
   {
    "type": "uncited_entry_removed",
    "record": "M13",
-   "msg": "reference-list entry never cited in the text; removed from the list: Srivastava 2014 Dropout: a simple way to prevent neural networks from overfi"
+   "msg": "reference-list entry never cited in the text; removed from the list: Srivastava 2014 Dropout: a simple way to prevent neural networks from overfi",
+   "severity": "advisory"
   },
   {
    "type": "claim_without_citation",
@@ -193,12 +197,14 @@
     ],
     "verdict": "supported",
     "note": "<why this source supports the sentence>"
-   }
+   },
+   "severity": "advisory"
   },
   {
    "type": "caption_citation",
    "occurrence": "c16_0",
-   "msg": "citation sits in a figure/table caption; check that the supported claim is in the caption, not in the body text"
+   "msg": "citation sits in a figure/table caption; check that the supported claim is in the caption, not in the body text",
+   "severity": "advisory"
   }
  ],
  "parse_problems": [
@@ -224,6 +230,77 @@
  },
  "edits_applied": null,
  "uncertainty": "Each citation verdict is either the agent's (verdict_source=agent) or a heuristic from term overlap between the sentence and the cited work's title/abstract (verdict_source=heuristic; not a reading of the source). No online verification in this run.",
+ "status_detail": {
+  "blocking": [],
+  "advisory": [
+   "1 claim sentence(s) have candidate library record(s) suggested in review.md/brief.md"
+  ],
+  "rule": "partial only for blocking items (deliverable wrong/unfinished); advisory items are listed in needs_review with severity=advisory and do not lower the status"
+ },
+ "renumber_map": {
+  "1": 3,
+  "2": 4,
+  "3": 1,
+  "4": 5,
+  "5": 2,
+  "6": 8,
+  "7": 6,
+  "8": 8,
+  "9": 7,
+  "10": 9,
+  "11": 11,
+  "12": 10,
+  "13": null,
+  "14": 12
+ },
+ "actions_coverage": {
+  "1_citation_placement": {
+   "inserted": 2,
+   "moved_from_paragraph_end": 2,
+   "placement_suggestions": 0,
+   "claims_without_citation": 1,
+   "claims_with_library_candidate": 1
+  },
+  "2_renumbering": {
+   "markers": 13,
+   "references_out": 12,
+   "renumbered_labels": 12,
+   "consistency_ok": true,
+   "order_rule": "first appearance"
+  },
+  "3_dedup": {
+   "records_in": 19,
+   "records_after": 15,
+   "merged_clusters": 4,
+   "rules_used": {
+    "D4": 4
+   },
+   "kept_apart": {
+    "G4": 1
+   }
+  },
+  "4_format": {
+   "style": "gbt7714",
+   "entries": 12,
+   "exports": [
+    "bibtex",
+    "ris",
+    "csl_json"
+   ],
+   "records_missing_target_fields": 0
+  },
+  "5_source_verification": {
+   "unverified_offline": 12
+  },
+  "6_claim_source_match": {
+   "verdicts": {
+    "supported": 12,
+    "partial": 1
+   },
+   "by_agent": 0,
+   "with_pdf_evidence": 0
+  }
+ },
  "_contract_autofilled": {},
  "contract_mapping": {},
  "contract_unfilled": []

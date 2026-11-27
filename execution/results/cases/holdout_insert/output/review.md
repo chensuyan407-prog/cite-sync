@@ -1,7 +1,19 @@
 # cite-sync review - case holdout-insert
 
-status: **partial**  
-reasons: 1 claim sentence(s) without a citation: add a citation via edits.add_citations or leave them for the author; sources not checked online (offline run)
+status: **success**  
+blocking: none  
+advisory (does not lower the status): 1 claim sentence(s) without a citation and no fitting record in the inputs: left for the author (not invented)
+
+## The six actions at a glance
+
+| action | result |
+|-|-|
+| 插入/定位 placement | {"inserted": 5, "moved_from_paragraph_end": 0, "placement_suggestions": 0, "claims_without_citation": 1, "claims_with_library_candidate": 0} |
+| 编号同步 renumbering | {"markers": 5, "references_out": 5, "renumbered_labels": 0, "consistency_ok": true, "order_rule": "first appearance"} |
+| 去重 dedup | {"records_in": 5, "records_after": 5, "merged_clusters": 0, "rules_used": {}, "kept_apart": {}} |
+| 格式 format | {"style": "gbt7714", "entries": 5, "exports": ["bibtex", "ris", "csl_json"], "records_missing_target_fields": 0} |
+| 来源核验 verification | {"unverified_offline": 5} |
+| 论断-文献对应 claim match | {"verdicts": {"supported": 5}, "by_agent": 5, "with_pdf_evidence": 0} |
 
 ## Summary
 ```
@@ -34,7 +46,7 @@ ok = True; markers use 1..5; list entries 5
 
 ## Items that need a human decision
 
-- **claim_without_citation** sentence=u8s2 cue=有研究 text=有研究指出，量子计算将在十年内全面取代经典计算。
+- [advisory] **claim_without_citation** sentence=u8s2 cue=有研究 text=有研究指出，量子计算将在十年内全面取代经典计算。
 
 ## Changes
 

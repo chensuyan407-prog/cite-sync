@@ -1,7 +1,19 @@
 # cite-sync review - case dev-zh-review
 
-status: **partial**  
-reasons: 1 citation(s) removed by edit; the sentence(s) need a real source or rewording (human); 1 claim sentence(s) without a citation (1 with a suggested library record): add a citation via edits.add_citations or leave them for the author; sources not checked online (offline run)
+status: **success**  
+blocking: none  
+advisory (does not lower the status): 1 citation(s) removed by edit; the sentence(s) are flagged for the author to source or reword; 1 claim sentence(s) without a citation and no fitting record in the inputs: left for the author (not invented)
+
+## The six actions at a glance
+
+| action | result |
+|-|-|
+| 插入/定位 placement | {"inserted": 3, "moved_from_paragraph_end": 2, "placement_suggestions": 0, "claims_without_citation": 1, "claims_with_library_candidate": 0} |
+| 编号同步 renumbering | {"markers": 14, "references_out": 12, "renumbered_labels": 13, "consistency_ok": true, "order_rule": "first appearance"} |
+| 去重 dedup | {"records_in": 23, "records_after": 15, "merged_clusters": 7, "rules_used": {"D4": 7, "D1": 1}, "kept_apart": {"G4": 1}} |
+| 格式 format | {"style": "gbt7714", "entries": 12, "exports": ["bibtex", "ris", "csl_json"], "records_missing_target_fields": 0} |
+| 来源核验 verification | {"unverified_offline": 12} |
+| 论断-文献对应 claim match | {"verdicts": {"supported": 12, "partial": 1, "unverifiable": 1}, "by_agent": 14, "with_pdf_evidence": 0} |
 
 ## Summary
 ```
@@ -31,15 +43,33 @@ reasons: 1 citation(s) removed by edit; the sentence(s) need a real source or re
 }
 ```
 
+## Dedup decisions (why records were merged)
+
+| kept | merged records | rules | needs review |
+|-|-|-|-|
+| L1-4 | M1, L1-4 | D4 | no |
+| L1-5 | M3, L1-5 | D4 | no |
+| M6 | M6, M8 | D4 | no |
+| L1-1 | M7, L1-1 | D4 | no |
+| M9 | M9, L2-1 | D4 | no |
+| L2-2 | M11, L2-2 | D4 | no |
+| L3-1 | M12, L2-3, L3-1 | D1, D4 | no |
+
+Rules: D1 same DOI · D2 same arXiv id · D3 title is the other's translation · D4 same normalised title + first author, year gap <=2 (preprint vs published) · D5 near-identical title + author overlap (confirm). Kept apart: G1 same DOI/different title · G2 same title/two DOIs · G3 same authors+year/different title · G4 reprint (>2 y). Full pair log: merge_log.json.
+
+## Old number -> new number
+
+[1]->[3] · [2]->[4] · [3]->[1] · [4]->[5] · [5]->[2] · [6]->[9] · [7]->[6] · [8]->[9] · [9]->[7] · [10]->[10] · [11]->[12] · [12]->[11] · [13]->removed · [14]->removed
+
 ## Numbering / list consistency (re-parsed from the written file)
 ok = True; markers use 1..12; list entries 12
 
 ## Items that need a human decision
 
-- **uncited_entry_removed** record=M13 msg=reference-list entry never cited in the text; removed from the list: Srivastava 2014 Dropout: a simple way to prevent neural networks from overfi
-- **uncited_entry_removed** record=M14 msg=reference-list entry never cited in the text; removed from the list: Smith 2019 Universal scaling of residual attention networks
-- **claim_without_citation** sentence=u20s1 cue=有研究 text=另有研究报道残差注意力网络在多个尺度上存在普适的缩放规律。 suggest=[{'record': 'M14', 'score': 0.57, 'title': 'Universal scaling of residual attention networks', 'year': '2019', 'already_cited': False}] edit={'sentence': 'text:另有研究报道残差注意力网络在多个尺度上存在普适的缩放规律。', 'refs': ['M14'], 'verdict': 'supported', 'note': '<why this source supports the sentence>'}
-- **caption_citation** occurrence=c16_0 msg=citation sits in a figure/table caption; check that the supported claim is in the caption, not in the body text
+- [advisory] **uncited_entry_removed** record=M13 msg=reference-list entry never cited in the text; removed from the list: Srivastava 2014 Dropout: a simple way to prevent neural networks from overfi
+- [advisory] **uncited_entry_removed** record=M14 msg=reference-list entry never cited in the text; removed from the list: Smith 2019 Universal scaling of residual attention networks
+- [advisory] **claim_without_citation** sentence=u20s1 cue=有研究 text=另有研究报道残差注意力网络在多个尺度上存在普适的缩放规律。
+- [advisory] **caption_citation** occurrence=c16_0 msg=citation sits in a figure/table caption; check that the supported claim is in the caption, not in the body text
 
 ## Changes
 

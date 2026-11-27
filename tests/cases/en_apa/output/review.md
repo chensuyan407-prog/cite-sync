@@ -1,7 +1,19 @@
 # cite-sync review - case dev-en-apa
 
-status: **partial**  
-reasons: 1 citation occurrence(s) whose claim-source match could not be established automatically (verdict needs_check/unverifiable): judge them in edits.occurrences; 1 claim sentence(s) without a citation: add a citation via edits.add_citations or leave them for the author; 5 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person; sources not checked online (offline run)
+status: **success**  
+blocking: none  
+advisory (does not lower the status): 1 citation(s) with no term overlap between sentence and cited work (heuristic needs_check, not judged by the agent): c2_3; 1 claim sentence(s) without a citation and no fitting record in the inputs: left for the author (not invented)
+
+## The six actions at a glance
+
+| action | result |
+|-|-|
+| 插入/定位 placement | {"inserted": 0, "moved_from_paragraph_end": 0, "placement_suggestions": 0, "claims_without_citation": 1, "claims_with_library_candidate": 0} |
+| 编号同步 renumbering | {"markers": 6, "references_out": 6, "renumbered_labels": 7, "consistency_ok": null, "order_rule": "author-year"} |
+| 去重 dedup | {"records_in": 12, "records_after": 7, "merged_clusters": 4, "rules_used": {"D4": 4, "D2": 1, "D1": 1}, "kept_apart": {}} |
+| 格式 format | {"style": "apa7", "entries": 6, "exports": ["bibtex", "ris", "csl_json"], "records_missing_target_fields": 0} |
+| 来源核验 verification | {"unverified_offline": 6} |
+| 论断-文献对应 claim match | {"verdicts": {"supported": 4, "partial": 1, "needs_check": 1}, "by_agent": 0, "with_pdf_evidence": 0} |
 
 ## Summary
 ```
@@ -26,14 +38,29 @@ reasons: 1 citation occurrence(s) whose claim-source match could not be establis
   "weak_lexical_support": 1
  },
  "parse_problems": 0,
- "seconds": 0.02
+ "seconds": 0.03
 }
 ```
 
+## Dedup decisions (why records were merged)
+
+| kept | merged records | rules | needs review |
+|-|-|-|-|
+| L1-4 | M1, L1-4 | D4 | no |
+| M4 | M4, L1-2 | D2 | no |
+| L1-5 | M5, L1-5 | D1 | no |
+| M7 | M6, M7, L1-1 | D4 | no |
+
+Rules: D1 same DOI · D2 same arXiv id · D3 title is the other's translation · D4 same normalised title + first author, year gap <=2 (preprint vs published) · D5 near-identical title + author overlap (confirm). Kept apart: G1 same DOI/different title · G2 same title/two DOIs · G3 same authors+year/different title · G4 reprint (>2 y). Full pair log: merge_log.json.
+
+## Old number -> new number
+
+[1]->removed · [2]->removed · [3]->removed · [4]->removed · [5]->removed · [6]->removed · [7]->removed
+
 ## Items that need a human decision
 
-- **claim_without_citation** sentence=u2s5 cue=Prior work text=Prior work has shown that dropout prevents overfitting.
-- **weak_lexical_support** occurrence=c2_3 record=M7 score=0.0 msg=sentence shares almost no terms with the cited work: check claim-source match
+- [advisory] **claim_without_citation** sentence=u2s5 cue=Prior work text=Prior work has shown that dropout prevents overfitting.
+- [advisory] **weak_lexical_support** occurrence=c2_3 record=M7 score=0.0 msg=sentence shares almost no terms with the cited work: check claim-source match
 
 ## Changes
 

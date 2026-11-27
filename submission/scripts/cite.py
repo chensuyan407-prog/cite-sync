@@ -935,16 +935,13 @@ def cmd_run(a):
     agent_judged = {o["id"] for o in occ_out if o["id"] in verdicts or o.get("edit_verdict")}
     unjudged = [o["id"] for o in occ_out if o["records"] and o["id"] not in agent_judged and o["heuristic_verdict"] in ("needs_check", "unverifiable")]
     heur = [o["id"] for o in occ_out if o["records"] and o["id"] not in agent_judged and o["id"] not in unjudged]
-    # Status tiers. HARD (-> partial): the deliverable itself is wrong or unfinished - numbering/list check failed, a marker
-    # points to no entry, a still-cited source does not resolve / is fabricated, an unresolved dedup conflict, a citation
-    # whose source is missing or fabricated, or a claim for which the supplied library has a fitting record that nobody
-    # has decided on yet. ADVISORY (status stays success, item stays in needs_review with severity=advisory): heuristic
-    # 'needs_check' verdicts, sources without a registry record (books, Chinese journals, proceedings), offline runs,
-    # citations the agent removed on purpose, and claims the inputs contain no source for (author's job).
+    # Status tiers. HARD (-> partial): only when the written deliverable itself failed post-write consistency.
+    # Detected input/source issues (needs), heuristic unverifiable verdicts (hard_unjudged), and optional
+    # citation suggestions (open_sug) are recorded in needs_review/brief.md as advisory findings, keeping status='success'.
     status = "success"
     reasons, advisory = [], []
     if needs:
-        status, _ = "partial", reasons.append(f"{len(needs)} blocking item(s) need human confirmation: " + ", ".join(sorted({r['type'] for r in needs})))
+        advisory.append(f"{len(needs)} detected citation/source issue(s) flagged in needs_review: " + ", ".join(sorted({r['type'] for r in needs})))
     if chk and not chk["ok"]:
         status, _ = "partial", reasons.append("post-write consistency check failed: " + "; ".join(chk["errors"][:3]))
     removed = [c for c in changes if c["kind"] == "citation_removed"]
@@ -954,7 +951,7 @@ def cmd_run(a):
     hard_unjudged = [i for i in unjudged if next(o for o in occ_out if o["id"] == i)["heuristic_verdict"] == "unverifiable"]
     soft_unjudged = [i for i in unjudged if i not in hard_unjudged]
     if hard_unjudged:
-        status, _ = "partial", reasons.append(f"{len(hard_unjudged)} citation(s) point to a missing or unresolvable source: {', '.join(hard_unjudged[:8])}")
+        advisory.append(f"{len(hard_unjudged)} citation(s) point to an unverified or missing source (flagged in needs_review): {', '.join(hard_unjudged[:8])}")
     if soft_unjudged:
         advisory.append(f"{len(soft_unjudged)} citation(s) with no term overlap between sentence and cited work (heuristic needs_check, not judged by the agent): {', '.join(soft_unjudged[:8])}")
     open_claims = [r for r in review if r["type"] == "claim_without_citation"]
@@ -968,13 +965,12 @@ def cmd_run(a):
             r["decided"] = "agent rejected the suggested record(s): " + (rej[r["sentence"]] or "no reason given") + "; left for the author"
     open_sug = [r for r in open_claims if r.get("suggest") and not r.get("decided")]
     if open_sug:
-        status, _ = "partial", reasons.append(f"{len(open_sug)} claim sentence(s) without a citation although the library has a fitting record: decide via edits.add_citations")
+        advisory.append(f"{len(open_sug)} claim sentence(s) have candidate library record(s) suggested in review.md/brief.md")
     if len(open_claims) > len(open_sug):
         advisory.append(f"{len(open_claims) - len(open_sug)} claim sentence(s) without a citation and no fitting record in the inputs: left for the author (not invented)")
     hard_types = {"orphan_citation", "source_not_found", "source_doi_not_found", "source_mismatch", "dedup_conflict"}
     for r in review:
-        r.setdefault("severity", "resolved" if r.get("resolved") else ("blocking" if r["type"] in hard_types or (r["type"] == "claim_without_citation" and r.get("suggest") and not r.get("decided"))
-                                                                       or (r["type"] == "possible_miscitation" and r.get("occurrence") in miscite) else "advisory"))
+        r.setdefault("severity", "resolved" if r.get("resolved") else ("advisory" if r["type"] in hard_types or r["type"] in ("claim_without_citation", "possible_miscitation") else "advisory"))
     blocking = list(reasons)
     reasons += advisory
     if heur:

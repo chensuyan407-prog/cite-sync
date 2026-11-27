@@ -523,7 +523,7 @@
   "id": "I17",
   "kind": "status_is",
   "defect": "POST-FREEZE (seen in pass-1 brief): status was 'complete' although 6 claims had no citation",
-  "ok": true,
+  "ok": false,
   "needs_online": false,
   "post_freeze": true,
   "stage": "detect",

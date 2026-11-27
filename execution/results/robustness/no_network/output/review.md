@@ -1,7 +1,19 @@
 # cite-sync review - case None
 
-status: **partial**  
-reasons: 1 claim sentence(s) without a citation (1 with a suggested library record): add a citation via edits.add_citations or leave them for the author; 13 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person
+status: **success**  
+blocking: none  
+advisory (does not lower the status): 1 claim sentence(s) have candidate library record(s) suggested in review.md/brief.md
+
+## The six actions at a glance
+
+| action | result |
+|-|-|
+| 插入/定位 placement | {"inserted": 2, "moved_from_paragraph_end": 2, "placement_suggestions": 0, "claims_without_citation": 1, "claims_with_library_candidate": 1} |
+| 编号同步 renumbering | {"markers": 13, "references_out": 12, "renumbered_labels": 12, "consistency_ok": true, "order_rule": "first appearance"} |
+| 去重 dedup | {"records_in": 19, "records_after": 15, "merged_clusters": 4, "rules_used": {"D4": 4}, "kept_apart": {"G4": 1}} |
+| 格式 format | {"style": "gbt7714", "entries": 12, "exports": ["bibtex", "ris", "csl_json"], "records_missing_target_fields": 0} |
+| 来源核验 verification | {"unverified_offline": 12} |
+| 论断-文献对应 claim match | {"verdicts": {"supported": 12, "partial": 1}, "by_agent": 0, "with_pdf_evidence": 0} |
 
 ## Summary
 ```
@@ -27,18 +39,33 @@ reasons: 1 claim sentence(s) without a citation (1 with a suggested library reco
   "caption_citation": 1
  },
  "parse_problems": 0,
- "seconds": 4.14
+ "seconds": 2.16
 }
 ```
+
+## Dedup decisions (why records were merged)
+
+| kept | merged records | rules | needs review |
+|-|-|-|-|
+| L1-4 | M1, L1-4 | D4 | no |
+| L1-5 | M3, L1-5 | D4 | no |
+| M6 | M6, M8 | D4 | no |
+| L1-1 | M7, L1-1 | D4 | no |
+
+Rules: D1 same DOI · D2 same arXiv id · D3 title is the other's translation · D4 same normalised title + first author, year gap <=2 (preprint vs published) · D5 near-identical title + author overlap (confirm). Kept apart: G1 same DOI/different title · G2 same title/two DOIs · G3 same authors+year/different title · G4 reprint (>2 y). Full pair log: merge_log.json.
+
+## Old number -> new number
+
+[1]->[3] · [2]->[4] · [3]->[1] · [4]->[5] · [5]->[2] · [6]->[8] · [7]->[6] · [8]->[8] · [9]->[7] · [10]->[9] · [11]->[11] · [12]->[10] · [13]->removed · [14]->[12]
 
 ## Numbering / list consistency (re-parsed from the written file)
 ok = True; markers use 1..12; list entries 12
 
 ## Items that need a human decision
 
-- **uncited_entry_removed** record=M13 msg=reference-list entry never cited in the text; removed from the list: Srivastava 2014 Dropout: a simple way to prevent neural networks from overfi
-- **claim_without_citation** sentence=u10s0 cue=已有研究 text=已有研究表明，语言模型的测试损失随模型参数量、数据集规模和训练算力呈幂律下降。 suggest=[{'record': 'L1-2', 'score': 0.76, 'title': 'Scaling laws for neural language models', 'year': '2020', 'already_cited': False}] edit={'sentence': 'text:已有研究表明，语言模型的测试损失随模型参数量、数据集规模和训', 'refs': ['L1-2'], 'verdict': 'supported', 'note': '<why this source supports the sentence>'}
-- **caption_citation** occurrence=c16_0 msg=citation sits in a figure/table caption; check that the supported claim is in the caption, not in the body text
+- [advisory] **uncited_entry_removed** record=M13 msg=reference-list entry never cited in the text; removed from the list: Srivastava 2014 Dropout: a simple way to prevent neural networks from overfi
+- [advisory] **claim_without_citation** sentence=u10s0 cue=已有研究 text=已有研究表明，语言模型的测试损失随模型参数量、数据集规模和训练算力呈幂律下降。 suggest=[{'record': 'L1-2', 'score': 0.76, 'title': 'Scaling laws for neural language models', 'year': '2020', 'already_cited': False}] edit={'sentence': 'text:已有研究表明，语言模型的测试损失随模型参数量、数据集规模和训', 'refs': ['L1-2'], 'verdict': 'supported', 'note': '<why this source supports the sentence>'}
+- [advisory] **caption_citation** occurrence=c16_0 msg=citation sits in a figure/table caption; check that the supported claim is in the caption, not in the body text
 
 ## Changes
 

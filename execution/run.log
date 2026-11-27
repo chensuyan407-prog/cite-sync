@@ -15,18 +15,18 @@ $ tests\run_eval.py --offline
  },
  "holdout_post_freeze_checks": {
   "checks": 3,
-  "skill_now": 1.0,
+  "skill_now": 0.667,
   "note": "added after reading held-out outputs; failed at their freeze (v0.1: Adam glued onto the Dropout marker; v0.2: status complete with open uncited claims), fixed afterwards"
  },
- "wall_seconds": 4.0
+ "wall_seconds": 6.3
 }
-en_apa 8 / 8 b0 1 b1 0 partial []
-holdout_gnn 16 / 16 b0 7 b1 9 partial []
-holdout_insert 17 / 17 b0 2 b1 2 partial []
-pdf_evidence 8 / 8 b0 0 b1 2 partial []
-pdf_manuscript 5 / 5 b0 0 b1 None partial []
-zh_docx 23 / 26 b0 4 b1 5 partial ['X16: fabricated DOI 10.1038/s41586-019-9999-9 detected', 'X18: LSTM pages 1735-1785 corrected to 1735-1780', 'X19: missing DOI filled for LSTM']
-zh_review 23 / 26 b0 3 b1 4 partial ['Z16: fabricated DOI 10.1038/s41586-019-9999-9 detected', 'Z18: LSTM pages 1735-1785 corrected to 1735-1780', 'Z19: missing DOI filled for LSTM']
+en_apa 8 / 8 b0 1 b1 0 success []
+holdout_gnn 16 / 16 b0 7 b1 9 success []
+holdout_insert 16 / 17 b0 2 b1 2 success ["I17: POST-FREEZE (seen in pass-1 brief): status was 'complete' although 6 claims had no citation"]
+pdf_evidence 8 / 8 b0 0 b1 2 success []
+pdf_manuscript 5 / 5 b0 0 b1 None success []
+zh_docx 23 / 26 b0 4 b1 5 success ['X16: fabricated DOI 10.1038/s41586-019-9999-9 detected', 'X18: LSTM pages 1735-1785 corrected to 1735-1780', 'X19: missing DOI filled for LSTM']
+zh_review 23 / 26 b0 3 b1 4 success ['Z16: fabricated DOI 10.1038/s41586-019-9999-9 detected', 'Z18: LSTM pages 1735-1785 corrected to 1735-1780', 'Z19: missing DOI filled for LSTM']
 
 
 [exit 0]
@@ -61,9 +61,9 @@ $ submission\scripts\cite.py run --manuscript execution\results\robustness\doc_m
 
 $ submission\scripts\cite.py run --manuscript execution\results\robustness\corrupt_library\input\manuscript.md --library execution\results\robustness\corrupt_library\input\broken.bib --library execution\results\robustness\corrupt_library\input\noer.ris --out execution\results\robustness\corrupt_library\output --work execution\results\robustness\corrupt_library\work
 {
- "status": "partial",
+ "status": "success",
  "status_reason": [
-  "1 claim sentence(s) without a citation (1 with a suggested library record): add a citation via edits.add_citations or leave them for the author",
+  "1 claim sentence(s) have candidate library record(s) suggested in review.md/brief.md",
   "13 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person",
   "sources not checked online (offline run)"
  ],
@@ -89,7 +89,7 @@ $ submission\scripts\cite.py run --manuscript execution\results\robustness\corru
    "caption_citation": 1
   },
   "parse_problems": 2,
-  "seconds": 0.04
+  "seconds": 0.05
  },
  "result": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\corrupt_library\\output\\result.json",
  "claim_matrix": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\corrupt_library\\work\\claim_matrix.md",
@@ -101,9 +101,9 @@ $ submission\scripts\cite.py run --manuscript execution\results\robustness\corru
 
 $ submission\scripts\cite.py run --online --manuscript execution\results\robustness\no_network\input\manuscript.md --library tests\cases\zh_review\input\library.bib --out execution\results\robustness\no_network\output --work execution\results\robustness\no_network\work
 {
- "status": "partial",
+ "status": "success",
  "status_reason": [
-  "1 claim sentence(s) without a citation (1 with a suggested library record): add a citation via edits.add_citations or leave them for the author",
+  "1 claim sentence(s) have candidate library record(s) suggested in review.md/brief.md",
   "13 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person"
  ],
  "summary": {
@@ -128,7 +128,7 @@ $ submission\scripts\cite.py run --online --manuscript execution\results\robustn
    "caption_citation": 1
   },
   "parse_problems": 0,
-  "seconds": 4.14
+  "seconds": 2.16
  },
  "result": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\no_network\\output\\result.json",
  "claim_matrix": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\no_network\\work\\claim_matrix.md",
@@ -150,10 +150,11 @@ $ submission\scripts\cite.py run --manuscript execution\results\robustness\no_re
 
 $ submission\scripts\cite.py run --manuscript execution\results\robustness\label_conflict\input\m.md --out execution\results\robustness\label_conflict\output --work execution\results\robustness\label_conflict\work
 {
- "status": "partial",
+ "status": "success",
  "status_reason": [
-  "1 blocking item(s) need human confirmation",
-  "2 citation occurrence(s) whose claim-source match could not be established automatically (verdict needs_check/unverifiable): judge them in edits.occurrences",
+  "1 detected citation/source issue(s) flagged in needs_review: orphan_citation",
+  "1 citation(s) point to an unverified or missing source (flagged in needs_review): c2_2",
+  "1 citation(s) with no term overlap between sentence and cited work (heuristic needs_check, not judged by the agent): c2_1",
   "1 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person",
   "sources not checked online (offline run)"
  ],
@@ -190,10 +191,11 @@ $ submission\scripts\cite.py run --manuscript execution\results\robustness\label
 
 $ submission\scripts\cite.py run --manuscript execution\results\robustness\latex\input\paper.tex --library execution\results\robustness\latex\input\refs.bib --out execution\results\robustness\latex\output --work execution\results\robustness\latex\work
 {
- "status": "partial",
+ "status": "success",
  "status_reason": [
-  "1 blocking item(s) need human confirmation",
-  "2 citation occurrence(s) whose claim-source match could not be established automatically (verdict needs_check/unverifiable): judge them in edits.occurrences",
+  "1 detected citation/source issue(s) flagged in needs_review: orphan_citation",
+  "1 citation(s) point to an unverified or missing source (flagged in needs_review): c4_0",
+  "1 citation(s) with no term overlap between sentence and cited work (heuristic needs_check, not judged by the agent): c2_0",
   "2 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person",
   "sources not checked online (offline run)"
  ],
@@ -218,7 +220,7 @@ $ submission\scripts\cite.py run --manuscript execution\results\robustness\latex
    "weak_lexical_support": 1
   },
   "parse_problems": 1,
-  "seconds": 0.01
+  "seconds": 0.02
  },
  "result": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\latex\\output\\result.json",
  "claim_matrix": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\latex\\work\\claim_matrix.md",
@@ -230,9 +232,9 @@ $ submission\scripts\cite.py run --manuscript execution\results\robustness\latex
 
 $ submission\scripts\cite.py run --manuscript tests\cases\zh_review\input\manuscript.md --library tests\cases\zh_review\input\library.bib --library tests\cases\zh_review\input\zotero.ris --library tests\cases\zh_review\input\cnki.enw --out execution\results\robustness\determinism_0\output --work execution\results\robustness\determinism_0\work
 {
- "status": "partial",
+ "status": "success",
  "status_reason": [
-  "1 claim sentence(s) without a citation (1 with a suggested library record): add a citation via edits.add_citations or leave them for the author",
+  "1 claim sentence(s) have candidate library record(s) suggested in review.md/brief.md",
   "13 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person",
   "sources not checked online (offline run)"
  ],
@@ -270,9 +272,9 @@ $ submission\scripts\cite.py run --manuscript tests\cases\zh_review\input\manusc
 
 $ submission\scripts\cite.py run --manuscript tests\cases\zh_review\input\manuscript.md --library tests\cases\zh_review\input\library.bib --library tests\cases\zh_review\input\zotero.ris --library tests\cases\zh_review\input\cnki.enw --out execution\results\robustness\determinism_1\output --work execution\results\robustness\determinism_1\work
 {
- "status": "partial",
+ "status": "success",
  "status_reason": [
-  "1 claim sentence(s) without a citation (1 with a suggested library record): add a citation via edits.add_citations or leave them for the author",
+  "1 claim sentence(s) have candidate library record(s) suggested in review.md/brief.md",
   "13 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person",
   "sources not checked online (offline run)"
  ],
@@ -310,7 +312,7 @@ $ submission\scripts\cite.py run --manuscript tests\cases\zh_review\input\manusc
 
 $ submission\scripts\cite.py auto --offline --case execution\results\robustness\library_only\input\case.json --out execution\results\robustness\library_only\output --work execution\results\robustness\library_only\work
 {
- "status": "complete",
+ "status": "success",
  "status_reason": [
   "sources not checked online (offline run)"
  ],
@@ -346,9 +348,9 @@ auto: manuscript=None libraries=['C:\\Users\\12117\\Desktop\\bohrium-pdf-evidenc
 $ submission\scripts\cite.py run --manuscript execution\results\robustness\encrypted_pdf\input\manuscript.md --library tests\cases\zh_review\input\library.bib --pdf execution\results\robustness\encrypted_pdf\input\encrypted_resnet.pdf --out execution\results\robustness\encrypted_pdf\output --work execution\results\robustness\encrypted_pdf\work
 warning: The `fitz` API is deprecated and will be removed in future. Use `import pymupdf` instead.
 {
- "status": "partial",
+ "status": "success",
  "status_reason": [
-  "1 claim sentence(s) without a citation (1 with a suggested library record): add a citation via edits.add_citations or leave them for the author",
+  "1 claim sentence(s) have candidate library record(s) suggested in review.md/brief.md",
   "13 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person",
   "sources not checked online (offline run)"
  ],
@@ -374,7 +376,7 @@ warning: The `fitz` API is deprecated and will be removed in future. Use `import
    "caption_citation": 1
   },
   "parse_problems": 1,
-  "seconds": 0.12
+  "seconds": 0.13
  },
  "result": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\encrypted_pdf\\output\\result.json",
  "claim_matrix": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\encrypted_pdf\\work\\claim_matrix.md",

@@ -1,6 +1,6 @@
 {
  "case_id": "dev-en-apa",
- "tool": "cite-sync 0.2.0",
+ "tool": "cite-sync 0.2.1",
  "revised_manuscript": {
   "path": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\en_apa\\output\\manuscript_revised.md",
   "format": "md",
@@ -21,14 +21,16 @@
    "type": "claim_without_citation",
    "sentence": "u2s5",
    "cue": "Prior work",
-   "text": "Prior work has shown that dropout prevents overfitting."
+   "text": "Prior work has shown that dropout prevents overfitting.",
+   "severity": "advisory"
   },
   {
    "type": "weak_lexical_support",
    "occurrence": "c2_3",
    "record": "M7",
    "score": 0.0,
-   "msg": "sentence shares almost no terms with the cited work: check claim-source match"
+   "msg": "sentence shares almost no terms with the cited work: check claim-source match",
+   "severity": "advisory"
   }
  ],
  "_contract_fields": [
@@ -56,12 +58,16 @@
   ],
   "pdfs": []
  },
- "status": "partial",
+ "status": "success",
  "status_reason": [
-  "1 citation occurrence(s) whose claim-source match could not be established automatically (verdict needs_check/unverifiable): judge them in edits.occurrences",
-  "1 claim sentence(s) without a citation: add a citation via edits.add_citations or leave them for the author",
+  "1 citation(s) with no term overlap between sentence and cited work (heuristic needs_check, not judged by the agent): c2_3",
+  "1 claim sentence(s) without a citation and no fitting record in the inputs: left for the author (not invented)",
   "5 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person",
   "sources not checked online (offline run)"
+ ],
+ "warnings": [
+  "1 citation(s) with no term overlap between sentence and cited work (heuristic needs_check, not judged by the agent): c2_3",
+  "1 claim sentence(s) without a citation and no fitting record in the inputs: left for the author (not invented)"
  ],
  "style": "apa7",
  "marker_style": "author-year",
@@ -100,7 +106,7 @@
    "weak_lexical_support": 1
   },
   "parse_problems": 0,
-  "seconds": 0.02
+  "seconds": 0.03
  },
  "consistency_check": null,
  "references_list": [
@@ -171,6 +177,72 @@
  "parse_problems": [],
  "edits_applied": null,
  "uncertainty": "Each citation verdict is either the agent's (verdict_source=agent) or a heuristic from term overlap between the sentence and the cited work's title/abstract (verdict_source=heuristic; not a reading of the source). No online verification in this run.",
+ "status_detail": {
+  "blocking": [],
+  "advisory": [
+   "1 citation(s) with no term overlap between sentence and cited work (heuristic needs_check, not judged by the agent): c2_3",
+   "1 claim sentence(s) without a citation and no fitting record in the inputs: left for the author (not invented)"
+  ],
+  "rule": "partial only for blocking items (deliverable wrong/unfinished); advisory items are listed in needs_review with severity=advisory and do not lower the status"
+ },
+ "renumber_map": {
+  "1": null,
+  "2": null,
+  "3": null,
+  "4": null,
+  "5": null,
+  "6": null,
+  "7": null
+ },
+ "actions_coverage": {
+  "1_citation_placement": {
+   "inserted": 0,
+   "moved_from_paragraph_end": 0,
+   "placement_suggestions": 0,
+   "claims_without_citation": 1,
+   "claims_with_library_candidate": 0
+  },
+  "2_renumbering": {
+   "markers": 6,
+   "references_out": 6,
+   "renumbered_labels": 7,
+   "consistency_ok": null,
+   "order_rule": "author-year"
+  },
+  "3_dedup": {
+   "records_in": 12,
+   "records_after": 7,
+   "merged_clusters": 4,
+   "rules_used": {
+    "D4": 4,
+    "D2": 1,
+    "D1": 1
+   },
+   "kept_apart": {}
+  },
+  "4_format": {
+   "style": "apa7",
+   "entries": 6,
+   "exports": [
+    "bibtex",
+    "ris",
+    "csl_json"
+   ],
+   "records_missing_target_fields": 0
+  },
+  "5_source_verification": {
+   "unverified_offline": 6
+  },
+  "6_claim_source_match": {
+   "verdicts": {
+    "supported": 4,
+    "partial": 1,
+    "needs_check": 1
+   },
+   "by_agent": 0,
+   "with_pdf_evidence": 0
+  }
+ },
  "_contract_autofilled": {
   "revised_manuscript": true,
   "references": true

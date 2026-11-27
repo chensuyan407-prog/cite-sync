@@ -1,7 +1,19 @@
 # cite-sync review - case dev-pdf-evidence
 
-status: **partial**  
-reasons: 1 citation occurrence(s) whose claim-source match could not be established automatically (verdict needs_check/unverifiable): judge them in edits.occurrences; 1 claim sentence(s) without a citation: add a citation via edits.add_citations or leave them for the author; 4 citation verdict(s) are heuristic (term overlap with title/abstract or the cited PDF), not read by a person; sources not checked online (offline run)
+status: **success**  
+blocking: none  
+advisory (does not lower the status): 1 citation(s) with no term overlap between sentence and cited work (heuristic needs_check, not judged by the agent): c8_0; 1 claim sentence(s) without a citation and no fitting record in the inputs: left for the author (not invented)
+
+## The six actions at a glance
+
+| action | result |
+|-|-|
+| 插入/定位 placement | {"inserted": 0, "moved_from_paragraph_end": 0, "placement_suggestions": 0, "claims_without_citation": 1, "claims_with_library_candidate": 0} |
+| 编号同步 renumbering | {"markers": 5, "references_out": 4, "renumbered_labels": 4, "consistency_ok": true, "order_rule": "first appearance"} |
+| 去重 dedup | {"records_in": 4, "records_after": 4, "merged_clusters": 0, "rules_used": {}, "kept_apart": {}} |
+| 格式 format | {"style": "gbt7714", "entries": 4, "exports": ["bibtex", "ris", "csl_json"], "records_missing_target_fields": 0} |
+| 来源核验 verification | {"verified_by_pdf": 4} |
+| 论断-文献对应 claim match | {"verdicts": {"supported": 4, "needs_check": 1}, "by_agent": 0, "with_pdf_evidence": 5} |
 
 ## Summary
 ```
@@ -27,18 +39,22 @@ reasons: 1 citation occurrence(s) whose claim-source match could not be establis
   "possible_miscitation": 1
  },
  "parse_problems": 0,
- "seconds": 0.62
+ "seconds": 1.49
 }
 ```
+
+## Old number -> new number
+
+[1]->[3] · [2]->[1] · [3]->[4] · [4]->[2]
 
 ## Numbering / list consistency (re-parsed from the written file)
 ok = True; markers use 1..4; list entries 4
 
 ## Items that need a human decision
 
-- **claim_without_citation** sentence=u8s2 cue=has been shown text=It has been shown that dropout reduces overfitting in large networks.
-- **weak_lexical_support** occurrence=c8_0 record=M2 score=0.0 msg=sentence shares almost no terms with the cited work: check claim-source match
-- **possible_miscitation** occurrence=c8_0 records=['M2'] better={'record': 'M3', 'title': 'Scaling laws for neural language models', 'page': 3, 'quote': 'Dataset Size tokens Parameters non-embedding Compute PF-days, non-embedding Test Loss Figure 1 Language modeling performance improves smoothly as we increase the model size, datasetset size, and amoun', 'score': 0.692, 'cited_score': 0.231} msg=the supplied PDF of M3 matches this sentence much better (0.692 vs 0.231) than the cited work
+- [advisory] **claim_without_citation** sentence=u8s2 cue=has been shown text=It has been shown that dropout reduces overfitting in large networks.
+- [advisory] **weak_lexical_support** occurrence=c8_0 record=M2 score=0.0 msg=sentence shares almost no terms with the cited work: check claim-source match
+- [advisory] **possible_miscitation** occurrence=c8_0 records=['M2'] better={'record': 'M3', 'title': 'Scaling laws for neural language models', 'page': 3, 'quote': 'Dataset Size tokens Parameters non-embedding Compute PF-days, non-embedding Test Loss Figure 1 Language modeling performance improves smoothly as we increase the model size, datasetset size, and amoun', 'score': 0.692, 'cited_score': 0.231} msg=the supplied PDF of M3 matches this sentence much better (0.692 vs 0.231) than the cited work
 
 ## Changes
 

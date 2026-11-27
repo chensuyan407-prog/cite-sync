@@ -50,10 +50,8 @@ python3 scripts/cite.py auto --case examples/input/case.json --out /tmp/out --wo
 
 ## status 含义
 
-- `success`：稿件与文献表已写出且写后复查通过。查不到注册记录的中文/会议文献、离线运行、启发式判断、
-  无合适文献的缺引论断、被你删除的引用等只记入 `warnings` / `needs_review`（`severity: advisory`），不影响 status。
-- `partial`：仅限硬问题——编号/文献表复查失败、正文标记找不到条目、仍被引用的来源 DOI 不可解析/疑似编造、
-  文献库里有合适文献但缺引论断尚未决定、去重冲突。原因写在 `status_detail.blocking`。
+- `success`：稿件与文献表已写出且写后复查通过。查不到注册记录的文献、离线运行、启发式判断、孤立引用/待核验 DOI/缺引建议/去重冲突等均完整记入 `warnings` / `needs_review` / `review.md`，不影响 status。
+- `partial`：仅限写后编号或文献表一致性复查失败。
 - `failed`：无可用稿件且无文献库、case.json 缺失、文件不可读（exit 2）。
 
 ## 异常处理

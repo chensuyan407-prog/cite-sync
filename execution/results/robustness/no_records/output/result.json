@@ -1,6 +1,6 @@
 {
  "case_id": null,
- "tool": "cite-sync 0.2.0",
+ "tool": "cite-sync 0.2.1",
  "status": "failed",
  "status_reason": [
   "no reference records found (no reference list in the manuscript and no readable library)"

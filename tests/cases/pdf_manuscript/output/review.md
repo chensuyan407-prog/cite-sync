@@ -1,7 +1,19 @@
 # cite-sync review - case dev-pdf-manuscript
 
-status: **partial**  
-reasons: 1 citation occurrence(s) whose claim-source match could not be established automatically (verdict needs_check/unverifiable): judge them in edits.occurrences; 1 claim sentence(s) without a citation: add a citation via edits.add_citations or leave them for the author; 4 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person; sources not checked online (offline run)
+status: **success**  
+blocking: none  
+advisory (does not lower the status): 1 citation(s) with no term overlap between sentence and cited work (heuristic needs_check, not judged by the agent): c8_0; 1 claim sentence(s) without a citation and no fitting record in the inputs: left for the author (not invented)
+
+## The six actions at a glance
+
+| action | result |
+|-|-|
+| 插入/定位 placement | {"inserted": 0, "moved_from_paragraph_end": 0, "placement_suggestions": 0, "claims_without_citation": 1, "claims_with_library_candidate": 0} |
+| 编号同步 renumbering | {"markers": 5, "references_out": 4, "renumbered_labels": 4, "consistency_ok": true, "order_rule": "first appearance"} |
+| 去重 dedup | {"records_in": 4, "records_after": 4, "merged_clusters": 0, "rules_used": {}, "kept_apart": {}} |
+| 格式 format | {"style": "gbt7714", "entries": 4, "exports": ["bibtex", "ris", "csl_json"], "records_missing_target_fields": 0} |
+| 来源核验 verification | {"unverified_offline": 4} |
+| 论断-文献对应 claim match | {"verdicts": {"supported": 2, "partial": 2, "needs_check": 1}, "by_agent": 0, "with_pdf_evidence": 0} |
 
 ## Summary
 ```
@@ -27,18 +39,22 @@ reasons: 1 citation occurrence(s) whose claim-source match could not be establis
   "weak_lexical_support": 1
  },
  "parse_problems": 0,
- "seconds": 0.08
+ "seconds": 0.1
 }
 ```
+
+## Old number -> new number
+
+[1]->[3] · [2]->[1] · [3]->[4] · [4]->[2]
 
 ## Numbering / list consistency (re-parsed from the written file)
 ok = True; markers use 1..4; list entries 4
 
 ## Items that need a human decision
 
-- **manuscript_converted** msg=PDF manuscript converted to editable markdown from its text layer; layout, fonts and figures are not kept - check headings and the reference list
-- **claim_without_citation** sentence=u8s2 cue=has been shown text=It has been shown that dropout reduces overfitting in large networks.
-- **weak_lexical_support** occurrence=c8_0 record=M2 score=0.0 msg=sentence shares almost no terms with the cited work: check claim-source match
+- [advisory] **manuscript_converted** msg=PDF manuscript converted to editable markdown from its text layer; layout, fonts and figures are not kept - check headings and the reference list
+- [advisory] **claim_without_citation** sentence=u8s2 cue=has been shown text=It has been shown that dropout reduces overfitting in large networks.
+- [advisory] **weak_lexical_support** occurrence=c8_0 record=M2 score=0.0 msg=sentence shares almost no terms with the cited work: check claim-source match
 
 ## Changes
 

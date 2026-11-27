@@ -1,7 +1,19 @@
 # cite-sync review - case holdout-gnn
 
-status: **partial**  
-reasons: 1 blocking item(s) need human confirmation; 3 citation occurrence(s) whose claim-source match could not be established automatically (verdict needs_check/unverifiable): judge them in edits.occurrences; 6 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person; sources not checked online (offline run)
+status: **success**  
+blocking: none  
+advisory (does not lower the status): 1 detected citation/source issue(s) flagged in needs_review: orphan_citation; 1 citation(s) point to an unverified or missing source (flagged in needs_review): c12_0; 2 citation(s) with no term overlap between sentence and cited work (heuristic needs_check, not judged by the agent): c8_2, c10_0
+
+## The six actions at a glance
+
+| action | result |
+|-|-|
+| 插入/定位 placement | {"inserted": 0, "moved_from_paragraph_end": 1, "placement_suggestions": 0, "claims_without_citation": 0, "claims_with_library_candidate": 0} |
+| 编号同步 renumbering | {"markers": 9, "references_out": 7, "renumbered_labels": 5, "consistency_ok": true, "order_rule": "first appearance"} |
+| 去重 dedup | {"records_in": 11, "records_after": 7, "merged_clusters": 4, "rules_used": {"D4": 4}, "kept_apart": {}} |
+| 格式 format | {"style": "gbt7714", "entries": 7, "exports": ["bibtex", "ris", "csl_json"], "records_missing_target_fields": 0} |
+| 来源核验 verification | {"unverified_offline": 6} |
+| 论断-文献对应 claim match | {"verdicts": {"supported": 5, "partial": 1, "needs_check": 2, "unverifiable": 1}, "by_agent": 0, "with_pdf_evidence": 0} |
 
 ## Summary
 ```
@@ -27,20 +39,35 @@ reasons: 1 blocking item(s) need human confirmation; 3 citation occurrence(s) wh
   "weak_lexical_support": 3
  },
  "parse_problems": 0,
- "seconds": 0.02
+ "seconds": 0.03
 }
 ```
+
+## Dedup decisions (why records were merged)
+
+| kept | merged records | rules | needs review |
+|-|-|-|-|
+| L2-1 | M1, L2-1 | D4 | no |
+| M7 | M3, M7 | D4 | no |
+| L1-1 | M4, L1-1 | D4 | no |
+| M8 | M8, L1-2 | D4 | no |
+
+Rules: D1 same DOI · D2 same arXiv id · D3 title is the other's translation · D4 same normalised title + first author, year gap <=2 (preprint vs published) · D5 near-identical title + author overlap (confirm). Kept apart: G1 same DOI/different title · G2 same title/two DOIs · G3 same authors+year/different title · G4 reprint (>2 y). Full pair log: merge_log.json.
+
+## Old number -> new number
+
+[1]->[2] · [2]->[3] · [3]->[1] · [4]->[4] · [5]->[5] · [6]->[6] · [7]->[1] · [8]->removed
 
 ## Numbering / list consistency (re-parsed from the written file)
 ok = True; markers use 1..7; list entries 7
 
 ## Items that need a human decision
 
-- **orphan_citation** marker=9 occurrences=['c12_0'] msg=in-text citation has no reference entry
-- **uncited_entry_removed** record=M8 msg=reference-list entry never cited in the text; removed from the list: Hamilton 2017 Inductive representation learning on large graphs
-- **weak_lexical_support** occurrence=c8_2 record=M7 score=0.0 msg=sentence shares almost no terms with the cited work: check claim-source match
-- **weak_lexical_support** occurrence=c8_2 record=L1-1 score=0.0 msg=sentence shares almost no terms with the cited work: check claim-source match
-- **weak_lexical_support** occurrence=c10_0 record=M7 score=0.0 msg=sentence shares almost no terms with the cited work: check claim-source match
+- [advisory] **orphan_citation** marker=9 occurrences=['c12_0'] msg=in-text citation has no reference entry
+- [advisory] **uncited_entry_removed** record=M8 msg=reference-list entry never cited in the text; removed from the list: Hamilton 2017 Inductive representation learning on large graphs
+- [advisory] **weak_lexical_support** occurrence=c8_2 record=M7 score=0.0 msg=sentence shares almost no terms with the cited work: check claim-source match
+- [advisory] **weak_lexical_support** occurrence=c8_2 record=L1-1 score=0.0 msg=sentence shares almost no terms with the cited work: check claim-source match
+- [advisory] **weak_lexical_support** occurrence=c10_0 record=M7 score=0.0 msg=sentence shares almost no terms with the cited work: check claim-source match
 
 ## Changes
 

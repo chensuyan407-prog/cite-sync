@@ -1,6 +1,6 @@
 {
  "case_id": "holdout-insert",
- "tool": "cite-sync 0.2.0",
+ "tool": "cite-sync 0.2.1",
  "revised_manuscript": {
   "path": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\holdout_insert\\output\\draft_revised.md",
   "format": "md",
@@ -186,10 +186,13 @@
   ],
   "pdfs": []
  },
- "status": "partial",
+ "status": "success",
  "status_reason": [
-  "1 claim sentence(s) without a citation: add a citation via edits.add_citations or leave them for the author",
+  "1 claim sentence(s) without a citation and no fitting record in the inputs: left for the author (not invented)",
   "sources not checked online (offline run)"
+ ],
+ "warnings": [
+  "1 claim sentence(s) without a citation and no fitting record in the inputs: left for the author (not invented)"
  ],
  "style": "gbt7714",
  "marker_style": "inline",
@@ -299,12 +302,64 @@
    "type": "claim_without_citation",
    "sentence": "u8s2",
    "cue": "有研究",
-   "text": "有研究指出，量子计算将在十年内全面取代经典计算。"
+   "text": "有研究指出，量子计算将在十年内全面取代经典计算。",
+   "severity": "advisory"
   }
  ],
  "parse_problems": [],
  "edits_applied": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\holdout_insert\\edits_agent.json",
  "uncertainty": "Each citation verdict is either the agent's (verdict_source=agent) or a heuristic from term overlap between the sentence and the cited work's title/abstract (verdict_source=heuristic; not a reading of the source). No online verification in this run.",
+ "status_detail": {
+  "blocking": [],
+  "advisory": [
+   "1 claim sentence(s) without a citation and no fitting record in the inputs: left for the author (not invented)"
+  ],
+  "rule": "partial only for blocking items (deliverable wrong/unfinished); advisory items are listed in needs_review with severity=advisory and do not lower the status"
+ },
+ "renumber_map": {},
+ "actions_coverage": {
+  "1_citation_placement": {
+   "inserted": 5,
+   "moved_from_paragraph_end": 0,
+   "placement_suggestions": 0,
+   "claims_without_citation": 1,
+   "claims_with_library_candidate": 0
+  },
+  "2_renumbering": {
+   "markers": 5,
+   "references_out": 5,
+   "renumbered_labels": 0,
+   "consistency_ok": true,
+   "order_rule": "first appearance"
+  },
+  "3_dedup": {
+   "records_in": 5,
+   "records_after": 5,
+   "merged_clusters": 0,
+   "rules_used": {},
+   "kept_apart": {}
+  },
+  "4_format": {
+   "style": "gbt7714",
+   "entries": 5,
+   "exports": [
+    "bibtex",
+    "ris",
+    "csl_json"
+   ],
+   "records_missing_target_fields": 0
+  },
+  "5_source_verification": {
+   "unverified_offline": 5
+  },
+  "6_claim_source_match": {
+   "verdicts": {
+    "supported": 5
+   },
+   "by_agent": 5,
+   "with_pdf_evidence": 0
+  }
+ },
  "_contract_autofilled": {
   "revised_manuscript": true,
   "references": true,

@@ -2,14 +2,14 @@
  "cases": {
   "en_apa": {
    "holdout": false,
-   "status": "partial",
+   "status": "success",
    "status_reason": [
-    "1 citation occurrence(s) whose claim-source match could not be established automatically (verdict needs_check/unverifiable): judge them in edits.occurrences",
-    "1 claim sentence(s) without a citation: add a citation via edits.add_citations or leave them for the author",
+    "1 citation(s) with no term overlap between sentence and cited work (heuristic needs_check, not judged by the agent): c2_3",
+    "1 claim sentence(s) without a citation and no fitting record in the inputs: left for the author (not invented)",
     "5 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person",
     "sources not checked online (offline run)"
    ],
-   "seconds": 0.13,
+   "seconds": 0.16,
    "checks": 8,
    "passed": 8,
    "b0_passed": 1,
@@ -36,19 +36,20 @@
      "weak_lexical_support": 1
     },
     "parse_problems": 0,
-    "seconds": 0.02
+    "seconds": 0.03
    }
   },
   "holdout_gnn": {
    "holdout": true,
-   "status": "partial",
+   "status": "success",
    "status_reason": [
-    "1 blocking item(s) need human confirmation",
-    "3 citation occurrence(s) whose claim-source match could not be established automatically (verdict needs_check/unverifiable): judge them in edits.occurrences",
+    "1 detected citation/source issue(s) flagged in needs_review: orphan_citation",
+    "1 citation(s) point to an unverified or missing source (flagged in needs_review): c12_0",
+    "2 citation(s) with no term overlap between sentence and cited work (heuristic needs_check, not judged by the agent): c8_2, c10_0",
     "6 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person",
     "sources not checked online (offline run)"
    ],
-   "seconds": 0.13,
+   "seconds": 0.16,
    "checks": 16,
    "passed": 16,
    "b0_passed": 7,
@@ -76,22 +77,24 @@
      "weak_lexical_support": 3
     },
     "parse_problems": 0,
-    "seconds": 0.02
+    "seconds": 0.03
    }
   },
   "holdout_insert": {
    "holdout": true,
-   "status": "partial",
+   "status": "success",
    "status_reason": [
-    "1 claim sentence(s) without a citation: add a citation via edits.add_citations or leave them for the author",
+    "1 claim sentence(s) without a citation and no fitting record in the inputs: left for the author (not invented)",
     "sources not checked online (offline run)"
    ],
-   "seconds": 0.13,
+   "seconds": 0.17,
    "checks": 17,
-   "passed": 17,
+   "passed": 16,
    "b0_passed": 2,
    "b1_passed": 2,
-   "failed": [],
+   "failed": [
+    "I17: POST-FREEZE (seen in pass-1 brief): status was 'complete' although 6 claims had no citation"
+   ],
    "summary": {
     "records_in": 5,
     "records_after_dedup": 5,
@@ -117,14 +120,14 @@
   },
   "pdf_evidence": {
    "holdout": false,
-   "status": "partial",
+   "status": "success",
    "status_reason": [
-    "1 citation occurrence(s) whose claim-source match could not be established automatically (verdict needs_check/unverifiable): judge them in edits.occurrences",
-    "1 claim sentence(s) without a citation: add a citation via edits.add_citations or leave them for the author",
+    "1 citation(s) with no term overlap between sentence and cited work (heuristic needs_check, not judged by the agent): c8_0",
+    "1 claim sentence(s) without a citation and no fitting record in the inputs: left for the author (not invented)",
     "4 citation verdict(s) are heuristic (term overlap with title/abstract or the cited PDF), not read by a person",
     "sources not checked online (offline run)"
    ],
-   "seconds": 0.75,
+   "seconds": 1.65,
    "checks": 8,
    "passed": 8,
    "b0_passed": 0,
@@ -152,19 +155,19 @@
      "possible_miscitation": 1
     },
     "parse_problems": 0,
-    "seconds": 0.62
+    "seconds": 1.49
    }
   },
   "pdf_manuscript": {
    "holdout": false,
-   "status": "partial",
+   "status": "success",
    "status_reason": [
-    "1 citation occurrence(s) whose claim-source match could not be established automatically (verdict needs_check/unverifiable): judge them in edits.occurrences",
-    "1 claim sentence(s) without a citation: add a citation via edits.add_citations or leave them for the author",
+    "1 citation(s) with no term overlap between sentence and cited work (heuristic needs_check, not judged by the agent): c8_0",
+    "1 claim sentence(s) without a citation and no fitting record in the inputs: left for the author (not invented)",
     "4 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person",
     "sources not checked online (offline run)"
    ],
-   "seconds": 0.21,
+   "seconds": 0.25,
    "checks": 5,
    "passed": 5,
    "b0_passed": 0,
@@ -192,18 +195,18 @@
      "weak_lexical_support": 1
     },
     "parse_problems": 0,
-    "seconds": 0.08
+    "seconds": 0.1
    }
   },
   "zh_docx": {
    "holdout": false,
-   "status": "partial",
+   "status": "success",
    "status_reason": [
-    "1 citation(s) removed by edit; the sentence(s) need a real source or rewording (human)",
-    "1 claim sentence(s) without a citation (1 with a suggested library record): add a citation via edits.add_citations or leave them for the author",
+    "1 citation(s) removed by edit; the sentence(s) are flagged for the author to source or reword",
+    "1 claim sentence(s) without a citation and no fitting record in the inputs: left for the author (not invented)",
     "sources not checked online (offline run)"
    ],
-   "seconds": 0.24,
+   "seconds": 0.29,
    "checks": 26,
    "passed": 23,
    "b0_passed": 4,
@@ -235,18 +238,18 @@
      "caption_citation": 1
     },
     "parse_problems": 0,
-    "seconds": 0.13
+    "seconds": 0.15
    }
   },
   "zh_review": {
    "holdout": false,
-   "status": "partial",
+   "status": "success",
    "status_reason": [
-    "1 citation(s) removed by edit; the sentence(s) need a real source or rewording (human)",
-    "1 claim sentence(s) without a citation (1 with a suggested library record): add a citation via edits.add_citations or leave them for the author",
+    "1 citation(s) removed by edit; the sentence(s) are flagged for the author to source or reword",
+    "1 claim sentence(s) without a citation and no fitting record in the inputs: left for the author (not invented)",
     "sources not checked online (offline run)"
    ],
-   "seconds": 0.16,
+   "seconds": 0.2,
    "checks": 26,
    "passed": 23,
    "b0_passed": 3,
@@ -297,10 +300,10 @@
  },
  "holdout_post_freeze_checks": {
   "checks": 3,
-  "skill_now": 1.0,
+  "skill_now": 0.667,
   "note": "added after reading held-out outputs; failed at their freeze (v0.1: Adam glued onto the Dropout marker; v0.2: status complete with open uncited claims), fixed afterwards"
  },
- "wall_seconds": 4.0,
+ "wall_seconds": 6.3,
  "robustness": {
   "missing_case_json": {
    "status": "failed",
@@ -317,7 +320,7 @@
   },
   "corrupt_library": {
    "exit": 0,
-   "status": "partial",
+   "status": "success",
    "problems": [
     "unbalanced braces (entry truncated?)",
     "RIS record without ER (file truncated?) - kept"
@@ -331,7 +334,7 @@
     "unverified_offline"
    ],
    "offline_reason": "network unavailable (URLError(ConnectionRefusedError(10061, '無法連線，因為目標電腦拒絕連線。', None, 10061, None)))",
-   "seconds": 4.3,
+   "seconds": 2.3,
    "ok": true
   },
   "no_records": {

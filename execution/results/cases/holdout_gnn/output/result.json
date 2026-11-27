@@ -1,6 +1,6 @@
 {
  "case_id": "holdout-gnn",
- "tool": "cite-sync 0.2.0",
+ "tool": "cite-sync 0.2.1",
  "revised_manuscript": {
   "path": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\holdout_gnn\\output\\manuscript_revised.md",
   "format": "md",
@@ -24,33 +24,38 @@
    "occurrences": [
     "c12_0"
    ],
-   "msg": "in-text citation has no reference entry"
+   "msg": "in-text citation has no reference entry",
+   "severity": "advisory"
   },
   {
    "type": "uncited_entry_removed",
    "record": "M8",
-   "msg": "reference-list entry never cited in the text; removed from the list: Hamilton 2017 Inductive representation learning on large graphs"
+   "msg": "reference-list entry never cited in the text; removed from the list: Hamilton 2017 Inductive representation learning on large graphs",
+   "severity": "advisory"
   },
   {
    "type": "weak_lexical_support",
    "occurrence": "c8_2",
    "record": "M7",
    "score": 0.0,
-   "msg": "sentence shares almost no terms with the cited work: check claim-source match"
+   "msg": "sentence shares almost no terms with the cited work: check claim-source match",
+   "severity": "advisory"
   },
   {
    "type": "weak_lexical_support",
    "occurrence": "c8_2",
    "record": "L1-1",
    "score": 0.0,
-   "msg": "sentence shares almost no terms with the cited work: check claim-source match"
+   "msg": "sentence shares almost no terms with the cited work: check claim-source match",
+   "severity": "advisory"
   },
   {
    "type": "weak_lexical_support",
    "occurrence": "c10_0",
    "record": "M7",
    "score": 0.0,
-   "msg": "sentence shares almost no terms with the cited work: check claim-source match"
+   "msg": "sentence shares almost no terms with the cited work: check claim-source match",
+   "severity": "advisory"
   }
  ],
  "_contract_fields": [
@@ -87,12 +92,18 @@
   ],
   "pdfs": []
  },
- "status": "partial",
+ "status": "success",
  "status_reason": [
-  "1 blocking item(s) need human confirmation",
-  "3 citation occurrence(s) whose claim-source match could not be established automatically (verdict needs_check/unverifiable): judge them in edits.occurrences",
+  "1 detected citation/source issue(s) flagged in needs_review: orphan_citation",
+  "1 citation(s) point to an unverified or missing source (flagged in needs_review): c12_0",
+  "2 citation(s) with no term overlap between sentence and cited work (heuristic needs_check, not judged by the agent): c8_2, c10_0",
   "6 citation verdict(s) are heuristic (term overlap with title/abstract), not read by a person",
   "sources not checked online (offline run)"
+ ],
+ "warnings": [
+  "1 detected citation/source issue(s) flagged in needs_review: orphan_citation",
+  "1 citation(s) point to an unverified or missing source (flagged in needs_review): c12_0",
+  "2 citation(s) with no term overlap between sentence and cited work (heuristic needs_check, not judged by the agent): c8_2, c10_0"
  ],
  "style": "gbt7714",
  "marker_style": "pandoc-sup",
@@ -132,7 +143,7 @@
    "weak_lexical_support": 3
   },
   "parse_problems": 0,
-  "seconds": 0.02
+  "seconds": 0.03
  },
  "consistency_check": {
   "ok": true,
@@ -232,6 +243,73 @@
  "parse_problems": [],
  "edits_applied": null,
  "uncertainty": "Each citation verdict is either the agent's (verdict_source=agent) or a heuristic from term overlap between the sentence and the cited work's title/abstract (verdict_source=heuristic; not a reading of the source). No online verification in this run.",
+ "status_detail": {
+  "blocking": [],
+  "advisory": [
+   "1 detected citation/source issue(s) flagged in needs_review: orphan_citation",
+   "1 citation(s) point to an unverified or missing source (flagged in needs_review): c12_0",
+   "2 citation(s) with no term overlap between sentence and cited work (heuristic needs_check, not judged by the agent): c8_2, c10_0"
+  ],
+  "rule": "partial only for blocking items (deliverable wrong/unfinished); advisory items are listed in needs_review with severity=advisory and do not lower the status"
+ },
+ "renumber_map": {
+  "1": 2,
+  "2": 3,
+  "3": 1,
+  "4": 4,
+  "5": 5,
+  "6": 6,
+  "7": 1,
+  "8": null
+ },
+ "actions_coverage": {
+  "1_citation_placement": {
+   "inserted": 0,
+   "moved_from_paragraph_end": 1,
+   "placement_suggestions": 0,
+   "claims_without_citation": 0,
+   "claims_with_library_candidate": 0
+  },
+  "2_renumbering": {
+   "markers": 9,
+   "references_out": 7,
+   "renumbered_labels": 5,
+   "consistency_ok": true,
+   "order_rule": "first appearance"
+  },
+  "3_dedup": {
+   "records_in": 11,
+   "records_after": 7,
+   "merged_clusters": 4,
+   "rules_used": {
+    "D4": 4
+   },
+   "kept_apart": {}
+  },
+  "4_format": {
+   "style": "gbt7714",
+   "entries": 7,
+   "exports": [
+    "bibtex",
+    "ris",
+    "csl_json"
+   ],
+   "records_missing_target_fields": 0
+  },
+  "5_source_verification": {
+   "unverified_offline": 6
+  },
+  "6_claim_source_match": {
+   "verdicts": {
+    "supported": 5,
+    "partial": 1,
+    "needs_check": 2,
+    "unverifiable": 1
+   },
+   "by_agent": 0,
+   "with_pdf_evidence": 0
+  }
+ },
  "_contract_autofilled": {
   "revised_manuscript": true,
   "references": true

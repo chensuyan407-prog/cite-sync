@@ -1,18 +1,17 @@
 {
  "online": true,
  "network": {
-  "requests": 2,
+  "requests": 1,
   "offline_reason": "network unavailable (URLError(ConnectionRefusedError(10061, '無法連線，因為目標電腦拒絕連線。', None, 10061, None)))",
   "errors": [
-   "https://api.crossref.org/works/10.1109/CVPR.2016.90: URLError(ConnectionRefusedError(10061, '無法連線，因為目標電腦拒絕連線。', None, 10061, None))",
-   "https://api.crossref.org/works?query.bibliographic=Identity+mappings+in+deep+residual+networks+He+Zhang&rows=5&select=DOI%2Ctitle%2Ccontainer-title%2Cvolume%2Cissue%2Cpage%2Cissued%2Cpublished-print%2Cpublished-online%2Cauthor%2Ctype%2Cpublisher: URLError(ConnectionRefusedError(10061, '無法連線，因為目標電腦拒絕連線。', None, 10061, None))"
+   "https://api.crossref.org/works/10.1109/CVPR.2016.90: URLError(ConnectionRefusedError(10061, '無法連線，因為目標電腦拒絕連線。', None, 10061, None))"
   ]
  },
  "records": {
   "L1-4": {
    "status": "unverified_offline",
    "details": {
-    "reason": "no response"
+    "reason": "network unavailable (URLError(ConnectionRefusedError(10061, '無法連線，因為目標電腦拒絕連線。', None, 10061, None)))"
    },
    "corrections": {},
    "issues": [],
