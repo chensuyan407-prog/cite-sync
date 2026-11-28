@@ -446,12 +446,14 @@ def _save_docx(doc, new_units, path, reflist):
                 r = np_.makeelement(qn("w:r"), {})
                 np_.append(r)
             tt = r.makeelement(qn("w:t"), {})
-            tt.text = f"[{n}] {txt}"
+            tt.text = doc.get("ref_prefix", "[{n}] ").format(n=n) + txt
             tt.set("{http://www.w3.org/XML/1998/namespace}space", "preserve")
             r.append(tt)
             last.addnext(np_)
             last = np_
         for el in olds:
             el.getparent().remove(el)
+    for line in doc.get("appendix_lines") or []:
+        doc["docx"].add_paragraph(line)
     doc["docx"].save(path)
     return warnings

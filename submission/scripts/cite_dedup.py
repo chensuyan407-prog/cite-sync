@@ -20,6 +20,7 @@ Clusters are the connected components of merged pairs. The canonical record of a
 version over a preprint, then the record with more filled fields; missing fields are filled from the other
 members and each filled field records where it came from.
 """
+import re
 from cite_common import (ARXIV_DOI, has_cjk, author_overlap, is_preprint, sim, surname, title_key, year_of)
 
 FIELDS = ["title", "title_alt", "authors", "year", "container", "volume", "issue", "pages", "publisher", "place",
@@ -54,8 +55,12 @@ def decide(a, b):
             return False, "G1", f"bilingual titles match but years differ ({ya} vs {yb})", True
         return True, "D3", "title of one record equals the translated/alternate title of the other", False
     real_doi = lambda d: d and not ARXIV_DOI.match(d)
+    doi_complete = lambda d: bool(re.match(r"^10\.\d{4,9}/\S+$", d)) and not d.endswith(("/", "-", "."))
     if ts == 1.0 and real_doi(da) and real_doi(db) and da != db:
-        return False, "G2", f"same title but two different publisher DOIs ({da}, {db}): separate published versions; choose one by hand", True
+        if da.startswith(db) or db.startswith(da) or not doi_complete(da) or not doi_complete(db):
+            pass  # truncated/incomplete DOI noise: fall through to D4
+        else:
+            return False, "G2", f"same title but two different publisher DOIs ({da}, {db}): separate published versions; choose one by hand", True
     first_ok = (not fa[0] or not fa[1] or fa[0] == fa[1] or (ov or 0) >= 0.5)
     if ts == 1.0 and first_ok and (dy is None or dy <= 2):
         pre = is_preprint(a) != is_preprint(b)

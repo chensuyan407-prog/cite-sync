@@ -75,6 +75,11 @@ def offline_checks(r, style="gbt7714"):
     if r.get("doi_raw_invalid"):
         issues.append({"code": "bad_doi", "severity": "error", "msg": f"DOI not parseable: {r['doi_raw_invalid']}"})
     d = r.get("doi")
+    if d:
+        suffix = d.split("/", 1)[1] if "/" in d else d
+        if re.search(r"(?:9999|0000)", suffix) or not re.match(r"^10\.\d{4,9}/[^\s]{3,}$", d) or d.endswith(("/", "-", ".")):
+            issues.append({"code": "suspected_fabricated_doi", "severity": "error",
+                           "msg": f"DOI {d} matches offline fabrication/malformed heuristic"})
     c = (r.get("container") or "").lower()
     if d and c:
         pre = d.split("/")[0]
@@ -122,12 +127,27 @@ class Net:
         self.enabled, self.budget, self.maxr, self.timeout = enabled, budget_s, max_requests, timeout
         self.t0, self.n, self.offline_reason = time.monotonic(), 0, None if enabled else "online checks not requested"
         self.errors = []
+        self._probed = False
+
+    def _probe(self):
+        self._probed = True
+        try:
+            req = urllib.request.Request("https://api.crossref.org/works?rows=1", headers={"User-Agent": UA})
+            with urllib.request.urlopen(req, timeout=5) as resp:
+                resp.read(64)
+        except Exception as exc:
+            self.errors.append(f"probe: {exc!r}")
+            self.offline_reason = f"connectivity probe failed ({exc!r})"
 
     def get(self, url, kind="json"):
         if url in self.cache:
             return self.cache[url]
         if not self.enabled or self.offline_reason:
             return None
+        if not self._probed:
+            self._probe()
+            if self.offline_reason:
+                return None
         remaining = self.budget - (time.monotonic() - self.t0)
         if remaining <= 0 or self.n >= self.maxr:
             self.offline_reason = f"network budget used ({self.n} requests)"

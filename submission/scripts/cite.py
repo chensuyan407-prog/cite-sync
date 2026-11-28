@@ -221,21 +221,54 @@ def resolve_ay(item, recs):
 def pdf_manuscript(path, work):
     import pymupdf as fitz
 
-    blocks = []
+    pages = []
     with fitz.open(path) as pdf:
         if pdf.needs_pass:
             raise ValueError("PDF is password protected")
         for page in pdf:
+            p_blocks = []
             for block in page.get_text("blocks", sort=True):
                 if block[6] != 0:
                     continue
                 text = block[4].strip()
                 if text and not text.isdecimal():
-                    blocks.append(text)
-    if not blocks:
+                    # Dehyphenate line breaks and merge intra-block newlines
+                    text = re.sub(r"-\s*\n\s*", "", text)
+                    text = re.sub(r"(?<!\n)\n(?!\n)", " ", text)
+                    p_blocks.append(text)
+            if p_blocks:
+                pages.append("\n\n".join(p_blocks))
+    if not pages:
         raise ValueError("PDF has no extractable text; supply OCR text or an editable manuscript")
+    raw_lines = "\n\n".join(pages).splitlines()
+    ref_hdr_re = re.compile(r"^\s*(?:References|Bibliography|参考文献|Works\s+Cited)\s*$", re.I)
+    entry_start_re = re.compile(r"^\s*(?:\[\d+\]|\d+\.\s+|[A-Z][a-zA-Z\-']+,\s*[A-Z]\.)")
+    out_lines, in_refs, buf = [], False, []
+    for ln in raw_lines:
+        if not in_refs:
+            out_lines.append(ln)
+            if ref_hdr_re.match(ln):
+                in_refs = True
+            continue
+        s = ln.strip()
+        if not s:
+            if buf:
+                out_lines.append(" ".join(buf))
+                buf = []
+            out_lines.append("")
+        elif entry_start_re.match(s) and buf:
+            out_lines.append(" ".join(buf))
+            buf = [s]
+        else:
+            # Join broken DOIs/URLs without extra space if previous ended with / or -
+            if buf and (buf[-1].endswith("/") or buf[-1].endswith("-") or re.search(r"(?:doi:|https?://\S+)$", buf[-1], re.I)):
+                buf[-1] = buf[-1] + s
+            else:
+                buf.append(s)
+    if buf:
+        out_lines.append(" ".join(buf))
     target = os.path.join(work, os.path.splitext(os.path.basename(path))[0] + ".md")
-    write(target, "\n\n".join(blocks) + "\n")
+    write(target, "\n".join(out_lines) + "\n")
     return target
 
 
@@ -390,16 +423,9 @@ def cmd_run(a):
             o["cids"] = list(dict.fromkeys(o["cids"]))
         for u in o["unresolved"]:
             orphans.setdefault(str(u), []).append(o["id"])
-    # placeholder records for markers that point nowhere (numbering stays consistent and visible)
+    # Keep orphan citations untouched in-text (never inject placeholder strings); flag them in review
     for u, oids in orphans.items():
-        ph = {"id": f"MISSING-{u}", "type": "misc", "title": f"【缺失文献：原稿引用 {u} 在参考文献表中找不到，需人工补充】",
-              "placeholder": True, "merged_from": [f"MISSING-{u}"]}
-        canon.append(ph)
-        id2c[ph["id"]] = ph
         review.append({"type": "orphan_citation", "marker": u, "occurrences": oids, "msg": "in-text citation has no reference entry"})
-        for o in occs:
-            if o["id"] in oids:
-                o["cids"].append(ph["id"])
     byid = {c["id"]: c for c in canon}
     # ---------------- online / offline verification of records that matter
     cited_ids = {c for o in occs for c in o["cids"]}
@@ -726,7 +752,7 @@ def cmd_run(a):
             if r.get("origin") == "manuscript_list":
                 c = id2c[r["id"]]
                 renumber[str(r["label"])] = c.get("number") if c["id"] in num_of else None
-        doc["ref_prefix"] = detect_prefix(doc)
+        doc["ref_prefix"] = detect_prefix(doc, numeric)
         if doc["kind"] == "tex":
             warn = cite_doc.save(doc, new_units, revised, None)
         else:
@@ -747,13 +773,20 @@ def cmd_run(a):
         v = verdicts.get(o["id"]) or ({"verdict": o["edit_verdict"]} if o.get("edit_verdict") else {})
         additions = added_assessments.get(o["id"], {})
         single_addition = additions.get(o["records"][0], {}) if len(o["records"]) == 1 else {}
-        mapped = dict(o, sentence_text=s.get("plain"), verdict=v.get("verdict"),
+        ev_text = str(v.get("evidence") or single_addition.get("evidence") or "")
+        pdf_names = [os.path.basename(p).lower() for p in (inv.get("pdfs") or []) if p]
+        has_pdf_ref = bool(pdf_names and any(pn in ev_text.lower() for pn in pdf_names)
+                           and re.search(r"(?:\bp\.?\s*\d+|\bpage\s*\d+|第\s*\d+\s*页|\bpp\.?\s*\d+)", ev_text, re.I))
+        ev_basis = "pdf" if has_pdf_ref else "metadata_only"
+        raw_verdict = v.get("verdict")
+        if ev_basis == "metadata_only" and raw_verdict == "supported":
+            raw_verdict = "partial"
+        mapped = dict(o, sentence_text=s.get("plain"), verdict=raw_verdict,
                       verdict_note=v.get("note") or single_addition.get("note"),
                       evidence=v.get("evidence") or single_addition.get("evidence"),
                       references=[{"record": c, "number": num_of.get(c) if numeric else None, "text": short(byid[c]), "doi": byid[c].get("doi")}
                                   for c in o["records"]],
-                      # "record_metadata" = verdict made from the library/list record only; "pdf" = source PDF text was supplied
-                      evidence_basis="pdf" if inv.get("pdfs") else "record_metadata")
+                      evidence_basis=ev_basis)
         if additions:
             mapped["added_record_assessments"] = additions
         cmap.append(mapped)
@@ -776,9 +809,9 @@ def cmd_run(a):
     chk = check_manuscript(revised, style) if (doc and numeric and doc["kind"] != "tex") else None
     previews = render_preview(revised, out) if (doc and doc["kind"] == "docx" and not a.no_preview) else []
     # result
-    for r in review:  # a bad source that is no longer cited does not block the result
+    for r in review:  # fabricated/bad sources removed from body remain flagged for human review
         if r.get("record") and r["type"].startswith("source_") and r["record"] not in num_of:
-            r["resolved"] = "record no longer cited after edits"
+            r["status"] = "removed_suspected_fabricated"
     final_by_id = {row["id"]: row for row in cmap}
     for item in review:
         if item["type"] == "orphan_citation" and all(
@@ -867,7 +900,9 @@ def count(xs):
     return d
 
 
-def detect_prefix(doc):
+def detect_prefix(doc, numeric=True):
+    if not numeric:
+        return ""
     for _, t in cite_doc.reflist_lines(doc):
         s = t.strip()
         if re.match(r"^\[\d+\]", s):
@@ -968,7 +1003,10 @@ def priority_review(review, occurrences, records, pdfs):
 
 def review_md(res, cmap, ver, byid, numeric, moves):
     L = [f"# cite-sync review - case {res.get('case_id')}", "", f"status: **{res['status']}**  ", "reasons: " + ("; ".join(res["status_reason"]) or "-"), "",
-         "## Summary", "```", json.dumps(res["summary"], ensure_ascii=False, indent=1), "```", ""]
+         "## Summary", "", "| 指标 (Metric) | 数值 (Value) |", "|-|-|"]
+    for k, v in (res.get("summary") or {}).items():
+        L.append(f"| {k} | {v} |")
+    L.append("")
     if res.get("consistency_check"):
         c = res["consistency_check"]
         L += ["## Numbering / list consistency (re-parsed from the written file)", f"ok = {c['ok']}; markers use 1..{c['max_number']}; list entries {c['list_entries']}",
@@ -976,9 +1014,14 @@ def review_md(res, cmap, ver, byid, numeric, moves):
     L += ["## Items that need a human decision", ""]
     for r in res["needs_review"]:
         L.append(f"- **{r['type']}** " + " ".join(f"{k}={v}" for k, v in r.items() if k not in ("type", "details")))
-    L += ["", "## Changes", ""]
+    L += ["", "## Changes", "", "| 位置 (Location) | 原文 (Original) | 修改后 (Revised) | 依据 (Basis) | 状态 (Status) |", "|-|-|-|-|-|"]
     for c in res["changes"]:
-        L.append("- " + json.dumps(c, ensure_ascii=False))
+        loc = str(c.get("occurrence") or c.get("record") or c.get("kind") or "-").replace("|", r"\|")
+        old = str(c.get("old") or "-").replace("|", r"\|")[:80]
+        new = str(c.get("new") or "-").replace("|", r"\|")[:80]
+        basis = str(c.get("reason") or c.get("source") or c.get("field") or "-").replace("|", r"\|")[:80]
+        st = str(c.get("kind") or "applied").replace("|", r"\|")
+        L.append(f"| {loc} | {old} | {new} | {basis} | {st} |")
     L += ["", "## Source verification", "", "| record | status | issues | corrections |", "|-|-|-|-|"]
     for rid, v in ver.items():
         L.append(f"| {rid} {v['record'][:50]} | {v['status']} | {'; '.join(i['code'] for i in v['issues'])} | {', '.join(v['corrections'])} |")
