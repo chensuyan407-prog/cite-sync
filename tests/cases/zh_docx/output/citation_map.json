@@ -71,7 +71,7 @@
     "record": "M5",
     "number": 2,
     "text": "Krizhevsky 2017 ImageNet classification with deep convolutional neural netwo",
-    "doi": "10.1145/3065386"
+    "doi": ""
    }
   ],
   "evidence_basis": "record_metadata"
@@ -145,7 +145,7 @@
     "record": "M2",
     "number": 4,
     "text": "He 2016 Identity mappings in deep residual networks",
-    "doi": "10.1007/978-3-319-46493-0_38"
+    "doi": ""
    }
   ],
   "evidence_basis": "record_metadata"
@@ -178,7 +178,7 @@
     "record": "M4",
     "number": 5,
     "text": "Hochreiter 1997 Long short-term memory",
-    "doi": "10.1162/neco.1997.9.8.1735"
+    "doi": ""
    }
   ],
   "evidence_basis": "record_metadata"
@@ -251,7 +251,7 @@
     "record": "M9",
     "number": 7,
     "text": "Devlin 2019 BERT: Pre-training of deep bidirectional transformers for la",
-    "doi": "10.18653/v1/n19-1423"
+    "doi": ""
    }
   ],
   "evidence_basis": "record_metadata"

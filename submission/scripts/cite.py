@@ -178,15 +178,23 @@ def save_result(out, report, contract, clean):
 
     result = report
     if clean and contract:
-        # result.json = case_id + run status + output_contract fields; artifact paths are relative to out/
-        # so the folder can be moved or re-checked on another machine. Full detail stays in run_report.json.
+        # Keep case_id, run status, all output_contract fields (and nested output_contract), plus core deliverables
+        # (artifacts, references_list, changes, needs_review, consistency_check, summary) in result.json with paths relative to out/.
+        out_abs = os.path.abspath(out)
         def relative(value):
-            if isinstance(value, str) and os.path.isabs(value) and value.startswith(os.path.abspath(out)):
+            if isinstance(value, str) and os.path.isabs(value) and value.startswith(out_abs):
                 return os.path.relpath(value, out).replace("\\", "/")
+            if isinstance(value, list):
+                return [relative(v) for v in value]
+            if isinstance(value, dict):
+                return {k: relative(v) for k, v in value.items()}
             return value
+        contract_obj = {key: relative(report.get(key)) for key in contract if key != "case_id"}
         result = {"case_id": report.get("case_id"), "status": report.get("status"), "status_reason": report.get("status_reason"),
-                  **{key: relative(report.get(key)) for key in contract if key != "case_id"},
-                  "uncertainty": report.get("uncertainty")}
+                  **contract_obj, "output_contract": contract_obj}
+        for extra in ("artifacts", "references_list", "changes", "needs_review", "consistency_check", "summary", "inputs", "uncertainty"):
+            if extra not in result and extra in report:
+                result[extra] = relative(report.get(extra))
         write_atomic("run_report.json", report)
     write_atomic("result.json", result)
 

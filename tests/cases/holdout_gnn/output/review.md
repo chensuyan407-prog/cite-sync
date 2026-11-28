@@ -1,7 +1,7 @@
 # cite-sync review - case holdout-gnn
 
 status: **partial**  
-reasons: 1 blocking item(s) need human confirmation; 9 citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict)
+reasons: 1 blocking item(s) need human confirmation; 9 citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict); sources not checked online (offline run)
 
 ## Summary
 ```
@@ -16,16 +16,13 @@ reasons: 1 blocking item(s) need human confirmation; 9 citation occurrence(s) wi
  "uncited_removed": 1,
  "auto_moves": 1,
  "placement_suggestions": 0,
- "verified": 2,
+ "verified": 0,
  "verification_status_counts": {
-  "unverified_no_registry_match": 4,
-  "verified_via_arxiv": 1,
-  "verified": 1
+  "unverified_offline": 6
  },
- "review_items": 9,
+ "review_items": 5,
  "review_by_type": {
   "orphan_citation": 1,
-  "source_unconfirmed": 4,
   "uncited_entry_removed": 1,
   "weak_lexical_support": 3
  },
@@ -40,10 +37,6 @@ ok = True; markers use 1..7; list entries 7
 ## Items that need a human decision
 
 - **orphan_citation** marker=9 occurrences=['c12_0'] msg=in-text citation has no reference entry
-- **source_unconfirmed** record=L2-1 msg=no Crossref/arXiv record with matching title+authors+year; common for proceedings without DOI, books, Chinese journals - check by hand
-- **source_unconfirmed** record=M2 msg=no Crossref/arXiv record with matching title+authors+year; common for proceedings without DOI, books, Chinese journals - check by hand
-- **source_unconfirmed** record=M5 msg=no Crossref/arXiv record with matching title+authors+year; common for proceedings without DOI, books, Chinese journals - check by hand
-- **source_unconfirmed** record=M6 msg=no Crossref/arXiv record with matching title+authors+year; common for proceedings without DOI, books, Chinese journals - check by hand
 - **uncited_entry_removed** record=M8 msg=reference-list entry never cited in the text; removed from the list: Hamilton 2017 Inductive representation learning on large graphs
 - **weak_lexical_support** occurrence=c8_2 record=M7 score=0.0 msg=sentence shares almost no terms with the cited work: check claim-source match
 - **weak_lexical_support** occurrence=c8_2 record=L1-1 score=0.0 msg=sentence shares almost no terms with the cited work: check claim-source match
@@ -63,12 +56,12 @@ ok = True; markers use 1..7; list entries 7
 
 | record | status | issues | corrections |
 |-|-|-|-|
-| L2-1 Veličković 2018 Graph Attention Networks | unverified_no_registry_match |  |  |
-| M2 Brown 2020 Language models are few-shot learners | unverified_no_registry_match | authors_truncated |  |
-| M7 Kipf 2017 Semi-supervised classification with grap | verified_via_arxiv |  |  |
-| L1-1 Devlin 2019 BERT: Pre-training of Deep Bidirection | verified |  |  |
-| M5 Kingma 2015 Adam: A method for stochastic optimiza | unverified_no_registry_match |  |  |
-| M6 Srivastava 2014 Dropout: a simple way to prevent n | unverified_no_registry_match | authors_truncated |  |
+| L2-1 Veličković 2018 Graph Attention Networks | unverified_offline |  |  |
+| M2 Brown 2020 Language models are few-shot learners | unverified_offline | authors_truncated |  |
+| M7 Kipf 2017 Semi-supervised classification with grap | unverified_offline |  |  |
+| L1-1 Devlin 2019 BERT: Pre-training of Deep Bidirection | unverified_offline |  |  |
+| M5 Kingma 2015 Adam: A method for stochastic optimiza | unverified_offline |  |  |
+| M6 Srivastava 2014 Dropout: a simple way to prevent n | unverified_offline | authors_truncated |  |
 
 ## Citation occurrences
 

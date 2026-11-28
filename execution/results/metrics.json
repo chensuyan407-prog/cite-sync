@@ -4,9 +4,10 @@
    "holdout": false,
    "status": "partial",
    "status_reason": [
-    "6 citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict)"
+    "6 citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict)",
+    "sources not checked online (offline run)"
    ],
-   "seconds": 0.16,
+   "seconds": 0.15,
    "checks": 8,
    "passed": 8,
    "b0_passed": 1,
@@ -23,11 +24,9 @@
     "uncited_removed": 0,
     "auto_moves": 0,
     "placement_suggestions": 0,
-    "verified": 6,
+    "verified": 0,
     "verification_status_counts": {
-     "verified": 4,
-     "verified_with_corrections": 1,
-     "verified_via_arxiv": 1
+     "unverified_offline": 6
     },
     "review_items": 2,
     "review_by_type": {
@@ -43,7 +42,8 @@
    "status": "partial",
    "status_reason": [
     "1 blocking item(s) need human confirmation",
-    "9 citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict)"
+    "9 citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict)",
+    "sources not checked online (offline run)"
    ],
    "seconds": 0.16,
    "checks": 16,
@@ -62,16 +62,13 @@
     "uncited_removed": 1,
     "auto_moves": 1,
     "placement_suggestions": 0,
-    "verified": 2,
+    "verified": 0,
     "verification_status_counts": {
-     "unverified_no_registry_match": 4,
-     "verified_via_arxiv": 1,
-     "verified": 1
+     "unverified_offline": 6
     },
-    "review_items": 9,
+    "review_items": 5,
     "review_by_type": {
      "orphan_citation": 1,
-     "source_unconfirmed": 4,
      "uncited_entry_removed": 1,
      "weak_lexical_support": 3
     },
@@ -83,14 +80,19 @@
    "holdout": false,
    "status": "partial",
    "status_reason": [
-    "1 citation(s) removed by edit; the sentence(s) need a real source or rewording (human)"
+    "1 citation(s) removed by edit; the sentence(s) need a real source or rewording (human)",
+    "sources not checked online (offline run)"
    ],
-   "seconds": 0.43,
+   "seconds": 0.45,
    "checks": 26,
-   "passed": 26,
+   "passed": 23,
    "b0_passed": 4,
    "b1_passed": 5,
-   "failed": [],
+   "failed": [
+    "X16: fabricated DOI 10.1038/s41586-019-9999-9 detected",
+    "X18: LSTM pages 1735-1785 corrected to 1735-1780",
+    "X19: missing DOI filled for LSTM"
+   ],
    "summary": {
     "records_in": 23,
     "records_after_dedup": 15,
@@ -102,36 +104,37 @@
     "uncited_removed": 2,
     "auto_moves": 2,
     "placement_suggestions": 0,
-    "verified": 11,
+    "verified": 0,
     "verification_status_counts": {
-     "verified": 5,
-     "verified_with_corrections": 4,
-     "verified_via_arxiv": 2,
-     "doi_not_found": 1
+     "unverified_offline": 12
     },
-    "review_items": 5,
+    "review_items": 4,
     "review_by_type": {
-     "source_doi_not_found": 1,
      "uncited_entry_removed": 2,
      "claim_without_citation": 1,
      "caption_citation": 1
     },
     "parse_problems": 0,
-    "seconds": 0.26
+    "seconds": 0.28
    }
   },
   "zh_review": {
    "holdout": false,
    "status": "partial",
    "status_reason": [
-    "1 citation(s) removed by edit; the sentence(s) need a real source or rewording (human)"
+    "1 citation(s) removed by edit; the sentence(s) need a real source or rewording (human)",
+    "sources not checked online (offline run)"
    ],
-   "seconds": 0.2,
+   "seconds": 0.18,
    "checks": 26,
-   "passed": 26,
+   "passed": 23,
    "b0_passed": 3,
    "b1_passed": 4,
-   "failed": [],
+   "failed": [
+    "Z16: fabricated DOI 10.1038/s41586-019-9999-9 detected",
+    "Z18: LSTM pages 1735-1785 corrected to 1735-1780",
+    "Z19: missing DOI filled for LSTM"
+   ],
    "summary": {
     "records_in": 23,
     "records_after_dedup": 15,
@@ -143,29 +146,25 @@
     "uncited_removed": 2,
     "auto_moves": 2,
     "placement_suggestions": 0,
-    "verified": 11,
+    "verified": 0,
     "verification_status_counts": {
-     "verified": 5,
-     "verified_with_corrections": 4,
-     "verified_via_arxiv": 2,
-     "doi_not_found": 1
+     "unverified_offline": 12
     },
-    "review_items": 5,
+    "review_items": 4,
     "review_by_type": {
-     "source_doi_not_found": 1,
      "uncited_entry_removed": 2,
      "claim_without_citation": 1,
      "caption_citation": 1
     },
     "parse_problems": 0,
-    "seconds": 0.06
+    "seconds": 0.05
    }
   }
  },
- "offline": false,
+ "offline": true,
  "dev": {
   "checks": 60,
-  "skill": 1.0,
+  "skill": 0.9,
   "b0_untouched": 0.133,
   "b1_regex_renumber": 0.15
  },
@@ -180,7 +179,7 @@
   "skill_now": 1.0,
   "note": "added after reading the held-out output; failed at freeze (Adam glued onto Dropout marker), fixed afterwards"
  },
- "wall_seconds": 2.6,
+ "wall_seconds": 4.2,
  "robustness": {
   "missing_case_json": {
    "status": "failed",
@@ -211,7 +210,7 @@
     "unverified_offline"
    ],
    "offline_reason": "registry unavailable (URLError(ConnectionRefusedError(10061, '無法連線，因為目標電腦拒絕連線。', None, 10061, None)))",
-   "seconds": 2.2,
+   "seconds": 2.3,
    "ok": true
   },
   "no_records": {

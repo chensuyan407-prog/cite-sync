@@ -22,58 +22,6 @@
    "msg": "in-text citation has no reference entry"
   },
   {
-   "type": "source_unconfirmed",
-   "record": "L2-1",
-   "msg": "no Crossref/arXiv record with matching title+authors+year; common for proceedings without DOI, books, Chinese journals - check by hand",
-   "details": {
-    "doi": "10.2139/ssrn.7014938",
-    "title": "Provable Sparsity in Graph Attention Networks",
-    "year": "2026",
-    "similarity": 0.71,
-    "author_overlap": 0.0,
-    "accepted": false
-   }
-  },
-  {
-   "type": "source_unconfirmed",
-   "record": "M2",
-   "msg": "no Crossref/arXiv record with matching title+authors+year; common for proceedings without DOI, books, Chinese journals - check by hand",
-   "details": {
-    "doi": "10.65525/svup.9788199778009.2026.224-230",
-    "title": "Language Models are Few-Shot Learners",
-    "year": "2026",
-    "similarity": 1.0,
-    "author_overlap": 0.0,
-    "accepted": false
-   }
-  },
-  {
-   "type": "source_unconfirmed",
-   "record": "M5",
-   "msg": "no Crossref/arXiv record with matching title+authors+year; common for proceedings without DOI, books, Chinese journals - check by hand",
-   "details": {
-    "doi": "10.32614/cran.package.madgrad",
-    "title": "madgrad: 'MADGRAD' Method for Stochastic Optimization",
-    "year": "2021",
-    "similarity": 0.815,
-    "author_overlap": 0.0,
-    "accepted": false
-   }
-  },
-  {
-   "type": "source_unconfirmed",
-   "record": "M6",
-   "msg": "no Crossref/arXiv record with matching title+authors+year; common for proceedings without DOI, books, Chinese journals - check by hand",
-   "details": {
-    "doi": "10.9734/ajrcos/2025/v18i2569",
-    "title": "Dropout: An Effective Approach to Prevent Neural Networks from Overfitting",
-    "year": "2025",
-    "similarity": 0.807,
-    "author_overlap": 0.0,
-    "accepted": false
-   }
-  },
-  {
    "type": "uncited_entry_removed",
    "record": "M8",
    "msg": "reference-list entry never cited in the text; removed from the list: Hamilton 2017 Inductive representation learning on large graphs"
@@ -102,7 +50,8 @@
  ],
  "status_reason": [
   "1 blocking item(s) need human confirmation",
-  "9 citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict)"
+  "9 citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict)",
+  "sources not checked online (offline run)"
  ],
  "style": "gbt7714",
  "marker_style": "pandoc-sup",
@@ -131,16 +80,13 @@
   "uncited_removed": 1,
   "auto_moves": 1,
   "placement_suggestions": 0,
-  "verified": 2,
+  "verified": 0,
   "verification_status_counts": {
-   "unverified_no_registry_match": 4,
-   "verified_via_arxiv": 1,
-   "verified": 1
+   "unverified_offline": 6
   },
-  "review_items": 9,
+  "review_items": 5,
   "review_by_type": {
    "orphan_citation": 1,
-   "source_unconfirmed": 4,
    "uncited_entry_removed": 1,
    "weak_lexical_support": 3
   },
@@ -265,6 +211,6 @@
   ]
  },
  "edits_applied": null,
- "uncertainty": "Claim-source verdicts come from the agent reading sentence + reference metadata (and PDFs when given); lexical support scores are hints only. Online metadata from Crossref/arXiv may itself be incomplete (e.g. shortened author lists).",
+ "uncertainty": "Claim-source verdicts come from the agent reading sentence + reference metadata (and PDFs when given); lexical support scores are hints only. No online verification in this run.",
  "unmapped_contract_fields": []
 }

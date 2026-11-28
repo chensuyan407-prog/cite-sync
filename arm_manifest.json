@@ -18,8 +18,8 @@
  "execution": {
   "log_path": "execution/run.log",
   "exit_code": 0,
-  "ran_at": "2026-11-28T02:25:51.016560Z",
-  "wall_time_s": 6.27,
+  "ran_at": "2026-11-28T13:09:07.335077Z",
+  "wall_time_s": 8.01,
   "ran_by": "agent",
   "artifacts": [
    {
@@ -27,63 +27,63 @@
     "path": "execution/results/metrics.json",
     "type": "metric",
     "format": "json",
-    "checksum_sha256": "ea89775ac82e577375fecdcc6f2862a1400e3cfaf416b3e0c58dbcb699c0eb0e"
+    "checksum_sha256": "fceae663fa905e5b386410c50aa3ba0d2e932a64a9161dbbd82900ad6ee14720"
    },
    {
     "id": "eval_rows",
     "path": "execution/results/eval_rows.json",
     "type": "data",
     "format": "json",
-    "checksum_sha256": "ed3c6ae193786b27e037082fc2956a2e35d1d3631e39faef11ec94c545e2855b"
+    "checksum_sha256": "6a177f926fe91cdc2e8f0f2dbceefffbf3d48b03837d0d816ff9172e800b4b30"
    },
    {
     "id": "en_apa_citation_map",
     "path": "execution/results/cases/en_apa/output/citation_map.json",
     "type": "data",
     "format": "json",
-    "checksum_sha256": "20d9f8d7cba059c0feb215076189a238519603e1aba7950c5e637abaa45aca52"
+    "checksum_sha256": "cb2649011075cc593706ebf591b18ebeadd3ae4591e0d1d521868fde2c1d1b6c"
    },
    {
     "id": "en_apa_manuscript",
     "path": "execution/results/cases/en_apa/output/manuscript.diff",
     "type": "data",
     "format": "other",
-    "checksum_sha256": "5af578a77b80fbae379b8083a61336f11e979eec90c64709c567fbb22a1b98fb"
+    "checksum_sha256": "fd4b2f1a5d81d871916f5c74690c8a409cd6ff799eaa8ced595b03d1f4d3ece1"
    },
    {
     "id": "en_apa_manuscript_revised",
     "path": "execution/results/cases/en_apa/output/manuscript_revised.md",
     "type": "data",
     "format": "other",
-    "checksum_sha256": "4d21ffbec5795c6be58f2a9e7cf4b6881e35c993a3a688974a4ac3108b07f310"
+    "checksum_sha256": "095138451a90ccd493c3347eef3fa7188c9c936569ca60ab283e326ff7096080"
    },
    {
     "id": "en_apa_merge_log",
     "path": "execution/results/cases/en_apa/output/merge_log.json",
     "type": "data",
     "format": "json",
-    "checksum_sha256": "ce589ff5d2d7f28e300b0017a0a80cbf1e411ddb7a27110ab60057317a70d989"
+    "checksum_sha256": "f7d3622571a5b78aa6e0d7edddbe46bdf89fff060951f2d308345125b0feae6f"
    },
    {
     "id": "en_apa_references_apa7",
     "path": "execution/results/cases/en_apa/output/references_apa7.txt",
     "type": "data",
     "format": "txt",
-    "checksum_sha256": "36971c5a1780ff81dd606c29c6d5f0978932546faa14291eb43b2aff548c4936"
+    "checksum_sha256": "64b8c2ae8ae96e15fa1686c116af93406cfd7d13214f7cad78af0fb1ff63cb0d"
    },
    {
     "id": "en_apa_result",
     "path": "execution/results/cases/en_apa/output/result.json",
     "type": "data",
     "format": "json",
-    "checksum_sha256": "9df626aa11febbf41918641fa95ec4aeb911dbe7122ec44ea505e7ae629a7ed0"
+    "checksum_sha256": "2e33a58740bb957d45b747f0675b05f2cf0fcb4e661acd0d61cae088f9ffcf2a"
    },
    {
     "id": "en_apa_review",
     "path": "execution/results/cases/en_apa/output/review.md",
     "type": "data",
     "format": "other",
-    "checksum_sha256": "c9dba9bfda091d5bc450c3395d1aafc5490ef0affdefe03914060116ad764fe9"
+    "checksum_sha256": "a396277a9e64f8fad41e1ddfa59c6d21458380577c6bd0cc4494068c27080f6b"
    },
    {
     "id": "holdout_gnn_citation_map",
@@ -125,105 +125,105 @@
     "path": "execution/results/cases/holdout_gnn/output/result.json",
     "type": "data",
     "format": "json",
-    "checksum_sha256": "e88b8336f24e1dc765f11b1e59bd767e891d735832ad1ee5d9ac84d2c0ffd1ce"
+    "checksum_sha256": "6c4e8fb3ddc73f7800bd847305055cd8f5abf1594a2668d703b9e77e1887bf9e"
    },
    {
     "id": "holdout_gnn_review",
     "path": "execution/results/cases/holdout_gnn/output/review.md",
     "type": "data",
     "format": "other",
-    "checksum_sha256": "bb9f6bb22fd9a017f1cf0ba4c976fd7350558027dcb9823ce84662b6cdc51e15"
+    "checksum_sha256": "0735cc7530ca2321af9c1f2e6ae84d5c89dee3809ae79f4985754fac0fa275ba"
    },
    {
     "id": "zh_docx_citation_map",
     "path": "execution/results/cases/zh_docx/output/citation_map.json",
     "type": "data",
     "format": "json",
-    "checksum_sha256": "ea0a30bd61568ef196fcce1c630814e1ef958d32588b8615defce4b0c4d5ffc9"
+    "checksum_sha256": "a42afc987e19d4fb8fa5fe7656f42a55c22fca9c725a7f862131ced47af0a765"
    },
    {
     "id": "zh_docx_manuscript_revised",
     "path": "execution/results/cases/zh_docx/output/manuscript_revised.docx",
     "type": "data",
     "format": "other",
-    "checksum_sha256": "38fa933576167c29678e70d6f3f1b938e0ab9531107cecedb36530358bb0cf46"
+    "checksum_sha256": "932364e567ad00c44bbc2aecacd105d3cc6af2578a692b2384deeee7078549cd"
    },
    {
     "id": "zh_docx_merge_log",
     "path": "execution/results/cases/zh_docx/output/merge_log.json",
     "type": "data",
     "format": "json",
-    "checksum_sha256": "6ebeb11795b9a6462c417aa055735b18454e59a7ca10e37b549161e5fb975018"
+    "checksum_sha256": "c25afc1133bf20ef024224b9e72d6a6bf53cd71a0f4110dd188b3d8e2ba4cae8"
    },
    {
     "id": "zh_docx_references_gbt7714",
     "path": "execution/results/cases/zh_docx/output/references_gbt7714.txt",
     "type": "data",
     "format": "txt",
-    "checksum_sha256": "44be9b4314905100d83ddfe5d370486b9f256e5d418824ebc1e54bba0befc862"
+    "checksum_sha256": "076837e8c5894ef4308638a88a23552a42c4b231afae667d21f2b882b98258b4"
    },
    {
     "id": "zh_docx_result",
     "path": "execution/results/cases/zh_docx/output/result.json",
     "type": "data",
     "format": "json",
-    "checksum_sha256": "a5438cf755e82011f606b6488fb83a11b0c98024a98ef9d8fdbcbd6ba1263da8"
+    "checksum_sha256": "c56969273de86c0786c9c2625a90843204d166425b3baf879ac5a6f3b6ec3768"
    },
    {
     "id": "zh_docx_review",
     "path": "execution/results/cases/zh_docx/output/review.md",
     "type": "data",
     "format": "other",
-    "checksum_sha256": "5a892a407f4521774c200be8b6f2acd01da362afb1fcd5cae8c5de6130a600d4"
+    "checksum_sha256": "458d5e0a91c37f46446a0cea9e108998e7d8103a7175c22a8a4cec787bcf6123"
    },
    {
     "id": "zh_review_citation_map",
     "path": "execution/results/cases/zh_review/output/citation_map.json",
     "type": "data",
     "format": "json",
-    "checksum_sha256": "868b1657d141736f74f678d8c3ec5c08af1eb9b5378a9ba1ac17963818e3993c"
+    "checksum_sha256": "6aa3f1a4b2a28d12a7f7861f9643e281e9fb69ef45a8857035953e660828cc4b"
    },
    {
     "id": "zh_review_manuscript",
     "path": "execution/results/cases/zh_review/output/manuscript.diff",
     "type": "data",
     "format": "other",
-    "checksum_sha256": "f72429b256885a7bacfd800135f5e695a51ee4d73e0993797cbd9ba4cbb7ffd2"
+    "checksum_sha256": "272a310573c9e4859af380ffd339b53a2f6be8c963b7aaf4a620c2b20fa9ed32"
    },
    {
     "id": "zh_review_manuscript_revised",
     "path": "execution/results/cases/zh_review/output/manuscript_revised.md",
     "type": "data",
     "format": "other",
-    "checksum_sha256": "0399aacdce748e7ba0e3efd5a39d9e2a59c7be6e6198e3522b91ee37ddcdc61c"
+    "checksum_sha256": "a817dbb1e423e70501d148b71578cc58d31cd11306b064ba8ca176abdce42292"
    },
    {
     "id": "zh_review_merge_log",
     "path": "execution/results/cases/zh_review/output/merge_log.json",
     "type": "data",
     "format": "json",
-    "checksum_sha256": "6ebeb11795b9a6462c417aa055735b18454e59a7ca10e37b549161e5fb975018"
+    "checksum_sha256": "c25afc1133bf20ef024224b9e72d6a6bf53cd71a0f4110dd188b3d8e2ba4cae8"
    },
    {
     "id": "zh_review_references_gbt7714",
     "path": "execution/results/cases/zh_review/output/references_gbt7714.txt",
     "type": "data",
     "format": "txt",
-    "checksum_sha256": "44be9b4314905100d83ddfe5d370486b9f256e5d418824ebc1e54bba0befc862"
+    "checksum_sha256": "076837e8c5894ef4308638a88a23552a42c4b231afae667d21f2b882b98258b4"
    },
    {
     "id": "zh_review_result",
     "path": "execution/results/cases/zh_review/output/result.json",
     "type": "data",
     "format": "json",
-    "checksum_sha256": "6b78a1a5d8daa84cabd786d04fb0e11399b35c7451dbf24a0e746fcf998ada13"
+    "checksum_sha256": "ad7c4e8d91b1cbb0b533b2b82045d547635461b014f379fb669bcd57014ed2c7"
    },
    {
     "id": "zh_review_review",
     "path": "execution/results/cases/zh_review/output/review.md",
     "type": "data",
     "format": "other",
-    "checksum_sha256": "99f26835db9457edbf247c816fbb8b529fdd7438e7b6fcb49e4ee779e298dfa2"
+    "checksum_sha256": "d000a72f639f9e3d8d7c4b5907bbaa412105366ca7136a29221719f5c4c8d32b"
    }
   ]
  },

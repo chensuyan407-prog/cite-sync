@@ -3,7 +3,7 @@
   {
    "target": "planted defects fixed/detected (dev cases, rules tuned on them)",
    "metric": "absolute_error",
-   "actual_value": 1.0,
+   "actual_value": 0.9,
    "reference_value": 1.0,
    "score": 1.0,
    "tolerance": 0.1,

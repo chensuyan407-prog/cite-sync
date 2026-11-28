@@ -1,9 +1,9 @@
-$ tests\run_eval.py
+$ tests\run_eval.py --offline
 {
- "offline": false,
+ "offline": true,
  "dev": {
   "checks": 60,
-  "skill": 1.0,
+  "skill": 0.9,
   "b0_untouched": 0.133,
   "b1_regex_renumber": 0.15
  },
@@ -18,12 +18,12 @@ $ tests\run_eval.py
   "skill_now": 1.0,
   "note": "added after reading the held-out output; failed at freeze (Adam glued onto Dropout marker), fixed afterwards"
  },
- "wall_seconds": 2.6
+ "wall_seconds": 4.2
 }
 en_apa 8 / 8 b0 1 b1 0 partial []
 holdout_gnn 16 / 16 b0 7 b1 9 partial []
-zh_docx 26 / 26 b0 4 b1 5 partial []
-zh_review 26 / 26 b0 3 b1 4 partial []
+zh_docx 23 / 26 b0 4 b1 5 partial ['X16: fabricated DOI 10.1038/s41586-019-9999-9 detected', 'X18: LSTM pages 1735-1785 corrected to 1735-1780', 'X19: missing DOI filled for LSTM']
+zh_review 23 / 26 b0 3 b1 4 partial ['Z16: fabricated DOI 10.1038/s41586-019-9999-9 detected', 'Z18: LSTM pages 1735-1785 corrected to 1735-1780', 'Z19: missing DOI filled for LSTM']
 
 
 [exit 0]
@@ -123,7 +123,7 @@ $ submission\scripts\cite.py run --online --manuscript execution\results\robustn
    "caption_citation": 1
   },
   "parse_problems": 0,
-  "seconds": 2.11
+  "seconds": 2.15
  },
  "result": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\no_network\\output\\result.json",
  "claim_matrix": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\no_network\\work\\claim_matrix.md",
@@ -211,7 +211,7 @@ $ submission\scripts\cite.py run --manuscript execution\results\robustness\latex
    "weak_lexical_support": 1
   },
   "parse_problems": 1,
-  "seconds": 0.01
+  "seconds": 0.02
  },
  "result": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\latex\\output\\result.json",
  "claim_matrix": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\latex\\work\\claim_matrix.md",

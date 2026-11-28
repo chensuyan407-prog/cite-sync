@@ -27,7 +27,7 @@ reasons: 13 citation occurrence(s) without a claim-source verdict (fill edits.oc
   "caption_citation": 1
  },
  "parse_problems": 0,
- "seconds": 2.11
+ "seconds": 2.15
 }
 ```
 

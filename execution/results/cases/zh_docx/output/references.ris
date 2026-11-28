@@ -22,7 +22,6 @@ T2  - Communications of the ACM
 PY  - 2017
 VL  - 60
 IS  - 6
-DO  - 10.1145/3065386
 SP  - 84
 EP  - 90
 ER  - 
@@ -47,7 +46,6 @@ AU  - Ren, S
 TI  - Identity mappings in deep residual networks
 T2  - European Conference on Computer Vision. Springer
 PY  - 2016
-DO  - 10.1007/978-3-319-46493-0_38
 SP  - 630
 EP  - 645
 ER  - 
@@ -60,9 +58,8 @@ T2  - Neural Computation
 PY  - 1997
 VL  - 9
 IS  - 8
-DO  - 10.1162/neco.1997.9.8.1735
 SP  - 1735
-EP  - 1780
+EP  - 1785
 ER  - 
 
 TY  - CPAPER
@@ -91,7 +88,6 @@ AU  - Toutanova, Kristina
 TI  - BERT: Pre-training of deep bidirectional transformers for language understanding
 T2  - Proceedings of NAACL-HLT
 PY  - 2019
-DO  - 10.18653/v1/n19-1423
 UR  - http://arxiv.org/abs/1810.04805
 SP  - 4171
 EP  - 4186

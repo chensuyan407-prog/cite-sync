@@ -26,7 +26,7 @@ reasons: 1 blocking item(s) need human confirmation; 4 citation occurrence(s) wi
   "weak_lexical_support": 1
  },
  "parse_problems": 1,
- "seconds": 0.01
+ "seconds": 0.02
 }
 ```
 

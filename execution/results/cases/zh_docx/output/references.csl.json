@@ -53,7 +53,6 @@
   "volume": "60",
   "issue": "6",
   "page": "84-90",
-  "DOI": "10.1145/3065386",
   "issued": {
    "date-parts": [
     [
@@ -115,7 +114,6 @@
   ],
   "container-title": "European Conference on Computer Vision. Springer",
   "page": "630-645",
-  "DOI": "10.1007/978-3-319-46493-0_38",
   "issued": {
    "date-parts": [
     [
@@ -141,8 +139,7 @@
   "container-title": "Neural Computation",
   "volume": "9",
   "issue": "8",
-  "page": "1735-1780",
-  "DOI": "10.1162/neco.1997.9.8.1735",
+  "page": "1735-1785",
   "issued": {
    "date-parts": [
     [
@@ -225,7 +222,6 @@
   ],
   "container-title": "Proceedings of NAACL-HLT",
   "page": "4171-4186",
-  "DOI": "10.18653/v1/n19-1423",
   "URL": "http://arxiv.org/abs/1810.04805",
   "issued": {
    "date-parts": [

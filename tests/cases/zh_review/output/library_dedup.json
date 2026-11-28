@@ -75,15 +75,12 @@
   "label": 2,
   "id": "M2",
   "origin": "manuscript_list",
-  "doi": "10.1007/978-3-319-46493-0_38",
+  "doi": "",
   "merged_from": [
    "M2"
   ],
   "merge_needs_review": false,
   "cid": "M2",
-  "field_provenance": {
-   "doi": "crossref title search"
-  },
   "number": 4,
   "sources": [
    {
@@ -161,21 +158,17 @@
   "container": "Neural Computation",
   "volume": "9",
   "issue": "8",
-  "pages": "1735-1780",
+  "pages": "1735-1785",
   "lang": "en",
   "label": 4,
   "id": "M4",
   "origin": "manuscript_list",
-  "doi": "10.1162/neco.1997.9.8.1735",
+  "doi": "",
   "merged_from": [
    "M4"
   ],
   "merge_needs_review": false,
   "cid": "M4",
-  "field_provenance": {
-   "doi": "crossref title search",
-   "pages": "crossref"
-  },
   "number": 5,
   "sources": [
    {
@@ -212,15 +205,12 @@
   "label": 5,
   "id": "M5",
   "origin": "manuscript_list",
-  "doi": "10.1145/3065386",
+  "doi": "",
   "merged_from": [
    "M5"
   ],
   "merge_needs_review": false,
   "cid": "M5",
-  "field_provenance": {
-   "doi": "crossref title search"
-  },
   "number": 2,
   "sources": [
    {
@@ -380,7 +370,7 @@
   "label": 9,
   "id": "M9",
   "origin": "manuscript_list",
-  "doi": "10.18653/v1/n19-1423",
+  "doi": "",
   "merged_from": [
    "M9",
    "L2-1"
@@ -391,8 +381,7 @@
   "field_provenance": {
    "arxiv": "L2-1",
    "url": "L2-1",
-   "authors": "L2-1",
-   "doi": "crossref title search"
+   "authors": "L2-1"
   },
   "merge_needs_review": false,
   "cid": "M9",

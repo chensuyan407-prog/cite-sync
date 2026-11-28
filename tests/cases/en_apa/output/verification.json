@@ -1,123 +1,60 @@
 {
- "online": true,
+ "online": false,
  "network": {
   "requests": 0,
-  "offline_reason": null,
+  "offline_reason": "online checks not requested",
   "errors": []
  },
  "records": {
   "L1-4": {
-   "status": "verified",
+   "status": "unverified_offline",
    "details": {
-    "crossref_doi": "ok",
-    "registry": {
-     "doi": "10.1109/cvpr.2016.90",
-     "title": "Deep Residual Learning for Image Recognition",
-     "year": "2016",
-     "container": "2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
-     "volume": null,
-     "issue": null,
-     "pages": "770-778"
-    },
-    "title_similarity": 1.0
+    "reason": "online checks not requested (--online)"
    },
    "corrections": {},
    "issues": [],
    "record": "He 2016 Deep Residual Learning for Image Recognition"
   },
   "M2": {
-   "status": "verified_with_corrections",
+   "status": "unverified_offline",
    "details": {
-    "search_best": {
-     "doi": "10.1007/978-3-319-46493-0_38",
-     "title": "Identity Mappings in Deep Residual Networks",
-     "year": "2016",
-     "similarity": 1.0,
-     "author_overlap": 1.0,
-     "accepted": true
-    },
-    "registry": {
-     "doi": "10.1007/978-3-319-46493-0_38",
-     "title": "Identity Mappings in Deep Residual Networks",
-     "year": "2016",
-     "container": "Computer Vision – ECCV 2016",
-     "volume": null,
-     "issue": null,
-     "pages": "630-645"
-    },
-    "title_similarity": 1.0
+    "reason": "online checks not requested (--online)"
    },
-   "corrections": {
-    "doi": {
-     "old": null,
-     "new": "10.1007/978-3-319-46493-0_38",
-     "source": "crossref title search"
-    }
-   },
+   "corrections": {},
    "issues": [],
    "record": "He 2016 Identity mappings in deep residual networks"
   },
   "M3": {
-   "status": "verified",
+   "status": "unverified_offline",
    "details": {
-    "arxiv": {
-     "title": "Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift",
-     "year": "2015",
-     "title_similarity": 1.0
-    }
+    "reason": "online checks not requested (--online)"
    },
    "corrections": {},
    "issues": [],
    "record": "Ioffe 2015 Batch normalization: Accelerating deep network training by r"
   },
   "M4": {
-   "status": "verified",
+   "status": "unverified_offline",
    "details": {
-    "arxiv": {
-     "title": "Scaling Laws for Neural Language Models",
-     "year": "2020",
-     "title_similarity": 1.0
-    }
+    "reason": "online checks not requested (--online)"
    },
    "corrections": {},
    "issues": [],
    "record": "Kaplan 2020 Scaling laws for neural language models"
   },
   "L1-5": {
-   "status": "verified",
+   "status": "unverified_offline",
    "details": {
-    "crossref_doi": "ok",
-    "registry": {
-     "doi": "10.1038/nature14539",
-     "title": "Deep learning",
-     "year": "2015",
-     "container": "Nature",
-     "volume": "521",
-     "issue": "7553",
-     "pages": "436-444"
-    },
-    "title_similarity": 1.0
+    "reason": "online checks not requested (--online)"
    },
    "corrections": {},
    "issues": [],
    "record": "LeCun 2015 Deep learning"
   },
   "M7": {
-   "status": "verified_via_arxiv",
+   "status": "unverified_offline",
    "details": {
-    "search_best": {
-     "doi": "10.65215/pc26a033",
-     "title": "Attention Is All You Need",
-     "year": "2025",
-     "similarity": 1.0,
-     "author_overlap": 0.875,
-     "accepted": false
-    },
-    "arxiv": {
-     "title": "Attention Is All You Need",
-     "year": "2017",
-     "note": "work confirmed via its arXiv record; venue metadata not in Crossref"
-    }
+    "reason": "online checks not requested (--online)"
    },
    "corrections": {},
    "issues": [],

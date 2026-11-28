@@ -80,16 +80,13 @@
   "label": 2,
   "id": "M2",
   "origin": "manuscript_list",
-  "doi": "10.1007/978-3-319-46493-0_38",
+  "doi": "",
   "merged_from": [
    "M2"
   ],
   "merge_needs_review": false,
   "cid": "M2",
   "year_suffix": "b",
-  "field_provenance": {
-   "doi": "crossref title search"
-  },
   "number": null,
   "sources": [
    {

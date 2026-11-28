@@ -5,7 +5,7 @@
  "revised_manuscript": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\en_apa\\output\\manuscript_revised.md",
  "references": [
   "He, K., Zhang, X., Ren, S., & Sun, J. (2016a). Deep Residual Learning for Image Recognition. In 2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR) (pp. 770–778). https://doi.org/10.1109/CVPR.2016.90",
-  "He, K., Zhang, X., Ren, S., & Sun, J. (2016b). Identity mappings in deep residual networks. In European Conference on Computer Vision (pp. 630–645). Springer. https://doi.org/10.1007/978-3-319-46493-0_38",
+  "He, K., Zhang, X., Ren, S., & Sun, J. (2016b). Identity mappings in deep residual networks. In European Conference on Computer Vision (pp. 630–645). Springer.",
   "Ioffe, S., & Szegedy, C. (2015). Batch normalization: Accelerating deep network training by reducing internal covariate shift (arXiv:1502.03167). arXiv. https://doi.org/10.48550/arXiv.1502.03167",
   "Kaplan, J., McCandlish, S., Henighan, T., Brown, T. B., Chess, B., Child, R., Gray, S., Radford, A., Wu, J., & Amodei, D. (2020). Scaling laws for neural language models (arXiv:2001.08361). arXiv. https://doi.org/10.48550/arXiv.2001.08361",
   "LeCun, Y., Bengio, Y., & Hinton, G. (2015). Deep learning. Nature, 521(7553), 436–444. https://doi.org/10.1038/nature14539",
@@ -27,7 +27,8 @@
   }
  ],
  "status_reason": [
-  "6 citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict)"
+  "6 citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict)",
+  "sources not checked online (offline run)"
  ],
  "style": "apa7",
  "marker_style": "author-year",
@@ -56,11 +57,9 @@
   "uncited_removed": 0,
   "auto_moves": 0,
   "placement_suggestions": 0,
-  "verified": 6,
+  "verified": 0,
   "verification_status_counts": {
-   "verified": 4,
-   "verified_with_corrections": 1,
-   "verified_via_arxiv": 1
+   "unverified_offline": 6
   },
   "review_items": 2,
   "review_by_type": {
@@ -73,7 +72,7 @@
  "consistency_check": null,
  "references_list": [
   "He, K., Zhang, X., Ren, S., & Sun, J. (2016a). Deep Residual Learning for Image Recognition. In 2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR) (pp. 770–778). https://doi.org/10.1109/CVPR.2016.90",
-  "He, K., Zhang, X., Ren, S., & Sun, J. (2016b). Identity mappings in deep residual networks. In European Conference on Computer Vision (pp. 630–645). Springer. https://doi.org/10.1007/978-3-319-46493-0_38",
+  "He, K., Zhang, X., Ren, S., & Sun, J. (2016b). Identity mappings in deep residual networks. In European Conference on Computer Vision (pp. 630–645). Springer.",
   "Ioffe, S., & Szegedy, C. (2015). Batch normalization: Accelerating deep network training by reducing internal covariate shift (arXiv:1502.03167). arXiv. https://doi.org/10.48550/arXiv.1502.03167",
   "Kaplan, J., McCandlish, S., Henighan, T., Brown, T. B., Chess, B., Child, R., Gray, S., Radford, A., Wu, J., & Amodei, D. (2020). Scaling laws for neural language models (arXiv:2001.08361). arXiv. https://doi.org/10.48550/arXiv.2001.08361",
   "LeCun, Y., Bengio, Y., & Hinton, G. (2015). Deep learning. Nature, 521(7553), 436–444. https://doi.org/10.1038/nature14539",
@@ -134,14 +133,6 @@
    "occurrence": "c2_4",
    "old": "(Ioffe & Szegedy, 2015; Ioffe & Szegedy, 2015)",
    "reason": "two cited entries are the same work (see merge_log)"
-  },
-  {
-   "kind": "metadata_correction",
-   "record": "M2",
-   "field": "doi",
-   "old": null,
-   "new": "10.1007/978-3-319-46493-0_38",
-   "source": "crossref title search"
   }
  ],
  "parse_problems": [],
@@ -162,6 +153,6 @@
   ]
  },
  "edits_applied": null,
- "uncertainty": "Claim-source verdicts come from the agent reading sentence + reference metadata (and PDFs when given); lexical support scores are hints only. Online metadata from Crossref/arXiv may itself be incomplete (e.g. shortened author lists).",
+ "uncertainty": "Claim-source verdicts come from the agent reading sentence + reference metadata (and PDFs when given); lexical support scores are hints only. No online verification in this run.",
  "unmapped_contract_fields": []
 }

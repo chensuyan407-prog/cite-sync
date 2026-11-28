@@ -1,7 +1,7 @@
 # cite-sync review - case dev-zh-review
 
 status: **partial**  
-reasons: 1 citation(s) removed by edit; the sentence(s) need a real source or rewording (human)
+reasons: 1 citation(s) removed by edit; the sentence(s) need a real source or rewording (human); sources not checked online (offline run)
 
 ## Summary
 ```
@@ -16,22 +16,18 @@ reasons: 1 citation(s) removed by edit; the sentence(s) need a real source or re
  "uncited_removed": 2,
  "auto_moves": 2,
  "placement_suggestions": 0,
- "verified": 11,
+ "verified": 0,
  "verification_status_counts": {
-  "verified": 5,
-  "verified_with_corrections": 4,
-  "verified_via_arxiv": 2,
-  "doi_not_found": 1
+  "unverified_offline": 12
  },
- "review_items": 5,
+ "review_items": 4,
  "review_by_type": {
-  "source_doi_not_found": 1,
   "uncited_entry_removed": 2,
   "claim_without_citation": 1,
   "caption_citation": 1
  },
  "parse_problems": 0,
- "seconds": 0.06
+ "seconds": 0.05
 }
 ```
 
@@ -40,7 +36,6 @@ ok = True; markers use 1..12; list entries 12
 
 ## Items that need a human decision
 
-- **source_doi_not_found** record=M14 msg=DOI does not resolve resolved=record no longer cited after edits
 - **uncited_entry_removed** record=M13 msg=reference-list entry never cited in the text; removed from the list: Srivastava 2014 Dropout: a simple way to prevent neural networks from overfi
 - **uncited_entry_removed** record=M14 msg=reference-list entry never cited in the text; removed from the list: Smith 2019 Universal scaling of residual attention networks
 - **claim_without_citation** sentence=u20s1 cue=有研究 text=另有研究报道残差注意力网络在多个尺度上存在普适的缩放规律。
@@ -56,11 +51,6 @@ ok = True; markers use 1..12; list entries 12
 - {"kind": "merge", "kept": "L2-2", "members": ["M11", "L2-2"], "rules": ["D4"], "needs_review": false}
 - {"kind": "merge", "kept": "L3-1", "members": ["M12", "L2-3", "L3-1"], "rules": ["D1", "D4"], "needs_review": false}
 - {"kind": "duplicate_refs_collapsed", "occurrence": "c14_0", "old": "[6,8]", "reason": "two cited entries are the same work (see merge_log)"}
-- {"kind": "metadata_correction", "record": "M2", "field": "doi", "old": null, "new": "10.1007/978-3-319-46493-0_38", "source": "crossref title search"}
-- {"kind": "metadata_correction", "record": "M4", "field": "doi", "old": null, "new": "10.1162/neco.1997.9.8.1735", "source": "crossref title search"}
-- {"kind": "metadata_correction", "record": "M4", "field": "pages", "old": "1735-1785", "new": "1735-1780", "source": "crossref"}
-- {"kind": "metadata_correction", "record": "M5", "field": "doi", "old": null, "new": "10.1145/3065386", "source": "crossref title search"}
-- {"kind": "metadata_correction", "record": "M9", "field": "doi", "old": null, "new": "10.18653/v1/n19-1423", "source": "crossref title search"}
 - {"kind": "citation_moved", "occurrence": "c8_0", "record": "M4", "from_sentence": "u8s2", "to_sentence": "u8s0", "reason": "lexical support 0.0 at paragraph end vs 0.85 at target sentence", "needs_review": true}
 - {"kind": "citation_moved", "occurrence": "c8_0", "record": "L1-1", "from_sentence": "u8s2", "to_sentence": "u8s1", "reason": "lexical support 0.0 at paragraph end vs 0.9 at target sentence", "needs_review": true}
 - {"kind": "citation_removed", "occurrence": "c20_1", "old": "[14]", "reason": "DOI 10.1038/s41586-019-9999-9 does not resolve and no matching work found in Crossref: citation removed, sentence needs a real source or deletion (human)"}
@@ -76,18 +66,18 @@ ok = True; markers use 1..12; list entries 12
 
 | record | status | issues | corrections |
 |-|-|-|-|
-| L1-4 He 2016 Deep Residual Learning for Image Recogniti | verified |  |  |
-| M2 He 2016 Identity mappings in deep residual network | verified_with_corrections | authors_truncated | doi |
-| L1-5 LeCun 2015 Deep learning | verified |  |  |
-| M4 Hochreiter 1997 Long short-term memory | verified_with_corrections |  | doi, pages |
-| M5 Krizhevsky 2017 ImageNet classification with deep  | verified_with_corrections |  | doi |
-| M6 Ioffe 2015 Batch normalization: Accelerating deep  | verified_via_arxiv |  |  |
-| L1-1 Vaswani 2017 Attention is all you need | verified_via_arxiv |  |  |
-| M9 Devlin 2019 BERT: Pre-training of deep bidirection | verified_with_corrections |  | doi |
-| M10 Kingma 2014 Adam: A method for stochastic optimiza | verified |  |  |
-| L2-2 Jumper 2021 Highly accurate protein structure pred | verified | authors_truncated |  |
-| L3-1 袁铭阳 2020 卷积神经网络池化方法综述 | verified |  |  |
-| M14 Smith 2019 Universal scaling of residual attention | doi_not_found |  |  |
+| L1-4 He 2016 Deep Residual Learning for Image Recogniti | unverified_offline |  |  |
+| M2 He 2016 Identity mappings in deep residual network | unverified_offline | authors_truncated |  |
+| L1-5 LeCun 2015 Deep learning | unverified_offline |  |  |
+| M4 Hochreiter 1997 Long short-term memory | unverified_offline |  |  |
+| M5 Krizhevsky 2017 ImageNet classification with deep  | unverified_offline |  |  |
+| M6 Ioffe 2015 Batch normalization: Accelerating deep  | unverified_offline |  |  |
+| L1-1 Vaswani 2017 Attention is all you need | unverified_offline |  |  |
+| M9 Devlin 2019 BERT: Pre-training of deep bidirection | unverified_offline |  |  |
+| M10 Kingma 2014 Adam: A method for stochastic optimiza | unverified_offline |  |  |
+| L2-2 Jumper 2021 Highly accurate protein structure pred | unverified_offline | authors_truncated |  |
+| L3-1 袁铭阳 2020 卷积神经网络池化方法综述 | unverified_offline |  |  |
+| M14 Smith 2019 Universal scaling of residual attention | unverified_offline |  |  |
 
 ## Citation occurrences
 
