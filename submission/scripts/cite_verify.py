@@ -109,7 +109,9 @@ def offline_checks(r, style="gbt7714"):
 
 # ---------------------------------------------------------------- online
 class Net:
-    def __init__(self, cache_path, enabled=True, budget_s=18, max_requests=20, timeout=2):
+    # Defaults sized for a slow Crossref search on a normal connection (DSH run, 2026-11-28): 2 s / 18 s / 20 requests
+    # left 11 of 12 records unverified. The total budget stays well under the 900 s harness limit.
+    def __init__(self, cache_path, enabled=True, budget_s=300, max_requests=60, timeout=20):
         self.cache_path = cache_path
         self.cache = {}
         if cache_path and os.path.exists(cache_path):

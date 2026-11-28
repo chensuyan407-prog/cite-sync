@@ -178,7 +178,15 @@ def save_result(out, report, contract, clean):
 
     result = report
     if clean and contract:
-        result = {"case_id": report.get("case_id"), **{key: report.get(key) for key in contract if key != "case_id"}}
+        # result.json = case_id + run status + output_contract fields; artifact paths are relative to out/
+        # so the folder can be moved or re-checked on another machine. Full detail stays in run_report.json.
+        def relative(value):
+            if isinstance(value, str) and os.path.isabs(value) and value.startswith(os.path.abspath(out)):
+                return os.path.relpath(value, out).replace("\\", "/")
+            return value
+        result = {"case_id": report.get("case_id"), "status": report.get("status"), "status_reason": report.get("status_reason"),
+                  **{key: relative(report.get(key)) for key in contract if key != "case_id"},
+                  "uncertainty": report.get("uncertainty")}
         write_atomic("run_report.json", report)
     write_atomic("result.json", result)
 
@@ -390,7 +398,8 @@ def cmd_run(a):
     targets = [c for c in canon if not c.get("placeholder")
                and (c["id"] in cited_ids or not occs or a.clean and a.edits)]
     targets.sort(key=lambda c: c["id"] not in cited_ids)
-    net = V.Net(os.path.join(a.work, "net_cache.json"), enabled=a.online, budget_s=a.net_budget)
+    net = V.Net(os.path.join(a.work, "net_cache.json"), enabled=a.online, budget_s=a.net_budget,
+                max_requests=a.net_max_requests, timeout=a.net_timeout)
     verification = {}
     for c in targets:
         st, det, corr = V.online_check(net, c) if a.online else ("unverified_offline", {"reason": "online checks not requested (--online)"}, {})
@@ -734,7 +743,9 @@ def cmd_run(a):
                       verdict_note=v.get("note") or single_addition.get("note"),
                       evidence=v.get("evidence") or single_addition.get("evidence"),
                       references=[{"record": c, "number": num_of.get(c) if numeric else None, "text": short(byid[c]), "doi": byid[c].get("doi")}
-                                  for c in o["records"]])
+                                  for c in o["records"]],
+                      # "record_metadata" = verdict made from the library/list record only; "pdf" = source PDF text was supplied
+                      evidence_basis="pdf" if inv.get("pdfs") else "record_metadata")
         if additions:
             mapped["added_record_assessments"] = additions
         cmap.append(mapped)
@@ -1188,7 +1199,9 @@ def main():
     r.add_argument("--range-sep", default="-")
     r.add_argument("--upper", action="store_true", help="GB/T: upper-case Western family names")
     r.add_argument("--online", action="store_true")
-    r.add_argument("--net-budget", type=int, default=18)
+    r.add_argument("--net-budget", type=int, default=300, help="total seconds for all registry requests")
+    r.add_argument("--net-timeout", type=int, default=20, help="seconds per registry request")
+    r.add_argument("--net-max-requests", type=int, default=60)
     r.add_argument("--no-apply-corrections", dest="apply_corrections", action="store_false")
     r.add_argument("--no-auto-move", dest="auto_move", action="store_false")
     r.add_argument("--no-preview", action="store_true")

@@ -1,6 +1,7 @@
 {
  "case_id": "holdout-gnn",
  "tool": "cite-sync 0.1.0",
+ "status": "partial",
  "revised_manuscript": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\holdout_gnn\\output\\manuscript_revised.md",
  "references": [
   "[1] Kipf T N, Welling M. Semi-supervised classification with graph convolutional networks[C]//International Conference on Learning Representations, 2017.",
@@ -99,36 +100,6 @@
    "msg": "sentence shares almost no terms with the cited work: check claim-source match"
   }
  ],
- "_contract_fields": [
-  "revised_manuscript",
-  "references",
-  "needs_review"
- ],
- "inputs": {
-  "case": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\holdout_gnn\\input\\case.json",
-  "task": null,
-  "manuscripts": [
-   {
-    "path": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\holdout_gnn\\input\\manuscript.md",
-    "sha256": "cb1cf7fe6457856d74fc0e9ec796e6afb697e3dbd105a3db103399637f973248",
-    "bytes": 1883
-   }
-  ],
-  "libraries": [
-   {
-    "path": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\holdout_gnn\\input\\noteexpress.net",
-    "sha256": "e4ff6e4adf7f4c79025b5a58710fb2cf0430aac074eefe6cd2b7a346d655623e",
-    "bytes": 319
-   },
-   {
-    "path": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\holdout_gnn\\input\\zotero_export.json",
-    "sha256": "ec2f497e6928b3420b1831fccd53a6e48e6caae4e8abd802c1776382a0f280f5",
-    "bytes": 1113
-   }
-  ],
-  "pdfs": []
- },
- "status": "partial",
  "status_reason": [
   "1 blocking item(s) need human confirmation",
   "9 citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict)"
@@ -272,6 +243,28 @@
   }
  ],
  "parse_problems": [],
+ "inputs": {
+  "case": null,
+  "evidence_pdfs": [],
+  "manuscript": {
+   "path": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\holdout_gnn\\input\\manuscript.md",
+   "sha256": "cb1cf7fe6457856d74fc0e9ec796e6afb697e3dbd105a3db103399637f973248",
+   "bytes": 1883
+  },
+  "libraries": [
+   {
+    "path": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\holdout_gnn\\input\\zotero_export.json",
+    "sha256": "ec2f497e6928b3420b1831fccd53a6e48e6caae4e8abd802c1776382a0f280f5",
+    "bytes": 1113
+   },
+   {
+    "path": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\holdout_gnn\\input\\noteexpress.net",
+    "sha256": "e4ff6e4adf7f4c79025b5a58710fb2cf0430aac074eefe6cd2b7a346d655623e",
+    "bytes": 319
+   }
+  ]
+ },
  "edits_applied": null,
- "uncertainty": "Claim-source verdicts come from the agent reading sentence + reference metadata (and PDFs when given); lexical support scores are hints only. Online metadata from Crossref/arXiv may itself be incomplete (e.g. shortened author lists)."
+ "uncertainty": "Claim-source verdicts come from the agent reading sentence + reference metadata (and PDFs when given); lexical support scores are hints only. Online metadata from Crossref/arXiv may itself be incomplete (e.g. shortened author lists).",
+ "unmapped_contract_fields": []
 }

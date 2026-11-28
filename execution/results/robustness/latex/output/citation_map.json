@@ -20,6 +20,7 @@
   "sentence_text": "Attention-only models were introduced in .",
   "verdict": null,
   "verdict_note": null,
+  "evidence": null,
   "references": [
    {
     "record": "L1-1",
@@ -27,7 +28,8 @@
     "text": "Vaswani 2017 Attention is all you need",
     "doi": ""
    }
-  ]
+  ],
+  "evidence_basis": "record_metadata"
  },
  {
   "id": "c3_0",
@@ -53,6 +55,7 @@
   "sentence_text": "Very deep residual networks and the deep-learning review are standard references.",
   "verdict": null,
   "verdict_note": null,
+  "evidence": null,
   "references": [
    {
     "record": "L1-4",
@@ -60,7 +63,8 @@
     "text": "He 2016 Deep Residual Learning for Image Recognition",
     "doi": "10.1109/CVPR.2016.90"
    }
-  ]
+  ],
+  "evidence_basis": "record_metadata"
  },
  {
   "id": "c3_1",
@@ -85,6 +89,7 @@
   "sentence_text": "Very deep residual networks and the deep-learning review are standard references.",
   "verdict": null,
   "verdict_note": null,
+  "evidence": null,
   "references": [
    {
     "record": "L1-5",
@@ -92,7 +97,8 @@
     "text": "LeCun 2015 Deep learning",
     "doi": "10.1038/nature14539"
    }
-  ]
+  ],
+  "evidence_basis": "record_metadata"
  },
  {
   "id": "c4_0",
@@ -117,6 +123,7 @@
   "sentence_text": "A missing key should be reported.",
   "verdict": null,
   "verdict_note": null,
+  "evidence": null,
   "references": [
    {
     "record": "MISSING-nokey2020",
@@ -124,6 +131,7 @@
     "text": "? ? 【缺失文献：原稿引用 nokey2020 在参考文献表中找不到，需人工补充】",
     "doi": null
    }
-  ]
+  ],
+  "evidence_basis": "record_metadata"
  }
 ]

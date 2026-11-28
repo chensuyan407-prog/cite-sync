@@ -1,6 +1,7 @@
 {
  "case_id": "dev-zh-review",
  "tool": "cite-sync 0.1.0",
+ "status": "partial",
  "revised_manuscript": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\zh_review\\output\\manuscript_revised.md",
  "references": [
   "[1] LeCun Y, Bengio Y, Hinton G. Deep learning[J]. Nature, 2015, 521(7553): 436-444. DOI:10.1038/nature14539.",
@@ -178,12 +179,27 @@
   },
   {
    "kind": "citation_added",
-   "sentence": "text:语言模型的测试损失随模型参数量",
+   "sentence": "u8s0",
+   "records": [
+    "M4"
+   ],
+   "evidence": "moved from paragraph-end cluster [4][7][9] (support 0.0 -> 0.85)"
+  },
+  {
+   "kind": "citation_added",
+   "sentence": "u8s1",
+   "records": [
+    "L1-1"
+   ],
+   "evidence": "moved from paragraph-end cluster [4][7][9] (support 0.0 -> 0.9)"
+  },
+  {
+   "kind": "citation_added",
+   "sentence": "u10s0",
    "records": [
     "L1-2"
    ],
-   "reason": "power-law scaling of loss with parameters, data and compute = Kaplan et al. 2020 (library.bib kaplan2020scaling)",
-   "source": "edit"
+   "evidence": "power-law scaling of loss with parameters, data and compute = Kaplan et al. 2020 (library.bib kaplan2020scaling)"
   },
   {
    "kind": "markers_joined",
@@ -254,45 +270,6 @@
    "msg": "citation sits in a figure/table caption; check that the supported claim is in the caption, not in the body text"
   }
  ],
- "_contract_fields": [
-  "revised_manuscript",
-  "references",
-  "citation_map",
-  "merge_log",
-  "verification",
-  "changes",
-  "needs_review"
- ],
- "inputs": {
-  "case": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\zh_review\\input\\case.json",
-  "task": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\zh_review\\input\\task.md",
-  "manuscripts": [
-   {
-    "path": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\zh_review\\input\\manuscript.md",
-    "sha256": "ede6fe31e2618a18bf95a2ea4c28768573ba75198db9ce78cbacc0b2f981cab1",
-    "bytes": 3333
-   }
-  ],
-  "libraries": [
-   {
-    "path": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\zh_review\\input\\cnki.enw",
-    "sha256": "e997ffc6ce7e53dcc386bff3a9615b0742ffd14f9c87cf96e67eb1b2904cf6ac",
-    "bytes": 420
-   },
-   {
-    "path": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\zh_review\\input\\library.bib",
-    "sha256": "56007ffc1da7a77dcc27f02058803314f2c2b6353e775ce5a44e6309a046409c",
-    "bytes": 1570
-   },
-   {
-    "path": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\zh_review\\input\\zotero.ris",
-    "sha256": "1738857609c2d9f2237d1c38ec38e59e4e9109482d8d3d60d753ee7617b66a34",
-    "bytes": 733
-   }
-  ],
-  "pdfs": []
- },
- "status": "partial",
  "status_reason": [
   "1 citation(s) removed by edit; the sentence(s) need a real source or rewording (human)"
  ],
@@ -366,6 +343,33 @@
   "[12] Jumper J, Evans R, Pritzel A, et al. Highly accurate protein structure prediction with AlphaFold[J]. Nature, 2021, 596(7873): 583-589. DOI:10.1038/s41586-021-03819-2."
  ],
  "parse_problems": [],
+ "inputs": {
+  "case": null,
+  "evidence_pdfs": [],
+  "manuscript": {
+   "path": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\zh_review\\input\\manuscript.md",
+   "sha256": "ede6fe31e2618a18bf95a2ea4c28768573ba75198db9ce78cbacc0b2f981cab1",
+   "bytes": 3333
+  },
+  "libraries": [
+   {
+    "path": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\zh_review\\input\\library.bib",
+    "sha256": "56007ffc1da7a77dcc27f02058803314f2c2b6353e775ce5a44e6309a046409c",
+    "bytes": 1570
+   },
+   {
+    "path": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\zh_review\\input\\zotero.ris",
+    "sha256": "1738857609c2d9f2237d1c38ec38e59e4e9109482d8d3d60d753ee7617b66a34",
+    "bytes": 733
+   },
+   {
+    "path": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\zh_review\\input\\cnki.enw",
+    "sha256": "e997ffc6ce7e53dcc386bff3a9615b0742ffd14f9c87cf96e67eb1b2904cf6ac",
+    "bytes": 420
+   }
+  ]
+ },
  "edits_applied": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\zh_review\\edits_agent.json",
- "uncertainty": "Claim-source verdicts come from the agent reading sentence + reference metadata (and PDFs when given); lexical support scores are hints only. Online metadata from Crossref/arXiv may itself be incomplete (e.g. shortened author lists)."
+ "uncertainty": "Claim-source verdicts come from the agent reading sentence + reference metadata (and PDFs when given); lexical support scores are hints only. Online metadata from Crossref/arXiv may itself be incomplete (e.g. shortened author lists).",
+ "unmapped_contract_fields": []
 }

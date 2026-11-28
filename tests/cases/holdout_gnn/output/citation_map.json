@@ -24,6 +24,7 @@
   "sentence_text": "图卷积网络将卷积运算推广到图结构数据。",
   "verdict": null,
   "verdict_note": null,
+  "evidence": null,
   "references": [
    {
     "record": "M7",
@@ -31,7 +32,8 @@
     "text": "Kipf 2017 Semi-supervised classification with graph convolutional netw",
     "doi": ""
    }
-  ]
+  ],
+  "evidence_basis": "record_metadata"
  },
  {
   "id": "c4_1",
@@ -58,6 +60,7 @@
   "sentence_text": "图注意力网络为邻居节点分配不同的注意力权重。",
   "verdict": null,
   "verdict_note": null,
+  "evidence": null,
   "references": [
    {
     "record": "L2-1",
@@ -65,7 +68,8 @@
     "text": "Veličković 2018 Graph Attention Networks",
     "doi": ""
    }
-  ]
+  ],
+  "evidence_basis": "record_metadata"
  },
  {
   "id": "c4_2",
@@ -95,6 +99,7 @@
   "sentence_text": "在自然语言处理领域，GPT-3 展示了大规模语言模型的少样本学习能力，而 BERT 采用掩码语言模型进行双向预训练。",
   "verdict": null,
   "verdict_note": null,
+  "evidence": null,
   "references": [
    {
     "record": "M2",
@@ -102,7 +107,8 @@
     "text": "Brown 2020 Language models are few-shot learners",
     "doi": ""
    }
-  ]
+  ],
+  "evidence_basis": "record_metadata"
  },
  {
   "id": "c4_3",
@@ -132,6 +138,7 @@
   "sentence_text": "在自然语言处理领域，GPT-3 展示了大规模语言模型的少样本学习能力，而 BERT 采用掩码语言模型进行双向预训练。",
   "verdict": null,
   "verdict_note": null,
+  "evidence": null,
   "references": [
    {
     "record": "L1-1",
@@ -139,7 +146,8 @@
     "text": "Devlin 2019 BERT: Pre-training of Deep Bidirectional Transformers for La",
     "doi": "10.18653/v1/N19-1423"
    }
-  ]
+  ],
+  "evidence_basis": "record_metadata"
  },
  {
   "id": "c8_0",
@@ -168,6 +176,7 @@
   "sentence_text": "本文采用的优化器为 Adam，并在训练中使用 Dropout 防止过拟合。",
   "verdict": null,
   "verdict_note": null,
+  "evidence": null,
   "references": [
    {
     "record": "M5",
@@ -175,7 +184,8 @@
     "text": "Kingma 2015 Adam: A method for stochastic optimization",
     "doi": ""
    }
-  ]
+  ],
+  "evidence_basis": "record_metadata"
  },
  {
   "id": "c8_1",
@@ -203,6 +213,7 @@
   "sentence_text": "本文采用的优化器为 Adam，并在训练中使用 Dropout 防止过拟合。",
   "verdict": null,
   "verdict_note": null,
+  "evidence": null,
   "references": [
    {
     "record": "M6",
@@ -210,7 +221,8 @@
     "text": "Srivastava 2014 Dropout: a simple way to prevent neural networks from overfi",
     "doi": ""
    }
-  ]
+  ],
+  "evidence_basis": "record_metadata"
  },
  {
   "id": "c8_2",
@@ -239,6 +251,7 @@
   "sentence_text": "相关的图表示学习方法可参见文献。",
   "verdict": null,
   "verdict_note": null,
+  "evidence": null,
   "references": [
    {
     "record": "M7",
@@ -252,7 +265,8 @@
     "text": "Devlin 2019 BERT: Pre-training of Deep Bidirectional Transformers for La",
     "doi": "10.18653/v1/N19-1423"
    }
-  ]
+  ],
+  "evidence_basis": "record_metadata"
  },
  {
   "id": "c10_0",
@@ -277,6 +291,7 @@
   "sentence_text": "实验表明，模型在 Cora 数据集上的准确率达到 83.0%。",
   "verdict": null,
   "verdict_note": null,
+  "evidence": null,
   "references": [
    {
     "record": "M7",
@@ -284,7 +299,8 @@
     "text": "Kipf 2017 Semi-supervised classification with graph convolutional netw",
     "doi": ""
    }
-  ]
+  ],
+  "evidence_basis": "record_metadata"
  },
  {
   "id": "c12_0",
@@ -311,6 +327,7 @@
   "sentence_text": "我们进一步参考了 Transformer 架构。",
   "verdict": null,
   "verdict_note": null,
+  "evidence": null,
   "references": [
    {
     "record": "MISSING-9",
@@ -318,6 +335,7 @@
     "text": "? ? 【缺失文献：原稿引用 9 在参考文献表中找不到，需人工补充】",
     "doi": null
    }
-  ]
+  ],
+  "evidence_basis": "record_metadata"
  }
 ]

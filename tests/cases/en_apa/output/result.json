@@ -1,6 +1,7 @@
 {
  "case_id": "dev-en-apa",
  "tool": "cite-sync 0.1.0",
+ "status": "partial",
  "revised_manuscript": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\en_apa\\output\\manuscript_revised.md",
  "references": [
   "He, K., Zhang, X., Ren, S., & Sun, J. (2016a). Deep Residual Learning for Image Recognition. In 2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR) (pp. 770–778). https://doi.org/10.1109/CVPR.2016.90",
@@ -25,31 +26,6 @@
    "msg": "sentence shares almost no terms with the cited work: check claim-source match"
   }
  ],
- "_contract_fields": [
-  "revised_manuscript",
-  "references",
-  "needs_review"
- ],
- "inputs": {
-  "case": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\en_apa\\input\\case.json",
-  "task": null,
-  "manuscripts": [
-   {
-    "path": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\en_apa\\input\\manuscript.md",
-    "sha256": "d4db04cfc699a66a924dbdfc7980e8fc09258f61356b6e5dfcf309cc3272bcbc",
-    "bytes": 1867
-   }
-  ],
-  "libraries": [
-   {
-    "path": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\en_apa\\input\\library.bib",
-    "sha256": "56007ffc1da7a77dcc27f02058803314f2c2b6353e775ce5a44e6309a046409c",
-    "bytes": 1570
-   }
-  ],
-  "pdfs": []
- },
- "status": "partial",
  "status_reason": [
   "6 citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict)"
  ],
@@ -169,6 +145,23 @@
   }
  ],
  "parse_problems": [],
+ "inputs": {
+  "case": null,
+  "evidence_pdfs": [],
+  "manuscript": {
+   "path": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\en_apa\\input\\manuscript.md",
+   "sha256": "d4db04cfc699a66a924dbdfc7980e8fc09258f61356b6e5dfcf309cc3272bcbc",
+   "bytes": 1867
+  },
+  "libraries": [
+   {
+    "path": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\tests\\cases\\en_apa\\input\\library.bib",
+    "sha256": "56007ffc1da7a77dcc27f02058803314f2c2b6353e775ce5a44e6309a046409c",
+    "bytes": 1570
+   }
+  ]
+ },
  "edits_applied": null,
- "uncertainty": "Claim-source verdicts come from the agent reading sentence + reference metadata (and PDFs when given); lexical support scores are hints only. Online metadata from Crossref/arXiv may itself be incomplete (e.g. shortened author lists)."
+ "uncertainty": "Claim-source verdicts come from the agent reading sentence + reference metadata (and PDFs when given); lexical support scores are hints only. Online metadata from Crossref/arXiv may itself be incomplete (e.g. shortened author lists).",
+ "unmapped_contract_fields": []
 }

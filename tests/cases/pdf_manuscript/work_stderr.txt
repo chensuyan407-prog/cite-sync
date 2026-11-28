@@ -1,0 +1,1 @@
+auto: manuscript=C:\Users\12117\Desktop\bohrium-pdf-evidence-reader\citesync\tests\cases\pdf_manuscript\input\manuscript_draft.pdf libraries=[] pdfs=[] style=gbt7714 online=True

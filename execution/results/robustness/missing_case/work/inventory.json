@@ -6,7 +6,7 @@
  "libraries": [],
  "pdfs": [],
  "other_files": [],
- "contract_fields": [],
+ "output_contract": {},
  "style_guess": "gbt7714",
  "case_scalars": {},
  "seconds": 0.0

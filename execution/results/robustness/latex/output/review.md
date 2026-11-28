@@ -26,7 +26,7 @@ reasons: 1 blocking item(s) need human confirmation; 4 citation occurrence(s) wi
   "weak_lexical_support": 1
  },
  "parse_problems": 1,
- "seconds": 0.02
+ "seconds": 0.01
 }
 ```
 
@@ -50,9 +50,9 @@ reasons: 1 blocking item(s) need human confirmation; 4 citation occurrence(s) wi
 
 ## Citation occurrences
 
-| occ | sentence | marker old -> new | records | support | verdict |
-|-|-|-|-|-|-|
-| c2_0 | Attention-only models were introduced in . | `\cite{vaswani2017attention,vaswani2017arxiv}` -> `\cite{vaswani2017attention}` | L1-1 | {'L1-1': 0.0} | - |
-| c3_0 | Very deep residual networks and the deep-learning review are standard  | `\citep{he2016deep}` -> `\citep{he2016deep}` | L1-4 | {'L1-4': 0.38} | - |
-| c3_1 | Very deep residual networks and the deep-learning review are standard  | `\cite{lecun2015deep}` -> `\cite{lecun2015deep}` | L1-5 | {'L1-5': 0.4} | - |
-| c4_0 | A missing key should be reported. | `\cite{nokey2020}` -> `\cite{nokey2020}` | MISSING-nokey2020 | {'MISSING-nokey2020': 0.0} | - |
+| occ | sentence | marker old -> new | records | support | verdict | evidence / review note |
+|-|-|-|-|-|-|-|
+| c2_0 | Attention-only models were introduced in . | `\cite{vaswani2017attention,vaswani2017arxiv}` -> `\cite{vaswani2017attention}` | L1-1 | {'L1-1': 0.0} | - | - |
+| c3_0 | Very deep residual networks and the deep-learning review are standard  | `\citep{he2016deep}` -> `\citep{he2016deep}` | L1-4 | {'L1-4': 0.38} | - | - |
+| c3_1 | Very deep residual networks and the deep-learning review are standard  | `\cite{lecun2015deep}` -> `\cite{lecun2015deep}` | L1-5 | {'L1-5': 0.4} | - | - |
+| c4_0 | A missing key should be reported. | `\cite{nokey2020}` -> `\cite{nokey2020}` | MISSING-nokey2020 | {'MISSING-nokey2020': 0.0} | - | - |

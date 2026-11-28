@@ -44,7 +44,7 @@
    "weak_lexical_support": 1
   },
   "parse_problems": 1,
-  "seconds": 0.02
+  "seconds": 0.01
  },
  "consistency_check": null,
  "references_list": [
@@ -99,6 +99,8 @@
   }
  ],
  "inputs": {
+  "case": null,
+  "evidence_pdfs": [],
   "manuscript": {
    "path": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\latex\\input\\paper.tex",
    "sha256": "ed0dc7b6d0dd3bd51fd37504c1f5d78d8b39ff247e1eb571c2a1d13b3285a721",
@@ -113,5 +115,6 @@
   ]
  },
  "edits_applied": null,
- "uncertainty": "Claim-source verdicts come from the agent reading sentence + reference metadata (and PDFs when given); lexical support scores are hints only. No online verification in this run."
+ "uncertainty": "Claim-source verdicts come from the agent reading sentence + reference metadata (and PDFs when given); lexical support scores are hints only. No online verification in this run.",
+ "unmapped_contract_fields": []
 }

@@ -2,7 +2,6 @@
  "case_id": null,
  "tool": "cite-sync 0.1.0",
  "status": "failed",
- "_contract_fields": [],
  "status_reason": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\missing_case\\nope.json not found",
  "inputs": {
   "case": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\missing_case\\nope.json",

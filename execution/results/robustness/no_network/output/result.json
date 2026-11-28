@@ -43,7 +43,7 @@
    "caption_citation": 1
   },
   "parse_problems": 0,
-  "seconds": 4.16
+  "seconds": 2.11
  },
  "consistency_check": {
   "ok": true,
@@ -144,6 +144,22 @@
    "needs_review": true
   },
   {
+   "kind": "citation_added",
+   "sentence": "u8s0",
+   "records": [
+    "M4"
+   ],
+   "evidence": "moved from paragraph-end cluster [4][7][9] (support 0.0 -> 0.85)"
+  },
+  {
+   "kind": "citation_added",
+   "sentence": "u8s1",
+   "records": [
+    "L1-1"
+   ],
+   "evidence": "moved from paragraph-end cluster [4][7][9] (support 0.0 -> 0.9)"
+  },
+  {
    "kind": "markers_joined",
    "occurrence": "c8_0",
    "old": "[4][7][9]",
@@ -184,6 +200,8 @@
  ],
  "parse_problems": [],
  "inputs": {
+  "case": null,
+  "evidence_pdfs": [],
   "manuscript": {
    "path": "C:\\Users\\12117\\Desktop\\bohrium-pdf-evidence-reader\\citesync\\execution\\results\\robustness\\no_network\\input\\manuscript.md",
    "sha256": "ede6fe31e2618a18bf95a2ea4c28768573ba75198db9ce78cbacc0b2f981cab1",
@@ -198,5 +216,6 @@
   ]
  },
  "edits_applied": null,
- "uncertainty": "Claim-source verdicts come from the agent reading sentence + reference metadata (and PDFs when given); lexical support scores are hints only. Online metadata from Crossref/arXiv may itself be incomplete (e.g. shortened author lists)."
+ "uncertainty": "Claim-source verdicts come from the agent reading sentence + reference metadata (and PDFs when given); lexical support scores are hints only. Online metadata from Crossref/arXiv may itself be incomplete (e.g. shortened author lists).",
+ "unmapped_contract_fields": []
 }

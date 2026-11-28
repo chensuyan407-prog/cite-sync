@@ -26,7 +26,7 @@ reasons: 1 blocking item(s) need human confirmation; 3 citation occurrence(s) wi
   "weak_lexical_support": 1
  },
  "parse_problems": 1,
- "seconds": 0.02
+ "seconds": 0.01
 }
 ```
 
@@ -51,8 +51,8 @@ ok = True; markers use 1..3; list entries 3
 
 ## Citation occurrences
 
-| occ | sentence | marker old -> new | records | support | verdict |
-|-|-|-|-|-|-|
-| c2_0 | 深度学习综述见文献。 | `[2]` -> `[1]` | M2 | {'M2': 0.8} | - |
-| c2_1 | 长短期记忆网络见。 | `[1-2]` -> `[1,2]` | M1, M2 | {'M1': 0.85, 'M2': 0.0} | - |
-| c2_2 | 另见。 | `[7]` -> `[3]` | MISSING-7 | {'MISSING-7': 0.0} | - |
+| occ | sentence | marker old -> new | records | support | verdict | evidence / review note |
+|-|-|-|-|-|-|-|
+| c2_0 | 深度学习综述见文献。 | `[2]` -> `[1]` | M2 | {'M2': 0.8} | - | - |
+| c2_1 | 长短期记忆网络见。 | `[1-2]` -> `[1,2]` | M1, M2 | {'M1': 0.85, 'M2': 0.0} | - | - |
+| c2_2 | 另见。 | `[7]` -> `[3]` | MISSING-7 | {'MISSING-7': 0.0} | - | - |

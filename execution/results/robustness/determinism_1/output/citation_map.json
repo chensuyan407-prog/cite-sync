@@ -25,6 +25,7 @@
   "sentence_text": "深度学习通过多层表示学习显著提升了语音识别、视觉目标识别等任务的性能。",
   "verdict": null,
   "verdict_note": null,
+  "evidence": null,
   "references": [
    {
     "record": "L1-5",
@@ -32,7 +33,8 @@
     "text": "LeCun 2015 Deep learning",
     "doi": "10.1038/nature14539"
    }
-  ]
+  ],
+  "evidence_basis": "record_metadata"
  },
  {
   "id": "c4_1",
@@ -63,6 +65,7 @@
   "sentence_text": "卷积神经网络在 ImageNet 图像分类竞赛中取得突破，大幅降低了 top-5 错误率。",
   "verdict": null,
   "verdict_note": null,
+  "evidence": null,
   "references": [
    {
     "record": "M5",
@@ -70,7 +73,8 @@
     "text": "Krizhevsky 2017 ImageNet classification with deep convolutional neural netwo",
     "doi": ""
    }
-  ]
+  ],
+  "evidence_basis": "record_metadata"
  },
  {
   "id": "c4_2",
@@ -97,6 +101,7 @@
   "sentence_text": "随后，残差学习框架使得训练上百层的网络成为可能；同一团队又分析了恒等映射在残差单元中的作用。",
   "verdict": null,
   "verdict_note": null,
+  "evidence": null,
   "references": [
    {
     "record": "L1-4",
@@ -104,7 +109,8 @@
     "text": "He 2016 Deep Residual Learning for Image Recognition",
     "doi": "10.1109/CVPR.2016.90"
    }
-  ]
+  ],
+  "evidence_basis": "record_metadata"
  },
  {
   "id": "c4_3",
@@ -133,6 +139,7 @@
   "sentence_text": "随后，残差学习框架使得训练上百层的网络成为可能；同一团队又分析了恒等映射在残差单元中的作用。",
   "verdict": null,
   "verdict_note": null,
+  "evidence": null,
   "references": [
    {
     "record": "M2",
@@ -140,7 +147,8 @@
     "text": "He 2016 Identity mappings in deep residual networks",
     "doi": ""
    }
-  ]
+  ],
+  "evidence_basis": "record_metadata"
  },
  {
   "id": "ins_u8s0",
@@ -164,6 +172,7 @@
   "sentence_text": "长短期记忆网络通过门控机制缓解了循环网络的梯度消失问题。",
   "verdict": null,
   "verdict_note": null,
+  "evidence": null,
   "references": [
    {
     "record": "M4",
@@ -171,7 +180,8 @@
     "text": "Hochreiter 1997 Long short-term memory",
     "doi": ""
    }
-  ]
+  ],
+  "evidence_basis": "record_metadata"
  },
  {
   "id": "ins_u8s1",
@@ -195,6 +205,7 @@
   "sentence_text": "Transformer 完全基于注意力机制，在机器翻译任务上取得了当时最好的结果。",
   "verdict": null,
   "verdict_note": null,
+  "evidence": null,
   "references": [
    {
     "record": "L1-1",
@@ -202,7 +213,8 @@
     "text": "Vaswani 2017 Attention is all you need",
     "doi": ""
    }
-  ]
+  ],
+  "evidence_basis": "record_metadata"
  },
  {
   "id": "c8_0",
@@ -233,6 +245,7 @@
   "sentence_text": "BERT 通过双向预训练显著提升了多项语言理解任务的表现。",
   "verdict": null,
   "verdict_note": null,
+  "evidence": null,
   "references": [
    {
     "record": "M9",
@@ -240,7 +253,8 @@
     "text": "Devlin 2019 BERT: Pre-training of deep bidirectional transformers for la",
     "doi": ""
    }
-  ]
+  ],
+  "evidence_basis": "record_metadata"
  },
  {
   "id": "c14_0",
@@ -272,6 +286,7 @@
   "sentence_text": "批归一化通过减少内部协变量偏移加速了深层网络训练。",
   "verdict": null,
   "verdict_note": null,
+  "evidence": null,
   "references": [
    {
     "record": "M6",
@@ -279,7 +294,8 @@
     "text": "Ioffe 2015 Batch normalization: Accelerating deep network training by r",
     "doi": ""
    }
-  ]
+  ],
+  "evidence_basis": "record_metadata"
  },
  {
   "id": "c14_1",
@@ -308,6 +324,7 @@
   "sentence_text": "Adam 优化器被广泛用于训练上述模型。",
   "verdict": null,
   "verdict_note": null,
+  "evidence": null,
   "references": [
    {
     "record": "M10",
@@ -315,7 +332,8 @@
     "text": "Kingma 2014 Adam: A method for stochastic optimization",
     "doi": ""
    }
-  ]
+  ],
+  "evidence_basis": "record_metadata"
  },
  {
   "id": "c14_2",
@@ -351,6 +369,7 @@
   "sentence_text": "池化层在卷积神经网络中承担特征降维的作用。",
   "verdict": null,
   "verdict_note": null,
+  "evidence": null,
   "references": [
    {
     "record": "L3-1",
@@ -358,7 +377,8 @@
     "text": "袁铭阳 2020 卷积神经网络池化方法综述",
     "doi": "10.12677/SEA.2020.95041"
    }
-  ]
+  ],
+  "evidence_basis": "record_metadata"
  },
  {
   "id": "c16_0",
@@ -385,6 +405,7 @@
   "sentence_text": "![图1 残差单元结构示意（引自文献）](fig1.png)",
   "verdict": null,
   "verdict_note": null,
+  "evidence": null,
   "references": [
    {
     "record": "L1-4",
@@ -392,7 +413,8 @@
     "text": "He 2016 Deep Residual Learning for Image Recognition",
     "doi": "10.1109/CVPR.2016.90"
    }
-  ]
+  ],
+  "evidence_basis": "record_metadata"
  },
  {
   "id": "c20_0",
@@ -422,6 +444,7 @@
   "sentence_text": "AlphaFold 能够以接近实验精度预测蛋白质三维结构。",
   "verdict": null,
   "verdict_note": null,
+  "evidence": null,
   "references": [
    {
     "record": "L2-2",
@@ -429,7 +452,8 @@
     "text": "Jumper 2021 Highly accurate protein structure prediction with AlphaFold",
     "doi": "10.1038/s41586-021-03819-2"
    }
-  ]
+  ],
+  "evidence_basis": "record_metadata"
  },
  {
   "id": "c20_1",
@@ -458,6 +482,7 @@
   "sentence_text": "另有研究报道残差注意力网络在多个尺度上存在普适的缩放规律。",
   "verdict": null,
   "verdict_note": null,
+  "evidence": null,
   "references": [
    {
     "record": "M14",
@@ -465,6 +490,7 @@
     "text": "Smith 2019 Universal scaling of residual attention networks",
     "doi": "10.1038/s41586-019-9999-9"
    }
-  ]
+  ],
+  "evidence_basis": "record_metadata"
  }
 ]

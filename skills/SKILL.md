@@ -56,12 +56,18 @@ Use Python 3.9+ and the dependencies in `requirements.txt` for DOCX and PDF.
    `--edits /app/work/edits.json`. It applies changes to the original, then computes
    the final numbering once. Use `--no-auto-move` if the task requires explicit moves.
    Run offline by default. Use `--online` only when allowed and useful for metadata.
+   Online defaults: `--net-budget 300` s total, `--net-timeout 20` s per request,
+   `--net-max-requests 60`. If `verification.json` still shows `unverified_offline`
+   records, raise them (the total must stay below the case's time limit).
 
 4. **Check the final artifacts.** Open the revised manuscript, formal bibliography
    and `review.md`. Check citation placement and the post-write consistency result
-   in `run_report.json`. When the case provides an output contract, the top-level keys
-   of `result.json` must be exactly `case_id` plus the declared fields, with declared types.
-   Status and uncertainty belong in `run_report.json` unless the contract declares them.
+   in `run_report.json`. `result.json` holds `case_id`, `status`, `status_reason`,
+   `uncertainty` and the declared output-contract fields; artifact paths in it are relative
+   to `output/`. Keep every declared field, with its declared type.
+   `run_report.json` holds the full detail (summary, consistency check, inputs).
+   Each `citation_map.json` entry has `evidence_basis`: `pdf` when source PDF text was given,
+   `record_metadata` when the verdict rests on the library record only.
    Use generated `review.md`, `citation_map.json` and `verification.json` for evidence
    and uncertainties. Keep generated JSON intact. If a contract field remains unmapped,
    put its actual value in `work/contract_overrides.json` and render again.

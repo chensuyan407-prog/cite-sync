@@ -85,7 +85,7 @@
    "status_reason": [
     "1 citation(s) removed by edit; the sentence(s) need a real source or rewording (human)"
    ],
-   "seconds": 0.29,
+   "seconds": 0.43,
    "checks": 26,
    "passed": 26,
    "b0_passed": 4,
@@ -117,7 +117,7 @@
      "caption_citation": 1
     },
     "parse_problems": 0,
-    "seconds": 0.14
+    "seconds": 0.26
    }
   },
   "zh_review": {
@@ -180,7 +180,7 @@
   "skill_now": 1.0,
   "note": "added after reading the held-out output; failed at freeze (Adam glued onto Dropout marker), fixed afterwards"
  },
- "wall_seconds": 2.4,
+ "wall_seconds": 2.6,
  "robustness": {
   "missing_case_json": {
    "status": "failed",
@@ -210,8 +210,8 @@
    "statuses": [
     "unverified_offline"
    ],
-   "offline_reason": "network unavailable (URLError(ConnectionRefusedError(10061, '無法連線，因為目標電腦拒絕連線。', None, 10061, None)))",
-   "seconds": 4.3,
+   "offline_reason": "registry unavailable (URLError(ConnectionRefusedError(10061, '無法連線，因為目標電腦拒絕連線。', None, 10061, None)))",
+   "seconds": 2.2,
    "ok": true
   },
   "no_records": {

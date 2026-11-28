@@ -24,7 +24,7 @@ It is not a reference manager. It works on one manuscript plus the libraries han
 
 Dependencies: Python ≥ 3.9 standard library. `python-docx >= 0.8` (tested 1.2.0) only for .docx.
 Network is optional (Crossref REST `api.crossref.org`, arXiv `export.arxiv.org`). Responses are cached in
-`<work>/net_cache.json`. Budget defaults: 150 s and 80 requests (`--net-budget`), timeout 8 s, one retry on 429/5xx.
+`<work>/net_cache.json`. Defaults: total budget 300 s (`--net-budget`), 20 s per request (`--net-timeout`), 60 requests (`--net-max-requests`). No retry on 429/5xx; a failed request marks the registry unavailable for the rest of the run.
 
 ## Pipeline (`cite.py run`)
 

@@ -59,11 +59,11 @@ reasons: 6 citation occurrence(s) without a claim-source verdict (fill edits.occ
 
 ## Citation occurrences
 
-| occ | sentence | marker old -> new | records | support | verdict |
-|-|-|-|-|-|-|
-| c2_0 | Deep learning has transformed speech and visual recognition . | `(LeCun et al., 2015)` -> `(LeCun et al., 2015)` | L1-5 | {'L1-5': 0.8} | - |
-| c2_1 | Residual networks made models with more than a hundred layers trainabl | `(He et al., 2016a)` -> `(He et al., 2016a)` | L1-4 | {'L1-4': 0.19} | - |
-| c2_2 | Residual networks made models with more than a hundred layers trainabl | `(He et al., 2016b)` -> `(He et al., 2016b)` | M2 | {'M2': 0.57} | - |
-| c2_3 | Residual networks made models with more than a hundred layers trainabl | `Vaswani et al. (2017)` -> `Vaswani et al. (2017)` | M7 | {'M7': 0.0} | - |
-| c2_4 | Batch normalization accelerates training by reducing internal covariat | `(Ioffe & Szegedy, 2015; Ioffe & Szegedy, 2015)` -> `(Ioffe & Szegedy, 2015)` | M3 | {'M3': 0.86} | - |
-| c2_5 | Language-model loss falls as a power law in model size, data and compu | `(Kaplan et al., 2020)` -> `(Kaplan et al., 2020)` | M4 | {'M4': 0.38} | - |
+| occ | sentence | marker old -> new | records | support | verdict | evidence / review note |
+|-|-|-|-|-|-|-|
+| c2_0 | Deep learning has transformed speech and visual recognition . | `(LeCun et al., 2015)` -> `(LeCun et al., 2015)` | L1-5 | {'L1-5': 0.8} | - | - |
+| c2_1 | Residual networks made models with more than a hundred layers trainabl | `(He et al., 2016a)` -> `(He et al., 2016a)` | L1-4 | {'L1-4': 0.19} | - | - |
+| c2_2 | Residual networks made models with more than a hundred layers trainabl | `(He et al., 2016b)` -> `(He et al., 2016b)` | M2 | {'M2': 0.57} | - | - |
+| c2_3 | Residual networks made models with more than a hundred layers trainabl | `Vaswani et al. (2017)` -> `Vaswani et al. (2017)` | M7 | {'M7': 0.0} | - | - |
+| c2_4 | Batch normalization accelerates training by reducing internal covariat | `(Ioffe & Szegedy, 2015; Ioffe & Szegedy, 2015)` -> `(Ioffe & Szegedy, 2015)` | M3 | {'M3': 0.86} | - | - |
+| c2_5 | Language-model loss falls as a power law in model size, data and compu | `(Kaplan et al., 2020)` -> `(Kaplan et al., 2020)` | M4 | {'M4': 0.38} | - | - |

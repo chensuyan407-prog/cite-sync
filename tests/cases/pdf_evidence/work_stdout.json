@@ -1,0 +1,38 @@
+warning: The `fitz` API is deprecated and will be removed in future. Use `import pymupdf` instead.
+{
+ "status": "partial",
+ "status_reason": [
+  "1 citation occurrence(s) whose claim-source match could not be established automatically (verdict needs_check/unverifiable): judge them in edits.occurrences",
+  "4 citation verdict(s) are heuristic (term overlap with title/abstract or the cited PDF), not read by a person"
+ ],
+ "summary": {
+  "records_in": 4,
+  "records_after_dedup": 4,
+  "merged_clusters": 0,
+  "occurrences": 5,
+  "occurrences_out": 5,
+  "references_out": 4,
+  "orphans": 0,
+  "uncited_removed": 0,
+  "auto_moves": 0,
+  "placement_suggestions": 0,
+  "verified": 4,
+  "verification_status_counts": {
+   "verified_by_pdf": 2,
+   "verified_with_corrections": 1,
+   "verified": 1
+  },
+  "review_items": 5,
+  "review_by_type": {
+   "source_unconfirmed": 2,
+   "claim_without_citation": 1,
+   "weak_lexical_support": 1,
+   "possible_miscitation": 1
+  },
+  "parse_problems": 0,
+  "seconds": 18.07
+ },
+ "result": "tests/cases/pdf_evidence/output\\result.json",
+ "claim_matrix": "tests/cases/pdf_evidence/work\\claim_matrix.md",
+ "edits_template": "tests/cases/pdf_evidence/work\\edits_template.json"
+}
