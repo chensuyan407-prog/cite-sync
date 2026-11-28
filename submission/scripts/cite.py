@@ -407,7 +407,7 @@ def cmd_run(a):
         verification[c["id"]] = {"status": st, "details": det, "corrections": applied, "issues": iss, "record": short(c)}
         if st in ("not_found", "doi_not_found", "mismatch"):
             review.append({"type": "source_" + st, "record": c["id"], "msg": det.get("problem") or ("DOI does not resolve" if st == "doi_not_found" else "no matching record found in Crossref/arXiv: possibly fabricated or mis-cited"), "details": det})
-        if st == "unverified_offline" and a.clean:
+        if st == "unverified_offline" and a.clean and a.online:
             review.append({"type": "source_unconfirmed", "record": c["id"], "msg": det.get("reason") or "offline verification only"})
         if st == "unverified_no_registry_match":
             review.append({"type": "source_unconfirmed", "record": c["id"], "msg": "no Crossref/arXiv record with matching title+authors+year; common for proceedings without DOI, books, Chinese journals - check by hand", "details": det.get("search_best")})
@@ -445,14 +445,14 @@ def cmd_run(a):
     # ---------------- apply occurrence edits + automatic moves
     occ_by_id = {o["id"]: o for o in occs}
     verdicts = {}
-    adds = []  # (sentence_id, [cids], reason)
+    adds = []  # (sentence_id, [cids], reason, assessment)
     for mv in moves:
         override = (edits.get("occurrences") or {}).get(mv["occ"], {})
         if mv["auto"] and override.get("action", "keep") == "keep" and not override.get("move_to"):
             o = occ_by_id[mv["occ"]]
             if mv["cid"] in o["cids"] and len(o["cids"]) > 1:
                 o["cids"].remove(mv["cid"])
-                adds.append((mv["to"], [mv["cid"]], f"moved from paragraph-end cluster {o['raw']} (support {mv['score_from']} -> {mv['score_to']})", None))
+                adds.append((mv["to"], [mv["cid"]], f"moved from paragraph-end cluster {o['raw']} (support {mv['score_from']} -> {mv['score_to']})", {}))
                 changes.append({"kind": "citation_moved", "occurrence": o["id"], "record": mv["cid"], "from_sentence": mv["from"], "to_sentence": mv["to"],
                                 "reason": f"lexical support {mv['score_from']} at paragraph end vs {mv['score_to']} at target sentence", "needs_review": True})
         else:
@@ -509,7 +509,7 @@ def cmd_run(a):
         if e.get("move_to"):
             mv_c = to_cids(e.get("move_refs") or []) or list(o["cids"])
             o["cids"] = [c for c in o["cids"] if c not in mv_c]
-            adds.append((e["move_to"], mv_c, e.get("note", "agent move"), e.get("verdict")))
+            adds.append((e["move_to"], mv_c, e.get("note", "agent move"), e))
             changes.append({"kind": "citation_moved", "occurrence": oid, "records": mv_c, "from_sentence": o["sentence"], "to_sentence": e["move_to"], "reason": e.get("note", ""), "source": "edit"})
     for ad in edits.get("add_citations") or []:
         if a.clean and not (ad.get("evidence") or ad.get("note")):
@@ -517,7 +517,7 @@ def cmd_run(a):
             continue
         c = to_cids(ad.get("refs", []))
         if c and ad.get("sentence"):
-            adds.append((ad["sentence"], c, ad.get("evidence") or ad.get("note", "agent addition"), ad.get("verdict")))
+            adds.append((ad["sentence"], c, ad.get("evidence") or ad.get("note", "agent addition"), ad))
     # ---------------- build ordered occurrence list (originals + insertions) and number by first appearance
     numeric = style != "apa7" and not (doc and doc["kind"] == "tex")
     style_counts = {}
@@ -530,7 +530,8 @@ def cmd_run(a):
     for o in occs:
         slots.append((o["unit"], o["start"], 0, "occ", o))
     insert_at = {}
-    for sid, cids, why, vd in adds:
+    added_assessments = {}
+    for sid, cids, why, assessment in adds:
         if isinstance(sid, str) and sid.startswith("text:"):  # address a sentence by its words (stable across formats)
             needle = re.sub(r"\s+", "", sid[5:])
             hit = [x for x in sents if needle and needle in re.sub(r"\s+", "", x["plain"])]
@@ -555,6 +556,11 @@ def cmd_run(a):
         # merge into an existing marker that already sits at the end of that sentence
         tgt = next((o for o in occs if o["sentence"] == sid and o["end"] >= cite_doc.insertion_point(u["text"], s["start"], s["end"]) - 1
                     and not o.get("narrative")), None)
+        locator = {key: assessment[key] for key in ("verdict", "note", "evidence") if assessment.get(key)}
+        if locator:
+            occurrence_id = tgt["id"] if tgt else f"ins_{sid}"
+            added_assessments.setdefault(occurrence_id, {}).update({cid: locator for cid in cids})
+        vd = assessment.get("verdict")
         if tgt:
             tgt["cids"] += [c for c in cids if c not in tgt["cids"]]
             continue
@@ -722,8 +728,16 @@ def cmd_run(a):
     for o in occ_out:
         s = sent_by_id.get(o["sentence"], {})
         v = verdicts.get(o["id"]) or ({"verdict": o["edit_verdict"]} if o.get("edit_verdict") else {})
-        cmap.append(dict(o, sentence_text=s.get("plain"), verdict=v.get("verdict"), verdict_note=v.get("note"), evidence=v.get("evidence"),
-                         references=[{"record": c, "number": num_of.get(c) if numeric else None, "text": short(byid[c]), "doi": byid[c].get("doi")} for c in o["records"]]))
+        additions = added_assessments.get(o["id"], {})
+        single_addition = additions.get(o["records"][0], {}) if len(o["records"]) == 1 else {}
+        mapped = dict(o, sentence_text=s.get("plain"), verdict=v.get("verdict"),
+                      verdict_note=v.get("note") or single_addition.get("note"),
+                      evidence=v.get("evidence") or single_addition.get("evidence"),
+                      references=[{"record": c, "number": num_of.get(c) if numeric else None, "text": short(byid[c]), "doi": byid[c].get("doi")}
+                                  for c in o["records"]])
+        if additions:
+            mapped["added_record_assessments"] = additions
+        cmap.append(mapped)
     dump(os.path.join(out, "citation_map.json"), cmap)
     dump(os.path.join(out, "renumber_map.json"), {"old_label_to_new_number": renumber, "order_rule": "first appearance in body text incl. captions/appendix (GB/T 7714-2015 顺序编码制)" if numeric else "author-year (no numbers)"})
     # diff
@@ -766,10 +780,19 @@ def cmd_run(a):
     if unjudged:
         status, _ = "partial", reasons.append(f"{len(unjudged)} citation occurrence(s) without a claim-source verdict (fill edits.occurrences.*.verdict)")
     if a.clean:
+        if not a.online:
+            offline_cited = [record["id"] for record in final if record["id"] in verification]
+            if offline_cited:
+                review.append({"type": "registry_not_checked", "records": offline_cited,
+                               "msg": "Registry checks were disabled. See verification.json for per-record metadata checks and citation_map.json for claim evidence."})
         for occurrence in cmap:
             if occurrence["verdict"] in ("partial", "mismatch", "unverifiable") or not occurrence["verdict"]:
-                review.append({"type": "claim_source_review", "occurrence": occurrence["id"], "sentence": occurrence["sentence"],
-                               "msg": occurrence["verdict"] or "claim-source match needs confirmation"})
+                item = {"type": "claim_source_review", "occurrence": occurrence["id"], "sentence": occurrence["sentence"],
+                        "verdict": occurrence["verdict"],
+                        "msg": occurrence["verdict_note"] or "claim-source match needs confirmation"}
+                if occurrence["evidence"]:
+                    item["evidence"] = occurrence["evidence"]
+                review.append(item)
         open_types = {"claim_source_review", "claim_without_citation", "source_unconfirmed", "case_input", "invalid_edits", "replacement_not_applied", "insertion_not_applied", "pdf_text_conversion"}
         if doc and doc["kind"] == "docx" and not a.no_preview and not previews:
             review.append({"type": "preview_missing", "msg": "DOCX preview renderer did not produce a PDF"})
@@ -940,9 +963,14 @@ def review_md(res, cmap, ver, byid, numeric, moves):
     L += ["", "## Source verification", "", "| record | status | issues | corrections |", "|-|-|-|-|"]
     for rid, v in ver.items():
         L.append(f"| {rid} {v['record'][:50]} | {v['status']} | {'; '.join(i['code'] for i in v['issues'])} | {', '.join(v['corrections'])} |")
-    L += ["", "## Citation occurrences", "", "| occ | sentence | marker old -> new | records | support | verdict |", "|-|-|-|-|-|-|"]
+    L += ["", "## Citation occurrences", "", "| occ | sentence | marker old -> new | records | support | verdict | evidence / review note |", "|-|-|-|-|-|-|-|"]
     for o in cmap:
-        L.append(f"| {o['id']} | {(o.get('sentence_text') or '')[:70]} | `{o['old']}` -> `{o['new']}` | {', '.join(o['records'])} | {o['support']} | {o.get('verdict') or '-'} |")
+        notes = [o["evidence"], o["verdict_note"]]
+        if len(o["records"]) > 1:
+            notes.extend(f"{rid}: {assessment['evidence']}" for rid, assessment in o.get("added_record_assessments", {}).items()
+                         if assessment.get("evidence"))
+        evidence = " / ".join(dict.fromkeys(" ".join(str(note).split()).replace("|", r"\|") for note in notes if note))
+        L.append(f"| {o['id']} | {(o.get('sentence_text') or '')[:70]} | `{o['old']}` -> `{o['new']}` | {', '.join(o['records'])} | {o['support']} | {o.get('verdict') or '-'} | {evidence or '-'} |")
     return "\n".join(L) + "\n"
 
 

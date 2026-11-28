@@ -8,12 +8,12 @@ description: 参考文献与引用管理. Insert and correct citations against s
 Use for a manuscript, a literature library, or both. Read the actual task and inputs.
 Preserve the manuscript's claims and put each citation beside the claim it supports.
 Use Python 3.9+ and the dependencies in `requirements.txt` for DOCX and PDF.
-Run offline by default. Add `--online` when registry verification is useful.
 
 ## Main workflow
 
-1. **Run once on the case.** Discover Python and the installed Skill. The command
-   detects the manuscript, libraries, target style, PDF sources and output contract.
+1. **Read the task and generate the draft.** Read the original case and task before
+   running the command. It discovers manuscripts, libraries, style, and supplied PDFs.
+   This first pass writes a provisional manuscript, bibliography and review files.
 
    ```bash
    PY=$(command -v python3 || command -v python)
@@ -23,41 +23,51 @@ Run offline by default. Add `--online` when registry verification is useful.
    "$PY" "$SKILL_DIR/scripts/cite.py" run --case /input/case.json --work /app/work --out /app/output
    ```
 
-   Read `/input/task.md` and the manifest of discovered inputs in `work/inventory.json`.
+   Check the discovered files in `work/inventory.json`. A usable draft with
+   `partial` and exit 0 is the starting point for the source review below.
    If the inputs are ambiguous, use `--manuscript FILE`, repeated `--library FILE` or
    `--style gbt7714|apa7` with the same command. Explicit options take precedence.
    A library-only case produces formatted references and exports.
 
-2. **Resolve priority citations together.** Read `work/priority_review.md` first
-   for missing citations, mismatches and candidate source records. Use
-   `work/claim_matrix.md` to locate additional occurrences required by the task.
-   Open the underlying PDF or other source and inspect the relevant page, section,
-   table or abstract. Preserve metrics, conditions, populations, direction and scope.
-   A title match or registry hit can identify a publication. The relevant passage
-   establishes whether that publication supports the sentence.
+2. **Review the actual sources and prepare one edit batch.**
+   - Start with `work/priority_review.md` for likely gaps and mismatches. Read
+     `work/claim_matrix.md` for the full set of claims, including moved citations,
+     body text, captions and appendices. Check the original manuscript for missed gaps.
+   - Read the relevant pages of the supplied source. Judge the specific assertion
+     at each marker, including a clause within a sentence when multiple markers occur.
+   - In `/app/work/edits.json`, put new citations in `add_citations` and key existing
+     decisions by ID in `occurrences`. IDs such as `ins_…` let you review automatic moves.
+     Use canonical record IDs, original numbers or BibTeX keys from the audit.
+   - For each evidence-backed decision put the file and page, figure, table or section
+     in `evidence`, and explain the action in `note`. Use the specific library entry
+     as a metadata locator when only metadata is supplied and say what remains unknown.
+   - Use `action: replace` with `refs` on a wrong marker when the correct source
+     has evidence. Use `drop_refs` with `refs` to remove unsupported sources from a
+     cluster. If a source has a concrete authenticity defect, appears only in the
+     manuscript and lacks corroboration, drop that reference from the marker and
+     keep its record ID, the reason and the unsourced claim in the audit. An offline
+     registry lookup alone cannot establish that a plausible record is invalid.
+   - Set `verdict` to `supported`, `partial`, `mismatch` or `unverifiable`.
+     Record the exact missing support in `note` for an unresolved decision.
+   - Use `record_overrides` only for observed values and include `_source`.
+     Use `force_merge` or `forbid_merge` after comparing the actual works.
 
-   - Record an insertion for the target sentence, or replace a wrong occurrence in place.
-   - Key one compact `work/edits.json` by the sentence and occurrence IDs in the audit.
-     A unique `text:...` prefix can also identify a sentence for insertion.
-   - Use the indexed record IDs, original reference numbers or BibTeX keys.
-     Add an evidence locator with the record and page or section for each change.
-   - Mark uncertain passages `partial`, `mismatch` or `unverifiable` and give a reason.
-     Leave unresolved cases in the review list when the material lacks support.
-   - Use `record_overrides` only for values observed in a source. Set `_source` on each
-     override. Use `force_merge` or `forbid_merge` only after comparing the actual works.
+3. **Render the reviewed draft.** Repeat the command with
+   `--edits /app/work/edits.json`. It applies changes to the original, then computes
+   the final numbering once. Use `--no-auto-move` if the task requires explicit moves.
+   Run offline by default. Use `--online` only when allowed and useful for metadata.
 
-3. **Apply the reviewed batch.** Repeat the main command with
-   `--edits /app/work/edits.json`. The renderer recomputes numbers from the actual
-   final citation locations in the original manuscript and writes the synchronized list.
-   Use `--online` on one pass when needed. Per-request and total network deadlines
-   allow rendering to finish with an offline review record if a registry stalls.
-   Use `--no-auto-move` if the case requires manual control of all marker placement.
-
-4. **Verify the deliverables.** Check `review.md`, `run_report.json` when present, and
-   the top-level names in `result.json`. Correct any remaining contract field using
-   `work/contract_overrides.json` with its actual value and rerun when necessary.
-   Nonblocking review findings produce a usable partial result. If a file is
-   unreadable, record the limitation and retain the last successful deliverables.
+4. **Check the final artifacts.** Open the revised manuscript, formal bibliography
+   and `review.md`. Check citation placement and the post-write consistency result
+   in `run_report.json`. When the case provides an output contract, the top-level keys
+   of `result.json` must be exactly `case_id` plus the declared fields, with declared types.
+   Status and uncertainty belong in `run_report.json` unless the contract declares them.
+   Use generated `review.md`, `citation_map.json` and `verification.json` for evidence
+   and uncertainties. Keep generated JSON intact. If a contract field remains unmapped,
+   put its actual value in `work/contract_overrides.json` and render again.
+   Confirm a new or replaced citation is visible in both `citation_map.json` and
+   `changes`. The generated `review.md` lists evidence and unresolved decisions.
+   With the usable deliverables checked, report remaining uncertainty and finish.
 
 ## Six-action checklist
 
@@ -79,7 +89,7 @@ Fictional input has an uncited sentence indexed as `u2s0` and a PDF for `L1-1`
 that directly supports it on page 4. The batch contains:
 
 ```json
-{"add_citations":[{"sentence":"u2s0","refs":["L1-1"],"verdict":"supported","evidence":"source.pdf p.4, Results"}]}
+{"add_citations":[{"sentence":"u2s0","refs":["L1-1"],"verdict":"supported","evidence":"source.pdf p.4, Results","note":"Results directly support this sentence."}]}
 ```
 
 The revised sentence gains a citation at its end and the same work appears in the list.
@@ -89,7 +99,8 @@ For a wrong existing marker, use `occurrences` keyed by its ID and set
 ## Input and output details
 
 - Manuscripts support Markdown, text, DOCX and LaTeX. Libraries support BibTeX,
-  RIS, EndNote, NoteExpress, CSL-JSON and embedded reference lists. An explicitly\n  selected PDF manuscript is recovered as editable Markdown for layout review.
+  RIS, EndNote, NoteExpress, CSL-JSON and embedded reference lists. An explicitly
+  selected PDF manuscript is recovered as editable Markdown for layout review.
 - Outputs include the editable revised manuscript, formatted list, BibTeX/RIS/CSL,
   citation and renumber maps, merge ledger, registry evidence, diff and review.
   DOCX PDF/PNG previews use LibreOffice when available, with a text-layout fallback.
